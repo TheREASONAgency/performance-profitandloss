@@ -1,0 +1,1808 @@
+{
+  "seed": true,
+  "lastUpdated": "2026-08-14T22:12:10Z",
+  "currentMonth": "2026-08",
+  "monthLabel": "August 2026",
+  "dayOfMonth": 14,
+  "daysInMonth": 31,
+  "currentQuarter": "Q3 2026",
+  "currentYear": 2026,
+  "buyers": [
+    {
+      "id": "joe",
+      "name": "Joe",
+      "accounts": [
+        {
+          "name": "Keeps",
+          "status": "Active",
+          "lastEntry": null,
+          "liveThisMonth": false,
+          "monthlyTarget": 15000.0,
+          "revenue": 0,
+          "adSpend": 0,
+          "pl": 0,
+          "proratedTarget": 6774.19,
+          "pacingPct": 0.0
+        },
+        {
+          "name": "TrimRx",
+          "status": "Active",
+          "lastEntry": "2026-08-05",
+          "liveThisMonth": true,
+          "monthlyTarget": 15000.0,
+          "revenue": 0,
+          "adSpend": 179,
+          "pl": -179,
+          "proratedTarget": 6774.19,
+          "pacingPct": -2.6
+        },
+        {
+          "name": "Remedy",
+          "status": "Active",
+          "lastEntry": "2026-08-05",
+          "liveThisMonth": true,
+          "type": "cpa",
+          "cpaTarget": 700.0,
+          "purchases": 0,
+          "adSpend": 333,
+          "cpa": null
+        }
+      ],
+      "sheetId": "1qF4BvyoOCAUmpZlFrxplmbBTjXMPbzpnwZ5xc8EA-FE",
+      "sheetTitle": "Joe | CPA Offer P&L",
+      "sheetUrl": "https://docs.google.com/spreadsheets/d/1qF4BvyoOCAUmpZlFrxplmbBTjXMPbzpnwZ5xc8EA-FE/edit"
+    },
+    {
+      "id": "travis",
+      "name": "Travis",
+      "accounts": [
+        {
+          "name": "Keeps",
+          "status": "Active",
+          "lastEntry": "2026-08-09",
+          "liveThisMonth": true,
+          "monthlyTarget": 15000.0,
+          "revenue": 18200,
+          "adSpend": 12984,
+          "pl": 5216,
+          "proratedTarget": 6774.19,
+          "pacingPct": 77.0
+        }
+      ],
+      "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
+      "sheetTitle": "Travis | CPA Offer P&L",
+      "sheetUrl": "https://docs.google.com/spreadsheets/d/1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8/edit"
+    },
+    {
+      "id": "kurt",
+      "name": "Kurt",
+      "accounts": [
+        {
+          "name": "AltRx",
+          "status": "Active",
+          "lastEntry": "2026-08-04",
+          "liveThisMonth": true,
+          "monthlyTarget": 15000.0,
+          "revenue": 0,
+          "adSpend": 846,
+          "pl": -846,
+          "proratedTarget": 6774.19,
+          "pacingPct": -12.5
+        },
+        {
+          "name": "Medvi",
+          "status": "Active",
+          "lastEntry": null,
+          "liveThisMonth": false,
+          "monthlyTarget": null,
+          "revenue": 0,
+          "adSpend": 0,
+          "pl": 0,
+          "proratedTarget": null,
+          "pacingPct": null
+        },
+        {
+          "name": "TrimRx",
+          "status": "Inactive",
+          "lastEntry": null,
+          "liveThisMonth": false,
+          "monthlyTarget": null,
+          "revenue": 0,
+          "adSpend": 0,
+          "pl": 0,
+          "proratedTarget": null,
+          "pacingPct": null
+        }
+      ],
+      "sheetId": "1ajfiruIBVgZtc5k3v-R89E8FwLzpPktlkGcbAjonYhk",
+      "sheetTitle": "Kurt | CPA Offer P&L",
+      "sheetUrl": "https://docs.google.com/spreadsheets/d/1ajfiruIBVgZtc5k3v-R89E8FwLzpPktlkGcbAjonYhk/edit"
+    },
+    {
+      "id": "jack",
+      "name": "Jack",
+      "accounts": [
+        {
+          "name": "Medvi",
+          "status": "Inactive",
+          "lastEntry": "2026-04-15",
+          "liveThisMonth": false,
+          "monthlyTarget": null,
+          "revenue": 0,
+          "adSpend": 0,
+          "pl": 0,
+          "proratedTarget": null,
+          "pacingPct": null
+        },
+        {
+          "name": "TrimRx",
+          "status": "Inactive",
+          "lastEntry": "2026-04-15",
+          "liveThisMonth": false,
+          "monthlyTarget": null,
+          "revenue": 0,
+          "adSpend": 0,
+          "pl": 0,
+          "proratedTarget": null,
+          "pacingPct": null
+        }
+      ],
+      "sheetId": "1qzwI3r7nI0zW6pEolUDkQ0DuIHxr-qN7fKxlK1r9nHk",
+      "sheetTitle": "Jack | CPA Offer P&L",
+      "sheetUrl": "https://docs.google.com/spreadsheets/d/1qzwI3r7nI0zW6pEolUDkQ0DuIHxr-qN7fKxlK1r9nHk/edit"
+    },
+    {
+      "id": "stefan",
+      "name": "Stefan",
+      "accounts": [
+        {
+          "name": "Medvi GLP1",
+          "status": "Active",
+          "lastEntry": null,
+          "liveThisMonth": false,
+          "monthlyTarget": null,
+          "revenue": 0,
+          "adSpend": 0,
+          "pl": 0,
+          "proratedTarget": null,
+          "pacingPct": null
+        }
+      ],
+      "sheetId": "1QbinJO-MqI2OL590iscjVgdKzlBwfXSs0C5alg4Unvk",
+      "sheetTitle": "Stefan | CPA Offer P&L",
+      "sheetUrl": "https://docs.google.com/spreadsheets/d/1QbinJO-MqI2OL590iscjVgdKzlBwfXSs0C5alg4Unvk/edit"
+    }
+  ],
+  "dailyRevenue": {
+    "columns": [
+      {
+        "buyer": "Joe",
+        "buyerId": "joe",
+        "account": "TrimRx"
+      },
+      {
+        "buyer": "Joe",
+        "buyerId": "joe",
+        "account": "Remedy"
+      },
+      {
+        "buyer": "Travis",
+        "buyerId": "travis",
+        "account": "Keeps"
+      },
+      {
+        "buyer": "Kurt",
+        "buyerId": "kurt",
+        "account": "AltRx"
+      },
+      {
+        "buyer": "Jack",
+        "buyerId": "jack",
+        "account": "Medvi"
+      },
+      {
+        "buyer": "Jack",
+        "buyerId": "jack",
+        "account": "TrimRx"
+      }
+    ],
+    "rows": [
+      {
+        "date": "2026-07-01",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-02",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-03",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-04",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-05",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-06",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-07",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-08",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-09",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-10",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-11",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-12",
+        "revenue": [
+          0,
+          0,
+          850,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-13",
+        "revenue": [
+          0,
+          0,
+          425,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-14",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-15",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-16",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-17",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-18",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-19",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-20",
+        "revenue": [
+          13175,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-21",
+        "revenue": [
+          0,
+          0,
+          1400,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-22",
+        "revenue": [
+          0,
+          0,
+          1680,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-23",
+        "revenue": [
+          0,
+          0,
+          1960,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-24",
+        "revenue": [
+          0,
+          0,
+          2240,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-25",
+        "revenue": [
+          0,
+          0,
+          1120,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-26",
+        "revenue": [
+          0,
+          0,
+          2240,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-27",
+        "revenue": [
+          0,
+          0,
+          1960,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-28",
+        "revenue": [
+          0,
+          0,
+          1400,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-29",
+        "revenue": [
+          0,
+          0,
+          1400,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-30",
+        "revenue": [
+          0,
+          0,
+          2800,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-31",
+        "revenue": [
+          0,
+          0,
+          1120,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-01",
+        "revenue": [
+          0,
+          0,
+          1400,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-02",
+        "revenue": [
+          0,
+          0,
+          1680,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-03",
+        "revenue": [
+          0,
+          0,
+          1680,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-04",
+        "revenue": [
+          0,
+          0,
+          1680,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-05",
+        "revenue": [
+          0,
+          0,
+          2520,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-06",
+        "revenue": [
+          0,
+          0,
+          3080,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-07",
+        "revenue": [
+          0,
+          0,
+          1400,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-08",
+        "revenue": [
+          0,
+          0,
+          2800,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-09",
+        "revenue": [
+          0,
+          0,
+          1960,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-10",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-11",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-12",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-13",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-14",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-15",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-16",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-17",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-18",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-19",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-20",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-21",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-22",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-23",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-24",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-25",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-26",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-27",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-28",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-29",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "revenue": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "dailySpend": {
+    "columns": [
+      {
+        "buyer": "Joe",
+        "buyerId": "joe",
+        "account": "TrimRx"
+      },
+      {
+        "buyer": "Joe",
+        "buyerId": "joe",
+        "account": "Remedy"
+      },
+      {
+        "buyer": "Travis",
+        "buyerId": "travis",
+        "account": "Keeps"
+      },
+      {
+        "buyer": "Kurt",
+        "buyerId": "kurt",
+        "account": "AltRx"
+      },
+      {
+        "buyer": "Jack",
+        "buyerId": "jack",
+        "account": "Medvi"
+      },
+      {
+        "buyer": "Jack",
+        "buyerId": "jack",
+        "account": "TrimRx"
+      }
+    ],
+    "rows": [
+      {
+        "date": "2026-07-01",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-02",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-03",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-04",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-05",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-06",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-07",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-08",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-09",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-10",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-11",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-12",
+        "spend": [
+          0,
+          0,
+          1884,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-13",
+        "spend": [
+          0,
+          0,
+          2017,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-14",
+        "spend": [
+          0,
+          0,
+          2343,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-15",
+        "spend": [
+          0,
+          0,
+          2963,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-16",
+        "spend": [
+          0,
+          0,
+          2031,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-17",
+        "spend": [
+          0,
+          0,
+          1409,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-18",
+        "spend": [
+          0,
+          0,
+          879,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-19",
+        "spend": [
+          0,
+          0,
+          887,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-20",
+        "spend": [
+          11289,
+          14191,
+          640,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-21",
+        "spend": [
+          0,
+          0,
+          928,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-22",
+        "spend": [
+          0,
+          0,
+          1639,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-23",
+        "spend": [
+          0,
+          0,
+          1544,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-24",
+        "spend": [
+          0,
+          0,
+          1292,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-25",
+        "spend": [
+          0,
+          0,
+          665,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-26",
+        "spend": [
+          0,
+          0,
+          742,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-27",
+        "spend": [
+          0,
+          0,
+          718,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-28",
+        "spend": [
+          0,
+          0,
+          787,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-29",
+        "spend": [
+          0,
+          0,
+          1054,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-30",
+        "spend": [
+          0,
+          0,
+          1787,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-07-31",
+        "spend": [
+          0,
+          0,
+          1570,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-01",
+        "spend": [
+          0,
+          36,
+          1255,
+          298,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-02",
+        "spend": [
+          0,
+          26,
+          1388,
+          269,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-03",
+        "spend": [
+          62,
+          92,
+          1165,
+          33,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-04",
+        "spend": [
+          66,
+          178,
+          1435,
+          247,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-05",
+        "spend": [
+          51,
+          1,
+          1435,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-06",
+        "spend": [
+          0,
+          0,
+          1802,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-07",
+        "spend": [
+          0,
+          0,
+          1450,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-08",
+        "spend": [
+          0,
+          0,
+          1583,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-09",
+        "spend": [
+          0,
+          0,
+          1471,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-10",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-11",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-12",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-13",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-14",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-15",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-16",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-17",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-18",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-19",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-20",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-21",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-22",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-23",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-24",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-25",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-26",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-27",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-28",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-29",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-30",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "spend": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "months": [
+    {
+      "month": "2026-03",
+      "monthLabel": "March 2026",
+      "quarter": "Q1 2026",
+      "status": "complete",
+      "accounts": [
+        {
+          "buyer": "Jack",
+          "buyerId": "jack",
+          "account": "Medvi",
+          "revenue": 798000,
+          "adSpend": 536700,
+          "pl": 261300
+        }
+      ]
+    },
+    {
+      "month": "2026-04",
+      "monthLabel": "April 2026",
+      "quarter": "Q2 2026",
+      "status": "complete",
+      "accounts": [
+        {
+          "buyer": "Jack",
+          "buyerId": "jack",
+          "account": "Medvi",
+          "revenue": 282000,
+          "adSpend": 254774,
+          "pl": 27226
+        },
+        {
+          "buyer": "Jack",
+          "buyerId": "jack",
+          "account": "TrimRx",
+          "revenue": 151045,
+          "adSpend": 140256,
+          "pl": 10789
+        },
+        {
+          "buyer": "Joe",
+          "buyerId": "joe",
+          "account": "TrimRx",
+          "revenue": 3000,
+          "adSpend": 2262,
+          "pl": 738
+        }
+      ]
+    },
+    {
+      "month": "2026-05",
+      "monthLabel": "May 2026",
+      "quarter": "Q2 2026",
+      "status": "complete",
+      "accounts": [
+        {
+          "buyer": "Joe",
+          "buyerId": "joe",
+          "account": "TrimRx",
+          "revenue": 180625,
+          "adSpend": 145818,
+          "pl": 34807
+        }
+      ]
+    },
+    {
+      "month": "2026-06",
+      "monthLabel": "June 2026",
+      "quarter": "Q2 2026",
+      "status": "complete",
+      "accounts": [
+        {
+          "buyer": "Joe",
+          "buyerId": "joe",
+          "account": "TrimRx",
+          "revenue": 127925,
+          "adSpend": 109401,
+          "pl": 18524
+        },
+        {
+          "buyer": "Travis",
+          "buyerId": "travis",
+          "account": "Keeps",
+          "revenue": 62160,
+          "adSpend": 43821,
+          "pl": 18339
+        },
+        {
+          "buyer": "Joe",
+          "buyerId": "joe",
+          "account": "Remedy",
+          "type": "cpa",
+          "purchases": 123,
+          "adSpend": 113098,
+          "cpa": 919,
+          "cpaTarget": 700.0,
+          "pl": null
+        },
+        {
+          "buyer": "Kurt",
+          "buyerId": "kurt",
+          "account": "AltRx",
+          "revenue": 29770,
+          "adSpend": 31033,
+          "pl": -1263
+        }
+      ]
+    },
+    {
+      "month": "2026-07",
+      "monthLabel": "July 2026",
+      "quarter": "Q3 2026",
+      "status": "complete",
+      "accounts": [
+        {
+          "buyer": "Joe",
+          "buyerId": "joe",
+          "account": "TrimRx",
+          "revenue": 13175,
+          "adSpend": 11289,
+          "pl": 1886
+        },
+        {
+          "buyer": "Joe",
+          "buyerId": "joe",
+          "account": "Remedy",
+          "type": "cpa",
+          "purchases": 8,
+          "adSpend": 14191,
+          "cpa": 1774,
+          "cpaTarget": 700.0,
+          "pl": null
+        },
+        {
+          "buyer": "Travis",
+          "buyerId": "travis",
+          "account": "Keeps",
+          "revenue": 20595,
+          "adSpend": 27779,
+          "pl": -7184
+        }
+      ]
+    },
+    {
+      "month": "2026-08",
+      "monthLabel": "August 2026",
+      "quarter": "Q3 2026",
+      "status": "in-progress",
+      "accounts": [
+        {
+          "buyer": "Travis",
+          "buyerId": "travis",
+          "account": "Keeps",
+          "revenue": 18200,
+          "adSpend": 12984,
+          "pl": 5216
+        },
+        {
+          "buyer": "Joe",
+          "buyerId": "joe",
+          "account": "Remedy",
+          "type": "cpa",
+          "purchases": 0,
+          "adSpend": 333,
+          "cpa": null,
+          "cpaTarget": 700.0,
+          "pl": null
+        },
+        {
+          "buyer": "Joe",
+          "buyerId": "joe",
+          "account": "TrimRx",
+          "revenue": 0,
+          "adSpend": 179,
+          "pl": -179
+        },
+        {
+          "buyer": "Kurt",
+          "buyerId": "kurt",
+          "account": "AltRx",
+          "revenue": 0,
+          "adSpend": 846,
+          "pl": -846
+        }
+      ]
+    }
+  ],
+  "trackerSheetId": "1NY1paU3-5Idv5wbq-7OXClnUvhUO4wrCPVtZYbzChKU",
+  "trackerUrl": "https://docs.google.com/spreadsheets/d/1NY1paU3-5Idv5wbq-7OXClnUvhUO4wrCPVtZYbzChKU/edit",
+  "sourceSheetIds": {
+    "joe": "1qF4BvyoOCAUmpZlFrxplmbBTjXMPbzpnwZ5xc8EA-FE",
+    "travis": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
+    "kurt": "1ajfiruIBVgZtc5k3v-R89E8FwLzpPktlkGcbAjonYhk",
+    "jack": "1qzwI3r7nI0zW6pEolUDkQ0DuIHxr-qN7fKxlK1r9nHk",
+    "stefan": "1QbinJO-MqI2OL590iscjVgdKzlBwfXSs0C5alg4Unvk"
+  }
+}
