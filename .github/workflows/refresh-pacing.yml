@@ -1,0 +1,71 @@
+name: Refresh Pacing Dashboard
+
+# GitHub cron is UTC-only and does not follow daylight saving. To hold a fixed
+# Eastern wall-clock time year round we fire at BOTH candidate UTC hours and
+# let scripts/should_run.py allow exactly one through.
+#
+#   Mon-Fri 12:00 Eastern  = 16:00 UTC (EDT) or 17:00 UTC (EST)
+#   Mon     20:00 Eastern  = 00:00 UTC Tue (EDT) or 01:00 UTC Tue (EST)
+on:
+  schedule:
+    - cron: "0 16,17 * * 1-5"
+    - cron: "0 0,1 * * 2"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-pacing
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Manual runs always proceed; scheduled runs must be the right local hour.
+      - name: Should this run proceed?
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "Manual run — proceeding."
+            echo "decision=run" >> "$GITHUB_OUTPUT"
+          else
+            python3 scripts/should_run.py | tee /tmp/gate.txt
+            grep '^decision=' /tmp/gate.txt >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install dependencies
+        if: steps.gate.outputs.decision == 'run'
+        run: pip install -r requirements.txt
+
+      # A red test blocks the publish. Never skip this to "just get numbers out".
+      - name: Run parser tests
+        if: steps.gate.outputs.decision == 'run'
+        working-directory: scripts
+        run: python3 test_refresh_pacing.py
+
+      - name: Rebuild data.json
+        if: steps.gate.outputs.decision == 'run'
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+        run: python3 scripts/refresh_pacing.py
+
+      - name: Commit if changed
+        if: steps.gate.outputs.decision == 'run'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data.json; then
+            echo "No change in data.json"
+          else
+            git add data.json
+            git commit -m "data: refresh $(date -u +%Y-%m-%d)"
+            git push
+          fi
