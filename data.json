@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-08-17T16:21:39Z",
+  "lastUpdated": "2026-08-18T16:25:40Z",
   "currentMonth": "2026-08",
   "monthLabel": "August 2026",
-  "dayOfMonth": 17,
+  "dayOfMonth": 18,
   "daysInMonth": 31,
   "currentQuarter": "Q3 2026",
   "currentYear": 2026,
@@ -20,7 +20,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 8225.81,
+          "proratedTarget": 8709.68,
           "pacingPct": 0.0
         },
         {
@@ -32,8 +32,8 @@
           "revenue": 0,
           "adSpend": 179,
           "pl": -179,
-          "proratedTarget": 8225.81,
-          "pacingPct": -2.2
+          "proratedTarget": 8709.68,
+          "pacingPct": -2.1
         },
         {
           "name": "Remedy",
@@ -58,14 +58,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-08-15",
+          "lastEntry": "2026-08-17",
           "liveThisMonth": true,
           "monthlyTarget": 15000.0,
-          "revenue": 38920,
-          "adSpend": 25750,
-          "pl": 13171,
-          "proratedTarget": 8225.81,
-          "pacingPct": 160.1
+          "revenue": 42840,
+          "adSpend": 28852,
+          "pl": 13989,
+          "proratedTarget": 8709.68,
+          "pacingPct": 160.6
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -85,8 +85,8 @@
           "revenue": 0,
           "adSpend": 846,
           "pl": -846,
-          "proratedTarget": 8225.81,
-          "pacingPct": -10.3
+          "proratedTarget": 8709.68,
+          "pacingPct": -9.7
         },
         {
           "name": "Medvi",
@@ -922,7 +922,7 @@
           0,
           0,
           0,
-          0,
+          2240,
           0,
           0,
           0,
@@ -937,7 +937,7 @@
           0,
           0,
           0,
-          0,
+          1680,
           0,
           0,
           0,
@@ -1908,7 +1908,7 @@
           0,
           0,
           0,
-          0,
+          1817,
           0,
           0,
           0,
@@ -1923,7 +1923,7 @@
           0,
           0,
           0,
-          0,
+          1285,
           0,
           0,
           0,
@@ -2262,9 +2262,9 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 38920,
-          "adSpend": 25750,
-          "pl": 13171
+          "revenue": 42840,
+          "adSpend": 28852,
+          "pl": 13989
         },
         {
           "buyer": "Joe",
