@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-08-24T16:31:18Z",
+  "lastUpdated": "2026-08-25T16:31:34Z",
   "currentMonth": "2026-08",
   "monthLabel": "August 2026",
-  "dayOfMonth": 24,
+  "dayOfMonth": 25,
   "daysInMonth": 31,
   "currentQuarter": "Q3 2026",
   "currentYear": 2026,
@@ -20,7 +20,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 11612.9,
+          "proratedTarget": 12096.77,
           "pacingPct": 0.0
         },
         {
@@ -32,7 +32,7 @@
           "revenue": 0,
           "adSpend": 179,
           "pl": -179,
-          "proratedTarget": 11612.9,
+          "proratedTarget": 12096.77,
           "pacingPct": -1.5
         },
         {
@@ -58,14 +58,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-08-23",
+          "lastEntry": "2026-08-24",
           "liveThisMonth": true,
           "monthlyTarget": 15000.0,
-          "revenue": 57960,
-          "adSpend": 38514,
-          "pl": 19447,
-          "proratedTarget": 11612.9,
-          "pacingPct": 167.5
+          "revenue": 60480,
+          "adSpend": 40094,
+          "pl": 20387,
+          "proratedTarget": 12096.77,
+          "pacingPct": 168.5
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -85,8 +85,8 @@
           "revenue": 0,
           "adSpend": 846,
           "pl": -846,
-          "proratedTarget": 11612.9,
-          "pacingPct": -7.3
+          "proratedTarget": 12096.77,
+          "pacingPct": -7.0
         },
         {
           "name": "Medvi",
@@ -1042,7 +1042,7 @@
           0,
           0,
           0,
-          0,
+          2520,
           0,
           0,
           0,
@@ -2028,7 +2028,7 @@
           0,
           0,
           0,
-          0,
+          1580,
           0,
           0,
           0,
@@ -2262,9 +2262,9 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 57960,
-          "adSpend": 38514,
-          "pl": 19447
+          "revenue": 60480,
+          "adSpend": 40094,
+          "pl": 20387
         },
         {
           "buyer": "Joe",
