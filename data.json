@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-08-25T16:31:34Z",
+  "lastUpdated": "2026-08-26T16:38:14Z",
   "currentMonth": "2026-08",
   "monthLabel": "August 2026",
-  "dayOfMonth": 25,
+  "dayOfMonth": 26,
   "daysInMonth": 31,
   "currentQuarter": "Q3 2026",
   "currentYear": 2026,
@@ -20,7 +20,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 12096.77,
+          "proratedTarget": 12580.65,
           "pacingPct": 0.0
         },
         {
@@ -32,8 +32,8 @@
           "revenue": 0,
           "adSpend": 179,
           "pl": -179,
-          "proratedTarget": 12096.77,
-          "pacingPct": -1.5
+          "proratedTarget": 12580.65,
+          "pacingPct": -1.4
         },
         {
           "name": "Remedy",
@@ -64,8 +64,8 @@
           "revenue": 60480,
           "adSpend": 40094,
           "pl": 20387,
-          "proratedTarget": 12096.77,
-          "pacingPct": 168.5
+          "proratedTarget": 12580.65,
+          "pacingPct": 162.1
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -85,8 +85,8 @@
           "revenue": 0,
           "adSpend": 846,
           "pl": -846,
-          "proratedTarget": 12096.77,
-          "pacingPct": -7.0
+          "proratedTarget": 12580.65,
+          "pacingPct": -6.7
         },
         {
           "name": "Medvi",
