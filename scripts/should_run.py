@@ -7,8 +7,8 @@ candidate UTC hours for each target and this guard lets exactly one through —
 the one that is really the wanted local time in America/New_York.
 
 Targets:
-  * Monday-Friday at 12:00 Eastern
-  * Monday at 20:00 Eastern (a second pass to catch the week's first day)
+  * Tuesday-Friday at 12:00 Eastern
+  * Monday at 08:00 and 15:00 Eastern
 
 Exits 0 and prints "run" when the run should proceed, otherwise prints "skip".
 Manual runs (workflow_dispatch) never reach this script.
@@ -24,8 +24,8 @@ ZONE = ZoneInfo("America/New_York")
 
 # (weekday, hour) in local Eastern time. Monday is 0.
 TARGETS = {
-    (0, 12), (1, 12), (2, 12), (3, 12), (4, 12),   # weekdays at noon
-    (0, 20),                                        # Monday evening
+    (1, 12), (2, 12), (3, 12), (4, 12),   # Tue-Fri at noon
+    (0, 8), (0, 15),                      # Monday morning and afternoon
 }
 
 
