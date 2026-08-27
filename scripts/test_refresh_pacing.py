@@ -344,72 +344,100 @@ class TestSchedule(unittest.TestCase):
     UTC = dt.timezone.utc
 
     def _fires(self, year):
-        """Exactly what the two cron lines in the workflow will fire."""
+        """Exactly what the three cron lines in the workflow will fire."""
         day = dt.datetime(year, 1, 1, tzinfo=self.UTC)
         end = dt.datetime(year + 1, 1, 1, tzinfo=self.UTC)
         while day < end:
             dow = day.isoweekday()          # cron: 1=Mon .. 7=Sun
-            if 1 <= dow <= 5:
+            if 2 <= dow <= 5:
                 yield day.replace(hour=16)
                 yield day.replace(hour=17)
-            if dow == 2:                     # Monday evening lands on Tue UTC
-                yield day.replace(hour=0)
-                yield day.replace(hour=1)
+            if dow == 1:                     # Monday morning and afternoon
+                yield day.replace(hour=12)
+                yield day.replace(hour=13)
+                yield day.replace(hour=19)
+                yield day.replace(hour=20)
             day += dt.timedelta(days=1)
 
     def _allowed(self, year=2026):
         return [f.astimezone(sr.ZONE)
                 for f in sorted(self._fires(year)) if sr.should_run(f)]
 
-    def test_exactly_one_noon_run_per_weekday(self):
+    def test_exactly_one_noon_run_per_tue_fri(self):
         counts = Counter(l.date() for l in self._allowed() if l.hour == 12)
         self.assertTrue(all(c == 1 for c in counts.values()))
-        weekdays = sum(
+        tue_fri = sum(
             1 for i in range(365)
-            if (dt.date(2026, 1, 1) + dt.timedelta(i)).weekday() < 5
+            if (dt.date(2026, 1, 1) + dt.timedelta(i)).weekday() in (1, 2, 3, 4)
         )
-        self.assertEqual(len(counts), weekdays)
+        self.assertEqual(len(counts), tue_fri)
 
-    def test_exactly_one_monday_evening_run_per_monday(self):
-        evenings = [l for l in self._allowed() if l.hour == 20]
-        self.assertEqual(len(evenings), 52)
-        self.assertTrue(all(l.weekday() == 0 for l in evenings))
+    def test_exactly_one_monday_morning_run_per_monday(self):
+        mornings = [l for l in self._allowed() if l.hour == 8]
+        self.assertEqual(len(mornings), 52)
+        self.assertTrue(all(l.weekday() == 0 for l in mornings))
+
+    def test_exactly_one_monday_afternoon_run_per_monday(self):
+        afternoons = [l for l in self._allowed() if l.hour == 15]
+        self.assertEqual(len(afternoons), 52)
+        self.assertTrue(all(l.weekday() == 0 for l in afternoons))
 
     def test_no_weekend_runs(self):
         self.assertFalse([l for l in self._allowed() if l.weekday() >= 5])
 
-    def test_only_the_two_intended_local_slots_survive(self):
+    def test_only_the_intended_local_slots_survive(self):
         slots = {(l.weekday(), l.hour) for l in self._allowed()}
-        self.assertEqual(slots, {(0,12),(1,12),(2,12),(3,12),(4,12),(0,20)})
+        self.assertEqual(slots, {(1,12),(2,12),(3,12),(4,12),(0,8),(0,15)})
 
     def test_gate_halves_the_firings(self):
         # Both candidate hours fire; exactly one of each pair is allowed.
         self.assertEqual(len(self._allowed()) * 2, len(list(self._fires(2026))))
 
     def test_survives_spring_forward(self):
-        # 17:00 UTC is noon EST before the switch; 16:00 UTC after it.
-        self.assertTrue(sr.should_run(dt.datetime(2026,3,6,17,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,3,6,16,tzinfo=self.UTC)))
-        self.assertTrue(sr.should_run(dt.datetime(2026,3,9,16,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,3,9,17,tzinfo=self.UTC)))
+        # Tue-Fri noon slot around the March 2026 spring-forward.
+        # 2026-03-05 is a Thursday (before), 2026-03-10 is a Tuesday (after).
+        self.assertTrue(sr.should_run(dt.datetime(2026,3,5,17,tzinfo=self.UTC)))
+        self.assertFalse(sr.should_run(dt.datetime(2026,3,5,16,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,3,10,16,tzinfo=self.UTC)))
+        self.assertFalse(sr.should_run(dt.datetime(2026,3,10,17,tzinfo=self.UTC)))
 
     def test_survives_fall_back(self):
+        # Tue-Fri noon slot around the November 2026 fall-back.
+        # 2026-10-30 is a Friday (before), 2026-11-03 is a Tuesday (after).
         self.assertTrue(sr.should_run(dt.datetime(2026,10,30,16,tzinfo=self.UTC)))
         self.assertFalse(sr.should_run(dt.datetime(2026,10,30,17,tzinfo=self.UTC)))
-        self.assertTrue(sr.should_run(dt.datetime(2026,11,2,17,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,11,2,16,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,11,3,17,tzinfo=self.UTC)))
+        self.assertFalse(sr.should_run(dt.datetime(2026,11,3,16,tzinfo=self.UTC)))
 
-    def test_monday_evening_crosses_the_utc_day_boundary(self):
-        # Monday 8pm Eastern is Tuesday in UTC — the classic off-by-one-day trap.
-        self.assertTrue(sr.should_run(dt.datetime(2026,8,18,0,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,8,18,1,tzinfo=self.UTC)))
-        # ...and in winter it is 01:00 UTC instead.
-        self.assertTrue(sr.should_run(dt.datetime(2026,12,15,1,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,12,15,0,tzinfo=self.UTC)))
+    def test_monday_slots_survive_spring_forward(self):
+        # 2026-03-02 is a Monday before the switch (EST, UTC-5);
+        # 2026-03-09 is a Monday after it (EDT, UTC-4).
+        self.assertTrue(sr.should_run(dt.datetime(2026,3,2,13,tzinfo=self.UTC)))   # 8am EST
+        self.assertFalse(sr.should_run(dt.datetime(2026,3,2,12,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,3,2,20,tzinfo=self.UTC)))   # 3pm EST
+        self.assertFalse(sr.should_run(dt.datetime(2026,3,2,19,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,3,9,12,tzinfo=self.UTC)))   # 8am EDT
+        self.assertFalse(sr.should_run(dt.datetime(2026,3,9,13,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,3,9,19,tzinfo=self.UTC)))   # 3pm EDT
+        self.assertFalse(sr.should_run(dt.datetime(2026,3,9,20,tzinfo=self.UTC)))
+
+    def test_monday_slots_survive_fall_back(self):
+        # 2026-10-26 is a Monday before the switch (EDT, UTC-4);
+        # 2026-11-02 is a Monday after it (EST, UTC-5).
+        self.assertTrue(sr.should_run(dt.datetime(2026,10,26,12,tzinfo=self.UTC)))  # 8am EDT
+        self.assertFalse(sr.should_run(dt.datetime(2026,10,26,13,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,10,26,19,tzinfo=self.UTC)))  # 3pm EDT
+        self.assertFalse(sr.should_run(dt.datetime(2026,10,26,20,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,11,2,13,tzinfo=self.UTC)))   # 8am EST
+        self.assertFalse(sr.should_run(dt.datetime(2026,11,2,12,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,11,2,20,tzinfo=self.UTC)))   # 3pm EST
+        self.assertFalse(sr.should_run(dt.datetime(2026,11,2,19,tzinfo=self.UTC)))
 
     def test_holds_across_a_second_year(self):
-        evenings = [l for l in self._allowed(2027) if l.hour == 20]
-        self.assertEqual(len(evenings), 52)
+        mornings = [l for l in self._allowed(2027) if l.hour == 8]
+        afternoons = [l for l in self._allowed(2027) if l.hour == 15]
+        self.assertEqual(len(mornings), 52)
+        self.assertEqual(len(afternoons), 52)
 
 
 if __name__ == "__main__":
