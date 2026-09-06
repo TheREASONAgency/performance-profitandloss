@@ -186,6 +186,7 @@
       <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
       <button role="tab" data-tab="daily" aria-selected="false">Daily</button>
       <button role="tab" data-tab="buyers" aria-selected="false">Media Buyers</button>
+      <button role="tab" data-tab="compliance" aria-selected="false">Compliance</button>
     </div>
   </div>
 </div>
@@ -234,6 +235,14 @@
     <div id="source-sheets"></div>
   </section>
 
+  <!-- ============ COMPLIANCE ============ -->
+  <section class="panel" id="panel-compliance" role="tabpanel" hidden>
+    <div class="banner"><span class="num">&#9670;</span> &nbsp;/&nbsp; META HEALTH &amp; WELLNESS AD POLICY
+      <span style="float:right;font-weight:600;letter-spacing:normal;text-transform:none" id="compliance-updated"></span>
+    </div>
+    <div id="compliance-body"></div>
+  </section>
+
   <footer>
     Rebuilt daily from each buyer's P&amp;L sheet and the Accounts and Targets
     Tracker. <code>data.json</code> is owned by CI &mdash; never hand-edit it.
@@ -279,6 +288,16 @@ function start() {
   else fetch("data.json?" + Date.now()).then(r => r.json()).then(boot).catch(() => {
     document.getElementById("sub").textContent =
       "Could not load data.json. Check the latest Refresh Pacing Dashboard run in Actions.";
+  });
+}
+
+/* compliance.json is a separate file on its own weekly schedule (see
+   RUNBOOK.md) — fetched independently so a problem with either refresh
+   never breaks the other tab. */
+function startCompliance() {
+  fetch("compliance.json?" + Date.now()).then(r => r.json()).then(renderCompliance).catch(() => {
+    document.getElementById("compliance-body").innerHTML =
+      "<div class='no-target'>Could not load compliance.json. Check the latest Refresh Compliance run in Actions.</div>";
   });
 }
 
@@ -500,6 +519,71 @@ function monthTable(m) {
   block.append(el("div", "", "<table><thead><tr><th>Buyer / Offer</th><th>Revenue</th>" +
     "<th>Ad spend</th><th>P&L</th></tr></thead><tbody>" + rows + "</tbody></table>"));
   return block;
+}
+
+/* ---------------- Compliance ---------------- */
+function renderCompliance(c) {
+  document.getElementById("compliance-updated").textContent =
+    "Checked " + new Date(c.lastChecked).toLocaleString(undefined,
+      { month:"short", day:"numeric", hour:"numeric", minute:"2-digit" });
+
+  const holder = document.getElementById("compliance-body");
+  holder.innerHTML = "";
+
+  if (c.seed) {
+    holder.append(el("div", "tile",
+      "<strong>Placeholder data.</strong> This tab hasn't scraped the source yet. " +
+      "Run the Refresh Compliance workflow to pull current policy text."));
+  }
+
+  holder.append(el("div", "source",
+    "Source: <a href='" + c.sourceUrl + "' target='_blank' rel='noopener'>" +
+    c.sourceUrl + "</a> &middot; scraped weekly"));
+
+  const sections = c.sections || [];
+  const changedCount = sections.filter(s => s.changed).length;
+  if (!c.seed && changedCount) {
+    holder.append(el("div", "no-target",
+      changedCount + " section" + (changedCount === 1 ? "" : "s") +
+      " changed since the last check &mdash; look for the “changed” chip below."));
+  }
+
+  if (!sections.length && !c.seed) {
+    holder.append(el("div", "no-target", "No policy sections parsed on the last run."));
+  }
+
+  sections.forEach((s, i) => holder.append(complianceSection(s, i)));
+
+  if (c.changeLog && c.changeLog.length) {
+    holder.append(el("div", "banner", "RECENT CHANGES"));
+    const rows = c.changeLog.slice(0, 25).map(e =>
+      "<tr><td>" + e.date + "</td><td style='text-align:left'>" + e.heading +
+      "</td><td style='text-align:left'>" + e.type + "</td></tr>"
+    ).join("");
+    holder.append(el("div", "", "<table><thead><tr><th>Date</th>" +
+      "<th style='text-align:left'>Section</th><th style='text-align:left'>Change</th></tr></thead>" +
+      "<tbody>" + rows + "</tbody></table>"));
+  }
+}
+
+function complianceSection(s, i) {
+  const acc = el("div", "acc");
+  const head = el("button", "acc-head");
+  head.setAttribute("aria-expanded", "false");
+  const chip = s.changed
+    ? "<span class='chip stale'>changed</span>"
+    : "";
+  head.innerHTML =
+    "<span class='acc-title'><span class='caret'>&#9654;</span>" + s.heading + chip + "</span>";
+  const body = el("div", "acc-body", "<p>" + s.text + "</p>");
+  body.hidden = true;
+  head.addEventListener("click", () => {
+    const open = head.getAttribute("aria-expanded") === "true";
+    head.setAttribute("aria-expanded", String(!open));
+    body.hidden = open;
+  });
+  acc.append(head, body);
+  return acc;
 }
 
 /* ---------------- Daily: rolling 30 days ending yesterday ---------------- */
@@ -812,6 +896,7 @@ function buyerPanel(d, b) {
 }
 
 start();
+startCompliance();
 </script>
 </body>
 </html>

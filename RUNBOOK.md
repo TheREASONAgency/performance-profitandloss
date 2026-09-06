@@ -113,6 +113,28 @@ with an entry rather than drawing a cliff to $0 through unfilled days.
 | Page loads but says "Could not load data.json" | Deploy served without the data file | Check the last Action run pushed, and that Vercel deployed the repo root with no build command |
 | Everything shows `$0` | Month tabs for the current month don't exist yet | Have each buyer add their `Month | YYYY` tab; the job picks it up on the next run |
 
+## Compliance tab
+
+A second, independent pipeline feeds the Compliance tab: `scripts/scrape_compliance.py`
+scrapes Meta's Health & Wellness restricted-goods-and-services ad policy page
+weekly (`.github/workflows/refresh-compliance.yml`, Mondays, plus manual
+`workflow_dispatch`) and writes `compliance.json` at the repo root.
+
+- **`compliance.json` is a separate file from `data.json`, on a separate
+  schedule, and machine-owned the same way — never hand-edit it.** The two
+  never race or clobber each other's output; the page fetches each
+  independently, so a failure in one refresh doesn't take the other tab down.
+- The scraper splits the page into sections by heading and hashes each
+  section's text. A section is flagged `changed` when its hash differs from
+  the previous run; new/removed sections and changes are appended to a
+  bounded `changeLog`.
+- **If it parses zero sections, it exits without touching `compliance.json`**
+  rather than publishing an empty file — that means Meta changed the page
+  layout and `extract_sections()` in `scrape_compliance.py` needs updating to
+  match the new markup.
+- The committed placeholder has `"seed": true` until the workflow's first
+  successful run, same pattern as `data.json`.
+
 ## Deploying
 
 Vercel: import the repo, framework preset **Other**, no build command, default

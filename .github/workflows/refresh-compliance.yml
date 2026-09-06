@@ -1,0 +1,50 @@
+name: Refresh Compliance
+
+# Weekly scrape of Meta's Health & Wellness restricted-goods ad policy page
+# for the dashboard's Compliance tab. This writes compliance.json, a file
+# separate from data.json, on its own schedule — so it can never race or
+# clobber the weekday pacing refresh (see RUNBOOK.md).
+#
+# A single UTC cron drifts by an hour across the DST boundary. That's fine
+# here: unlike the pacing refresh, this isn't tied to a same-day figure —
+# it's a weekly policy check, and landing an hour early or late twice a
+# year doesn't matter.
+on:
+  schedule:
+    - cron: "0 12 * * 1"   # Monday, ~7-8am Eastern depending on DST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-compliance
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Scrape compliance page
+        run: python3 scripts/scrape_compliance.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- compliance.json; then
+            echo "No change in compliance.json"
+          else
+            git add compliance.json
+            git commit -m "compliance: refresh $(date -u +%Y-%m-%d)"
+            git push
+          fi
