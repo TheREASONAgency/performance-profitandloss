@@ -116,22 +116,39 @@ with an entry rather than drawing a cliff to $0 through unfilled days.
 ## Compliance tab
 
 A second, independent pipeline feeds the Compliance tab: `scripts/scrape_compliance.py`
-scrapes Meta's Health & Wellness restricted-goods-and-services ad policy page
-weekly (`.github/workflows/refresh-compliance.yml`, Mondays, plus manual
-`workflow_dispatch`) and writes `compliance.json` at the repo root.
+scrapes each Meta ad-policy page weekly (`.github/workflows/refresh-compliance.yml`,
+Mondays, plus manual `workflow_dispatch`) and writes `compliance.json` at the
+repo root. The page renders one sub-tab per source.
 
+| Source | Page |
+|---|---|
+| Health & Wellness | `restricted-goods-services/health-wellness/` |
+| Drugs & Pharmaceuticals | `restricted-goods-services/drugs-pharmaceuticals/` |
+| Personal Attributes | `objectionable-content/privacy-violations-personal-attributes/` |
+
+- **Adding a policy page is one entry in `SOURCES`** at the top of
+  `scrape_compliance.py`. The tab picks it up as a new sub-tab with no other
+  change.
 - **`compliance.json` is a separate file from `data.json`, on a separate
   schedule, and machine-owned the same way — never hand-edit it.** The two
   never race or clobber each other's output; the page fetches each
   independently, so a failure in one refresh doesn't take the other tab down.
-- The scraper splits the page into sections by heading and hashes each
+- The scraper splits each page into sections by heading and hashes each
   section's text. A section is flagged `changed` when its hash differs from
-  the previous run; new/removed sections and changes are appended to a
-  bounded `changeLog`.
-- **If it parses zero sections, it exits without touching `compliance.json`**
-  rather than publishing an empty file — that means Meta changed the page
-  layout and `extract_sections()` in `scrape_compliance.py` needs updating to
-  match the new markup.
+  that source's previous run; new/removed sections and changes are appended to
+  a bounded `changeLog` stamped with which policy they came from. Nothing is
+  flagged on a source's first successful run — there's no baseline yet, and
+  flagging everything on day one would bury the real changes that follow.
+- **One broken source never takes the others down.** A page that fails to
+  fetch, or that parses to zero sections, keeps the text from its last good
+  run (stamped with when it was last confirmed, and marked "stale" on the
+  tab); every other source still publishes. The job then exits non-zero
+  **after** committing, so the failure shows up red in Actions instead of
+  sitting unnoticed behind a green check. Only if *every* source fails is
+  `compliance.json` left untouched entirely.
+- Zero sections parsed from a page that fetched fine means Meta restructured
+  it — fix `extract_sections()` in `scrape_compliance.py` to match the new
+  markup.
 - The committed placeholder has `"seed": true` until the workflow's first
   successful run, same pattern as `data.json`.
 

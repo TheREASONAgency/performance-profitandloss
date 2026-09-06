@@ -237,7 +237,7 @@
 
   <!-- ============ COMPLIANCE ============ -->
   <section class="panel" id="panel-compliance" role="tabpanel" hidden>
-    <div class="banner"><span class="num">&#9670;</span> &nbsp;/&nbsp; META HEALTH &amp; WELLNESS AD POLICY
+    <div class="banner"><span class="num">&#9670;</span> &nbsp;/&nbsp; META AD POLICY
       <span style="float:right;font-weight:600;letter-spacing:normal;text-transform:none" id="compliance-updated"></span>
     </div>
     <div id="compliance-body"></div>
@@ -522,6 +522,10 @@ function monthTable(m) {
 }
 
 /* ---------------- Compliance ---------------- */
+/* One sub-tab per policy page, same pattern as the Media Buyers tab. Each
+   source carries its own lastChecked and its own error, because a page that
+   fails to scrape keeps serving its last good text rather than going blank —
+   so "checked" and "what you're reading" can legitimately differ per source. */
 function renderCompliance(c) {
   document.getElementById("compliance-updated").textContent =
     "Checked " + new Date(c.lastChecked).toLocaleString(undefined,
@@ -529,44 +533,94 @@ function renderCompliance(c) {
 
   const holder = document.getElementById("compliance-body");
   holder.innerHTML = "";
+  const sources = c.sources || [];
 
   if (c.seed) {
     holder.append(el("div", "tile",
-      "<strong>Placeholder data.</strong> This tab hasn't scraped the source yet. " +
+      "<strong>Placeholder data.</strong> This tab hasn't scraped the sources yet. " +
       "Run the Refresh Compliance workflow to pull current policy text."));
   }
 
-  holder.append(el("div", "source",
-    "Source: <a href='" + c.sourceUrl + "' target='_blank' rel='noopener'>" +
-    c.sourceUrl + "</a> &middot; scraped weekly"));
+  const broken = sources.filter(s => s.error);
+  if (broken.length) {
+    holder.append(el("div", "tile",
+      "<strong>" + broken.length + " source" + (broken.length === 1 ? "" : "s") +
+      " could not be refreshed.</strong> The text below is the last good copy — " +
+      "check the latest Refresh Compliance run in Actions."));
+  }
 
-  const sections = c.sections || [];
-  const changedCount = sections.filter(s => s.changed).length;
-  if (!c.seed && changedCount) {
+  const changedTotal = sources.reduce(
+    (n, s) => n + (s.sections || []).filter(x => x.changed).length, 0);
+  if (!c.seed && changedTotal) {
     holder.append(el("div", "no-target",
-      changedCount + " section" + (changedCount === 1 ? "" : "s") +
+      changedTotal + " section" + (changedTotal === 1 ? "" : "s") +
       " changed since the last check &mdash; look for the “changed” chip below."));
   }
 
-  if (!sections.length && !c.seed) {
-    holder.append(el("div", "no-target", "No policy sections parsed on the last run."));
-  }
+  const tabs = el("div", "subtabs");
+  tabs.setAttribute("role", "tablist");
+  const panels = el("div", "");
+  holder.append(tabs, panels);
 
-  sections.forEach((s, i) => holder.append(complianceSection(s, i)));
+  sources.forEach((s, i) => {
+    const changed = (s.sections || []).filter(x => x.changed).length;
+    const btn = el("button", "", s.label +
+      (changed ? " <span class='chip stale'>" + changed + "</span>" : "") +
+      (s.error ? " <span class='chip stale'>stale</span>" : ""));
+    btn.setAttribute("role", "tab");
+    btn.setAttribute("aria-selected", String(i === 0));
+    tabs.append(btn);
+
+    const panel = compliancePanel(s);
+    panel.hidden = i !== 0;
+    panels.append(panel);
+
+    btn.addEventListener("click", () => {
+      [...tabs.children].forEach((x, j) => {
+        x.setAttribute("aria-selected", String(x === btn));
+        panels.children[j].hidden = x !== btn;
+      });
+    });
+  });
 
   if (c.changeLog && c.changeLog.length) {
     holder.append(el("div", "banner", "RECENT CHANGES"));
     const rows = c.changeLog.slice(0, 25).map(e =>
-      "<tr><td>" + e.date + "</td><td style='text-align:left'>" + e.heading +
+      "<tr><td>" + e.date + "</td><td style='text-align:left'>" + (e.source || "") +
+      "</td><td style='text-align:left'>" + e.heading +
       "</td><td style='text-align:left'>" + e.type + "</td></tr>"
     ).join("");
     holder.append(el("div", "", "<table><thead><tr><th>Date</th>" +
-      "<th style='text-align:left'>Section</th><th style='text-align:left'>Change</th></tr></thead>" +
+      "<th style='text-align:left'>Policy</th><th style='text-align:left'>Section</th>" +
+      "<th style='text-align:left'>Change</th></tr></thead>" +
       "<tbody>" + rows + "</tbody></table>"));
   }
 }
 
-function complianceSection(s, i) {
+function compliancePanel(s) {
+  const panel = el("div", "");
+  const checked = s.lastChecked
+    ? new Date(s.lastChecked).toLocaleString(undefined,
+        { month:"short", day:"numeric", hour:"numeric", minute:"2-digit" })
+    : "never";
+
+  panel.append(el("div", "source",
+    "Source: <a href='" + s.url + "' target='_blank' rel='noopener'>" + s.url +
+    "</a> &middot; last confirmed " + checked));
+
+  if (s.error) {
+    panel.append(el("div", "no-target", "Last refresh failed: " + s.error));
+  }
+
+  const sections = s.sections || [];
+  if (!sections.length) {
+    panel.append(el("div", "no-target", "No policy sections parsed for this source yet."));
+  }
+  sections.forEach(x => panel.append(complianceSection(x)));
+  return panel;
+}
+
+function complianceSection(s) {
   const acc = el("div", "acc");
   const head = el("button", "acc-head");
   head.setAttribute("aria-expanded", "false");

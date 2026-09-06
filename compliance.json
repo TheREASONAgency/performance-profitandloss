@@ -1,7 +1,31 @@
 {
   "seed": true,
   "lastChecked": "2026-09-06T00:00:00Z",
-  "sourceUrl": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/",
-  "sections": [],
+  "sources": [
+    {
+      "id": "health-wellness",
+      "label": "Health & Wellness",
+      "url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/",
+      "lastChecked": null,
+      "error": null,
+      "sections": []
+    },
+    {
+      "id": "drugs-pharmaceuticals",
+      "label": "Drugs & Pharmaceuticals",
+      "url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/drugs-pharmaceuticals/",
+      "lastChecked": null,
+      "error": null,
+      "sections": []
+    },
+    {
+      "id": "personal-attributes",
+      "label": "Personal Attributes",
+      "url": "https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/",
+      "lastChecked": null,
+      "error": null,
+      "sections": []
+    }
+  ],
   "changeLog": []
 }

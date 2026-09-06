@@ -34,7 +34,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Scrape compliance page
+      # A single unreachable policy page must not cost us the others: the
+      # script still writes every source that worked, so the commit step runs
+      # either way and the job is failed at the end instead.
+      - name: Scrape compliance pages
+        id: scrape
+        continue-on-error: true
         run: python3 scripts/scrape_compliance.py
 
       - name: Commit if changed
@@ -48,3 +53,12 @@ jobs:
             git commit -m "compliance: refresh $(date -u +%Y-%m-%d)"
             git push
           fi
+
+      # Whatever could be published has been. Now go red if a source broke,
+      # so a page Meta moved or restructured doesn't sit unnoticed behind a
+      # green check for weeks.
+      - name: Fail if any source could not be scraped
+        if: steps.scrape.outcome != 'success'
+        run: |
+          echo "One or more policy sources failed — see the scrape step's log."
+          exit 1
