@@ -1,0 +1,1030 @@
+{
+ "url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/drugs-pharmaceuticals/",
+ "root": "main",
+ "outline": [
+  {
+   "depth": 11,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_mawd_100{max-width:100%}}@media (max-width: 767px){.mmawd767px_paddingleft_0px{padding-left:0px}}@media (max-width: 767px){.mmawd767px_paddingright_0px{padding-right:0px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_mawd_100{max-width:100%}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_paddinglef"
+  },
+  {
+   "depth": 12,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_marginleft_16px{margin-left:-16px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_marginleft_16px{margin-left:-16px}}@media (min-width: 1025px){.mmiwd1025px_marginleft_16px{margin-left:-16px}}"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1rujz1s xm5vtmc xsp84uj x658qfi x1366vqa ",
+   "text": "Home"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1rujz1s xm5vtmc xsp84uj x658qfi x1366vqa ",
+   "text": "Policies"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1rujz1s xm5vtmc xsp84uj x658qfi x1366vqa ",
+   "text": "Ad Standards"
+  },
+  {
+   "depth": 18,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x1rujz1s xm5vtmc xsp84uj x658qfi x1366vqa ",
+   "text": "Drugs and Pharmaceuticals"
+  },
+  {
+   "depth": 12,
+   "tag": "h1",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1makfk1 x1yxlzaz xsp84uj x128awbb x1366vq",
+   "text": "Drugs and Pharmaceuticals"
+  },
+  {
+   "depth": 14,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_mawd_100{max-width:100%}}@media (max-width: 767px){.mmawd767px_paddingleft_0px{padding-left:0px}}@media (max-width: 767px){.mmawd767px_paddingright_0px{padding-right:0px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_mawd_100{max-width:100%}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_paddinglef"
+  },
+  {
+   "depth": 15,
+   "tag": "h3",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx xm709b7 x1yxlzaz xsp84uj xwuigra x1366vqa ",
+   "text": "Policy details"
+  },
+  {
+   "depth": 16,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "CHANGE LOG"
+  },
+  {
+   "depth": 21,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Today"
+  },
+  {
+   "depth": 21,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Jun 12, 2024"
+  },
+  {
+   "depth": 21,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Feb 27, 2025"
+  },
+  {
+   "depth": 21,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Nov 1, 2024"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1r28tcg x1yxlzaz xsp84uj x1tbo4zr x1366vq",
+   "text": "Drugs and Pharmaceuticals"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can\u2019t run ads that promote the sale or use of illicit or recreational drugs, or other unsafe substances, products or supplements, as determined by Meta at its sole discretion. Ads promoting prescription drugs, over-the-counter medicines, and cannabis derived products must follow specific requirements outlined in the policy below."
+  },
+  {
+   "depth": 23,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x13hqrlb x1",
+   "text": "Advertisers running ads across Meta technologies must follow our , in addition to our ."
+  },
+  {
+   "depth": 24,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Community Standards"
+  },
+  {
+   "depth": 24,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Advertising Standards"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Guidelines"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads can't:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Solicit, buy, sell, trade, donate or gift (such as freebies) or illicit, recreational, or other potentially unsafe drugs, products or supplements"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Encourage the consumption of illicit, recreational, or other potentially unsafe drugs, products or supplements"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote the sale of drug-related paraphernalia"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads can:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Refer to prohibited drugs, products, or supplements for the purposes of political advocacy, news, and awareness campaigns as long as they don\u2019t promote the sale or consumption of those substances"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "For more information, visit the ."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Business Help Center"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1r28tcg x1yxlzaz xsp84uj x1tbo4zr x1366vq",
+   "text": "High-Risk Drugs, Non-Medical Drugs and Entheogens"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads must not promote the sale or use of illicit or recreational drugs, or other unsafe substances, products or supplements, as determined by Meta at its sole discretion."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers running ads across Meta technologies must follow our , in addition to our Advertising Standards."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Community Standards"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Overview"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can\u2019t run ads that promote the sale or use of illicit or recreational drugs, or other unsafe substances, products or supplements."
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Guidelines"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads can't:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Solicit, buy, sell, trade, donate or gift (such as freebies) or illicit, recreational, or other potentially unsafe drugs, products or supplements"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Encourage the consumption of illicit, recreational, or other potentially unsafe drugs, products or supplements"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote the sale of drug-related paraphernalia"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote the sale of merchandise depicting high risk drugs"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads can:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Refer to prohibited drugs, products, or supplements for the purposes of political advocacy, news, and awareness campaigns as long as they don\u2019t promote the sale or consumption of those substances"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "For more information, visit the ."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Business Help Center"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1r28tcg x1yxlzaz xsp84uj x1tbo4zr x1366vq",
+   "text": "Prescription Drugs"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "We allow ads that promote prescription drugs in order to share information around medical efficacy, accessibility and affordability of different types of treatments. At the same time, we know that laws and regulations vary across regions when it comes to promoting these products."
+  },
+  {
+   "depth": 23,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "To reduce risks to consumers, we require eligible advertisers promoting prescription drugs to provide evidence that their activities are appropriately licensed. Online pharmacies, telehealth providers, and pharmaceutical manufacturers must provide evidence that they are appropriately licensed or otherwise established as lawful in countries they want to target, and that they follow the applicable t"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can check eligibility and request authorization ."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "by following these steps"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Overview"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "We allow ads that promote prescription drugs in order to share information around medical efficacy, accessibility and affordability of different types of treatments. At the same time, we know that laws and regulations vary across regions when it comes to promoting these products."
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Guidelines"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Qualified advertisers that are actively certified with LegitScript can run ads that promote prescription drugs as long as they:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Only target people in eligible countries (United States, Canada or New Zealand)"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Only target people in countries in which they are certified"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Only target people 18 years or older"
+  },
+  {
+   "depth": 26,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "from Meta"
+  },
+  {
+   "depth": 27,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Obtain authorization"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Meta requires online pharmacies and telehealth providers to be actively certified with LegitScript. Once they have a LegitScript certification, they must request authorization from Meta"
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "by following these steps."
+  },
+  {
+   "depth": 23,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Pharmaceutical manufacturers have two options:"
+  },
+  {
+   "depth": 23,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "(1) Following the same steps as online pharmacies and telehealth providers, or"
+  },
+  {
+   "depth": 23,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "(2) Apply for authorization through , which doesn\u2019t require a LegitScript certification."
+  },
+  {
+   "depth": 24,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Meta\u2019s internal review process"
+  },
+  {
+   "depth": 23,
+   "tag": "b",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "Advertisers don\u2019t need written authorization to run ads that:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Educate, advocate or give public service announcements related to prescription drugs"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote telehealth services generally"
+  },
+  {
+   "depth": 23,
+   "tag": "b",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "Advertisers can\u2019t run ads that:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "only target people in eligible countries (United States, Canada or New Zealand); only target people in countries in which they are certified; and only target people over the age of 18"
+  },
+  {
+   "depth": 26,
+   "tag": "b",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "Promote prescription drugs unless they are actively certified by LegitScript or have gone through Meta\u2019s internal review process; include a disclaimer to consult a licensed health professional or obtain a valid prescription; and have completed the Meta onboarding process for prescription drugs;"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "For tips on how to comply with this policy, visit the ."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Business Help Center"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1r28tcg x1yxlzaz xsp84uj x1tbo4zr x1366vq",
+   "text": "Over-The-Counter Drugs"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads that promote the sale of over-the-counter medicines must comply with all applicable local laws, required or established industry codes, guidelines, licenses and approvals, and include age and country targeting criteria consistent with applicable local laws. At a minimum, ads may not be targeted to people under 18 years of age."
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Overview"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can run ads that promote the sale of over-the-counter medicines as long as they comply with all applicable local laws, industry codes, guidelines, licenses and approvals. Additionally, Meta doesn\u2019t allow targeting for over-the-counter medicine to people under the age of 18."
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Guidelines"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Over-the-counter medicine refers to medicine that can be purchased or obtained without a prescription. This includes but is not limited to various topical or ingestible common medications, such as anti-inflammatories, allergy medication, antiseptics or certain antibiotic medicines."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote over-the-counter medicine to people 18 years or older"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1r28tcg x1yxlzaz xsp84uj x1tbo4zr x1366vq",
+   "text": "Cannabis and Cannabis Derived Products"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads may not promote or offer the sale of THC products or cannabis products containing related psychoactive components."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads that promote or offer the sale of cannabidiol (CBD) or similar cannabinoid products are only allowed with prior written authorization. Meta requires advertisers promoting CBD products to be actively certified with LegitScript. Certified advertisers must comply with all applicable local laws, required or established industry codes and guidelines, including Meta\u2019s targeting requirements."
+  },
+  {
+   "depth": 23,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads may only promote or offer the sale of CBD in the United States, and must not be targeted to people under 18 years of age. Advertisers can apply for certification with LegitScript . Advertisers can request authorization ."
+  },
+  {
+   "depth": 24,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "here"
+  },
+  {
+   "depth": 24,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "by following these steps"
+  },
+  {
+   "depth": 23,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads may only promote or offer the sale of hemp products in Canada, Mexico and the United States, and must comply with all applicable local laws, required or established industry codes and guidelines."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "For more information on this policy, visit our ."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Business Help Center"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Overview"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can\u2019t run ads that promote containing related psychoactive components."
+  },
+  {
+   "depth": 23,
+   "tag": "b",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "THC products or cannabis products"
+  },
+  {
+   "depth": 23,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can run ads that promote as long as they are actively certified with LegitScript, have written authorization from Meta and comply with all applicable local laws, required or established industry codes and guidelines. Ads for CBD products must not make health or medical claims or target people under 18 years of age, and are only allowed in the following jurisdiction:"
+  },
+  {
+   "depth": 24,
+   "tag": "b",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "CBD products"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "United States"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can apply for certification with LegitScript here. Advertisers can request authorization from Meta ."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "by following these steps"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can run ads that promote in the following jurisdictions only, and must comply with all applicable local laws, required or established industry codes and guidelines:"
+  },
+  {
+   "depth": 23,
+   "tag": "b",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "hemp products"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Canada"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Mexico"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "United States"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Note that products subject to Meta\u2019s policy on Prescription Drugs are not subject to this policy, and advertisers of such products must instead comply with that policy."
+  },
+  {
+   "depth": 23,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "For more information on this policy and countries where we allow ads to promote or offer the sale of CBD and related products, visit our Business Help Center."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers running ads across Meta technologies must follow our , in addition to our Advertising Standards."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Community Standards"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Guidelines"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers can\u2019t run ads that:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote or offer the sale of Tetrahydrocannabinol (THC) products or cannabis products containing related psychoactive components."
+  },
+  {
+   "depth": 27,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "This includes both ingestible and non-ingestible products."
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote the sale of drug-related paraphernalia, such as bongs, rolling papers and vaporizers"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Contain any claims that expressly state or imply that the featured products can treat, cure, prevent, mitigate or diagnose a disease or medical condition in humans or animals."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Certified advertisers with written authorization from Meta can run ads that:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote or offer the sale of CBD products that don\u2019t contain >0.3% THC as long as they:"
+  },
+  {
+   "depth": 27,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Only target people in the United States."
+  },
+  {
+   "depth": 27,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Only target people aged 18 years or older."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Advertisers don\u2019t need written authorization to run ads that:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Promote or offer the sale of hemp products that don\u2019t contain CBD or >0.3% THC (e.g. hemp seed and hemp fiber) in Canada, Mexico and the United States, provided they comply with all applicable local laws, required or established industry codes, guidelines and licenses."
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Educate, advocate or give public service announcements related to CBD and related products, provided they don\u2019t offer any prohibited products for sale."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "For tips on how to comply with this policy, visit our ."
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Business Help Center"
+  },
+  {
+   "depth": 11,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_mawd_100{max-width:100%}}@media (max-width: 767px){.mmawd767px_paddingleft_0px{padding-left:0px}}@media (max-width: 767px){.mmawd767px_paddingright_0px{padding-right:0px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_mawd_100{max-width:100%}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_paddinglef"
+  },
+  {
+   "depth": 22,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x1rujz1s xex5isp xsp84uj x658qfi x1366vqa ",
+   "text": "Enforcement"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx xv6bue1 xm5vtmc xsp84uj x1j402mz x1366vqa ",
+   "text": "We have the same policies around the world, for everyone on Facebook."
+  },
+  {
+   "depth": 22,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x1rujz1s xex5isp xsp84uj x658qfi x1366vqa ",
+   "text": "Review teams"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx xv6bue1 xm5vtmc xsp84uj x1j402mz x1366vqa ",
+   "text": "Our global team of over 15,000 reviewers work every day to keep people on Facebook safe."
+  },
+  {
+   "depth": 22,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x1rujz1s xex5isp xsp84uj x658qfi x1366vqa ",
+   "text": "Stakeholder engagement"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx xv6bue1 xm5vtmc xsp84uj x1j402mz x1366vqa ",
+   "text": "Outside experts, academics, NGOs and policymakers help inform the Facebook Community Standards."
+  }
+ ]
+}

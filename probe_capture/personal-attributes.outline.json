@@ -1,0 +1,814 @@
+{
+ "url": "https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/",
+ "root": "main",
+ "outline": [
+  {
+   "depth": 11,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_mawd_100{max-width:100%}}@media (max-width: 767px){.mmawd767px_paddingleft_0px{padding-left:0px}}@media (max-width: 767px){.mmawd767px_paddingright_0px{padding-right:0px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_mawd_100{max-width:100%}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_paddinglef"
+  },
+  {
+   "depth": 12,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_marginleft_16px{margin-left:-16px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_marginleft_16px{margin-left:-16px}}@media (min-width: 1025px){.mmiwd1025px_marginleft_16px{margin-left:-16px}}"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1rujz1s xm5vtmc xsp84uj x658qfi x1366vqa ",
+   "text": "Home"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1rujz1s xm5vtmc xsp84uj x658qfi x1366vqa ",
+   "text": "Policies"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1rujz1s xm5vtmc xsp84uj x658qfi x1366vqa ",
+   "text": "Ad Standards"
+  },
+  {
+   "depth": 18,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x1rujz1s xm5vtmc xsp84uj x658qfi x1366vqa ",
+   "text": "Privacy Violations and Personal Attributes"
+  },
+  {
+   "depth": 12,
+   "tag": "h1",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1makfk1 x1yxlzaz xsp84uj x128awbb x1366vq",
+   "text": "Privacy Violations and Personal Attributes"
+  },
+  {
+   "depth": 14,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_mawd_100{max-width:100%}}@media (max-width: 767px){.mmawd767px_paddingleft_0px{padding-left:0px}}@media (max-width: 767px){.mmawd767px_paddingright_0px{padding-right:0px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_mawd_100{max-width:100%}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_paddinglef"
+  },
+  {
+   "depth": 15,
+   "tag": "h3",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx xm709b7 x1yxlzaz xsp84uj xwuigra x1366vqa ",
+   "text": "Policy details"
+  },
+  {
+   "depth": 16,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "CHANGE LOG"
+  },
+  {
+   "depth": 21,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Today"
+  },
+  {
+   "depth": 21,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Jun 26, 2024"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x1r28tcg x1yxlzaz xsp84uj x1tbo4zr x1366vq",
+   "text": "Privacy Violations and Personal Attributes"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads Must Comply with the Community Standard on . Ads must not contain content that shares or asks for private information about users. In addition, ads must not contain content that asserts or implies personal attributes. This includes direct or indirect assertions or implications about a person\u2019s race, ethnicity, religion, beliefs, age, sexual orientation or practices, gender identity, disability"
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Privacy Violations"
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Overview"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "At Meta, we want people in our community to have a positive experience when they see ads. Ads that make assumptions about people could be perceived as intrusive, unsettling or inaccurate. For this reason, we don't allow advertisers to run ads that assert or imply the personal attributes of their audience. Instead, ads should focus on the benefits of the product or service being advertised."
+  },
+  {
+   "depth": 21,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx xjliv6m x1yxlzaz xsp84uj x1uc5f31 x1366vqa",
+   "text": "Additional Guidelines for Ads"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "In addition to the requirements in our , which prohibits soliciting or sharing certain personal information, Ads can\u2019t:"
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Community Standard on Privacy Violations"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Share or ask for personal attributes of a user or user\u2019s family"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Imply that the advertiser is aware of someone's personal attributes or the personal attributes of their family"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Imply knowledge of personal or organizational financial information of a user or user\u2019s family"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Imply that the advertiser is aware of someone\u2019s personally identifiable information, such as their name"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Imply knowledge of Medical information of a user or user\u2019s family"
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "Ads can:"
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Broadly reference personal attributes that aren\u2019t listed above, such as calling someone \u201cAmerican\u201d or \u201cNew Yorker\u201d to reference where they live."
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Contain passing reference to a personal attribute. This includes gender, age groups or age ranges."
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Include names of celebrities or fictional characters."
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Use \u201cyou/your\u201d language without a personal attribute."
+  },
+  {
+   "depth": 25,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "xeuugli x2lwn1j x78zum5 xig2svb x18vy5xy xlluq36 x178p66w xc",
+   "text": "Make Public Service Announcements that inform the public about issues related to personal health attributes, as long as they don\u2019t assert someone or their family has a health condition."
+  },
+  {
+   "depth": 22,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "For more information, visit the"
+  },
+  {
+   "depth": 23,
+   "tag": "a",
+   "role": "link",
+   "aria_level": null,
+   "classes": "x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xc5r6h4 xqeqjp1 x1phubyo x",
+   "text": "Business Help Center."
+  },
+  {
+   "depth": 11,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_mawd_100{max-width:100%}}@media (max-width: 767px){.mmawd767px_paddingleft_0px{padding-left:0px}}@media (max-width: 767px){.mmawd767px_paddingright_0px{padding-right:0px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_mawd_100{max-width:100%}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_paddinglef"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "GENERAL GUIDANCE"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 Ad creative that describes or shows the promoted product or service"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 Using the words like \"you/other\u201d without referencing a personal attribute"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c Text referencing or alluding to personal attributes or characteristics of the targeted group or individual"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c Using the word \"you/your/other\" to reference a personal attribute"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "RACE OR ETHNICITY"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cMeet Hispanic men online now!\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cFind black singles today.\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cMeet other black singles near you!\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "RELIGION"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cDate Christian singles!\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cMeet Hindu singles online now!\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \"Are you Christian?\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cMeet other Buddhists\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "AGE"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \"Meet seniors\""
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cA service for teens\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cOur new lotion and creams fight wrinkles like never before!\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cAge is just a number. Anyone can now learn coding with our C program.\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cJoin us this summer at Nature Camp. Open to all teenagers.\u201d\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cMeet other seniors\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \"Are you 18 years old?\""
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cReady to upgrade your skin to look younger?\""
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "SEXUAL ORIENTATION OR PRACTICES"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cAtlantis Gay Cruises\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cGay dating online now!\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cAre you gay?\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cMeet other lesbians now!\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "GENDER IDENTITY"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cCome meet transgender singles\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cA monthly meetup for trans persons and trans allies\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cQuestioning your gender identity?\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cMeet other transgender singles at our monthly meetup\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "PHYSICAL OR MENTAL HEALTH AND DISABILITY"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cBulimia counseling available\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cDepression counseling\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cNew diabetes treatment available\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cDo you have diabetes?\u201dl"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cDepression getting you down? Get help now.\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cDon\u2019t wait!! Get your spouse treated for cancer today with help from our medical experts.\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "VULNERABLE FINANCIAL STATUS"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cDon\u2019t wait!! Get your spouse treated for cancer today with help from our medical experts.\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c Are you bankrupt? Check out our services.\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "VOTING STATUS"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \"Learn about voter registration\""
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cI voted\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \"Your ballot hasn't been received yet\""
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cRecords show that your voter registration is incomplete\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "MEMBERSHIP IN A TRADE UNION"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \"Be a part of our Union today\""
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cDislike your Union rep? Join our union today.\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "CRIMINAL RECORD"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \"Services to clean up any previous offenses\""
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \"Are you a convicted felon?\""
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x19a1ety x1dg8jwx x3a6nna xex5isp x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "NAME OR IDENTIFICATION"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cWe print customizable t-shirts and stickers with your name.\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u2705 \u201cHave a driver's license?\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cBilly Taylor, get this t-shirt with your name in print!\u201d"
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \u201cIt's a Billy thing\u201d (if their name is Billy)."
+  },
+  {
+   "depth": 13,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx x3a6nna xm5vtmc x1t2x7uc x1o1n6r0 x1366vqa",
+   "text": "\u274c \"What is your driver's license number?\""
+  },
+  {
+   "depth": 11,
+   "tag": "style",
+   "role": null,
+   "aria_level": null,
+   "classes": "",
+   "text": "@media (max-width: 767px){.mmawd767px_mawd_100{max-width:100%}}@media (max-width: 767px){.mmawd767px_paddingleft_0px{padding-left:0px}}@media (max-width: 767px){.mmawd767px_paddingright_0px{padding-right:0px}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_mawd_100{max-width:100%}}@media (min-width: 768px) and (max-width: 1024px){.mmiwd768pxandmawidth1024px_paddinglef"
+  },
+  {
+   "depth": 22,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x1rujz1s xex5isp xsp84uj x658qfi x1366vqa ",
+   "text": "Enforcement"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx xv6bue1 xm5vtmc xsp84uj x1j402mz x1366vqa ",
+   "text": "We have the same policies around the world, for everyone on Facebook."
+  },
+  {
+   "depth": 22,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x1rujz1s xex5isp xsp84uj x658qfi x1366vqa ",
+   "text": "Review teams"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx xv6bue1 xm5vtmc xsp84uj x1j402mz x1366vqa ",
+   "text": "Our global team of over 15,000 reviewers work every day to keep people on Facebook safe."
+  },
+  {
+   "depth": 22,
+   "tag": "div",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1heor9g x1dg8jwx x1rujz1s xex5isp xsp84uj x658qfi x1366vqa ",
+   "text": "Stakeholder engagement"
+  },
+  {
+   "depth": 19,
+   "tag": "span",
+   "role": null,
+   "aria_level": null,
+   "classes": "x1motxo8 x1dg8jwx xv6bue1 xm5vtmc xsp84uj x1j402mz x1366vqa ",
+   "text": "Outside experts, academics, NGOs and policymakers help inform the Facebook Community Standards."
+  }
+ ]
+}
