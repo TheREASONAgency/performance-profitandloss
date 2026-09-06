@@ -78,9 +78,8 @@ USER_AGENT = (
     "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 )
 
-# The zone the revision dates are read in. Eastern matches the rest of the
-# dashboard (see should_run.py) and, more importantly, never changes — see
-# the note in fetch_html.
+# Pinned so every run renders under the same clock. Note this does NOT
+# stabilise the revision dates — see policy_update_dates().
 POLICY_TIMEZONE = "America/New_York"
 
 # Keep the change log bounded so the file doesn't grow forever.
@@ -155,13 +154,6 @@ def fetch_html(url: str) -> str:
                 user_agent=USER_AGENT,
                 viewport={"width": 1280, "height": 2400},
                 locale="en-US",
-                # Meta renders the CHANGE LOG dates client-side and localizes
-                # them, so an unpinned browser reports a different day either
-                # side of a UTC midnight — two runs ten minutes apart were
-                # seen reporting Jul 22 and Jul 23 for the same revision.
-                # Pinning the zone (the same one the pacing schedule runs on)
-                # keeps the dates stable so a timezone roll never reads as a
-                # policy change.
                 timezone_id=POLICY_TIMEZONE,
             )
             response = page.goto(url, wait_until="networkidle", timeout=60000)
@@ -222,7 +214,22 @@ def is_heading(el, text: str) -> bool:
 
 
 def policy_update_dates(soup, today: dt.date) -> list[str]:
-    """Meta's own revision dates, from the CHANGE LOG beside the title."""
+    """Meta's own revision dates, from the CHANGE LOG beside the title.
+
+    Accurate to about a day, and no better. Successive runs minutes apart
+    report dates one day either side of each other — Jul 22 vs Jul 23 for
+    the same revision, Oct 31 vs Nov 1 for another. It is not our clock:
+    rendering the same page under UTC, Eastern and Pacific in one run gives
+    identical dates every time, so the browser timezone is not what moves
+    them. Meta appears to localize these server-side by request origin, and
+    a scheduled job's egress address is not ours to fix.
+
+    So treat them as "roughly when Meta last touched this policy", not as
+    exact dates, and expect them to churn by a day between runs. They are
+    deliberately kept out of the change detection in diff_sections(), which
+    hashes section text only — a date that wobbles must never raise a
+    change the policy did not make.
+    """
     label = next((el for el in soup.find_all(True)
                   if own_text(el) == "CHANGE LOG"), None)
     if label is None:

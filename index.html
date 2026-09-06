@@ -611,10 +611,12 @@ function compliancePanel(s) {
   const updates = s.policyUpdates || [];
   if (updates.length) {
     panel.append(el("div", "tile-note",
-      "<b>Meta last revised this policy " + fmtDate(updates[0]) +
+      "<b>Meta lists its latest revision as " + fmtDate(updates[0]) +
       "</b>" + (updates.length > 1
-        ? " · earlier revisions " + updates.slice(1, 4).map(fmtDate).join(", ")
-        : "")));
+        ? " · earlier: " + updates.slice(1, 4).map(fmtDate).join(", ")
+        : "") +
+      " <span style='color:var(--text-muted)'>(Meta's published dates vary " +
+      "by about a day depending on where the page is fetched from)</span>"));
   }
 
   panel.append(el("div", "source",

@@ -143,12 +143,17 @@ renders one sub-tab per source.
   and inline "here" links out of the section list.
 - **Meta stamps each policy with its own revision dates**, read from the
   CHANGE LOG beside the title into `policyUpdates` (ISO, newest first;
-  "Today" resolves to the scrape date). That is better evidence of a real
-  change than any hash diff, so the tab leads with it. Those dates are
-  rendered client-side and localized, so the browser's timezone is pinned to
-  `America/New_York` (`POLICY_TIMEZONE`) — unpinned, two runs ten minutes
-  apart reported Jul 22 and Jul 23 for the same revision, and that drift
-  would read as a policy change that never happened. Don't remove the pin.
+  "Today" resolves to the scrape date). Useful context for "has Meta touched
+  this lately", but **accurate to about a day and no better**: runs minutes
+  apart report dates a day either side of each other (Jul 22 vs Jul 23 for
+  one revision, Oct 31 vs Nov 1 for another). It is not our clock — one run
+  rendering the same page under UTC, Eastern and Pacific produced identical
+  dates every time, so the browser timezone is not what moves them; Meta
+  appears to localize server-side by request origin, which a scheduled job
+  cannot pin. Expect `policyUpdates` to churn by a day between runs, and
+  read the dates as approximate. They are deliberately excluded from change
+  detection, which hashes section text only, so a wobbling date can never
+  raise a change the policy did not make.
 - **Adding a policy page is one entry in `SOURCES`** at the top of
   `scrape_compliance.py` — plus a fixture, which a test enforces.
 - **`compliance.json` is a separate file from `data.json`, on a separate
