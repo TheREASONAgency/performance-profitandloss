@@ -1,30 +1,218 @@
 {
-  "seed": true,
-  "lastChecked": "2026-09-06T00:00:00Z",
+  "lastChecked": "2026-09-06T03:36:20Z",
   "sources": [
     {
       "id": "health-wellness",
       "label": "Health & Wellness",
       "url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/",
-      "lastChecked": null,
+      "lastChecked": "2026-09-06T03:36:20Z",
+      "title": "Health and Wellness",
+      "policyUpdates": [
+        "2026-09-06",
+        "2026-07-23",
+        "2024-12-27"
+      ],
       "error": null,
-      "sections": []
+      "sections": [
+        {
+          "id": "health-and-wellness",
+          "heading": "Health and Wellness",
+          "text": "This policy covers two categories of ads: Adult Products and Reproductive Health. Health and Wellbeing Ads promoting or marketing dietary, health, or weight loss or weight gain products and services must be targeted to people at least 18 years or older. Ads promoting or marketing cosmetic products, procedures or surgeries, must be targeted to people at least 18 years or older. Ads must not contain certain claims prohibited by our policy, as outlined below.",
+          "textHash": "168c51ab2b999a1c",
+          "changed": false
+        },
+        {
+          "id": "overview",
+          "heading": "Overview",
+          "text": "Meta restricts advertising content that promotes weight loss or weight gain products, cosmetic procedures, and dietary or health supplements from targeting users under 18 years of age. Content must not contain certain claims prohibited by our policy, as outlined below. Advertisers must follow our Community Standards , in addition to our Advertising Standards.",
+          "textHash": "c20ec326fc292843",
+          "changed": false
+        },
+        {
+          "id": "guidelines",
+          "heading": "Guidelines",
+          "text": "Ads can\u2019t: Promote weight loss or weight gain products and services, or cosmetic products or procedures that: Contains statements of inferiority about physical appearance (i.e., terms, descriptions, or questions that are negative and attack an individual\u2019s appearance, specific body parts, or hygiene). Promote weight loss or weight gain products or services, that depict: Close up on specific body area by pinching fat Claims that results can be achieved solely by using wearable products Promote skin whitening or bleaching products that cause permanent skin color change. Claims (including those from health professionals or health organizations) to cure, heal, or eliminate any of the following incurable diseases and/or terminal illnesses (exhaustive list): Diabetes, Herpes, Thyroid, Psoriasis, Ebola, Cancer, Autism, Alzheimer's, Parkinson's, Amyotrophic Lateral Sclerosis (ALS), Human immunodeficiency virus (HIV) Note: This does not apply to claims about treating or managing symptoms of these conditions. Employ clickbait tactics in a health, weight loss, or weight gain context, such as sensational language with exaggerated or extreme claims, or promises of specific outcomes within a set timeframe without disclaimers or qualifiers. When targeting people 18 years or older, advertisers can run ads that promote: Dietary weight loss or weight gain products and services such as supplements or pills. The ad can illustrate people using the product or the service, and its impact of using it, and clearly indicate the time taken to achieve noticeable results. Cosmetic products, procedures, or surgeries such as: Breast augmentation, breast reduction, abdominoplasty, blepharoplasty, rhinoplasty, rhytidectomy, labiaplasty, hair restoration surgery, dermal fillers, skin rejuvenation treatments, injectable treatments, chemical peels, micro-needling, non-ablative laser treatments, laser or light treatments, or micropigmentation General cosmetic products, procedures, surgeries depicting before and after transformation. Note: For weight loss products that require prescription, please refer to Drugs and Pharmaceuticals ads policy and comply with the geo-targeting, and written permission requirements. The age targeting restrictions above don\u2019t apply to ads that promote or sell: Products and services marketed for general wellbeing, such as fitness services and equipments, health clubs General food products, including protein products Non-permanent cosmetic and beauty products such as creams, makeup, hair products, and digital editing apps Dental products, such as teeth whitening products",
+          "textHash": "0c12ea2a15322172",
+          "changed": false
+        },
+        {
+          "id": "adult-products-and-reproductive-health",
+          "heading": "Adult Products and Reproductive Health",
+          "text": "Ads must not promote the sale or use of adult sexual arousal products or services, provided that the ads are focused on health and wellness, not sexual pleasure or enhancements, and are targeted to people 18 years or older.",
+          "textHash": "e512749c7fcd8272",
+          "changed": false
+        },
+        {
+          "id": "overview-2",
+          "heading": "Overview",
+          "text": "Advertisers can run ads that promote sexual health, wellness and reproductive products and services. However, as a global company, we need to take into account the wide array of people from different cultures and countries who see ads across our technologies to avoid potential negative experiences. That is why we place additional restrictions on these ads, including the requirement to target audiences 18 years or older.",
+          "textHash": "f9bb3ca1b34eb7d6",
+          "changed": false
+        },
+        {
+          "id": "guidelines-2",
+          "heading": "Guidelines",
+          "text": "Ads can't: Promote sexual arousal products that focus on sexual pleasure or enhancement, such as: Sex toys Erotic products (e.g., erotic novels or poems promoted or marketed as primarily sexual in content; erotic costumes, cosmetics, or fetish items; and non-surgical genital enhancement products) Promote the sale or use of adult sexual services, including but not limited to: Adult entertainment businesses, such as strip clubs Adult establishments, such as cabarets, adult movie theaters, and hotels for sexual fantasies Instructional sexual services, such as tantric services, orgasmic therapy or tantric retreats for orgasmic therapy Promote genital procedures or surgeries focused on sexual pleasure, such as G-spot augmentation, male genitalia enlargement. When targeting people 18 years or older, advertisers can run ads that: Promote sexual and reproductive health and wellness products or services, as long as the focus is on health and the medical efficacy of the product or the service and not on the sexual pleasure or enhancement. And these ads must target people 18 years or older. This includes ads for: Products addressing sexual reproductive disorders or health issues, such as: Prevention of erectile dysfunction Premature ejaculation Hypoactive Sexual Desire Disorder (HSDD) Pain relief during sex The effects of menopause Reproductive genital surgeries that address medical benefits, limited to: Male circumcision Vaginoplasty Vasectomy Gender reassignment surgeries Contraceptive products, including condoms Lube and pheromones Women\u2019s reproductive health apps, such as: Femtech apps Ovulation tracker Pregnancy progress tracker Family planning methods, such as: Family planning clinics In Vitro Fertilization (IVF) or any other artificial insemination procedures Fertility awareness Abortion medical consultation and related services Note: For Reproductive health and wellness drugs or treatments that require prescription, please refer to Drugs and Pharmaceuticals ads policy and comply with the geo-targeting, and written permission requirements in addition to this policy. The age targeting requirements above don\u2019t apply to ads that promote or sell: Women\u2019s reproductive health products, such as menstruation tracking health apps Sex education that shares reproductive health or sexual health awareness in an informational, educational, or documentary, as long as there\u2019s no sexualized or suggestive content, and the focus is on health and not sexual pleasure or enhancement Educational material or information about family planning services without any direct promotion or facilitation of the services Women\u2019s hygiene products Lingerie, swimwear, or undergarments, as long as they do not violate the Adult Nudity and Sexual Activity policy.",
+          "textHash": "9d4f607c33525401",
+          "changed": false
+        }
+      ]
     },
     {
       "id": "drugs-pharmaceuticals",
       "label": "Drugs & Pharmaceuticals",
       "url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/drugs-pharmaceuticals/",
-      "lastChecked": null,
+      "lastChecked": "2026-09-06T03:36:20Z",
+      "title": "Drugs and Pharmaceuticals",
+      "policyUpdates": [
+        "2026-09-06",
+        "2025-02-27",
+        "2024-11-01",
+        "2024-06-12"
+      ],
       "error": null,
-      "sections": []
+      "sections": [
+        {
+          "id": "drugs-and-pharmaceuticals",
+          "heading": "Drugs and Pharmaceuticals",
+          "text": "Advertisers can\u2019t run ads that promote the sale or use of illicit or recreational drugs, or other unsafe substances, products or supplements, as determined by Meta at its sole discretion. Ads promoting prescription drugs, over-the-counter medicines, and cannabis derived products must follow specific requirements outlined in the policy below. Advertisers running ads across Meta technologies must follow our Community Standards , in addition to our Advertising Standards .",
+          "textHash": "4dba86ca542397df",
+          "changed": false
+        },
+        {
+          "id": "guidelines",
+          "heading": "Guidelines",
+          "text": "Ads can't: Solicit, buy, sell, trade, donate or gift (such as freebies) or illicit, recreational, or other potentially unsafe drugs, products or supplements Encourage the consumption of illicit, recreational, or other potentially unsafe drugs, products or supplements Promote the sale of drug-related paraphernalia Ads can: Refer to prohibited drugs, products, or supplements for the purposes of political advocacy, news, and awareness campaigns as long as they don\u2019t promote the sale or consumption of those substances For more information, visit the Business Help Center .",
+          "textHash": "5fe5dab8562ba7a5",
+          "changed": false
+        },
+        {
+          "id": "high-risk-drugs-non-medical-drugs-and-entheogens",
+          "heading": "High-Risk Drugs, Non-Medical Drugs and Entheogens",
+          "text": "Ads must not promote the sale or use of illicit or recreational drugs, or other unsafe substances, products or supplements, as determined by Meta at its sole discretion. Advertisers running ads across Meta technologies must follow our Community Standards , in addition to our Advertising Standards.",
+          "textHash": "8ea311866b02d4b0",
+          "changed": false
+        },
+        {
+          "id": "overview",
+          "heading": "Overview",
+          "text": "Advertisers can\u2019t run ads that promote the sale or use of illicit or recreational drugs, or other unsafe substances, products or supplements.",
+          "textHash": "05021dd4bb4f501e",
+          "changed": false
+        },
+        {
+          "id": "guidelines-2",
+          "heading": "Guidelines",
+          "text": "Ads can't: Solicit, buy, sell, trade, donate or gift (such as freebies) or illicit, recreational, or other potentially unsafe drugs, products or supplements Encourage the consumption of illicit, recreational, or other potentially unsafe drugs, products or supplements Promote the sale of drug-related paraphernalia Promote the sale of merchandise depicting high risk drugs Ads can: Refer to prohibited drugs, products, or supplements for the purposes of political advocacy, news, and awareness campaigns as long as they don\u2019t promote the sale or consumption of those substances For more information, visit the Business Help Center .",
+          "textHash": "83cc22520507ac5a",
+          "changed": false
+        },
+        {
+          "id": "prescription-drugs",
+          "heading": "Prescription Drugs",
+          "text": "We allow ads that promote prescription drugs in order to share information around medical efficacy, accessibility and affordability of different types of treatments. At the same time, we know that laws and regulations vary across regions when it comes to promoting these products. To reduce risks to consumers, we require eligible advertisers promoting prescription drugs to provide evidence that their activities are appropriately licensed. Online pharmacies, telehealth providers, and pharmaceutical manufacturers must provide evidence that they are appropriately licensed or otherwise established as lawful in countries they want to target, and that they follow the applicable targeting guidelines, including only running ads in the countries in which they\u2019re certified. Meta doesn\u2019t allow targeting for prescription drugs to people under the age of 18. Advertisers can check eligibility and request authorization by following these steps .",
+          "textHash": "8b6bcbbf4636b23a",
+          "changed": false
+        },
+        {
+          "id": "overview-2",
+          "heading": "Overview",
+          "text": "We allow ads that promote prescription drugs in order to share information around medical efficacy, accessibility and affordability of different types of treatments. At the same time, we know that laws and regulations vary across regions when it comes to promoting these products.",
+          "textHash": "e03051dec07b4139",
+          "changed": false
+        },
+        {
+          "id": "guidelines-3",
+          "heading": "Guidelines",
+          "text": "Qualified advertisers that are actively certified with LegitScript can run ads that promote prescription drugs as long as they: Only target people in eligible countries (United States, Canada or New Zealand) Only target people in countries in which they are certified Only target people 18 years or older Obtain authorization from Meta Meta requires online pharmacies and telehealth providers to be actively certified with LegitScript. Once they have a LegitScript certification, they must request authorization from Meta by following these steps. Pharmaceutical manufacturers have two options: (1) Following the same steps as online pharmacies and telehealth providers, or (2) Apply for authorization through Meta\u2019s internal review process , which doesn\u2019t require a LegitScript certification. Advertisers don\u2019t need written authorization to run ads that: Educate, advocate or give public service announcements related to prescription drugs Promote telehealth services generally Advertisers can\u2019t run ads that: Promote prescription drugs unless they are actively certified by LegitScript or have gone through Meta\u2019s internal review process; include a disclaimer to consult a licensed health professional or obtain a valid prescription; and have completed the Meta onboarding process for prescription drugs; only target people in eligible countries (United States, Canada or New Zealand); only target people in countries in which they are certified; and only target people over the age of 18 For tips on how to comply with this policy, visit the Business Help Center .",
+          "textHash": "14323cb3f57a103d",
+          "changed": false
+        },
+        {
+          "id": "over-the-counter-drugs",
+          "heading": "Over-The-Counter Drugs",
+          "text": "Ads that promote the sale of over-the-counter medicines must comply with all applicable local laws, required or established industry codes, guidelines, licenses and approvals, and include age and country targeting criteria consistent with applicable local laws. At a minimum, ads may not be targeted to people under 18 years of age.",
+          "textHash": "32342dde2362141f",
+          "changed": false
+        },
+        {
+          "id": "overview-3",
+          "heading": "Overview",
+          "text": "Advertisers can run ads that promote the sale of over-the-counter medicines as long as they comply with all applicable local laws, industry codes, guidelines, licenses and approvals. Additionally, Meta doesn\u2019t allow targeting for over-the-counter medicine to people under the age of 18.",
+          "textHash": "2eda7ec050effed2",
+          "changed": false
+        },
+        {
+          "id": "guidelines-4",
+          "heading": "Guidelines",
+          "text": "Over-the-counter medicine refers to medicine that can be purchased or obtained without a prescription. This includes but is not limited to various topical or ingestible common medications, such as anti-inflammatories, allergy medication, antiseptics or certain antibiotic medicines. Advertisers can: Promote over-the-counter medicine to people 18 years or older",
+          "textHash": "905d594ce41b1d8d",
+          "changed": false
+        },
+        {
+          "id": "cannabis-and-cannabis-derived-products",
+          "heading": "Cannabis and Cannabis Derived Products",
+          "text": "Ads may not promote or offer the sale of THC products or cannabis products containing related psychoactive components. Ads that promote or offer the sale of cannabidiol (CBD) or similar cannabinoid products are only allowed with prior written authorization. Meta requires advertisers promoting CBD products to be actively certified with LegitScript. Certified advertisers must comply with all applicable local laws, required or established industry codes and guidelines, including Meta\u2019s targeting requirements. Ads may only promote or offer the sale of CBD in the United States, and must not be targeted to people under 18 years of age. Advertisers can apply for certification with LegitScript here . Advertisers can request authorization by following these steps . Ads may only promote or offer the sale of hemp products in Canada, Mexico and the United States, and must comply with all applicable local laws, required or established industry codes and guidelines. For more information on this policy, visit our Business Help Center .",
+          "textHash": "9a744cbd88d15c81",
+          "changed": false
+        },
+        {
+          "id": "overview-4",
+          "heading": "Overview",
+          "text": "Advertisers can\u2019t run ads that promote THC products or cannabis products containing related psychoactive components. Advertisers can run ads that promote CBD products as long as they are actively certified with LegitScript, have written authorization from Meta and comply with all applicable local laws, required or established industry codes and guidelines. Ads for CBD products must not make health or medical claims or target people under 18 years of age, and are only allowed in the following jurisdiction: United States Advertisers can apply for certification with LegitScript here. Advertisers can request authorization from Meta by following these steps . Advertisers can run ads that promote hemp products in the following jurisdictions only, and must comply with all applicable local laws, required or established industry codes and guidelines: Canada Mexico Note that products subject to Meta\u2019s policy on Prescription Drugs are not subject to this policy, and advertisers of such products must instead comply with that policy. For more information on this policy and countries where we allow ads to promote or offer the sale of CBD and related products, visit our Business Help Center. Advertisers running ads across Meta technologies must follow our Community Standards , in addition to our Advertising Standards.",
+          "textHash": "9847318041dfaefb",
+          "changed": false
+        },
+        {
+          "id": "guidelines-5",
+          "heading": "Guidelines",
+          "text": "Advertisers can\u2019t run ads that: Promote or offer the sale of Tetrahydrocannabinol (THC) products or cannabis products containing related psychoactive components. This includes both ingestible and non-ingestible products. Promote the sale of drug-related paraphernalia, such as bongs, rolling papers and vaporizers Contain any claims that expressly state or imply that the featured products can treat, cure, prevent, mitigate or diagnose a disease or medical condition in humans or animals. Certified advertisers with written authorization from Meta can run ads that: Promote or offer the sale of CBD products that don\u2019t contain >0.3% THC as long as they: Only target people in the United States. Only target people aged 18 years or older. Advertisers don\u2019t need written authorization to run ads that: Promote or offer the sale of hemp products that don\u2019t contain CBD or >0.3% THC (e.g. hemp seed and hemp fiber) in Canada, Mexico and the United States, provided they comply with all applicable local laws, required or established industry codes, guidelines and licenses. Educate, advocate or give public service announcements related to CBD and related products, provided they don\u2019t offer any prohibited products for sale. For tips on how to comply with this policy, visit our Business Help Center .",
+          "textHash": "da87c956ef7009b7",
+          "changed": false
+        }
+      ]
     },
     {
       "id": "personal-attributes",
       "label": "Personal Attributes",
       "url": "https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/",
-      "lastChecked": null,
+      "lastChecked": "2026-09-06T03:36:20Z",
+      "title": "Privacy Violations and Personal Attributes",
+      "policyUpdates": [
+        "2026-09-06",
+        "2024-06-26"
+      ],
       "error": null,
-      "sections": []
+      "sections": [
+        {
+          "id": "privacy-violations-and-personal-attributes",
+          "heading": "Privacy Violations and Personal Attributes",
+          "text": "Ads Must Comply with the Community Standard on Privacy Violations . Ads must not contain content that shares or asks for private information about users. In addition, ads must not contain content that asserts or implies personal attributes. This includes direct or indirect assertions or implications about a person\u2019s race, ethnicity, religion, beliefs, age, sexual orientation or practices, gender identity, disability, physical or mental health (including medical conditions), vulnerable financial status, voting status, membership in a trade union, criminal record, or name.",
+          "textHash": "c1921a800ed943f1",
+          "changed": false
+        },
+        {
+          "id": "overview",
+          "heading": "Overview",
+          "text": "At Meta, we want people in our community to have a positive experience when they see ads. Ads that make assumptions about people could be perceived as intrusive, unsettling or inaccurate. For this reason, we don't allow advertisers to run ads that assert or imply the personal attributes of their audience. Instead, ads should focus on the benefits of the product or service being advertised.",
+          "textHash": "c9daf3a38fa5945d",
+          "changed": false
+        },
+        {
+          "id": "additional-guidelines-for-ads",
+          "heading": "Additional Guidelines for Ads",
+          "text": "In addition to the requirements in our Community Standard on Privacy Violations , which prohibits soliciting or sharing certain personal information, Ads can\u2019t: Share or ask for personal attributes of a user or user\u2019s family Imply that the advertiser is aware of someone's personal attributes or the personal attributes of their family Imply knowledge of personal or organizational financial information of a user or user\u2019s family Imply that the advertiser is aware of someone\u2019s personally identifiable information, such as their name Imply knowledge of Medical information of a user or user\u2019s family Ads can: Broadly reference personal attributes that aren\u2019t listed above, such as calling someone \u201cAmerican\u201d or \u201cNew Yorker\u201d to reference where they live. Contain passing reference to a personal attribute. This includes gender, age groups or age ranges. Include names of celebrities or fictional characters. Use \u201cyou/your\u201d language without a personal attribute. Make Public Service Announcements that inform the public about issues related to personal health attributes, as long as they don\u2019t assert someone or their family has a health condition. For more information, visit the Business Help Center.",
+          "textHash": "3e753aeea48d6375",
+          "changed": false
+        },
+        {
+          "id": "general-guidance",
+          "heading": "GENERAL GUIDANCE",
+          "text": "\u2705 Ad creative that describes or shows the promoted product or service \u2705 Using the words like \"you/other\u201d without referencing a personal attribute \u274c Text referencing or alluding to personal attributes or characteristics of the targeted group or individual \u274c Using the word \"you/your/other\" to reference a personal attribute RACE OR ETHNICITY \u2705 \u201cMeet Hispanic men online now!\u201d \u2705 \u201cFind black singles today.\u201d \u274c \u201cMeet other black singles near you!\u201d RELIGION \u2705 \u201cDate Christian singles!\u201d \u2705 \u201cMeet Hindu singles online now!\u201d \u274c \"Are you Christian?\u201d \u274c \u201cMeet other Buddhists\u201d AGE \u2705 \"Meet seniors\" \u2705 \u201cA service for teens\u201d \u2705 \u201cOur new lotion and creams fight wrinkles like never before!\u201d \u2705 \u201cAge is just a number. Anyone can now learn coding with our C program.\u201d \u2705 \u201cJoin us this summer at Nature Camp. Open to all teenagers.\u201d\u201d \u274c \u201cMeet other seniors\u201d \u274c \"Are you 18 years old?\" \u274c \u201cReady to upgrade your skin to look younger?\" SEXUAL ORIENTATION OR PRACTICES \u2705 \u201cAtlantis Gay Cruises\u201d \u2705 \u201cGay dating online now!\u201d \u274c \u201cAre you gay?\u201d \u274c \u201cMeet other lesbians now!\u201d GENDER IDENTITY \u2705 \u201cCome meet transgender singles\u201d \u2705 \u201cA monthly meetup for trans persons and trans allies\u201d \u274c \u201cQuestioning your gender identity?\u201d \u274c \u201cMeet other transgender singles at our monthly meetup\u201d PHYSICAL OR MENTAL HEALTH AND DISABILITY \u2705 \u201cBulimia counseling available\u201d \u2705 \u201cDepression counseling\u201d \u2705 \u201cNew diabetes treatment available\u201d \u274c \u201cDo you have diabetes?\u201dl \u274c \u201cDepression getting you down? Get help now.\u201d \u274c \u201cDon\u2019t wait!! Get your spouse treated for cancer today with help from our medical experts.\u201d VULNERABLE FINANCIAL STATUS \u2705 \u201cDon\u2019t wait!! Get your spouse treated for cancer today with help from our medical experts.\u201d \u274c Are you bankrupt? Check out our services.\u201d VOTING STATUS \u2705 \"Learn about voter registration\" \u2705 \u201cI voted\u201d \u274c \"Your ballot hasn't been received yet\" \u274c \u201cRecords show that your voter registration is incomplete\u201d MEMBERSHIP IN A TRADE UNION \u2705 \"Be a part of our Union today\" \u274c \u201cDislike your Union rep? Join our union today.\u201d CRIMINAL RECORD \u2705 \"Services to clean up any previous offenses\" \u274c \"Are you a convicted felon?\" NAME OR IDENTIFICATION \u2705 \u201cWe print customizable t-shirts and stickers with your name.\u201d \u2705 \u201cHave a driver's license?\u201d \u274c \u201cBilly Taylor, get this t-shirt with your name in print!\u201d \u274c \u201cIt's a Billy thing\u201d (if their name is Billy). \u274c \"What is your driver's license number?\"",
+          "textHash": "2cb95c3b81a664e6",
+          "changed": false
+        }
+      ]
     }
   ],
   "changeLog": []
