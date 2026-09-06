@@ -1,4 +1,4 @@
 google-auth==2.35.0
 google-api-python-client==2.149.0
-requests==2.32.3
 beautifulsoup4==4.12.3
+playwright==1.47.0

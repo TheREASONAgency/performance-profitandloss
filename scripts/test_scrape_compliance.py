@@ -4,71 +4,45 @@
 CI runs this before every live scrape. A red test blocks the publish.
 Run locally with:  python3 scripts/test_scrape_compliance.py
 
-The fixtures below stand in for the two markup shapes a policy page can
-plausibly take — flat sibling headings, and headings buried in nested
-wrapper divs the way a React-rendered page emits them — plus the failure
-modes the pipeline has to survive: a page that won't fetch, and a page that
-fetches fine but parses to nothing because it was restructured.
+The fixtures in fixtures/ are the real rendered markup of the three policy
+pages, captured from a headless browser on a GitHub runner (the authoring
+session had no network route to Meta). They are what the extractor is
+written against, so these tests exercise the real thing rather than a
+hand-made approximation of it — including the page chrome that has to be
+kept out of the policy text.
 
-Nothing here touches the network. fetch_html is monkeypatched throughout.
+Nothing here touches the network: fetch_html is stubbed throughout.
 """
 
 import datetime as dt
+import os
 import unittest
-
-import requests
 
 import scrape_compliance as sc
 
+
+FIXTURES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fixtures")
 
 UTC = dt.timezone.utc
 WEEK_1 = dt.datetime(2026, 9, 7, 12, 0, tzinfo=UTC)
 WEEK_2 = dt.datetime(2026, 9, 14, 12, 0, tzinfo=UTC)
 
-# Flat markup: headings and body text are siblings.
-FLAT = """
-<html><body><main>
-  <h1>Health and wellness</h1>
-  <p>Ads must not promote unsafe products.</p>
-  <h2>Supplements</h2>
-  <p>Ads may not promote unsafe supplements.</p>
-  <ul><li>No before-and-after images.</li></ul>
-  <h2>Weight loss</h2>
-  <p>Ads must target people 18 or older.</p>
-</main></body></html>
-"""
+# Boilerplate that lives in the site footer, inside <main> but not part of
+# any policy. If this ever shows up in a section, the chrome filter broke.
+FOOTER_MARKERS = [
+    "We have the same policies around the world",
+    "Our global team of over 15,000 reviewers",
+    "Outside experts, academics, NGOs and policymakers",
+]
 
-# The same content as a React-style page would emit it: the heading and its
-# body sit in separate nested wrappers, so they are not siblings at all.
-NESTED = """
-<html><body><main>
-  <div class="section"><div class="hd"><h2>Supplements</h2></div>
-    <div class="bd"><div><p>Ads may not promote unsafe supplements.</p></div></div></div>
-  <div class="section"><div class="hd"><h2>Weight loss</h2></div>
-    <div class="bd"><div><p>Ads must target people 18 or older.</p></div></div></div>
-</main></body></html>
-"""
 
-# Chrome, nav and script content that must never reach the policy text.
-NOISY = """
-<html><body>
-  <nav><a href="/">Transparency Center</a></nav>
-  <main>
-    <script>window.__DATA__ = {"junk": true};</script>
-    <style>.a { color: red; }</style>
-    <h2>Prescription drugs</h2>
-    <p>Only certified pharmacies may advertise.</p>
-  </main>
-  <footer>Meta 2026</footer>
-</body></html>
-"""
-
-SOURCE = {"id": "health-wellness", "label": "Health & Wellness",
-          "url": "https://example.test/health-wellness/"}
+def fixture(name: str) -> str:
+    with open(os.path.join(FIXTURES, f"{name}.html"), encoding="utf-8") as handle:
+        return handle.read()
 
 
 def serve(pages: dict[str, str]):
-    """Build a fetch_html stand-in that serves canned HTML by URL substring."""
+    """A fetch_html stand-in that serves fixture HTML by URL substring."""
     def fetch(url: str) -> str:
         for key, html in pages.items():
             if key in url:
@@ -77,110 +51,203 @@ def serve(pages: dict[str, str]):
     return fetch
 
 
-class TestExtraction(unittest.TestCase):
-    def test_splits_flat_markup_by_heading(self):
-        sections = sc.extract_sections(FLAT)
-        self.assertEqual([s["heading"] for s in sections],
-                         ["Health and wellness", "Supplements", "Weight loss"])
+def all_fixtures() -> dict[str, str]:
+    return {s["id"]: fixture(s["id"]) for s in sc.SOURCES}
 
-    def test_finds_headings_inside_nested_wrappers(self):
-        # A sibling-only walk would return nothing here — the body text is
-        # two divs deep, not a sibling of its heading.
-        sections = sc.extract_sections(NESTED)
-        self.assertEqual([s["heading"] for s in sections],
-                         ["Supplements", "Weight loss"])
-        self.assertEqual(sections[0]["text"],
-                         "Ads may not promote unsafe supplements.")
 
-    def test_sections_are_mutually_exclusive(self):
-        # The h1's text must NOT swallow its h2 subsections: if it did, a
-        # change in one subsection would flag its parent as changed too.
-        sections = sc.extract_sections(FLAT)
-        top = next(s for s in sections if s["heading"] == "Health and wellness")
-        self.assertEqual(top["text"], "Ads must not promote unsafe products.")
-        self.assertNotIn("Supplements", top["text"])
-        self.assertNotIn("18 or older", top["text"])
+class TestExtractionAgainstRealPages(unittest.TestCase):
+    def test_titles_come_from_the_page(self):
+        expected = {
+            "health-wellness": "Health and Wellness",
+            "drugs-pharmaceuticals": "Drugs and Pharmaceuticals",
+            "personal-attributes": "Privacy Violations and Personal Attributes",
+        }
+        for name, title in expected.items():
+            self.assertEqual(sc.extract_policy(fixture(name))["title"], title)
 
-    def test_list_items_are_kept_with_their_section(self):
-        sections = sc.extract_sections(FLAT)
-        supplements = next(s for s in sections if s["heading"] == "Supplements")
-        self.assertIn("No before-and-after images.", supplements["text"])
+    def test_each_page_yields_its_real_sections(self):
+        headings = {
+            name: [s["heading"] for s in sc.extract_policy(fixture(name))["sections"]]
+            for name in ("health-wellness", "drugs-pharmaceuticals",
+                         "personal-attributes")
+        }
+        self.assertEqual(headings["health-wellness"],
+                         ["Health and Wellness", "Overview", "Guidelines",
+                          "Adult Products and Reproductive Health",
+                          "Overview", "Guidelines"])
+        # The drugs page is the deepest: five policy areas, each with its
+        # own Overview and Guidelines.
+        for expected in ("High-Risk Drugs, Non-Medical Drugs and Entheogens",
+                         "Prescription Drugs", "Over-The-Counter Drugs",
+                         "Cannabis and Cannabis Derived Products"):
+            self.assertIn(expected, headings["drugs-pharmaceuticals"])
+        self.assertIn("Additional Guidelines for Ads",
+                      headings["personal-attributes"])
 
-    def test_drops_script_style_and_navigation_chrome(self):
-        sections = sc.extract_sections(NOISY)
-        self.assertEqual([s["heading"] for s in sections], ["Prescription drugs"])
-        text = sections[0]["text"]
-        self.assertNotIn("__DATA__", text)
-        self.assertNotIn("color: red", text)
-        self.assertNotIn("Transparency Center", text)
+    def test_policy_text_is_substantial(self):
+        for name in ("health-wellness", "drugs-pharmaceuticals",
+                     "personal-attributes"):
+            sections = sc.extract_policy(fixture(name))["sections"]
+            total = sum(len(s["text"]) for s in sections)
+            self.assertGreater(total, 3000, f"{name} lost most of its text")
 
-    def test_page_with_no_headings_still_yields_reviewable_text(self):
-        sections = sc.extract_sections(
-            "<html><body><main><p>Some policy prose.</p></main></body></html>")
-        self.assertEqual(len(sections), 1)
-        self.assertIn("Some policy prose.", sections[0]["text"])
+    def test_real_policy_language_survives(self):
+        drugs = sc.extract_policy(fixture("drugs-pharmaceuticals"))["sections"]
+        text = " ".join(s["text"] for s in drugs)
+        self.assertIn("LegitScript", text)
+        self.assertIn("over-the-counter", text.lower())
 
+    def test_site_footer_is_not_mistaken_for_policy(self):
+        for name in ("health-wellness", "drugs-pharmaceuticals",
+                     "personal-attributes"):
+            policy = sc.extract_policy(fixture(name))
+            blob = " ".join(s["heading"] + " " + s["text"]
+                            for s in policy["sections"])
+            for marker in FOOTER_MARKERS:
+                self.assertNotIn(marker, blob, f"{name} leaked footer chrome")
+            self.assertNotIn("Enforcement",
+                             [s["heading"] for s in policy["sections"]])
+
+    def test_breadcrumb_is_not_part_of_the_policy(self):
+        for name in ("health-wellness", "drugs-pharmaceuticals",
+                     "personal-attributes"):
+            blob = " ".join(s["text"]
+                            for s in sc.extract_policy(fixture(name))["sections"])
+            self.assertNotIn("Home Policies Ad Standards", blob)
+
+    def test_inline_links_stay_in_their_sentence(self):
+        # "Ads Must Comply with the Community Standard on Privacy Violations"
+        # is one sentence with a link in the middle of it.
+        sections = sc.extract_policy(fixture("personal-attributes"))["sections"]
+        text = " ".join(s["text"] for s in sections)
+        self.assertIn("Community Standard on Privacy Violations", text)
+
+    def test_link_text_never_becomes_a_heading(self):
+        # An inline "here" link has the same DOM shape as a section heading.
+        for name in ("health-wellness", "drugs-pharmaceuticals",
+                     "personal-attributes"):
+            headings = [s["heading"]
+                        for s in sc.extract_policy(fixture(name))["sections"]]
+            self.assertNotIn("here", headings)
+            for heading in headings:
+                self.assertGreater(len(heading), 3, f"{name}: {heading!r}")
+
+    def test_change_log_labels_are_not_sections(self):
+        for name in ("health-wellness", "drugs-pharmaceuticals",
+                     "personal-attributes"):
+            headings = [s["heading"]
+                        for s in sc.extract_policy(fixture(name))["sections"]]
+            self.assertNotIn("CHANGE LOG", headings)
+            self.assertNotIn("Policy details", headings)
+
+
+class TestMetasOwnRevisionDates(unittest.TestCase):
+    """Meta stamps each policy with its own change log — better evidence of a
+    real change than our hash diff, so it has to be read correctly."""
+
+    def test_dates_are_iso_and_newest_first(self):
+        policy = sc.extract_policy(fixture("drugs-pharmaceuticals"),
+                                   dt.date(2026, 9, 6))
+        updates = policy["policyUpdates"]
+        self.assertTrue(updates)
+        self.assertEqual(updates, sorted(updates, reverse=True))
+        for value in updates:
+            dt.date.fromisoformat(value)  # raises if malformed
+        self.assertIn("2025-02-27", updates)
+        self.assertIn("2024-06-12", updates)
+
+    def test_today_resolves_against_the_scrape_date(self):
+        # The pages say "Today"; it must become the date we scraped, not
+        # whatever day the test happens to run.
+        policy = sc.extract_policy(fixture("health-wellness"),
+                                   dt.date(2026, 9, 6))
+        self.assertIn("2026-09-06", policy["policyUpdates"])
+        policy = sc.extract_policy(fixture("health-wellness"),
+                                   dt.date(2027, 1, 15))
+        self.assertIn("2027-01-15", policy["policyUpdates"])
+        self.assertNotIn("2026-09-06", policy["policyUpdates"])
+
+
+class TestExtractionEdgeCases(unittest.TestCase):
     def test_empty_page_yields_nothing(self):
-        self.assertEqual(sc.extract_sections("<html><body></body></html>"), [])
+        policy = sc.extract_policy("<html><body></body></html>")
+        self.assertEqual(policy["sections"], [])
+
+    def test_page_without_main_does_not_explode(self):
+        policy = sc.extract_policy(
+            "<html><body><div><h1>T</h1></div></body></html>")
+        self.assertEqual(policy["sections"], [])
+
+    def test_short_main_keeps_its_only_child(self):
+        # content_children must not treat a one-child page as chrome.
+        html = ("<html><body><main><div><div>A Heading</div>"
+                "<div>" + "Body text that is clearly long enough. " * 3 +
+                "</div></div></main></body></html>")
+        policy = sc.extract_policy(html)
+        self.assertEqual([s["heading"] for s in policy["sections"]],
+                         ["A Heading"])
 
 
 class TestDiffing(unittest.TestCase):
+    def setUp(self):
+        self.source = sc.SOURCES[0]
+        self.sections = sc.extract_policy(fixture("health-wellness"))["sections"]
+
     def _first_run(self):
-        return sc.diff_sections(SOURCE, sc.extract_sections(FLAT), None, WEEK_1)
+        return sc.diff_sections(self.source, self.sections, None, WEEK_1)
 
     def test_first_run_flags_nothing(self):
-        # No baseline yet. Flagging every section on day one would bury the
-        # real changes that follow.
         sections, events = self._first_run()
         self.assertEqual(events, [])
         self.assertTrue(all(not s["changed"] for s in sections))
 
     def test_unchanged_page_flags_nothing(self):
         sections, _ = self._first_run()
-        prev = {"sections": sections}
         again, events = sc.diff_sections(
-            SOURCE, sc.extract_sections(FLAT), prev, WEEK_2)
+            self.source, self.sections, {"sections": sections}, WEEK_2)
         self.assertEqual(events, [])
         self.assertTrue(all(not s["changed"] for s in again))
 
     def test_edit_flags_only_the_section_that_changed(self):
         sections, _ = self._first_run()
-        prev = {"sections": sections}
-        edited = FLAT.replace("Ads must target people 18 or older.",
-                              "Ads must target people 21 or older.")
+        edited = [dict(s) for s in self.sections]
+        edited[2]["text"] = edited[2]["text"] + " Newly added restriction."
         after, events = sc.diff_sections(
-            SOURCE, sc.extract_sections(edited), prev, WEEK_2)
+            self.source, edited, {"sections": sections}, WEEK_2)
 
-        changed = [s["heading"] for s in after if s["changed"]]
-        self.assertEqual(changed, ["Weight loss"])
+        self.assertEqual([s["heading"] for s in after if s["changed"]],
+                         [edited[2]["heading"]])
         self.assertEqual(len(events), 1)
         self.assertEqual(events[0]["type"], "changed")
-        self.assertEqual(events[0]["heading"], "Weight loss")
         self.assertEqual(events[0]["source"], "Health & Wellness")
         self.assertEqual(events[0]["sourceId"], "health-wellness")
         self.assertEqual(events[0]["date"], "2026-09-14")
 
     def test_added_and_removed_sections_are_logged(self):
         sections, _ = self._first_run()
-        prev = {"sections": sections}
-        rewritten = FLAT.replace(
-            "<h2>Weight loss</h2>\n  <p>Ads must target people 18 or older.</p>",
-            "<h2>Cosmetic procedures</h2>\n  <p>No graphic imagery.</p>")
+        rewritten = [dict(s) for s in self.sections[:-1]]
+        rewritten.append({"heading": "Brand New Rule",
+                          "text": "Something Meta did not say before, at length."})
         after, events = sc.diff_sections(
-            SOURCE, sc.extract_sections(rewritten), prev, WEEK_2)
+            self.source, rewritten, {"sections": sections}, WEEK_2)
 
         kinds = {(e["type"], e["heading"]) for e in events}
-        self.assertIn(("new", "Cosmetic procedures"), kinds)
-        self.assertIn(("removed", "Weight loss"), kinds)
+        self.assertIn(("new", "Brand New Rule"), kinds)
+        self.assertTrue(any(e["type"] == "removed" for e in events))
         self.assertTrue(
-            next(s for s in after if s["heading"] == "Cosmetic procedures")["changed"])
+            next(s for s in after if s["heading"] == "Brand New Rule")["changed"])
 
-    def test_duplicate_headings_get_distinct_ids(self):
-        html = ("<html><body><main><h2>Overview</h2><p>One.</p>"
-                "<h2>Overview</h2><p>Two.</p></main></body></html>")
+    def test_repeated_headings_get_distinct_ids(self):
+        # Every policy area on these pages has its own "Overview" and
+        # "Guidelines"; they must not collapse into one another.
         sections, _ = sc.diff_sections(
-            SOURCE, sc.extract_sections(html), None, WEEK_1)
-        self.assertEqual([s["id"] for s in sections], ["overview", "overview-2"])
+            sc.SOURCES[1],
+            sc.extract_policy(fixture("drugs-pharmaceuticals"))["sections"],
+            None, WEEK_1)
+        ids = [s["id"] for s in sections]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertIn("overview", ids)
+        self.assertIn("overview-2", ids)
 
 
 class TestSourceIsolation(unittest.TestCase):
@@ -189,11 +256,7 @@ class TestSourceIsolation(unittest.TestCase):
 
     def setUp(self):
         self._real_fetch = sc.fetch_html
-        self.pages = {
-            "health-wellness": FLAT,
-            "drugs-pharmaceuticals": NOISY,
-            "personal-attributes": NESTED,
-        }
+        self.pages = all_fixtures()
         sc.fetch_html = serve(self.pages)
 
     def tearDown(self):
@@ -204,14 +267,17 @@ class TestSourceIsolation(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertEqual([s["id"] for s in payload["sources"]],
                          [s["id"] for s in sc.SOURCES])
-        self.assertTrue(all(s["sections"] for s in payload["sources"]))
+        for source in payload["sources"]:
+            self.assertTrue(source["sections"])
+            self.assertTrue(source["title"])
+            self.assertTrue(source["policyUpdates"])
 
     def test_a_failed_source_keeps_its_last_good_text(self):
         first, _ = sc.build_payload(None, WEEK_1)
 
         def flaky(url: str) -> str:
             if "personal-attributes" in url:
-                raise requests.RequestException("403 Forbidden")
+                raise RuntimeError("HTTP 403")
             return serve(self.pages)(url)
 
         sc.fetch_html = flaky
@@ -221,19 +287,20 @@ class TestSourceIsolation(unittest.TestCase):
         healthy = next(s for s in second["sources"] if s["id"] == "health-wellness")
 
         self.assertEqual(len(errors), 1)
-        self.assertIn("403 Forbidden", broken["error"])
+        self.assertIn("HTTP 403", broken["error"])
         # Text survives, and lastChecked stays at the last *successful* check
         # so the page never implies stale text was confirmed today.
         self.assertTrue(broken["sections"])
         self.assertEqual(broken["lastChecked"], "2026-09-07T12:00:00Z")
         self.assertEqual(broken["erroredAt"], "2026-09-14T12:00:00Z")
+        self.assertTrue(broken["title"])
         # The healthy sources are unaffected.
         self.assertIsNone(healthy["error"])
         self.assertEqual(healthy["lastChecked"], "2026-09-14T12:00:00Z")
 
     def test_a_restructured_page_is_an_error_not_an_empty_section_list(self):
         first, _ = sc.build_payload(None, WEEK_1)
-        self.pages["personal-attributes"] = "<html><body></body></html>"
+        self.pages["personal-attributes"] = "<html><body><main></main></body></html>"
         second, errors = sc.build_payload(first, WEEK_2)
 
         broken = next(s for s in second["sources"] if s["id"] == "personal-attributes")
@@ -243,7 +310,7 @@ class TestSourceIsolation(unittest.TestCase):
 
     def test_carried_forward_sections_are_not_flagged_as_changed(self):
         first, _ = sc.build_payload(None, WEEK_1)
-        self.pages["personal-attributes"] = "<html><body></body></html>"
+        self.pages["personal-attributes"] = "<html><body><main></main></body></html>"
         second, _ = sc.build_payload(first, WEEK_2)
         broken = next(s for s in second["sources"] if s["id"] == "personal-attributes")
         self.assertTrue(all(not s["changed"] for s in broken["sections"]))
@@ -269,14 +336,14 @@ class TestSourceIsolation(unittest.TestCase):
                                "source": "old", "sourceId": "old",
                                "heading": f"Filler {i}"}
                               for i in range(sc.MAX_CHANGELOG)]
-        self.pages["health-wellness"] = FLAT.replace(
-            "Ads must target people 18 or older.",
-            "Ads must target people 21 or older.")
+        self.pages["health-wellness"] = self.pages["health-wellness"].replace(
+            "Meta restricts advertising content",
+            "Meta now further restricts advertising content")
         second, _ = sc.build_payload(first, WEEK_2)
 
         self.assertEqual(len(second["changeLog"]), sc.MAX_CHANGELOG)
-        self.assertEqual(second["changeLog"][0]["heading"], "Weight loss")
         self.assertEqual(second["changeLog"][0]["date"], "2026-09-14")
+        self.assertEqual(second["changeLog"][0]["sourceId"], "health-wellness")
 
 
 class TestConfiguration(unittest.TestCase):
@@ -287,6 +354,13 @@ class TestConfiguration(unittest.TestCase):
             self.assertTrue(source["url"].startswith("https://"),
                             f"{source['id']} must be fetched over https")
             self.assertTrue(source["label"])
+
+    def test_every_source_has_a_fixture(self):
+        # A new source without a fixture is a source nothing tests.
+        for source in sc.SOURCES:
+            self.assertTrue(
+                os.path.exists(os.path.join(FIXTURES, f"{source['id']}.html")),
+                f"missing fixture for {source['id']}")
 
 
 if __name__ == "__main__":

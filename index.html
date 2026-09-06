@@ -259,6 +259,8 @@ const compact = n => {
 const signClass = n => (n > 0 ? "pos" : n < 0 ? "neg" : "");
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const fmtDay = iso => { const [, m, d] = iso.split("-").map(Number); return MONTHS[m-1] + " " + d; };
+/* Policy revision dates go back years, so these carry the year too. */
+const fmtDate = iso => { const [y, m, d] = iso.split("-").map(Number); return MONTHS[m-1] + " " + d + ", " + y; };
 const el = (tag, cls, html) => {
   const n = document.createElement(tag);
   if (cls) n.className = cls;
@@ -604,9 +606,21 @@ function compliancePanel(s) {
         { month:"short", day:"numeric", hour:"numeric", minute:"2-digit" })
     : "never";
 
+  /* Meta stamps each policy with its own revision dates. That is better
+     evidence of a real change than our hash diff, so it leads. */
+  const updates = s.policyUpdates || [];
+  if (updates.length) {
+    panel.append(el("div", "tile-note",
+      "<b>Meta last revised this policy " + fmtDate(updates[0]) +
+      "</b>" + (updates.length > 1
+        ? " · earlier revisions " + updates.slice(1, 4).map(fmtDate).join(", ")
+        : "")));
+  }
+
   panel.append(el("div", "source",
-    "Source: <a href='" + s.url + "' target='_blank' rel='noopener'>" + s.url +
-    "</a> &middot; last confirmed " + checked));
+    (s.title ? "<b>" + s.title + "</b> &middot; " : "") +
+    "<a href='" + s.url + "' target='_blank' rel='noopener'>" + s.url +
+    "</a> &middot; last checked " + checked));
 
   if (s.error) {
     panel.append(el("div", "no-target", "Last refresh failed: " + s.error));

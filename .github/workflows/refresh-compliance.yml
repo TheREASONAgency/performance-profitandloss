@@ -1,9 +1,9 @@
 name: Refresh Compliance
 
-# Weekly scrape of Meta's Health & Wellness restricted-goods ad policy page
-# for the dashboard's Compliance tab. This writes compliance.json, a file
-# separate from data.json, on its own schedule — so it can never race or
-# clobber the weekday pacing refresh (see RUNBOOK.md).
+# Weekly scrape of the Meta ad-policy pages behind the dashboard's
+# Compliance tab. This writes compliance.json, a file separate from
+# data.json, on its own schedule — so it can never race or clobber the
+# weekday pacing refresh (see RUNBOOK.md).
 #
 # A single UTC cron drifts by an hour across the DST boundary. That's fine
 # here: unlike the pacing refresh, this isn't tied to a same-day figure —
@@ -13,6 +13,10 @@ on:
   schedule:
     - cron: "0 12 * * 1"   # Monday, ~7-8am Eastern depending on DST
   workflow_dispatch:
+  # TEMPORARY: lets the feature branch verify against the live pages before
+  # this is merged. Remove once verified — the schedule is the real trigger.
+  push:
+    branches: [claude/rea-pacing-feed-architecture-zycx8u]
 
 permissions:
   contents: write
@@ -31,11 +35,15 @@ jobs:
         with:
           python-version: "3.11"
 
+      # The policy pages are client-rendered: a plain HTTP fetch returns an
+      # app shell with no policy text in it, so the scrape needs a browser.
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
 
       # A red test blocks the publish, same rule as the pacing refresh.
-      # These are offline — nothing here touches the network.
+      # These run against captured markup and never touch the network.
       - name: Run scraper tests
         working-directory: scripts
         run: python3 test_scrape_compliance.py
@@ -57,7 +65,8 @@ jobs:
           else
             git add compliance.json
             git commit -m "compliance: refresh $(date -u +%Y-%m-%d)"
-            git push
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
       # Whatever could be published has been. Now go red if a source broke,
