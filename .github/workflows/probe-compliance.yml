@@ -1,18 +1,17 @@
 name: Probe Compliance Sources (temporary)
 
-# TEMPORARY diagnostic workflow. The session that wrote the compliance
-# scraper has no network route to transparency.meta.com, so this runs on a
-# GitHub runner (which does) and reports what the real pages actually look
-# like. Read-only: it never writes compliance.json or commits anything.
-# Delete this file once the scraper is verified against the live markup.
+# TEMPORARY diagnostic workflow — read-only, never writes compliance.json.
+# Delete once the scraper is verified against the live markup.
 #
-# Probe 1 found: a plain requests.get returns HTTP 400 and a 253KB Facebook
-# app shell with zero headings/paragraphs — the page is client-rendered.
-# This round tries, in order of how much machinery they cost to maintain:
-#   1. a fuller browser header set (maybe the 400 is just header sniffing)
-#   2. cookie priming via the site root
-#   3. the ?_fb_noscript=1 server-rendered variant Meta serves to no-JS UAs
-#   4. headless Chromium, the guaranteed-correct but heaviest option
+# Probe 1: plain requests.get -> HTTP 400, client-rendered Facebook shell.
+# Probe 2: fuller browser headers -> HTTP 200, but still no headings and no
+#          <p> at all; only headless Chromium yielded real text (12.8k chars,
+#          2 headings, zero paragraphs).
+# Probe 3 (this one): render all three pages in Chromium and report the DOM
+#          shape of the policy content — Meta's design system builds text out
+#          of divs/spans with role="heading"/aria-level, not h1-h4/p — plus
+#          the rendered text itself, so the extractor can be written to what
+#          the pages really are.
 on:
   push:
     branches: [claude/rea-pacing-feed-architecture-zycx8u]
@@ -37,115 +36,97 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
 
-      - name: Try each fetch strategy against the live pages
+      - name: Report the rendered DOM shape of each policy page
         run: |
           python3 - <<'PY'
-          import sys, pathlib, json
+          import sys, pathlib, json, re
           sys.path.insert(0, "scripts")
           import scrape_compliance as sc
           from bs4 import BeautifulSoup
-          import requests
+          from playwright.sync_api import sync_playwright
 
           pathlib.Path("probe").mkdir(exist_ok=True)
-          URL = sc.SOURCES[0]["url"]          # health-wellness, the reference page
-          results = {}
+          UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+          summary = {}
 
-          BROWSER_HEADERS = {
-              "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                             "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"),
-              "Accept": ("text/html,application/xhtml+xml,application/xml;q=0.9,"
-                         "image/avif,image/webp,image/apng,*/*;q=0.8"),
-              "Accept-Language": "en-US,en;q=0.9",
-              "Accept-Encoding": "gzip, deflate, br",
-              "Upgrade-Insecure-Requests": "1",
-              "Sec-Fetch-Dest": "document",
-              "Sec-Fetch-Mode": "navigate",
-              "Sec-Fetch-Site": "none",
-              "Sec-Fetch-User": "?1",
-              "sec-ch-ua": '"Chromium";v="124", "Not:A-Brand";v="24"',
-              "sec-ch-ua-mobile": "?0",
-              "sec-ch-ua-platform": '"Windows"',
-              "Cache-Control": "max-age=0",
-          }
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              for source in sc.SOURCES:
+                  print("=" * 78)
+                  print(f"SOURCE {source['id']}  {source['url']}")
+                  print("=" * 78)
+                  page = browser.new_page(user_agent=UA,
+                                          viewport={"width": 1280, "height": 2400},
+                                          locale="en-US")
+                  try:
+                      resp = page.goto(source["url"], wait_until="networkidle", timeout=60000)
+                      page.wait_for_timeout(3000)
+                      html = page.content()
+                      status = resp.status if resp else None
+                  except Exception as exc:
+                      print(f"  RENDER FAILED: {exc}")
+                      page.close()
+                      continue
 
-          def report(name, html, status):
-              soup = BeautifulSoup(html or "", "html.parser")
-              heads = soup.find_all(["h1", "h2", "h3", "h4"])
-              sections = sc.extract_sections(html or "")
-              text = sc.clean_text(soup.get_text(" "))
-              info = {
-                  "status": status,
-                  "bytes": len(html or ""),
-                  "headings": len(heads),
-                  "paragraphs": len(soup.find_all("p")),
-                  "sections": len(sections),
-                  "text_chars": len(text),
-              }
-              results[name] = info
-              print(f"  -> {name}: {info}")
-              if heads:
-                  print("     headings: " + " | ".join(
-                      sc.clean_text(h.get_text(' '))[:60] for h in heads[:12]))
-              if sections:
-                  print(f"     first section: {sections[0]['heading'][:70]}")
-                  print(f"       {sections[0]['text'][:300]}")
-              if html:
-                  pathlib.Path(f"probe/{name}.html").write_text(html, encoding="utf-8")
+                  pathlib.Path(f"probe/{source['id']}.html").write_text(html, encoding="utf-8")
+                  soup = BeautifulSoup(html, "html.parser")
 
-          print("### 1. fuller browser headers")
-          try:
-              r = requests.get(URL, headers=BROWSER_HEADERS, timeout=30)
-              report("browser-headers", r.text, r.status_code)
-          except Exception as exc:
-              print(f"  failed: {exc}")
+                  counts = {t: len(soup.find_all(t))
+                            for t in ("h1","h2","h3","h4","h5","h6","p","li","div","span","article","main")}
+                  counts["role=heading"] = len(soup.select('[role="heading"]'))
+                  counts["aria-level"] = len(soup.select("[aria-level]"))
+                  counts["role=main"] = len(soup.select('[role="main"]'))
+                  counts["role=article"] = len(soup.select('[role="article"]'))
+                  print(f"  status={status} bytes={len(html)}")
+                  print(f"  tag counts: {counts}")
 
-          print("### 2. cookie priming via site root")
-          try:
-              s = requests.Session()
-              s.headers.update(BROWSER_HEADERS)
-              root = s.get("https://transparency.meta.com/", timeout=30)
-              print(f"  root status={root.status_code} cookies={list(s.cookies.keys())}")
-              r = s.get(URL, timeout=30)
-              report("cookie-primed", r.text, r.status_code)
-          except Exception as exc:
-              print(f"  failed: {exc}")
+                  print("  --- heading-ish elements (h1-h6 + role=heading) ---")
+                  for h in soup.select('h1,h2,h3,h4,h5,h6,[role="heading"]')[:50]:
+                      level = h.get("aria-level") or h.name
+                      classes = " ".join(h.get("class", []))[:40]
+                      print(f"    <{h.name} level={level} class='{classes}'> "
+                            f"{sc.clean_text(h.get_text(' '))[:100]}")
 
-          print("### 3. ?_fb_noscript=1 server-rendered variant")
-          for variant in (URL + "?_fb_noscript=1", URL.rstrip("/") + "/?_fb_noscript=1"):
-              try:
-                  r = requests.get(variant, headers=BROWSER_HEADERS, timeout=30)
-                  report(f"noscript::{variant.split('?')[-1]}", r.text, r.status_code)
-                  break
-              except Exception as exc:
-                  print(f"  failed: {exc}")
+                  # What does the visible text look like, and where does it live?
+                  body_text = page.inner_text("body")
+                  print(f"  --- rendered inner_text: {len(body_text)} chars ---")
+                  for line in body_text.splitlines()[:120]:
+                      line = line.strip()
+                      if line:
+                          print(f"    | {line[:150]}")
 
-          print("### 4. headless chromium")
-          try:
-              from playwright.sync_api import sync_playwright
-              with sync_playwright() as p:
-                  browser = p.chromium.launch()
-                  page = browser.new_page(
-                      user_agent=BROWSER_HEADERS["User-Agent"],
-                      viewport={"width": 1280, "height": 2000},
-                      locale="en-US",
-                  )
-                  resp = page.goto(URL, wait_until="networkidle", timeout=60000)
-                  page.wait_for_timeout(2500)
-                  html = page.content()
-                  report("chromium", html, resp.status if resp else None)
-                  browser.close()
-          except Exception as exc:
-              import traceback; traceback.print_exc()
-              print(f"  failed: {exc}")
+                  # Which container holds the bulk of the policy text?
+                  best = None
+                  for div in soup.find_all(["div", "section", "article", "main"]):
+                      t = sc.clean_text(div.get_text(" "))
+                      if 500 < len(t) < 40000:
+                          kids = div.find_all(["div", "section"], recursive=False)
+                          if best is None or len(t) < best[1]:
+                              best = (div, len(t), len(kids))
+                  if best:
+                      div, n, kids = best
+                      print(f"  --- tightest container holding the text: <{div.name} "
+                            f"class='{' '.join(div.get('class', []))[:60]}' "
+                            f"id='{div.get('id')}'> {n} chars, {kids} direct block children ---")
 
-          print()
-          print("SUMMARY: " + json.dumps(results, indent=2))
+                  summary[source["id"]] = {
+                      "status": status, "bytes": len(html),
+                      "headingish": counts["h1"] + counts["h2"] + counts["h3"]
+                                    + counts["role=heading"],
+                      "inner_text_chars": len(body_text),
+                  }
+                  page.close()
+                  print()
+              browser.close()
+
+          print("SUMMARY: " + json.dumps(summary, indent=2))
           PY
 
-      - name: Upload raw HTML for offline parser work
+      - name: Upload rendered HTML for offline parser work
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: probe-html
+          name: probe-rendered-html
           path: probe/
           retention-days: 5
