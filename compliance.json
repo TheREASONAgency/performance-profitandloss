@@ -1,16 +1,16 @@
 {
-  "lastChecked": "2026-09-06T03:36:20Z",
+  "lastChecked": "2026-09-06T03:41:27Z",
   "sources": [
     {
       "id": "health-wellness",
       "label": "Health & Wellness",
       "url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/",
-      "lastChecked": "2026-09-06T03:36:20Z",
+      "lastChecked": "2026-09-06T03:41:27Z",
       "title": "Health and Wellness",
       "policyUpdates": [
         "2026-09-06",
-        "2026-07-23",
-        "2024-12-27"
+        "2026-07-22",
+        "2024-12-26"
       ],
       "error": null,
       "sections": [
@@ -62,13 +62,13 @@
       "id": "drugs-pharmaceuticals",
       "label": "Drugs & Pharmaceuticals",
       "url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/drugs-pharmaceuticals/",
-      "lastChecked": "2026-09-06T03:36:20Z",
+      "lastChecked": "2026-09-06T03:41:27Z",
       "title": "Drugs and Pharmaceuticals",
       "policyUpdates": [
         "2026-09-06",
-        "2025-02-27",
-        "2024-11-01",
-        "2024-06-12"
+        "2025-02-26",
+        "2024-10-31",
+        "2024-06-11"
       ],
       "error": null,
       "sections": [
@@ -176,7 +176,7 @@
       "id": "personal-attributes",
       "label": "Personal Attributes",
       "url": "https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/",
-      "lastChecked": "2026-09-06T03:36:20Z",
+      "lastChecked": "2026-09-06T03:41:27Z",
       "title": "Privacy Violations and Personal Attributes",
       "policyUpdates": [
         "2026-09-06",
