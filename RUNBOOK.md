@@ -144,7 +144,11 @@ renders one sub-tab per source.
 - **Meta stamps each policy with its own revision dates**, read from the
   CHANGE LOG beside the title into `policyUpdates` (ISO, newest first;
   "Today" resolves to the scrape date). That is better evidence of a real
-  change than any hash diff, so the tab leads with it.
+  change than any hash diff, so the tab leads with it. Those dates are
+  rendered client-side and localized, so the browser's timezone is pinned to
+  `America/New_York` (`POLICY_TIMEZONE`) — unpinned, two runs ten minutes
+  apart reported Jul 22 and Jul 23 for the same revision, and that drift
+  would read as a policy change that never happened. Don't remove the pin.
 - **Adding a policy page is one entry in `SOURCES`** at the top of
   `scrape_compliance.py` — plus a fixture, which a test enforces.
 - **`compliance.json` is a separate file from `data.json`, on a separate

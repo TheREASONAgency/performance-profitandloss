@@ -78,6 +78,11 @@ USER_AGENT = (
     "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 )
 
+# The zone the revision dates are read in. Eastern matches the rest of the
+# dashboard (see should_run.py) and, more importantly, never changes — see
+# the note in fetch_html.
+POLICY_TIMEZONE = "America/New_York"
+
 # Keep the change log bounded so the file doesn't grow forever.
 MAX_CHANGELOG = 100
 
@@ -150,6 +155,14 @@ def fetch_html(url: str) -> str:
                 user_agent=USER_AGENT,
                 viewport={"width": 1280, "height": 2400},
                 locale="en-US",
+                # Meta renders the CHANGE LOG dates client-side and localizes
+                # them, so an unpinned browser reports a different day either
+                # side of a UTC midnight — two runs ten minutes apart were
+                # seen reporting Jul 22 and Jul 23 for the same revision.
+                # Pinning the zone (the same one the pacing schedule runs on)
+                # keeps the dates stable so a timezone roll never reads as a
+                # policy change.
+                timezone_id=POLICY_TIMEZONE,
             )
             response = page.goto(url, wait_until="networkidle", timeout=60000)
             if response is not None and response.status >= 400:
