@@ -13,10 +13,6 @@ on:
   schedule:
     - cron: "0 12 * * 1"   # Monday, ~7-8am Eastern depending on DST
   workflow_dispatch:
-  # TEMPORARY: lets the feature branch verify against the live pages before
-  # this is merged. Remove once verified — the schedule is the real trigger.
-  push:
-    branches: [claude/rea-pacing-feed-architecture-zycx8u]
 
 permissions:
   contents: write
