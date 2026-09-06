@@ -1,24 +1,29 @@
 name: Probe Compliance Sources (temporary)
 
-# TEMPORARY diagnostic workflow — read-only, never writes compliance.json.
-# Delete once the scraper is verified against the live markup.
+# TEMPORARY diagnostic workflow. Delete once the scraper is verified.
 #
 # Probe 1: plain requests.get -> HTTP 400, client-rendered Facebook shell.
-# Probe 2: fuller browser headers -> HTTP 200, but still no headings and no
-#          <p> at all; only headless Chromium yielded real text (12.8k chars,
-#          2 headings, zero paragraphs).
-# Probe 3 (this one): render all three pages in Chromium and report the DOM
-#          shape of the policy content — Meta's design system builds text out
-#          of divs/spans with role="heading"/aria-level, not h1-h4/p — plus
-#          the rendered text itself, so the extractor can be written to what
-#          the pages really are.
+# Probe 2: fuller browser headers -> 200, but no <p> and no real headings;
+#          only headless Chromium yielded actual text.
+# Probe 3: rendered pages carry ~23 heading-ish elements (many of them site
+#          chrome) and 6.5-11.7k chars of real policy text, plus Meta's own
+#          CHANGE LOG with dates.
+# Probe 4 (this one): the artifact download is unreachable from the authoring
+#          session (blob storage is blocked), so this commits a distilled
+#          capture — the content root's HTML plus a structural outline — to
+#          probe_capture/ on this branch, where it can be pulled and used to
+#          build the extractor offline against real markup.
 on:
   push:
     branches: [claude/rea-pacing-feed-architecture-zycx8u]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: probe-compliance
+  cancel-in-progress: false
 
 jobs:
   probe:
@@ -36,97 +41,95 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
 
-      - name: Report the rendered DOM shape of each policy page
+      - name: Capture the rendered content root of each policy page
         run: |
           python3 - <<'PY'
-          import sys, pathlib, json, re
+          import sys, pathlib, json
           sys.path.insert(0, "scripts")
           import scrape_compliance as sc
           from bs4 import BeautifulSoup
           from playwright.sync_api import sync_playwright
 
-          pathlib.Path("probe").mkdir(exist_ok=True)
+          out = pathlib.Path("probe_capture")
+          out.mkdir(exist_ok=True)
           UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
-          summary = {}
+
+          # Candidate content roots, most specific first.
+          ROOTS = ["main", '[role="main"]', "#content", '[data-testid="content"]']
 
           with sync_playwright() as p:
               browser = p.chromium.launch()
               for source in sc.SOURCES:
                   print("=" * 78)
-                  print(f"SOURCE {source['id']}  {source['url']}")
-                  print("=" * 78)
+                  print(f"SOURCE {source['id']}")
                   page = browser.new_page(user_agent=UA,
                                           viewport={"width": 1280, "height": 2400},
                                           locale="en-US")
-                  try:
-                      resp = page.goto(source["url"], wait_until="networkidle", timeout=60000)
-                      page.wait_for_timeout(3000)
-                      html = page.content()
-                      status = resp.status if resp else None
-                  except Exception as exc:
-                      print(f"  RENDER FAILED: {exc}")
-                      page.close()
-                      continue
-
-                  pathlib.Path(f"probe/{source['id']}.html").write_text(html, encoding="utf-8")
+                  page.goto(source["url"], wait_until="networkidle", timeout=60000)
+                  page.wait_for_timeout(3000)
+                  html = page.content()
                   soup = BeautifulSoup(html, "html.parser")
 
-                  counts = {t: len(soup.find_all(t))
-                            for t in ("h1","h2","h3","h4","h5","h6","p","li","div","span","article","main")}
-                  counts["role=heading"] = len(soup.select('[role="heading"]'))
-                  counts["aria-level"] = len(soup.select("[aria-level]"))
-                  counts["role=main"] = len(soup.select('[role="main"]'))
-                  counts["role=article"] = len(soup.select('[role="article"]'))
-                  print(f"  status={status} bytes={len(html)}")
-                  print(f"  tag counts: {counts}")
+                  chosen, root = None, None
+                  for sel in ROOTS:
+                      found = soup.select(sel)
+                      for cand in found:
+                          text = sc.clean_text(cand.get_text(" "))
+                          print(f"  candidate {sel}: {len(found)} match(es), "
+                                f"first has {len(text)} chars")
+                          if len(text) > 800:
+                              chosen, root = sel, cand
+                          break
+                      if root is not None:
+                          break
+                  if root is None:
+                      print("  no content root matched; falling back to <body>")
+                      chosen, root = "body", soup.body
 
-                  print("  --- heading-ish elements (h1-h6 + role=heading) ---")
-                  for h in soup.select('h1,h2,h3,h4,h5,h6,[role="heading"]')[:50]:
-                      level = h.get("aria-level") or h.name
-                      classes = " ".join(h.get("class", []))[:40]
-                      print(f"    <{h.name} level={level} class='{classes}'> "
-                            f"{sc.clean_text(h.get_text(' '))[:100]}")
+                  print(f"  using root: {chosen}")
 
-                  # What does the visible text look like, and where does it live?
-                  body_text = page.inner_text("body")
-                  print(f"  --- rendered inner_text: {len(body_text)} chars ---")
-                  for line in body_text.splitlines()[:120]:
-                      line = line.strip()
-                      if line:
-                          print(f"    | {line[:150]}")
+                  # Structural outline: every element carrying its own text.
+                  outline = []
+                  for elem in root.find_all(True):
+                      own = "".join(c for c in elem.children
+                                    if isinstance(c, str)).strip()
+                      if not own:
+                          continue
+                      depth = len(list(elem.parents))
+                      outline.append({
+                          "depth": depth,
+                          "tag": elem.name,
+                          "role": elem.get("role"),
+                          "aria_level": elem.get("aria-level"),
+                          "classes": " ".join(elem.get("class", []))[:60],
+                          "text": sc.clean_text(own)[:400],
+                      })
 
-                  # Which container holds the bulk of the policy text?
-                  best = None
-                  for div in soup.find_all(["div", "section", "article", "main"]):
-                      t = sc.clean_text(div.get_text(" "))
-                      if 500 < len(t) < 40000:
-                          kids = div.find_all(["div", "section"], recursive=False)
-                          if best is None or len(t) < best[1]:
-                              best = (div, len(t), len(kids))
-                  if best:
-                      div, n, kids = best
-                      print(f"  --- tightest container holding the text: <{div.name} "
-                            f"class='{' '.join(div.get('class', []))[:60]}' "
-                            f"id='{div.get('id')}'> {n} chars, {kids} direct block children ---")
+                  (out / f"{source['id']}.outline.json").write_text(
+                      json.dumps({"url": source["url"], "root": chosen,
+                                  "outline": outline}, indent=1), encoding="utf-8")
+                  (out / f"{source['id']}.root.html").write_text(
+                      str(root), encoding="utf-8")
 
-                  summary[source["id"]] = {
-                      "status": status, "bytes": len(html),
-                      "headingish": counts["h1"] + counts["h2"] + counts["h3"]
-                                    + counts["role=heading"],
-                      "inner_text_chars": len(body_text),
-                  }
+                  print(f"  outline entries: {len(outline)}")
+                  print(f"  root html bytes: {len(str(root))}")
+                  for row in outline[:40]:
+                      print(f"    d{row['depth']:<3} <{row['tag']} role={row['role']} "
+                            f"lvl={row['aria_level']}> {row['text'][:90]}")
                   page.close()
-                  print()
               browser.close()
-
-          print("SUMMARY: " + json.dumps(summary, indent=2))
           PY
 
-      - name: Upload rendered HTML for offline parser work
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: probe-rendered-html
-          path: probe/
-          retention-days: 5
+      - name: Commit the capture to this branch
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add probe_capture/
+          if git diff --cached --quiet; then
+            echo "No capture change"
+          else
+            git commit -m "probe: capture rendered policy page structure"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
