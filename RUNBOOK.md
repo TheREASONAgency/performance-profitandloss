@@ -149,6 +149,9 @@ repo root. The page renders one sub-tab per source.
 - Zero sections parsed from a page that fetched fine means Meta restructured
   it — fix `extract_sections()` in `scrape_compliance.py` to match the new
   markup.
+- **Before changing the scraper, run `python3 scripts/test_scrape_compliance.py`.**
+  CI runs it before every live scrape and a red test blocks the publish. The
+  tests are offline — they serve canned HTML, so they never hit Meta.
 - The committed placeholder has `"seed": true` until the workflow's first
   successful run, same pattern as `data.json`.
 

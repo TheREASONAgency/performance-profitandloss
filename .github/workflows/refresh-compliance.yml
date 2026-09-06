@@ -34,6 +34,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # A red test blocks the publish, same rule as the pacing refresh.
+      # These are offline — nothing here touches the network.
+      - name: Run scraper tests
+        working-directory: scripts
+        run: python3 test_scrape_compliance.py
+
       # A single unreachable policy page must not cost us the others: the
       # script still writes every source that worked, so the commit step runs
       # either way and the job is failed at the end instead.
