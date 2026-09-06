@@ -1,0 +1,100 @@
+name: Probe Compliance Sources (temporary)
+
+# TEMPORARY diagnostic workflow. The session that wrote the compliance
+# scraper has no network route to transparency.meta.com, so this runs on a
+# GitHub runner (which does) and reports what the real pages actually look
+# like. Read-only: it never writes compliance.json or commits anything.
+# Delete this file once the scraper is verified against the live markup.
+on:
+  push:
+    branches: [claude/rea-pacing-feed-architecture-zycx8u]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Report what the live pages look like
+        run: |
+          python3 - <<'PY'
+          import sys
+          sys.path.insert(0, "scripts")
+          import scrape_compliance as sc
+          from bs4 import BeautifulSoup
+          import requests, pathlib, json
+
+          pathlib.Path("probe").mkdir(exist_ok=True)
+          summary = {}
+
+          for source in sc.SOURCES:
+              print("=" * 78)
+              print(f"SOURCE {source['id']}  {source['url']}")
+              print("=" * 78)
+              try:
+                  resp = requests.get(source["url"], headers=sc.HEADERS, timeout=30)
+              except requests.RequestException as exc:
+                  print(f"  FETCH FAILED: {exc}")
+                  summary[source["id"]] = {"error": str(exc)}
+                  continue
+
+              html = resp.text
+              pathlib.Path(f"probe/{source['id']}.html").write_text(html, encoding="utf-8")
+              print(f"  status={resp.status_code} final_url={resp.url}")
+              print(f"  content-type={resp.headers.get('content-type')}")
+              print(f"  bytes={len(html)}")
+
+              soup = BeautifulSoup(html, "html.parser")
+              counts = {t: len(soup.find_all(t))
+                        for t in ("main", "h1", "h2", "h3", "h4", "p", "li", "script")}
+              print(f"  tag counts: {counts}")
+              for marker in ("__NEXT_DATA__", "__additionalDataLoaded", "RelayPrefetched",
+                             "data-testid", "noscript"):
+                  if marker in html:
+                      print(f"  contains marker: {marker}")
+
+              print("  --- all headings in document order ---")
+              for h in soup.find_all(["h1", "h2", "h3", "h4"])[:60]:
+                  print(f"    <{h.name}> {sc.clean_text(h.get_text(' '))[:110]}")
+
+              sections = sc.extract_sections(html)
+              print(f"  --- extract_sections() -> {len(sections)} sections ---")
+              for s in sections[:60]:
+                  print(f"    [{len(s['text']):5d}] {s['heading'][:70]}")
+                  print(f"            {s['text'][:200]}")
+
+              total = sum(len(s["text"]) for s in sections)
+              summary[source["id"]] = {
+                  "status": resp.status_code,
+                  "bytes": len(html),
+                  "headings": counts["h1"] + counts["h2"] + counts["h3"] + counts["h4"],
+                  "sections": len(sections),
+                  "total_text_chars": total,
+              }
+              print()
+
+              print("  --- first 2500 chars of raw HTML ---")
+              print(html[:2500])
+              print()
+
+          print("=" * 78)
+          print("SUMMARY: " + json.dumps(summary, indent=2))
+          PY
+
+      - name: Upload raw HTML for offline parser work
+        uses: actions/upload-artifact@v4
+        with:
+          name: probe-html
+          path: probe/
+          retention-days: 5
