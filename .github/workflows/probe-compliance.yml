@@ -5,6 +5,14 @@ name: Probe Compliance Sources (temporary)
 # GitHub runner (which does) and reports what the real pages actually look
 # like. Read-only: it never writes compliance.json or commits anything.
 # Delete this file once the scraper is verified against the live markup.
+#
+# Probe 1 found: a plain requests.get returns HTTP 400 and a 253KB Facebook
+# app shell with zero headings/paragraphs — the page is client-rendered.
+# This round tries, in order of how much machinery they cost to maintain:
+#   1. a fuller browser header set (maybe the 400 is just header sniffing)
+#   2. cookie priming via the site root
+#   3. the ?_fb_noscript=1 server-rendered variant Meta serves to no-JS UAs
+#   4. headless Chromium, the guaranteed-correct but heaviest option
 on:
   push:
     branches: [claude/rea-pacing-feed-architecture-zycx8u]
@@ -24,75 +32,118 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install playwright
+          playwright install --with-deps chromium
 
-      - name: Report what the live pages look like
+      - name: Try each fetch strategy against the live pages
         run: |
           python3 - <<'PY'
-          import sys
+          import sys, pathlib, json
           sys.path.insert(0, "scripts")
           import scrape_compliance as sc
           from bs4 import BeautifulSoup
-          import requests, pathlib, json
+          import requests
 
           pathlib.Path("probe").mkdir(exist_ok=True)
-          summary = {}
+          URL = sc.SOURCES[0]["url"]          # health-wellness, the reference page
+          results = {}
 
-          for source in sc.SOURCES:
-              print("=" * 78)
-              print(f"SOURCE {source['id']}  {source['url']}")
-              print("=" * 78)
-              try:
-                  resp = requests.get(source["url"], headers=sc.HEADERS, timeout=30)
-              except requests.RequestException as exc:
-                  print(f"  FETCH FAILED: {exc}")
-                  summary[source["id"]] = {"error": str(exc)}
-                  continue
+          BROWSER_HEADERS = {
+              "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                             "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"),
+              "Accept": ("text/html,application/xhtml+xml,application/xml;q=0.9,"
+                         "image/avif,image/webp,image/apng,*/*;q=0.8"),
+              "Accept-Language": "en-US,en;q=0.9",
+              "Accept-Encoding": "gzip, deflate, br",
+              "Upgrade-Insecure-Requests": "1",
+              "Sec-Fetch-Dest": "document",
+              "Sec-Fetch-Mode": "navigate",
+              "Sec-Fetch-Site": "none",
+              "Sec-Fetch-User": "?1",
+              "sec-ch-ua": '"Chromium";v="124", "Not:A-Brand";v="24"',
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": '"Windows"',
+              "Cache-Control": "max-age=0",
+          }
 
-              html = resp.text
-              pathlib.Path(f"probe/{source['id']}.html").write_text(html, encoding="utf-8")
-              print(f"  status={resp.status_code} final_url={resp.url}")
-              print(f"  content-type={resp.headers.get('content-type')}")
-              print(f"  bytes={len(html)}")
-
-              soup = BeautifulSoup(html, "html.parser")
-              counts = {t: len(soup.find_all(t))
-                        for t in ("main", "h1", "h2", "h3", "h4", "p", "li", "script")}
-              print(f"  tag counts: {counts}")
-              for marker in ("__NEXT_DATA__", "__additionalDataLoaded", "RelayPrefetched",
-                             "data-testid", "noscript"):
-                  if marker in html:
-                      print(f"  contains marker: {marker}")
-
-              print("  --- all headings in document order ---")
-              for h in soup.find_all(["h1", "h2", "h3", "h4"])[:60]:
-                  print(f"    <{h.name}> {sc.clean_text(h.get_text(' '))[:110]}")
-
-              sections = sc.extract_sections(html)
-              print(f"  --- extract_sections() -> {len(sections)} sections ---")
-              for s in sections[:60]:
-                  print(f"    [{len(s['text']):5d}] {s['heading'][:70]}")
-                  print(f"            {s['text'][:200]}")
-
-              total = sum(len(s["text"]) for s in sections)
-              summary[source["id"]] = {
-                  "status": resp.status_code,
-                  "bytes": len(html),
-                  "headings": counts["h1"] + counts["h2"] + counts["h3"] + counts["h4"],
+          def report(name, html, status):
+              soup = BeautifulSoup(html or "", "html.parser")
+              heads = soup.find_all(["h1", "h2", "h3", "h4"])
+              sections = sc.extract_sections(html or "")
+              text = sc.clean_text(soup.get_text(" "))
+              info = {
+                  "status": status,
+                  "bytes": len(html or ""),
+                  "headings": len(heads),
+                  "paragraphs": len(soup.find_all("p")),
                   "sections": len(sections),
-                  "total_text_chars": total,
+                  "text_chars": len(text),
               }
-              print()
+              results[name] = info
+              print(f"  -> {name}: {info}")
+              if heads:
+                  print("     headings: " + " | ".join(
+                      sc.clean_text(h.get_text(' '))[:60] for h in heads[:12]))
+              if sections:
+                  print(f"     first section: {sections[0]['heading'][:70]}")
+                  print(f"       {sections[0]['text'][:300]}")
+              if html:
+                  pathlib.Path(f"probe/{name}.html").write_text(html, encoding="utf-8")
 
-              print("  --- first 2500 chars of raw HTML ---")
-              print(html[:2500])
-              print()
+          print("### 1. fuller browser headers")
+          try:
+              r = requests.get(URL, headers=BROWSER_HEADERS, timeout=30)
+              report("browser-headers", r.text, r.status_code)
+          except Exception as exc:
+              print(f"  failed: {exc}")
 
-          print("=" * 78)
-          print("SUMMARY: " + json.dumps(summary, indent=2))
+          print("### 2. cookie priming via site root")
+          try:
+              s = requests.Session()
+              s.headers.update(BROWSER_HEADERS)
+              root = s.get("https://transparency.meta.com/", timeout=30)
+              print(f"  root status={root.status_code} cookies={list(s.cookies.keys())}")
+              r = s.get(URL, timeout=30)
+              report("cookie-primed", r.text, r.status_code)
+          except Exception as exc:
+              print(f"  failed: {exc}")
+
+          print("### 3. ?_fb_noscript=1 server-rendered variant")
+          for variant in (URL + "?_fb_noscript=1", URL.rstrip("/") + "/?_fb_noscript=1"):
+              try:
+                  r = requests.get(variant, headers=BROWSER_HEADERS, timeout=30)
+                  report(f"noscript::{variant.split('?')[-1]}", r.text, r.status_code)
+                  break
+              except Exception as exc:
+                  print(f"  failed: {exc}")
+
+          print("### 4. headless chromium")
+          try:
+              from playwright.sync_api import sync_playwright
+              with sync_playwright() as p:
+                  browser = p.chromium.launch()
+                  page = browser.new_page(
+                      user_agent=BROWSER_HEADERS["User-Agent"],
+                      viewport={"width": 1280, "height": 2000},
+                      locale="en-US",
+                  )
+                  resp = page.goto(URL, wait_until="networkidle", timeout=60000)
+                  page.wait_for_timeout(2500)
+                  html = page.content()
+                  report("chromium", html, resp.status if resp else None)
+                  browser.close()
+          except Exception as exc:
+              import traceback; traceback.print_exc()
+              print(f"  failed: {exc}")
+
+          print()
+          print("SUMMARY: " + json.dumps(results, indent=2))
           PY
 
       - name: Upload raw HTML for offline parser work
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: probe-html
