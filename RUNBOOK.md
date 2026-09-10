@@ -113,6 +113,77 @@ with an entry rather than drawing a cliff to $0 through unfilled days.
 | Page loads but says "Could not load data.json" | Deploy served without the data file | Check the last Action run pushed, and that Vercel deployed the repo root with no build command |
 | Everything shows `$0` | Month tabs for the current month don't exist yet | Have each buyer add their `Month | YYYY` tab; the job picks it up on the next run |
 
+## Compliance tab
+
+A second, independent pipeline feeds the Compliance tab:
+`scripts/scrape_compliance.py` scrapes each Meta ad-policy page weekly
+(`.github/workflows/refresh-compliance.yml`, Mondays, plus manual
+`workflow_dispatch`) and writes `compliance.json` at the repo root. The page
+renders one sub-tab per source.
+
+| Source | Page |
+|---|---|
+| Health & Wellness | `restricted-goods-services/health-wellness/` |
+| Drugs & Pharmaceuticals | `restricted-goods-services/drugs-pharmaceuticals/` |
+| Personal Attributes | `objectionable-content/privacy-violations-personal-attributes/` |
+
+- **The scrape needs a headless browser, not `requests`.** These pages are
+  client-rendered. A plain `requests.get` answers **HTTP 400** with a 253KB
+  Facebook app shell containing zero headings and zero paragraphs; a full
+  browser header set gets 200 but still no policy text. Only a rendered page
+  yields content, so the job installs Chromium via Playwright. This was
+  measured against the live pages, not assumed — don't "simplify" it back to
+  `requests`.
+- **The extractor deliberately ignores CSS classes.** Meta's design system
+  emits generated atomic class names (`x1motxo8`, `xeuugli`…) that churn.
+  Everything keys on structure instead: `<main>`'s child layout (breadcrumb,
+  article, optional examples block, footer nav strip), the heading-then-body
+  pair each section is built from, and whether text sits inside a link —
+  link text is never a heading, which is what keeps the footer's nav cards
+  and inline "here" links out of the section list.
+- **Meta stamps each policy with its own revision dates**, read from the
+  CHANGE LOG beside the title into `policyUpdates` (ISO, newest first;
+  "Today" resolves to the scrape date). Useful context for "has Meta touched
+  this lately", but **accurate to about a day and no better**: runs minutes
+  apart report dates a day either side of each other (Jul 22 vs Jul 23 for
+  one revision, Oct 31 vs Nov 1 for another). It is not our clock — one run
+  rendering the same page under UTC, Eastern and Pacific produced identical
+  dates every time, so the browser timezone is not what moves them; Meta
+  appears to localize server-side by request origin, which a scheduled job
+  cannot pin. Expect `policyUpdates` to churn by a day between runs, and
+  read the dates as approximate. They are deliberately excluded from change
+  detection, which hashes section text only, so a wobbling date can never
+  raise a change the policy did not make.
+- **Adding a policy page is one entry in `SOURCES`** at the top of
+  `scrape_compliance.py` — plus a fixture, which a test enforces.
+- **`compliance.json` is a separate file from `data.json`, on a separate
+  schedule, and machine-owned the same way — never hand-edit it.** The two
+  never race or clobber each other's output; the page fetches each
+  independently, so a failure in one refresh doesn't take the other tab down.
+- Each page is split into sections and each section's text is hashed. A
+  section is flagged `changed` when its hash differs from that source's
+  previous run; new/removed sections and changes are appended to a bounded
+  `changeLog` stamped with which policy they came from. Nothing is flagged on
+  a source's first successful run — there's no baseline yet, and flagging
+  everything on day one would bury the real changes that follow.
+- **One broken source never takes the others down.** A page that fails to
+  fetch, or that parses to zero sections, keeps the text from its last good
+  run (stamped with when it was last confirmed, and marked "stale" on the
+  tab); every other source still publishes. The job then exits non-zero
+  **after** committing, so the failure shows up red in Actions instead of
+  sitting unnoticed behind a green check. Only if *every* source fails is
+  `compliance.json` left untouched entirely.
+- Zero sections parsed from a page that rendered fine means Meta restructured
+  it — fix `extract_policy()` in `scrape_compliance.py` to match the new
+  markup.
+- **Before changing the scraper, run `python3 scripts/test_scrape_compliance.py`.**
+  CI runs it before every live scrape and a red test blocks the publish. The
+  tests run against `scripts/fixtures/` — the real rendered markup of all
+  three pages — and never touch the network. When Meta redesigns a page,
+  recapture the fixture rather than loosening the tests.
+- The committed placeholder has `"seed": true` until the workflow's first
+  successful run, same pattern as `data.json`.
+
 ## Deploying
 
 Vercel: import the repo, framework preset **Other**, no build command, default

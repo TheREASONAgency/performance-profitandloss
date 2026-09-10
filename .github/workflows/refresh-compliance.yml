@@ -1,0 +1,75 @@
+name: Refresh Compliance
+
+# Weekly scrape of the Meta ad-policy pages behind the dashboard's
+# Compliance tab. This writes compliance.json, a file separate from
+# data.json, on its own schedule — so it can never race or clobber the
+# weekday pacing refresh (see RUNBOOK.md).
+#
+# A single UTC cron drifts by an hour across the DST boundary. That's fine
+# here: unlike the pacing refresh, this isn't tied to a same-day figure —
+# it's a weekly policy check, and landing an hour early or late twice a
+# year doesn't matter.
+on:
+  schedule:
+    - cron: "0 12 * * 1"   # Monday, ~7-8am Eastern depending on DST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-compliance
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # The policy pages are client-rendered: a plain HTTP fetch returns an
+      # app shell with no policy text in it, so the scrape needs a browser.
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      # A red test blocks the publish, same rule as the pacing refresh.
+      # These run against captured markup and never touch the network.
+      - name: Run scraper tests
+        working-directory: scripts
+        run: python3 test_scrape_compliance.py
+
+      # A single unreachable policy page must not cost us the others: the
+      # script still writes every source that worked, so the commit step runs
+      # either way and the job is failed at the end instead.
+      - name: Scrape compliance pages
+        id: scrape
+        continue-on-error: true
+        run: python3 scripts/scrape_compliance.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- compliance.json; then
+            echo "No change in compliance.json"
+          else
+            git add compliance.json
+            git commit -m "compliance: refresh $(date -u +%Y-%m-%d)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      # Whatever could be published has been. Now go red if a source broke,
+      # so a page Meta moved or restructured doesn't sit unnoticed behind a
+      # green check for weeks.
+      - name: Fail if any source could not be scraped
+        if: steps.scrape.outcome != 'success'
+        run: |
+          echo "One or more policy sources failed — see the scrape step's log."
+          exit 1
