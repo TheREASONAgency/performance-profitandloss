@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-09-15T22:44:06Z",
+  "lastUpdated": "2026-09-17T09:08:22Z",
   "currentMonth": "2026-09",
   "monthLabel": "September 2026",
-  "dayOfMonth": 15,
+  "dayOfMonth": 17,
   "daysInMonth": 30,
   "currentQuarter": "Q3 2026",
   "currentYear": 2026,
@@ -14,14 +14,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-09-13",
+          "lastEntry": "2026-09-14",
           "liveThisMonth": true,
           "monthlyTarget": 15000.0,
           "revenue": 3000,
-          "adSpend": 4860,
-          "pl": -1860,
-          "proratedTarget": 7500.0,
-          "pacingPct": -24.8
+          "adSpend": 4897,
+          "pl": -1897,
+          "proratedTarget": 8500.0,
+          "pacingPct": -22.3
         },
         {
           "name": "TrimRx",
@@ -32,7 +32,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7500.0,
+          "proratedTarget": 8500.0,
           "pacingPct": 0.0
         },
         {
@@ -75,8 +75,8 @@
           "revenue": 49840,
           "adSpend": 36225,
           "pl": 13615,
-          "proratedTarget": 15000.0,
-          "pacingPct": 90.8
+          "proratedTarget": 17000.0,
+          "pacingPct": 80.1
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -96,7 +96,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7500.0,
+          "proratedTarget": 8500.0,
           "pacingPct": 0.0
         },
         {
@@ -108,7 +108,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7500.0,
+          "proratedTarget": 8500.0,
           "pacingPct": 0.0
         },
         {
@@ -120,7 +120,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7500.0,
+          "proratedTarget": 8500.0,
           "pacingPct": 0.0
         }
       ],
@@ -141,7 +141,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7500.0,
+          "proratedTarget": 8500.0,
           "pacingPct": 0.0
         },
         {
@@ -153,7 +153,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7500.0,
+          "proratedTarget": 8500.0,
           "pacingPct": 0.0
         }
       ],
@@ -174,7 +174,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7500.0,
+          "proratedTarget": 8500.0,
           "pacingPct": 0.0
         }
       ],
@@ -189,14 +189,14 @@
         {
           "name": "Rugiet",
           "status": "Active",
-          "lastEntry": "2026-09-14",
+          "lastEntry": "2026-09-15",
           "liveThisMonth": true,
           "monthlyTarget": 15000.0,
-          "revenue": 5400,
-          "adSpend": 3683,
-          "pl": 1717,
-          "proratedTarget": 7500.0,
-          "pacingPct": 22.9
+          "revenue": 6300,
+          "adSpend": 4069,
+          "pl": 2231,
+          "proratedTarget": 8500.0,
+          "pacingPct": 26.2
         }
       ],
       "sheetId": "1Y9zRlpXSpr2i8WpUNhrEVhCAZV-aNqPPM1sZYnq1ZtQ",
@@ -1179,7 +1179,7 @@
           0,
           0,
           0,
-          0,
+          900,
           0,
           0,
           0
@@ -2366,7 +2366,7 @@
       {
         "date": "2026-09-13",
         "spend": [
-          461,
+          463,
           0,
           0,
           2441,
@@ -2385,7 +2385,7 @@
       {
         "date": "2026-09-14",
         "spend": [
-          0,
+          35,
           0,
           0,
           2065,
@@ -2414,7 +2414,7 @@
           0,
           0,
           0,
-          0,
+          385,
           0,
           0,
           0
@@ -2892,9 +2892,9 @@
           "buyer": "Rory",
           "buyerId": "rory",
           "account": "Rugiet",
-          "revenue": 5400,
-          "adSpend": 3683,
-          "pl": 1717
+          "revenue": 6300,
+          "adSpend": 4069,
+          "pl": 2231
         },
         {
           "buyer": "Joe",
@@ -2909,8 +2909,8 @@
           "buyerId": "joe",
           "account": "Keeps",
           "revenue": 3000,
-          "adSpend": 4860,
-          "pl": -1860
+          "adSpend": 4897,
+          "pl": -1897
         }
       ]
     }
