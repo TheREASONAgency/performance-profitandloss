@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-28T09:02:45Z",
+  "lastUpdated": "2026-09-28T19:09:48Z",
   "currentMonth": "2026-09",
   "monthLabel": "September 2026",
   "dayOfMonth": 28,
@@ -69,14 +69,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-09-26",
+          "lastEntry": "2026-09-27",
           "liveThisMonth": true,
           "monthlyTarget": 30000.0,
-          "revenue": 101360,
-          "adSpend": 76211,
-          "pl": 25149,
+          "revenue": 106960,
+          "adSpend": 80148,
+          "pl": 26812,
           "proratedTarget": 28000.0,
-          "pacingPct": 89.8
+          "pacingPct": 95.8
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -189,14 +189,14 @@
         {
           "name": "Rugiet",
           "status": "Active",
-          "lastEntry": "2026-09-26",
+          "lastEntry": "2026-09-27",
           "liveThisMonth": true,
           "monthlyTarget": 15000.0,
-          "revenue": 9860,
-          "adSpend": 9086,
-          "pl": 774,
+          "revenue": 10005,
+          "adSpend": 9350,
+          "pl": 655,
           "proratedTarget": 14000.0,
-          "pacingPct": 5.5
+          "pacingPct": 4.7
         }
       ],
       "sheetId": "1Y9zRlpXSpr2i8WpUNhrEVhCAZV-aNqPPM1sZYnq1ZtQ",
@@ -1400,14 +1400,14 @@
           0,
           0,
           0,
+          5600,
           0,
           0,
           0,
           0,
           0,
           0,
-          0,
-          0,
+          145,
           0,
           0,
           0
@@ -2635,14 +2635,14 @@
           0,
           0,
           0,
+          3937,
           0,
           0,
           0,
           0,
           0,
           0,
-          0,
-          0,
+          264,
           0,
           0,
           0
@@ -2884,17 +2884,17 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 101360,
-          "adSpend": 76211,
-          "pl": 25149
+          "revenue": 106960,
+          "adSpend": 80148,
+          "pl": 26812
         },
         {
           "buyer": "Rory",
           "buyerId": "rory",
           "account": "Rugiet",
-          "revenue": 9860,
-          "adSpend": 9086,
-          "pl": 774
+          "revenue": 10005,
+          "adSpend": 9350,
+          "pl": 655
         },
         {
           "buyer": "Joe",
