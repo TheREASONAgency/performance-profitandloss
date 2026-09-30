@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-09-29T09:03:01Z",
+  "lastUpdated": "2026-09-30T09:02:45Z",
   "currentMonth": "2026-09",
   "monthLabel": "September 2026",
-  "dayOfMonth": 29,
+  "dayOfMonth": 30,
   "daysInMonth": 30,
   "currentQuarter": "Q3 2026",
   "currentYear": 2026,
@@ -20,8 +20,8 @@
           "revenue": 3000,
           "adSpend": 4897,
           "pl": -1897,
-          "proratedTarget": 14500.0,
-          "pacingPct": -13.1
+          "proratedTarget": 15000.0,
+          "pacingPct": -12.6
         },
         {
           "name": "TrimRx",
@@ -32,7 +32,7 @@
           "revenue": 0,
           "adSpend": 191,
           "pl": -191,
-          "proratedTarget": 14500.0,
+          "proratedTarget": 15000.0,
           "pacingPct": -1.3
         },
         {
@@ -69,14 +69,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-09-27",
+          "lastEntry": "2026-09-28",
           "liveThisMonth": true,
           "monthlyTarget": 30000.0,
-          "revenue": 106960,
-          "adSpend": 80148,
-          "pl": 26812,
-          "proratedTarget": 29000.0,
-          "pacingPct": 92.5
+          "revenue": 112000,
+          "adSpend": 82594,
+          "pl": 29406,
+          "proratedTarget": 30000.0,
+          "pacingPct": 98.0
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -96,20 +96,20 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 14500.0,
+          "proratedTarget": 15000.0,
           "pacingPct": 0.0
         },
         {
           "name": "Medvi",
           "status": "Active",
-          "lastEntry": "2026-09-22",
+          "lastEntry": "2026-09-29",
           "liveThisMonth": true,
           "monthlyTarget": 15000.0,
           "revenue": 0,
-          "adSpend": 318,
-          "pl": -318,
-          "proratedTarget": 14500.0,
-          "pacingPct": -2.2
+          "adSpend": 780,
+          "pl": -780,
+          "proratedTarget": 15000.0,
+          "pacingPct": -5.2
         },
         {
           "name": "TrimRx",
@@ -120,7 +120,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 14500.0,
+          "proratedTarget": 15000.0,
           "pacingPct": 0.0
         }
       ],
@@ -141,7 +141,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 14500.0,
+          "proratedTarget": 15000.0,
           "pacingPct": 0.0
         },
         {
@@ -153,7 +153,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 14500.0,
+          "proratedTarget": 15000.0,
           "pacingPct": 0.0
         }
       ],
@@ -174,7 +174,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 14500.0,
+          "proratedTarget": 15000.0,
           "pacingPct": 0.0
         }
       ],
@@ -189,14 +189,14 @@
         {
           "name": "Rugiet",
           "status": "Active",
-          "lastEntry": "2026-09-27",
+          "lastEntry": "2026-09-28",
           "liveThisMonth": true,
           "monthlyTarget": 15000.0,
-          "revenue": 10005,
-          "adSpend": 9350,
-          "pl": 655,
-          "proratedTarget": 14500.0,
-          "pacingPct": 4.5
+          "revenue": 10150,
+          "adSpend": 9587,
+          "pl": 563,
+          "proratedTarget": 15000.0,
+          "pacingPct": 3.8
         }
       ],
       "sheetId": "1Y9zRlpXSpr2i8WpUNhrEVhCAZV-aNqPPM1sZYnq1ZtQ",
@@ -1419,14 +1419,14 @@
           0,
           0,
           0,
+          5040,
           0,
           0,
           0,
           0,
           0,
           0,
-          0,
-          0,
+          145,
           0,
           0,
           0
@@ -2561,7 +2561,7 @@
           0,
           2658,
           0,
-          0,
+          92,
           0,
           0,
           0,
@@ -2580,7 +2580,7 @@
           0,
           2660,
           0,
-          0,
+          95,
           0,
           0,
           0,
@@ -2599,7 +2599,7 @@
           0,
           3015,
           0,
-          0,
+          85,
           0,
           0,
           0,
@@ -2618,7 +2618,7 @@
           0,
           2785,
           0,
-          0,
+          75,
           0,
           0,
           0,
@@ -2637,7 +2637,7 @@
           0,
           3937,
           0,
-          0,
+          86,
           0,
           0,
           0,
@@ -2654,14 +2654,14 @@
           0,
           0,
           0,
+          2446,
+          0,
+          28,
           0,
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
+          238,
           0,
           0,
           0
@@ -2884,17 +2884,17 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 106960,
-          "adSpend": 80148,
-          "pl": 26812
+          "revenue": 112000,
+          "adSpend": 82594,
+          "pl": 29406
         },
         {
           "buyer": "Rory",
           "buyerId": "rory",
           "account": "Rugiet",
-          "revenue": 10005,
-          "adSpend": 9350,
-          "pl": 655
+          "revenue": 10150,
+          "adSpend": 9587,
+          "pl": 563
         },
         {
           "buyer": "Joe",
@@ -2909,8 +2909,8 @@
           "buyerId": "kurt",
           "account": "Medvi",
           "revenue": 0,
-          "adSpend": 318,
-          "pl": -318
+          "adSpend": 780,
+          "pl": -780
         },
         {
           "buyer": "Joe",
