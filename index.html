@@ -165,6 +165,35 @@
   a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
   a:hover { border-bottom-color:var(--accent); }
   footer { border-top:1px solid var(--rule); margin-top:52px; padding:22px 0 46px; font-size:12px; color:var(--text-muted); }
+
+  /* ---- Account Status tab ---- */
+  .st-bar { display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin-top:26px; }
+  .st-bar .tile-note { margin:0; }
+  .st-section { margin-bottom:26px; }
+  .st-section .banner { margin:22px 0 12px; }
+  .st-counts { font-weight:600; letter-spacing:normal; text-transform:none; float:right; color:var(--text-invert-dim); }
+  .st-table td, .st-table th { white-space:nowrap; }
+  .st-table td.st-text, .st-table th.st-text { text-align:left; }
+  .st-table td:first-child a { color:var(--text-primary); }
+  .st-table td:first-child a:hover { color:var(--accent); }
+  .st-table .st-sub { display:block; font-size:11.5px; font-weight:400; color:var(--text-muted); }
+  .st-table-wrap { overflow-x:auto; border:1px solid var(--rule); border-radius:3px; }
+  .st-table-wrap table { border:none; }
+  .badge { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; padding:3px 9px; border-radius:11px; white-space:nowrap; }
+  .badge::before { content:""; width:7px; height:7px; border-radius:50%; background:currentColor; }
+  .badge.good   { background:color-mix(in srgb, var(--good) 14%, transparent); color:var(--good); }
+  .badge.bad    { background:color-mix(in srgb, var(--bad) 14%, transparent); color:var(--bad); }
+  .badge.paused { background:var(--warn-bg); color:var(--warn); }
+  .badge.muted  { background:var(--surface-2); color:var(--text-secondary); }
+  .st-skel { height:38px; margin-bottom:6px; border-radius:3px; background:var(--surface-2); animation:st-pulse 1.2s ease-in-out infinite; }
+  @keyframes st-pulse { 50% { opacity:.45; } }
+  .st-error { border:1px solid var(--bad); border-radius:3px; padding:12px 16px; font-size:13px; color:var(--bad); background:color-mix(in srgb, var(--bad) 8%, transparent); }
+  .st-warn { border:1px solid var(--warn-fill); border-radius:3px; padding:10px 14px; font-size:12.5px; color:var(--warn); background:var(--warn-bg); margin-bottom:10px; }
+  .st-refresh { font:inherit; font-size:12px; font-weight:600; cursor:pointer; background:none;
+    border:1px solid var(--rule); color:var(--text-secondary); padding:5px 11px; border-radius:2px; }
+  .st-refresh:hover { border-color:var(--text-secondary); color:var(--text-primary); }
+  .st-refresh:disabled { opacity:.5; cursor:default; }
 </style>
 </head>
 <body>
@@ -187,6 +216,7 @@
       <button role="tab" data-tab="daily" aria-selected="false">Daily</button>
       <button role="tab" data-tab="buyers" aria-selected="false">Media Buyers</button>
       <button role="tab" data-tab="compliance" aria-selected="false">Compliance</button>
+      <button role="tab" data-tab="status" aria-selected="false">Account Status</button>
     </div>
   </div>
 </div>
@@ -241,6 +271,15 @@
       <span style="float:right;font-weight:600;letter-spacing:normal;text-transform:none" id="compliance-updated"></span>
     </div>
     <div id="compliance-body"></div>
+  </section>
+
+  <!-- ============ ACCOUNT STATUS ============ -->
+  <section class="panel" id="panel-status" role="tabpanel" hidden>
+    <div class="st-bar">
+      <div class="tile-note" id="st-updated" aria-live="polite">Loading&hellip;</div>
+      <button class="st-refresh" id="st-refresh" type="button">Refresh now</button>
+    </div>
+    <div id="st-body"></div>
   </section>
 
   <footer>
@@ -964,6 +1003,167 @@ function buyerPanel(d, b) {
   frag.append(el("div", "", "<table><thead>" + head2 + "</thead><tbody>" + body + "</tbody></table>"));
   return frag;
 }
+
+/* ---------------- Account Status tab ----------------
+   Data comes from /api/status (server-side; the Monday token never reaches the
+   browser). Rules and column IDs live in lib/status-config.js, not here.
+   Loads the first time the tab is opened, then re-polls while it stays open. */
+(function () {
+  const body = document.getElementById("st-body");
+  const updated = document.getElementById("st-updated");
+  const refreshBtn = document.getElementById("st-refresh");
+  const tabBtn = document.querySelector('.tabbar [data-tab="status"]');
+  const panel = document.getElementById("panel-status");
+
+  let timer = null, loaded = false, inFlight = false, pollMs = 300000;
+
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g,
+    c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+  const usd = n => n == null ? "&mdash;" :
+    (n < 0 ? "-$" : "$") + Math.abs(n).toLocaleString(undefined, { maximumFractionDigits: 0 });
+  const usdC = n => n == null ? "&mdash;" : "$" + n.toLocaleString(undefined,
+    { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const stamp = iso => new Date(iso).toLocaleString(undefined,
+    { month:"short", day:"numeric", hour:"numeric", minute:"2-digit" });
+
+  function badge(statuses, key, rawLabel) {
+    const s = statuses[key] || statuses.unknown;
+    const hint = key === "unknown" && rawLabel ? " title='Monday label: " + esc(rawLabel) + "'" : "";
+    return "<span class='badge " + s.tone + "'" + hint + ">" + esc(s.label) + "</span>";
+  }
+
+  function counts(c) {
+    return c.off_track + " off track · " + c.on_track + " on track · " + c.paused + " paused" +
+      (c.unknown ? " · " + c.unknown + " no status" : "");
+  }
+
+  function section(num, title, sec, tableHtml, extra) {
+    const wrap = el("div", "st-section");
+    wrap.append(el("div", "banner", "<span class='num'>" + num + "</span> &nbsp;/&nbsp; " + title +
+      (sec.ok ? "<span class='st-counts'>" + counts(sec.counts) + "</span>" : "")));
+    if (!sec.ok) {
+      wrap.append(el("div", "st-error",
+        "<strong>Could not load this section.</strong> " + esc(sec.error)));
+      return wrap;
+    }
+    (sec.warnings || []).forEach(w => wrap.append(el("div", "st-warn", esc(w))));
+    if (extra) wrap.append(el("div", "tile-note", extra));
+    if (!sec.rows.length) {
+      wrap.append(el("div", "no-target", "No accounts to show in this group."));
+      return wrap;
+    }
+    wrap.append(el("div", "st-table-wrap", tableHtml));
+    return wrap;
+  }
+
+  function cpaTable(sec, st) {
+    const rows = sec.rows.map(r => {
+      const target = r.cpaTarget;
+      const cmp = (v) => v == null || target == null ? "" : (v <= target ? "pos" : "neg");
+      return "<tr><td>" + (r.url ? "<a href='" + esc(r.url) + "' target='_blank' rel='noopener'>" + esc(r.name) + "</a>"
+          : esc(r.name)) + (r.group ? "<span class='st-sub'>" + esc(r.group) + "</span>" : "") + "</td>" +
+        "<td class='st-text'>" + esc(r.platform) + "</td>" +
+        "<td class='" + cmp(r.cpaToday) + "'>" + usdC(r.cpaToday) + "</td>" +
+        "<td class='" + cmp(r.cpaL7d) + "'>" + usdC(r.cpaL7d) + "</td>" +
+        "<td>" + usdC(target) + "</td>" +
+        "<td class='st-text'>" + badge(st, r.status, r.rawLabel) + "</td></tr>";
+    }).join("");
+    return "<table class='st-table'><thead><tr><th>Account</th><th class='st-text'>Platform</th>" +
+      "<th>CPA today</th><th>CPA L7D</th><th>Target CPA</th><th class='st-text'>Status</th></tr></thead>" +
+      "<tbody>" + rows + "</tbody></table>";
+  }
+
+  function profitTable(sec, st) {
+    const rows = sec.rows.map(r => {
+      const pace = r.pacingPct == null ? "&mdash;" : Math.round(r.pacingPct) + "%";
+      const delta = r.delta == null ? "&mdash;" : (r.delta >= 0 ? "+" : "") + usd(r.delta);
+      return "<tr><td>" + esc(r.name) + "<span class='st-sub'>" + esc(r.buyer) +
+          (r.note ? " · " + esc(r.note) : "") + "</span></td>" +
+        "<td class='st-text'>" + esc(r.platform) + "</td>" +
+        "<td class='" + (r.profit > 0 ? "pos" : r.profit < 0 ? "neg" : "") + "'>" + usd(r.profit) + "</td>" +
+        "<td>" + usd(r.monthlyTarget) + "</td>" +
+        "<td>" + (r.expectedToDate == null ? "&mdash;" : usd(r.expectedToDate)) + "</td>" +
+        "<td class='" + (r.delta == null ? "" : r.delta >= 0 ? "pos" : "neg") + "'>" + delta + "</td>" +
+        "<td>" + pace + "</td>" +
+        "<td class='st-text'>" + badge(st, r.status) + "</td></tr>";
+    }).join("");
+    return "<table class='st-table'><thead><tr><th>Account</th><th class='st-text'>Platform</th>" +
+      "<th>Profit MTD</th><th>Monthly target</th><th>Target to date</th><th>vs. pace</th><th>Pacing</th>" +
+      "<th class='st-text'>Status</th></tr></thead><tbody>" + rows + "</tbody></table>";
+  }
+
+  function paint(d) {
+    body.innerHTML = "";
+    const st = d.statuses;
+    body.append(section("01", "PV ACCOUNTS", d.pv, d.pv.ok ? cpaTable(d.pv, st) : ""));
+    body.append(section("02", "MANAGED ACCOUNTS", d.managed, d.managed.ok ? cpaTable(d.managed, st) : ""));
+    const c = d.cpa;
+    body.append(section("03", "CPA ACCOUNTS &mdash; PROFIT PACING", c, c.ok ? profitTable(c, st) : "",
+      c.ok ? "Target to date = monthly target ÷ " + c.daysBasis + " × " +
+        Math.min(c.daysElapsed || 0, c.daysBasis) + " day" + (c.daysElapsed === 1 ? "" : "s") +
+        " elapsed. Profit comes from the buyers' P&amp;L sheets" +
+        (c.dataUpdated ? ", refreshed " + stamp(c.dataUpdated) : "") + "." : ""));
+
+    const failedSources = [d.pv, d.managed, d.cpa].filter(s => !s.ok).length;
+    updated.textContent = "Last updated " + stamp(d.generatedAt) +
+      (failedSources ? " · some sources failed" : "") + " · auto-refreshes every " +
+      Math.round(pollMs / 60000) + " min";
+  }
+
+  function skeleton() {
+    body.innerHTML = "";
+    for (let i = 0; i < 3; i++) {
+      const s = el("div", "st-section");
+      s.append(el("div", "banner", "Loading&hellip;"));
+      for (let j = 0; j < 3; j++) s.append(el("div", "st-skel"));
+      body.append(s);
+    }
+  }
+
+  async function load() {
+    if (inFlight) return;
+    inFlight = true;
+    refreshBtn.disabled = true;
+    if (!loaded) skeleton();
+    try {
+      const r = await fetch("/api/status", { headers: { Accept: "application/json" } });
+      if (!r.ok) throw new Error("The status service returned HTTP " + r.status);
+      const d = await r.json();
+      pollMs = (d.clientPollSeconds || 300) * 1000;
+      paint(d);
+      loaded = true;
+    } catch (e) {
+      /* Keep the last good data on screen if we have it; otherwise say so. */
+      const msg = "Could not load account status: " + e.message;
+      if (loaded) updated.textContent = msg + " · showing the last good data";
+      else {
+        body.innerHTML = "";
+        body.append(el("div", "st-error", "<strong>" + esc(msg) + "</strong> " +
+          "If this persists, check that <code>MONDAY_API_TOKEN</code> is set in Vercel and the " +
+          "<code>/api/status</code> function deployed."));
+        updated.textContent = "Not loaded";
+      }
+    } finally {
+      inFlight = false;
+      refreshBtn.disabled = false;
+    }
+  }
+
+  function startPolling() {
+    stopPolling();
+    timer = setInterval(() => { if (!document.hidden) load(); }, pollMs);
+  }
+  function stopPolling() { if (timer) { clearInterval(timer); timer = null; } }
+
+  tabBtn.addEventListener("click", () => { load().then(startPolling); });
+  refreshBtn.addEventListener("click", load);
+  document.querySelectorAll('.tabbar [role="tab"]').forEach(b => {
+    if (b !== tabBtn) b.addEventListener("click", stopPolling);
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden && !panel.hidden) load();
+  });
+})();
 
 start();
 startCompliance();
