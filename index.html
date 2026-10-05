@@ -277,7 +277,7 @@
   <section class="panel" id="panel-status" role="tabpanel" hidden>
     <div class="st-bar">
       <div class="tile-note" id="st-updated" aria-live="polite">Loading&hellip;</div>
-      <button class="st-refresh" id="st-refresh" type="button">Refresh now</button>
+      <button class="st-refresh" id="st-refresh" type="button">Reload</button>
     </div>
     <div id="st-body"></div>
   </section>
@@ -1005,17 +1005,17 @@ function buyerPanel(d, b) {
 }
 
 /* ---------------- Account Status tab ----------------
-   Data comes from /api/status (server-side; the Monday token never reaches the
-   browser). Rules and column IDs live in lib/status-config.js, not here.
-   Loads the first time the tab is opened, then re-polls while it stays open. */
+   Reads status.json, a snapshot rebuilt Mon/Wed/Fri at 6:00 AM ET by
+   .github/workflows/refresh-status.yml (the Monday token lives only in GitHub
+   Actions). Rules and column IDs live in lib/status-config.js, not here.
+   Loaded the first time the tab is opened. */
 (function () {
   const body = document.getElementById("st-body");
   const updated = document.getElementById("st-updated");
   const refreshBtn = document.getElementById("st-refresh");
   const tabBtn = document.querySelector('.tabbar [data-tab="status"]');
-  const panel = document.getElementById("panel-status");
 
-  let timer = null, loaded = false, inFlight = false, pollMs = 300000;
+  let loaded = false, inFlight = false;
 
   const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g,
     c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
@@ -1043,8 +1043,10 @@ function buyerPanel(d, b) {
       (sec.ok ? "<span class='st-counts'>" + counts(sec.counts) + "</span>" : "")));
     if (!sec.ok) {
       wrap.append(el("div", "st-error",
-        "<strong>Could not load this section.</strong> " + esc(sec.error)));
-      return wrap;
+        "<strong>This section could not be refreshed.</strong> " + esc(sec.error) +
+        (sec.rows.length && sec.lastGood
+          ? " Showing the last good data from " + stamp(sec.lastGood) + "." : "")));
+      if (!sec.rows.length) return wrap;
     }
     (sec.warnings || []).forEach(w => wrap.append(el("div", "st-warn", esc(w))));
     if (extra) wrap.append(el("div", "tile-note", extra));
@@ -1095,10 +1097,14 @@ function buyerPanel(d, b) {
   function paint(d) {
     body.innerHTML = "";
     const st = d.statuses;
-    body.append(section("01", "PV ACCOUNTS", d.pv, d.pv.ok ? cpaTable(d.pv, st) : ""));
-    body.append(section("02", "MANAGED ACCOUNTS", d.managed, d.managed.ok ? cpaTable(d.managed, st) : ""));
+    if (d.seed) {
+      body.append(el("div", "st-warn", "<strong>Placeholder data.</strong> The first scheduled " +
+        "refresh hasn't run yet. Run the Refresh Account Status workflow to load live Monday data."));
+    }
+    body.append(section("01", "PV ACCOUNTS", d.pv, cpaTable(d.pv, st)));
+    body.append(section("02", "MANAGED ACCOUNTS", d.managed, cpaTable(d.managed, st)));
     const c = d.cpa;
-    body.append(section("03", "CPA ACCOUNTS &mdash; PROFIT PACING", c, c.ok ? profitTable(c, st) : "",
+    body.append(section("03", "CPA ACCOUNTS &mdash; PROFIT PACING", c, profitTable(c, st),
       c.ok ? "Target to date = monthly target ÷ " + c.daysBasis + " × " +
         Math.min(c.daysElapsed || 0, c.daysBasis) + " day" + (c.daysElapsed === 1 ? "" : "s") +
         " elapsed. Profit comes from the buyers' P&amp;L sheets" +
@@ -1106,8 +1112,8 @@ function buyerPanel(d, b) {
 
     const failedSources = [d.pv, d.managed, d.cpa].filter(s => !s.ok).length;
     updated.textContent = "Last updated " + stamp(d.generatedAt) +
-      (failedSources ? " · some sources failed" : "") + " · auto-refreshes every " +
-      Math.round(pollMs / 60000) + " min";
+      (failedSources ? " · some sources failed" : "") + " · refreshes " +
+      (d.schedule || "on a schedule");
   }
 
   function skeleton() {
@@ -1126,21 +1132,18 @@ function buyerPanel(d, b) {
     refreshBtn.disabled = true;
     if (!loaded) skeleton();
     try {
-      const r = await fetch("/api/status", { headers: { Accept: "application/json" } });
-      if (!r.ok) throw new Error("The status service returned HTTP " + r.status);
-      const d = await r.json();
-      pollMs = (d.clientPollSeconds || 300) * 1000;
-      paint(d);
+      const r = await fetch("status.json?" + Date.now());
+      if (!r.ok) throw new Error("status.json returned HTTP " + r.status);
+      paint(await r.json());
       loaded = true;
     } catch (e) {
       /* Keep the last good data on screen if we have it; otherwise say so. */
-      const msg = "Could not load account status: " + e.message;
+      const msg = "Could not load status.json: " + e.message;
       if (loaded) updated.textContent = msg + " · showing the last good data";
       else {
         body.innerHTML = "";
         body.append(el("div", "st-error", "<strong>" + esc(msg) + "</strong> " +
-          "If this persists, check that <code>MONDAY_API_TOKEN</code> is set in Vercel and the " +
-          "<code>/api/status</code> function deployed."));
+          "Check the latest Refresh Account Status run in Actions."));
         updated.textContent = "Not loaded";
       }
     } finally {
@@ -1149,20 +1152,8 @@ function buyerPanel(d, b) {
     }
   }
 
-  function startPolling() {
-    stopPolling();
-    timer = setInterval(() => { if (!document.hidden) load(); }, pollMs);
-  }
-  function stopPolling() { if (timer) { clearInterval(timer); timer = null; } }
-
-  tabBtn.addEventListener("click", () => { load().then(startPolling); });
+  tabBtn.addEventListener("click", () => { if (!loaded) load(); });
   refreshBtn.addEventListener("click", load);
-  document.querySelectorAll('.tabbar [role="tab"]').forEach(b => {
-    if (b !== tabBtn) b.addEventListener("click", stopPolling);
-  });
-  document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && !panel.hidden) load();
-  });
 })();
 
 start();

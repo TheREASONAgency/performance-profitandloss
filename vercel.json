@@ -3,11 +3,5 @@
   "framework": null,
   "buildCommand": null,
   "installCommand": null,
-  "outputDirectory": ".",
-  "functions": {
-    "api/status.js": {
-      "maxDuration": 20,
-      "includeFiles": "data.json"
-    }
-  }
+  "outputDirectory": "."
 }

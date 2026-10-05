@@ -1,54 +1,50 @@
 # Account Status tab
 
-New tab on the dashboard: live PV, Managed and CPA account status with color-coded badges.
+New tab on the dashboard: PV, Managed and CPA account status with color-coded badges.
+Additive only: nothing in the existing tabs or `vercel.json` was changed, and no existing line of `index.html` was removed.
+
+## How it updates
+
+A GitHub Action rebuilds **`status.json` every Monday, Wednesday and Friday at 6:00 AM Eastern**, commits it, and Vercel redeploys. The page just reads `status.json`. Same pattern as `data.json`: **never hand-edit `status.json`.**
+
+- Cron fires at both 10:00 and 11:00 UTC; a gate step lets exactly one through, so it stays 6:00 AM Eastern across daylight saving.
+- Run it on demand: Actions → **Refresh Account Status** → Run workflow.
+- If Monday fails, that section keeps its last good rows with a red error and "last good" time; the run goes red in Actions.
 
 | File | Role |
 |---|---|
-| `api/status.js` | Vercel serverless function (`GET /api/status`). Holds the Monday token, fetches the board, returns JSON. |
-| `lib/status-config.js` | **The one place to change** rules, column IDs, exclusions, pacing basis, refresh timing. |
-| `lib/status-logic.js` | Pure functions: status mapping and the CPA pacing rule (`computeCpaPacing`). |
-| `tests/status-logic.test.js` | `node --test tests/status-logic.test.js` |
-| `index.html` | New "Account Status" tab (additive; other tabs unchanged). |
-| `vercel.json` | Adds the function's `maxDuration` and bundles `data.json` with it. |
+| `.github/workflows/refresh-status.yml` | The Mon/Wed/Fri 6 AM ET schedule |
+| `scripts/refresh_status.js` | Fetches Monday (server-side), builds `status.json` |
+| `lib/status-config.js` | **The one place to change** rules, column IDs, exclusions, pacing basis |
+| `lib/status-logic.js` | Pure functions: status mapping and `computeCpaPacing` |
+| `tests/status-logic.test.js` | `node --test tests/status-logic.test.js` (also runs in CI before each refresh) |
+| `status.json` | Snapshot the page reads (placeholder until the first run) |
+| `index.html` | The new "Account Status" tab |
 
-## Environment variables (Vercel → Project → Settings → Environment Variables)
+## Setup (one time)
 
-| Name | Required | Value |
-|---|---|---|
-| `MONDAY_API_TOKEN` | **Yes** | Monday.com personal API token (Profile → Developers → My access tokens). Needs read access to board 9386705349. Add to Production **and** Preview. |
-| `CPA_DATA_URL` | No | Only if CPA data should come from a URL instead of the deployed `data.json`. |
+1. GitHub repo → Settings → Secrets and variables → Actions → **New repository secret**: `MONDAY_API_TOKEN` (Monday: Profile → Developers → My access tokens; needs read access to board 9386705349).
+2. Merge the branch, then run **Refresh Account Status** once to replace the placeholder.
+3. No Vercel changes or environment variables are needed. The token never reaches Vercel or the browser.
 
-## Deploy
+## Status rules
 
-1. Add `MONDAY_API_TOKEN` in Vercel (Production + Preview).
-2. Push this branch → Vercel builds a **preview**. Open it → **Account Status** tab.
-3. Check the three sections, then merge to the production branch.
-4. No build step or framework change; Vercel picks up `/api` automatically.
-
-## How the status rules work
-
-**PV and Managed** (Monday board): read the **On Target CPA** column.
+**PV and Managed** (Monday board): **On Target CPA** column.
 `On Target` → On Track (green) · `Over` → Off Track (red) · `N/A` → Paused (amber).
-Any other label (Stuck, Pending External, blank…) → "No Status" (gray), with the raw label on hover.
-PV vs Managed comes from the **Client Type** column (`PV / TESTING` / `Managed`).
+Any other label (Stuck, Pending External, blank…) → "No Status" (gray), raw label on hover.
+PV vs Managed comes from **Client Type** (`PV / TESTING` / `Managed`).
 
-**CPA accounts** (profit pacing):
-`dailyTarget = monthlyTarget ÷ 30` · `targetToDate = dailyTarget × daysElapsed`
-**On Track** if profit ≥ targetToDate, otherwise **Off Track**. Logic: `computeCpaPacing` in `lib/status-logic.js`.
+**CPA accounts** (profit pacing): `dailyTarget = monthlyTarget ÷ 30`, `targetToDate = dailyTarget × daysElapsed`.
+**On Track** if profit ≥ targetToDate, else **Off Track**. See `computeCpaPacing`.
 
 ## Assumptions (all in `lib/status-config.js`)
 
 1. **Managed accounts live on the same Monday board**, identified by Client Type = `Managed`.
-2. **Excluded rows:** groups *Meeting Structure*, *Closed Accounts*, *Partnerships*, and any row labeled `CLOSED`. The board's saved view filter is not available through the API, so these replicate it.
+2. **Excluded rows:** groups *Meeting Structure*, *Closed Accounts*, *Partnerships*, and any row labeled `CLOSED` (replicates the board view's filter, which the API can't read).
 3. **Client Types not included:** Scaling, SOP, Onboarding, Incoming SAP, NOT ACTIVE.
-4. **Target CPA is parsed from the account name** (`GAL (<$400)` → $400). There is no target column.
-5. **Platform:** the board has no platform column, so every row shows `Meta`. Set `columns.platform` if one is added.
-6. **"CPA accounts" = P&L-type offers in `data.json`** (the Media Buyers' P&L trackers). Offers with `type: "cpa"` (purchases vs CPA target, no profit target) are skipped.
-7. **Days elapsed** = `dayOfMonth` in `data.json` (same as the Overview tab), **capped at 30** in 31-day months so the expected figure never exceeds the full monthly target. Set `capDaysAtBasis: false` to remove the cap.
-8. **Offers with no entries this month** show as Paused; offers with no monthly target are hidden.
-
-## Freshness
-
-- Monday data: cached at the edge for 60s; the browser re-fetches every 5 minutes while the tab is open (and on "Refresh now").
-- CPA profit data: only as fresh as `data.json`, which the existing GitHub Action rebuilds Mon–Fri. The tab warns if `data.json` is from a previous month.
-- Each source fails independently, with a clear message in its own section.
+4. **Target CPA is parsed from the account name** (`GAL (<$400)` → $400); there is no target column.
+5. **Platform:** no platform column exists, so every row shows `Meta`.
+6. **"CPA accounts" = P&L-type offers in `data.json`** (the Media Buyers' trackers). Offers with `type: "cpa"` (purchases vs CPA target, no profit target) are skipped.
+7. **Days elapsed** = `dayOfMonth` in `data.json` (same as the Overview tab), **capped at 30** in 31-day months. Set `capDaysAtBasis: false` to remove the cap.
+8. **Offers with no entries this month** show Paused; offers with no monthly target are hidden.
+9. **CPA freshness:** profit comes from `data.json`, which its own job refreshes on a different schedule. At 6 AM the status job uses whatever `data.json` last committed (typically the prior day), and the tab shows when that data was refreshed.

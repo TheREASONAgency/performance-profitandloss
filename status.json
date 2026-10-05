@@ -1,0 +1,195 @@
+{
+  "generatedAt": "2026-10-05T20:35:11.906Z",
+  "schedule": "Mon / Wed / Fri at 6:00 AM ET",
+  "statuses": {
+    "on_track": {
+      "label": "On Track",
+      "tone": "good"
+    },
+    "off_track": {
+      "label": "Off Track",
+      "tone": "bad"
+    },
+    "paused": {
+      "label": "Paused",
+      "tone": "paused"
+    },
+    "unknown": {
+      "label": "No Status",
+      "tone": "muted"
+    }
+  },
+  "seed": true,
+  "pv": {
+    "ok": false,
+    "error": "Waiting for the first scheduled refresh (Mon / Wed / Fri at 6:00 AM ET).",
+    "rows": [],
+    "counts": {
+      "on_track": 0,
+      "off_track": 0,
+      "paused": 0,
+      "unknown": 0
+    },
+    "lastGood": null
+  },
+  "managed": {
+    "ok": false,
+    "error": "Waiting for the first scheduled refresh (Mon / Wed / Fri at 6:00 AM ET).",
+    "rows": [],
+    "counts": {
+      "on_track": 0,
+      "off_track": 0,
+      "paused": 0,
+      "unknown": 0
+    },
+    "lastGood": null
+  },
+  "cpa": {
+    "ok": true,
+    "rows": [
+      {
+        "id": "travis:Keeps",
+        "name": "Keeps",
+        "buyer": "Travis",
+        "platform": "Meta",
+        "monthlyTarget": 40000,
+        "profit": 4747,
+        "live": true,
+        "lastEntry": "2026-10-03",
+        "daysElapsed": 5,
+        "dailyTarget": 1333.3333333333333,
+        "expectedToDate": 6666.666666666666,
+        "delta": -1919.666666666666,
+        "pacingPct": 71.20500000000001,
+        "status": "off_track"
+      },
+      {
+        "id": "rory:Rugiet",
+        "name": "Rugiet",
+        "buyer": "Rory",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": -578,
+        "live": true,
+        "lastEntry": "2026-10-03",
+        "daysElapsed": 5,
+        "dailyTarget": 500,
+        "expectedToDate": 2500,
+        "delta": -3078,
+        "pacingPct": -23.119999999999997,
+        "status": "off_track"
+      },
+      {
+        "id": "joe:TrimRx",
+        "name": "TrimRx",
+        "buyer": "Joe",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": 0,
+        "live": true,
+        "lastEntry": "2026-10-01",
+        "daysElapsed": 5,
+        "dailyTarget": 500,
+        "expectedToDate": 2500,
+        "delta": -2500,
+        "pacingPct": 0,
+        "status": "off_track"
+      },
+      {
+        "id": "kurt:AltRx",
+        "name": "AltRx",
+        "buyer": "Kurt",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-08-04",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
+        "id": "joe:Keeps",
+        "name": "Keeps",
+        "buyer": "Joe",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-09-30",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
+        "id": "kurt:Medvi",
+        "name": "Medvi",
+        "buyer": "Kurt",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-09-29",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
+        "id": "jack:Medvi",
+        "name": "Medvi",
+        "buyer": "Jack",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-04-12",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
+        "id": "stefan:Medvi GLP1",
+        "name": "Medvi GLP1",
+        "buyer": "Stefan",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-06-29",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
+        "id": "kurt:TrimRx",
+        "name": "TrimRx",
+        "buyer": "Kurt",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-06-10",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
+        "id": "jack:TrimRx",
+        "name": "TrimRx",
+        "buyer": "Jack",
+        "platform": "Meta",
+        "monthlyTarget": 15000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-04-30",
+        "status": "paused",
+        "note": "No entries this month"
+      }
+    ],
+    "counts": {
+      "on_track": 0,
+      "off_track": 3,
+      "paused": 7,
+      "unknown": 0
+    },
+    "dataUpdated": "2026-10-05T09:27:37Z",
+    "monthLabel": "October 2026",
+    "daysElapsed": 5,
+    "daysBasis": 30,
+    "warnings": []
+  }
+}
