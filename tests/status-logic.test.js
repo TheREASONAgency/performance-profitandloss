@@ -221,13 +221,13 @@ test("cpaTargetOverride maps table labels to tracker offers for the current mont
   assert.strictEqual(L.cpaTargetOverride("Kurt", "trimrx", d("2026-11"), cfg), 10000);   // case-insensitive
   assert.strictEqual(L.cpaTargetOverride("Kurt", "Medvi", d("2026-10"), cfg), 5000);         // only Kurt runs Medvi
   assert.strictEqual(L.cpaTargetOverride("Jack", "Medvi", d("2026-12"), cfg), null);
-  assert.strictEqual(L.cpaTargetOverride("Stefan", "Medvi GLP1", d("2026-10"), cfg), 5000);  // GLP1 target is $5K
+  assert.strictEqual(L.cpaTargetOverride("Stefan", "Medvi GLP1", d("2026-10"), cfg), null);  // GLP1 not tracked
   assert.strictEqual(L.cpaTargetOverride("Rory", "Rugiet", d("2026-10"), cfg), null);    // removed from the table
   assert.strictEqual(L.cpaTargetOverride("Travis", "Keeps", d("2027-01"), cfg), null);   // outside the quarter
   assert.strictEqual(L.cpaTargetOverride("Travis", "Keeps", { currentQuarter: "Q1 2027", currentMonth: "2027-01" }, cfg), null);
 });
 
-test("Jack's Medvi is excluded from the tab; Kurt's Medvi and Medvi GLP1 are scored at $5K", () => {
+test("Only Kurt's Medvi is tracked: Jack's Medvi and Medvi GLP1 are excluded", () => {
   const data = {
     currentQuarter: "Q4 2026", currentMonth: "2026-10", dayOfMonth: 5,
     buyers: [
@@ -237,8 +237,7 @@ test("Jack's Medvi is excluded from the tab; Kurt's Medvi and Medvi GLP1 are sco
     ],
   };
   const rows = L.buildCpaRows(data, cfg).filter((r) => !r.placeholder);
-  assert.deepStrictEqual(rows.map((r) => `${r.buyer}/${r.name}:${r.monthlyTarget}`).sort(),
-    ["Kurt/Medvi:5000", "Stefan/Medvi GLP1:5000"]);
+  assert.deepStrictEqual(rows.map((r) => `${r.buyer}/${r.name}:${r.monthlyTarget}`), ["Kurt/Medvi:5000"]);
 });
 
 test("matchesAny: Buyer/Account vs Account, case-insensitive, exact", () => {
