@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T19:51:42.107Z",
+  "generatedAt": "2026-10-07T20:08:18.558Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -104,6 +104,30 @@
         "note": "No entries this month"
       },
       {
+        "id": "kurt:Medvi",
+        "name": "Medvi",
+        "buyer": "Kurt",
+        "platform": "Meta",
+        "monthlyTarget": 5000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-09-29",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
+        "id": "jack:Medvi",
+        "name": "Medvi",
+        "buyer": "Jack",
+        "platform": "Meta",
+        "monthlyTarget": 5000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-04-12",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
         "id": "stefan:Medvi GLP1",
         "name": "Medvi GLP1",
         "buyer": "Stefan",
@@ -114,6 +138,32 @@
         "lastEntry": "2026-06-29",
         "status": "paused",
         "note": "No entries this month"
+      },
+      {
+        "id": "placeholder:NAD+",
+        "name": "NAD+",
+        "buyer": "Tracker pending",
+        "platform": "Meta",
+        "monthlyTarget": 5000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": null,
+        "placeholder": true,
+        "status": "paused",
+        "note": "placeholder, all zeros"
+      },
+      {
+        "id": "placeholder:Quad",
+        "name": "Quad",
+        "buyer": "Tracker pending",
+        "platform": "Meta",
+        "monthlyTarget": 5000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": null,
+        "placeholder": true,
+        "status": "paused",
+        "note": "placeholder, all zeros"
       },
       {
         "id": "kurt:TrimRx",
@@ -138,25 +188,13 @@
         "lastEntry": "2026-04-30",
         "status": "paused",
         "note": "No entries this month"
-      },
-      {
-        "id": "rory:Rugiet",
-        "name": "Rugiet",
-        "buyer": "Rory",
-        "platform": "Meta",
-        "monthlyTarget": null,
-        "profit": -578,
-        "live": true,
-        "lastEntry": "2026-10-03",
-        "status": "unknown",
-        "note": "Target is $0 this month"
       }
     ],
     "counts": {
       "on_track": 0,
       "off_track": 2,
-      "paused": 5,
-      "unknown": 1
+      "paused": 9,
+      "unknown": 0
     },
     "dataUpdated": "2026-10-05T09:27:37Z",
     "monthLabel": "October 2026",
@@ -167,14 +205,14 @@
   "summary": {
     "quarter": {
       "label": "Q4 2026",
-      "headlineTarget": 745000,
-      "progressTarget": 225000,
-      "qtdPl": 4169,
+      "headlineTarget": 760000,
+      "progressTarget": 240000,
+      "qtdPl": 4747,
       "daysElapsed": 5,
       "daysInQuarter": 92,
-      "proratedTarget": 12228.260869565218,
-      "progressPct": 1.852888888888889,
-      "pacingPct": 34.093155555555555,
+      "proratedTarget": 13043.478260869566,
+      "progressPct": 1.9779166666666668,
+      "pacingPct": 36.39366666666666,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -184,7 +222,7 @@
         },
         {
           "label": "CPA",
-          "total": 225000
+          "total": 240000
         }
       ]
     },
@@ -192,8 +230,8 @@
       "active": 2,
       "onTrack": 0,
       "offTrack": 2,
-      "paused": 5,
-      "total": 8
+      "paused": 9,
+      "total": 11
     }
   }
 }

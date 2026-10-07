@@ -1078,7 +1078,7 @@ function buyerPanel(d, b) {
         "<td class='st-text'>" + badge(st, r.status, r.rawLabel) + "</td></tr>";
     }).join("");
     const tailHead = managed
-      ? "<th>Ad spend</th><th class='st-text'>Spend goal pace</th>"
+      ? "<th>Ad spend " + ((sec.rows[0] && sec.rows[0].goalPeriod) === "quarter" ? "QTD" : "MTD") + "</th><th class='st-text'>Spend goal pace</th>"
       : "<th>CPA vs target</th>";
     return "<table class='st-table'><thead><tr><th>Account</th><th class='st-text'>Platform</th>" +
       "<th>CPA today</th><th>CPA L7D</th><th>Target CPA</th>" + tailHead +
@@ -1149,9 +1149,9 @@ function buyerPanel(d, b) {
     const noSpend = mgd.length && mgd.every(r => r.adSpend == null);
     body.append(section("02", "MANAGED ACCOUNTS", d.managed, cpaTable(d.managed, st, true),
       "Primary measures: ad spend and CPA. Goal: " + compact((mgd[0] && mgd[0].goalTarget) || 100000) +
-      " in ad spend under each account's target CPA (the bonus/commission payout rule is not finalized)." +
-      (noSpend ? " <b>Cumulative ad spend isn't available from the Monday board yet</b>, so spend and goal pace show &mdash; " +
-        "(set <code>monday.columns.adSpend</code> in lib/status-config.js)." : "")));
+      " in ad spend per " + ((mgd[0] && mgd[0].goalPeriod) || "month") + " under each account's target CPA (the bonus/commission payout rule is not finalized)." +
+      (noSpend ? " <b>No MTD Spend values on the Monday board yet</b>, so spend and goal pace show &mdash; until the board's " +
+        "<b>MTD Spend</b> column is filled in." : "")));
     const c = d.cpa;
     body.append(section("03", "CPA ACCOUNTS &mdash; PROFIT PACING", c, profitTable(c, st),
       c.ok ? "Target to date = monthly target ÷ " + c.daysBasis + " × " +
