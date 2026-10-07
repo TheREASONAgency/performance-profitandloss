@@ -173,6 +173,8 @@ async function run() {
     console.error("Summary failed:", e.message);
     out.summary = prev.summary || null;
   }
+  // Managed goal progress needs the quarter's elapsed share, so it runs after the summary.
+  logic.applyManagedGoal(out.managed.rows, config, out.summary && out.summary.quarter);
 
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + "\n");
   console.log(

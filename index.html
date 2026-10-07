@@ -1065,8 +1065,9 @@ function buyerPanel(d, b) {
       const cmp = (v) => v == null || target == null ? "" : (v <= target ? "pos" : "neg");
       const gap = r.cpaGap == null ? "&mdash;" : (r.cpaGap > 0 ? "+" : r.cpaGap < 0 ? "-" : "") + usdC(Math.abs(r.cpaGap));
       const tail = managed
-        ? "<td>" + usd(r.adSpend) + "</td>" +
-          "<td class='st-text'>" + (r.bonus ? "<span class='badge " + esc(r.bonus.tone) + "'>" + esc(r.bonus.label) + "</span>" : "") + "</td>"
+        ? "<td>" + usd(r.adSpend) + (r.goalPct == null ? "" :
+            "<span class='st-sub'>" + Math.round(r.goalPct) + "% of " + compact(r.goalTarget) + "</span>") + "</td>" +
+          "<td class='st-text'>" + (r.goalPace ? "<span class='badge " + esc(r.goalPace.tone) + "'>" + esc(r.goalPace.label) + "</span>" : "") + "</td>"
         : "<td class='" + (r.cpaGap == null ? "" : r.cpaGap > 0 ? "neg" : "pos") + "'>" + gap + "</td>";
       return "<tr><td>" + (r.url ? "<a href='" + esc(r.url) + "' target='_blank' rel='noopener'>" + esc(r.name) + "</a>"
           : esc(r.name)) + (r.group ? "<span class='st-sub'>" + esc(r.group) + "</span>" : "") + "</td>" +
@@ -1077,7 +1078,7 @@ function buyerPanel(d, b) {
         "<td class='st-text'>" + badge(st, r.status, r.rawLabel) + "</td></tr>";
     }).join("");
     const tailHead = managed
-      ? "<th>Ad spend L7D</th><th class='st-text'>Bonus pace</th>"
+      ? "<th>Ad spend</th><th class='st-text'>Spend goal pace</th>"
       : "<th>CPA vs target</th>";
     return "<table class='st-table'><thead><tr><th>Account</th><th class='st-text'>Platform</th>" +
       "<th>CPA today</th><th>CPA L7D</th><th>Target CPA</th>" + tailHead +
@@ -1089,17 +1090,22 @@ function buyerPanel(d, b) {
     holder.innerHTML = "";
     const q = sm && sm.quarter, a = sm && sm.accounts;
     const pct = n => n == null ? "N/A" : Math.round(n) + "%";
+    const accts = a ? a.onTrack + " on track · " + a.offTrack + " off track" : "";
     const cards = q ? [
-      ["Quarter Target", usd(q.target), "", q.label + " · Day " + q.daysElapsed + " of " + q.daysInQuarter +
-        (q.targetSource === "tracker" ? " · sum of monthly targets" : "")],
-      ["Progress to Target", usd(q.qtdPl), signClass(q.qtdPl), pct(q.progressPct) + " of quarter target"],
-      ["Pacing", pct(q.pacingPct), q.pacingPct == null ? "" : (q.pacingPct >= 100 ? "pos" : "neg"), "vs prorated target"],
-      ["Accounts", String(a.active), "", a.onTrack + " on track · " + a.offTrack + " off track"],
+      ["Quarter Target", usd(q.headlineTarget), "",
+        (q.groups.length > 1 ? q.groups.map(g => g.label + " " + compact(g.total)).join(" + ") + " · " : "") +
+        q.label + " · Day " + q.daysElapsed + " of " + q.daysInQuarter],
+      ["Progress to Target", usd(q.qtdPl), signClass(q.qtdPl),
+        pct(q.progressPct) + " of " + q.progressLabel + " target" +
+        (q.progressTarget ? " (" + compact(q.progressTarget) + ")" : "")],
+      ["Pacing", pct(q.pacingPct), q.pacingPct == null ? "" : (q.pacingPct >= 100 ? "pos" : "neg"),
+        "vs prorated " + q.progressLabel + " target"],
+      ["Accounts", String(a.active), "", accts],
     ] : [
       ["Quarter Target", "N/A", "", "No quarter target available"],
       ["Progress to Target", "N/A", "", ""],
       ["Pacing", "N/A", "", ""],
-      ["Accounts", a ? String(a.active) : "N/A", "", a ? a.onTrack + " on track · " + a.offTrack + " off track" : ""],
+      ["Accounts", a ? String(a.active) : "N/A", "", accts],
     ];
     cards.forEach(([label, value, cls, note]) => {
       const t = el("div", "tile");
@@ -1139,9 +1145,13 @@ function buyerPanel(d, b) {
     renderSummary(d.summary, st);
     body.append(section("01", "PV ACCOUNTS", d.pv, cpaTable(d.pv, st, false),
       "Primary measure: CPA, to stay positioned for a long-term deal. Status from the Monday <b>On Target CPA</b> column."));
+    const mgd = d.managed.rows || [];
+    const noSpend = mgd.length && mgd.every(r => r.adSpend == null);
     body.append(section("02", "MANAGED ACCOUNTS", d.managed, cpaTable(d.managed, st, true),
-      "Primary measures: ad spend and CPA, tracked toward bonus/commission pace. " +
-      "Bonus pace is a placeholder until the rule is finalized (see lib/status-config.js)."));
+      "Primary measures: ad spend and CPA. Goal: " + compact((mgd[0] && mgd[0].goalTarget) || 100000) +
+      " in ad spend under each account's target CPA (the bonus/commission payout rule is not finalized)." +
+      (noSpend ? " <b>Cumulative ad spend isn't available from the Monday board yet</b>, so spend and goal pace show &mdash; " +
+        "(set <code>monday.columns.adSpend</code> in lib/status-config.js)." : "")));
     const c = d.cpa;
     body.append(section("03", "CPA ACCOUNTS &mdash; PROFIT PACING", c, profitTable(c, st),
       c.ok ? "Target to date = monthly target ÷ " + c.daysBasis + " × " +

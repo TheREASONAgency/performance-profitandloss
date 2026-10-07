@@ -29,9 +29,9 @@ A GitHub Action rebuilds **`status.json` every Monday, Wednesday and Friday at 6
 
 ## Layout
 
-1. **Card row** (reuses the dashboard's existing `.tile` cards): **Quarter Target** (headline) · **Progress to Target** (QTD P&L, % of target) · **Pacing** (QTD P&L vs prorated quarter target) · **Accounts** (active count, on/off track).
+1. **Card row** (reuses the dashboard's existing `.tile` cards): **Quarter Target** (headline, $745K) · **Progress to Target** (QTD P&L vs the CPA target) · **Pacing** (vs prorated CPA target) · **Accounts** (active count, on/off track).
 2. **PV accounts**: primary measure is CPA (today, L7D, target, gap vs target).
-3. **Managed accounts**: CPA plus ad spend, with a **Bonus pace** column (placeholder, see below).
+3. **Managed accounts**: CPA plus ad spend toward the $100K goal, with a **Spend goal pace** column.
 4. **CPA accounts**: profit MTD vs monthly target, target to date, gap and pacing %.
 
 ## Status rules
@@ -54,9 +54,9 @@ PV vs Managed comes from **Client Type** (`PV / TESTING` / `Managed`).
 6. **"CPA accounts" = P&L-type offers in `data.json`** (the Media Buyers' trackers). Offers with `type: "cpa"` (purchases vs CPA target, no profit target) are skipped.
 7. **Days elapsed** = `dayOfMonth` in `data.json` (same as the Overview tab), **capped at 30** in 31-day months. Set `capDaysAtBasis: false` to remove the cap.
 8. **Offers with no entries this month** show Paused; offers with no monthly target are hidden.
-9. **Quarter Target is not stored anywhere yet.** Default = sum of every P&L offer's monthly target in `data.json` × 3 (currently $525,000, including offers with no entries this month). Set `quarter.targets: { "Q4 2026": <number> }` in config to use a real figure.
-10. **Quarter pacing** = QTD P&L ÷ (quarter target × days elapsed ÷ days in quarter), calendar days, anchored to the date `data.json` represents (same as the Overview), so a lagging data refresh isn't penalized. QTD P&L sums the current quarter's months in `data.json`.
-11. **Managed ad spend** = the board's *Current Spend L7D* (`columns.adSpend`; swap the column ID to use Maximum or Remaining Spend).
-12. **Bonus/commission pace is a placeholder, OFF by default** (shows "Rule TBD"). Set `managed.bonus.enabled: true` to try the placeholder rule (CPA L7D ≤ target CPA, optional minimum spend), or edit `metric` / `comparator` / `threshold` once the real rule is final. Logic: `evaluateBonus` in `lib/status-logic.js`.
+9. **Targets table (Q4 2026)** is in `targets` in config. The three columns you sent are assumed to be **Oct / Nov / Dec**. Its group totals reproduce your subtotal rows exactly (Retainers 127,000 / 181,500 / 211,500; CPA 55,000 / 75,000 / 95,000), and a test enforces that. Add a `"Qn YYYY"` entry each quarter.
+10. **Quarter Target card = Retainers + CPA = $745,000** (`quarter.headlineGroups`). **Progress and Pacing compare quarter-to-date P&L against the CPA target only ($225,000)** (`quarter.progressGroups`), because retainer revenue isn't tracked in any source yet. The card labels say so. Pacing is calendar-day based and anchored to the date `data.json` represents (same as the Overview).
+11. **CPA account targets for the current month come from the table**, replacing the tracker's `monthlyTarget` via `trackerMatch`: Keeps: HL → Travis/Keeps · TRX → TrimRx (any buyer) · RUG → Rugiet · Medvi → Medvi. **Quad and NAD have no matching tracker offer**, so they count toward the quarter target but get no row until an offer with a matching name is added. An explicit **$0 target (Rugiet, Medvi)** is shown as "No Status / Target is $0" only if the offer has activity this month.
+12. **Managed ad spend goal: $100,000 per account** while CPA stays under target CPA (`managed.goal`). Assumed **per quarter**: "On pace" = spend ≥ $100K × share of quarter elapsed; "CPA over target" if L7D CPA > target; "Goal hit" at $100K. **Data gap:** the Monday board has no cumulative ad spend for Managed accounts (spend columns are empty; "Current Spend L7D" is a rolling week, not a total), so spend shows "—" / "No spend data" until `monday.columns.adSpend` is pointed at a cumulative column. The bonus/commission payout rule itself is not modeled.
 13. **"Active" accounts** = On Track + Off Track across all three groups (Paused and No Status excluded).
 14. **CPA freshness:** profit comes from `data.json`, which its own job refreshes on a different schedule. At 6 AM the status job uses whatever `data.json` last committed (typically the prior day), and the tab shows when that data was refreshed.

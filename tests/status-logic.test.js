@@ -113,77 +113,149 @@ test("currentMonthKey respects the timezone", () => {
   assert.strictEqual(L.currentMonthKey(new Date("2026-11-01T03:00:00Z"), "UTC"), "2026-11");
 });
 
-test("evaluateBonus: placeholder is off by default, configurable when on", () => {
-  const row = { cpaL7d: 300, cpaTarget: 400, adSpend: 5000 };
-  assert.deepStrictEqual(L.evaluateBonus(row, cfg.managed.bonus), { label: "Rule TBD", tone: "muted" });
-  const on = { ...cfg.managed.bonus, enabled: true };
-  assert.strictEqual(L.evaluateBonus(row, on).label, "On pace");
-  assert.strictEqual(L.evaluateBonus({ ...row, cpaL7d: 450 }, on).label, "Off pace");
-  assert.strictEqual(L.evaluateBonus({ ...row, cpaL7d: null }, on).label, "No data");
-  assert.strictEqual(L.evaluateBonus(row, { ...on, minAdSpend: 10000 }).label, "Below min spend");
-  assert.strictEqual(L.evaluateBonus({ cpaL7d: 5 }, { ...on, thresholdField: null, threshold: 3, comparator: "gte" }).label, "On pace");
+test("evaluateManagedGoal: $100K spend goal, CPA under target, quarter pace", () => {
+  const goal = cfg.managed.goal;
+  assert.strictEqual(goal.amount, 100000);
+  const row = { adSpend: 30000, cpaL7d: 200, cpaTarget: 224 };
+  assert.strictEqual(L.evaluateManagedGoal(row, goal, 0.25).label, "On pace");        // needs 25,000
+  assert.strictEqual(L.evaluateManagedGoal(row, goal, 0.5).label, "Behind pace");     // needs 50,000
+  assert.strictEqual(L.evaluateManagedGoal({ ...row, cpaL7d: 250 }, goal, 0.25).label, "CPA over target");
+  assert.strictEqual(L.evaluateManagedGoal({ ...row, adSpend: 100000 }, goal, 0.25).label, "Goal hit");
+  assert.strictEqual(L.evaluateManagedGoal({ ...row, adSpend: null }, goal, 0.25).label, "No spend data");
+  assert.strictEqual(L.evaluateManagedGoal(row, goal, null).label, "No pace data");
+  assert.strictEqual(L.evaluateManagedGoal(row, { ...goal, paceByQuarter: false }, 0.5).label, "In progress");
+  assert.strictEqual(L.evaluateManagedGoal({ ...row, cpaL7d: null }, goal, 0.25).label, "On pace"); // unknown CPA is not a fail
 });
 
-test("buildMondayRows adds ad spend, CPA gap and bonus (managed only)", () => {
+test("applyManagedGoal sets progress % and pace from the quarter elapsed share", () => {
+  const rows = [{ adSpend: 20000, cpaL7d: 100, cpaTarget: 200 }, { adSpend: null }];
+  L.applyManagedGoal(rows, cfg, { daysElapsed: 46, daysInQuarter: 92 }); // half the quarter
+  assert.strictEqual(rows[0].goalPct, 20);
+  assert.strictEqual(rows[0].goalPace.label, "Behind pace");   // needs 50,000
+  assert.strictEqual(rows[1].goalPct, null);
+  assert.strictEqual(rows[1].goalPace.label, "No spend data");
+});
+
+test("buildMondayRows reads cumulative ad spend only when a column is configured", () => {
+  const withCol = { ...cfg, monday: { ...cfg.monday, columns: { ...cfg.monday.columns, adSpend: "numeric_test" } } };
   const mk = (id, name, type, l7d, spend) => ({
     id, name, group: { id: "topics", title: "G" },
     column_values: [
       { id: cfg.monday.columns.clientType, text: type },
       { id: cfg.monday.columns.onTargetCpa, text: "Over" },
       { id: cfg.monday.columns.cpaL7d, text: l7d },
-      { id: cfg.monday.columns.adSpend, text: spend },
+      { id: "numeric_test", text: spend },
     ],
   });
-  const r = L.buildMondayRows([mk("1", "GAL (<$400)", "PV / TESTING", "490", "1200"), mk("2", "DME (CPA ~$224)", "Managed", "200", "3500.5")], cfg);
+  const items = [mk("1", "GAL (<$400)", "PV / TESTING", "490", "1200"), mk("2", "DME (CPA ~$224)", "Managed", "200", "3500.5")];
+  const r = L.buildMondayRows(items, withCol);
   assert.strictEqual(r.pv[0].cpaGap, 90);            // 490 - 400, positive = over target
-  assert.strictEqual(r.pv[0].bonus, undefined);
   assert.strictEqual(r.managed[0].adSpend, 3500.5);
   assert.strictEqual(r.managed[0].cpaGap, -24);
-  assert.strictEqual(r.managed[0].bonus.label, "Rule TBD");
+  assert.strictEqual(L.buildMondayRows(items, cfg).managed[0].adSpend, null);   // default: no cumulative column
 });
 
-test("computeQuarterSummary: Q4 2026, Oct 7 => day 7 of 92", () => {
-  const q = L.computeQuarterSummary({ label: "Q4 2026", target: 920000, qtdPl: 5000, today: { y: 2026, m: 10, d: 7 } });
-  assert.strictEqual(q.daysInQuarter, 92);
-  assert.strictEqual(q.daysElapsed, 7);
-  assert.strictEqual(q.proratedTarget, 70000);       // 920000 * 7 / 92
-  assert.ok(Math.abs(q.progressPct - (5000 / 920000 * 100)) < 1e-9);
-  assert.ok(Math.abs(q.pacingPct - (5000 / 70000 * 100)) < 1e-9);
-  assert.strictEqual(L.computeQuarterSummary({ label: "Q4 2026", target: 1000, qtdPl: 0, today: { y: 2027, m: 2, d: 1 } }).daysElapsed, 92); // capped
-  assert.strictEqual(L.computeQuarterSummary({ label: "Q4 2026", target: null, qtdPl: 0, today: { y: 2026, m: 10, d: 7 } }), null);
+test("Q4 2026 target table matches the supplied subtotals (Oct / Nov / Dec)", () => {
+  const q = cfg.targets["Q4 2026"];
+  const monthSums = (g) => [0, 1, 2].map((i) => Object.values(q.groups[g].accounts).reduce((s, a) => s + a[i], 0));
+  assert.deepStrictEqual(monthSums("retainers"), [127000, 181500, 211500]);
+  assert.deepStrictEqual(monthSums("cpa"), [55000, 75000, 95000]);
+  const t = L.resolveQuarterTargets({ currentQuarter: "Q4 2026" }, cfg);
+  assert.strictEqual(t.source, "config");
+  assert.strictEqual(t.groups.retainers.total, 520000);
+  assert.strictEqual(t.groups.cpa.total, 225000);
+  assert.strictEqual(t.headline, 745000);            // retainers + CPA
+  assert.strictEqual(t.progress, 225000);            // only CPA has actuals
+  assert.strictEqual(t.progressLabel, "CPA");
 });
 
-test("resolveQuarterTarget: config override beats sum-of-monthly-targets", () => {
+test("resolveQuarterTargets falls back to tracker monthly targets x 3 for an unconfigured quarter", () => {
   const data = {
-    currentQuarter: "Q4 2026",
+    currentQuarter: "Q1 2027",
     buyers: [{ accounts: [
       { name: "A", monthlyTarget: 15000 }, { name: "B", monthlyTarget: 40000 },
       { name: "C", type: "cpa", cpaTarget: 700 }, { name: "D", monthlyTarget: null },
     ] }],
   };
-  assert.deepStrictEqual(L.resolveQuarterTarget(data, cfg), { target: 165000, source: "tracker" });
-  const withOverride = { ...cfg, quarter: { ...cfg.quarter, targets: { "Q4 2026": 450000 } } };
-  assert.deepStrictEqual(L.resolveQuarterTarget(data, withOverride), { target: 450000, source: "config" });
+  const t = L.resolveQuarterTargets(data, cfg);
+  assert.strictEqual(t.source, "tracker");
+  assert.strictEqual(t.headline, 165000);
+  assert.strictEqual(t.progress, 165000);
 });
 
-test("buildSummary: QTD P&L from current-quarter months, active = on/off track", () => {
+test("cpaTargetOverride maps table labels to tracker offers for the current month", () => {
+  const d = (month) => ({ currentQuarter: "Q4 2026", currentMonth: month });
+  assert.strictEqual(L.cpaTargetOverride("Travis", "Keeps", d("2026-10"), cfg), 40000);
+  assert.strictEqual(L.cpaTargetOverride("Travis", "Keeps", d("2026-11"), cfg), 45000);
+  assert.strictEqual(L.cpaTargetOverride("Travis", "Keeps", d("2026-12"), cfg), 50000);
+  assert.strictEqual(L.cpaTargetOverride("Joe", "Keeps", d("2026-10"), cfg), null);      // only Travis/Keeps is HL
+  assert.strictEqual(L.cpaTargetOverride("Joe", "TrimRx", d("2026-10"), cfg), 5000);     // TRX, any buyer
+  assert.strictEqual(L.cpaTargetOverride("Kurt", "trimrx", d("2026-11"), cfg), 10000);   // case-insensitive
+  assert.strictEqual(L.cpaTargetOverride("Rory", "Rugiet", d("2026-10"), cfg), 0);
+  assert.strictEqual(L.cpaTargetOverride("Kurt", "Medvi", d("2026-10"), cfg), 0);
+  assert.strictEqual(L.cpaTargetOverride("Stefan", "Medvi GLP1", d("2026-10"), cfg), null);
+  assert.strictEqual(L.cpaTargetOverride("Travis", "Keeps", d("2027-01"), cfg), null);   // outside the quarter
+  assert.strictEqual(L.cpaTargetOverride("Travis", "Keeps", { currentQuarter: "Q1 2027", currentMonth: "2027-01" }, cfg), null);
+});
+
+test("buildCpaRows applies the target table: overrides, explicit $0, tracker fallback", () => {
+  const data = {
+    currentQuarter: "Q4 2026", currentMonth: "2026-11", dayOfMonth: 10,
+    buyers: [
+      { id: "joe", name: "Joe", accounts: [{ name: "TrimRx", liveThisMonth: true, monthlyTarget: 15000, pl: 2000 }] },
+      { id: "rory", name: "Rory", accounts: [{ name: "Rugiet", liveThisMonth: true, monthlyTarget: 15000, pl: -578 }] },
+      { id: "kurt", name: "Kurt", accounts: [
+        { name: "Medvi", liveThisMonth: false, monthlyTarget: 15000, pl: 0 },       // $0 + not live -> hidden
+        { name: "AltRx", liveThisMonth: true, monthlyTarget: 15000, pl: 6000 },    // not in table -> tracker 15000
+      ] },
+    ],
+  };
+  const by = Object.fromEntries(L.buildCpaRows(data, cfg).map((r) => [r.name, r]));
+  assert.deepStrictEqual(Object.keys(by).sort(), ["AltRx", "Rugiet", "TrimRx"]);
+  assert.strictEqual(by.TrimRx.monthlyTarget, 10000);            // Nov TRX target, not the tracker's 15000
+  assert.strictEqual(by.TrimRx.expectedToDate, 10000 / 30 * 10);
+  assert.strictEqual(by.TrimRx.status, "off_track");             // 2000 < 3333
+  assert.strictEqual(by.Rugiet.status, "unknown");               // explicit $0 target: visible, not scored
+  assert.strictEqual(by.Rugiet.note, "Target is $0 this month");
+  assert.strictEqual(by.AltRx.monthlyTarget, 15000);
+  assert.strictEqual(by.AltRx.status, "on_track");               // 6000 >= 5000
+});
+
+test("computeQuarterSummary: Q4 2026, day 7 of 92, separate headline and progress targets", () => {
+  const q = L.computeQuarterSummary({ label: "Q4 2026", headlineTarget: 745000, progressTarget: 920000, qtdPl: 5000, today: { y: 2026, m: 10, d: 7 } });
+  assert.strictEqual(q.daysInQuarter, 92);
+  assert.strictEqual(q.daysElapsed, 7);
+  assert.strictEqual(q.headlineTarget, 745000);
+  assert.strictEqual(q.proratedTarget, 70000);       // 920000 * 7 / 92
+  assert.ok(Math.abs(q.progressPct - (5000 / 920000 * 100)) < 1e-9);
+  assert.ok(Math.abs(q.pacingPct - (5000 / 70000 * 100)) < 1e-9);
+  assert.strictEqual(L.computeQuarterSummary({ label: "Q4 2026", headlineTarget: 1000, progressTarget: 1000, qtdPl: 0, today: { y: 2027, m: 2, d: 1 } }).daysElapsed, 92); // capped
+  assert.strictEqual(L.computeQuarterSummary({ label: "Q4 2026", headlineTarget: null, progressTarget: null, qtdPl: 0, today: { y: 2026, m: 10, d: 7 } }), null);
+});
+
+test("buildSummary: headline $745K, progress vs CPA target only, QTD P&L from current quarter", () => {
   const data = {
     currentQuarter: "Q4 2026", currentMonth: "2026-10", dayOfMonth: 5,
-    buyers: [{ accounts: [{ name: "A", monthlyTarget: 10000 }] }],
+    buyers: [],
     months: [
       { month: "2026-09", quarter: "Q3 2026", accounts: [{ pl: 99999 }] },
       { month: "2026-10", quarter: "Q4 2026", accounts: [{ pl: 1500 }, { pl: -500 }, { purchases: 2 }] },
     ],
   };
   const s = L.buildSummary({
-    data, today: { y: 2026, m: 10, d: 1 }, cfg,
+    data, today: { y: 2026, m: 10, d: 30 }, cfg,
     pv: [{ status: "on_track" }, { status: "paused" }],
     managed: [{ status: "off_track" }],
     cpa: [{ status: "on_track" }, { status: "unknown" }],
   });
-  assert.strictEqual(s.quarter.qtdPl, 1000);
-  assert.strictEqual(s.quarter.target, 30000);
-  assert.strictEqual(s.quarter.daysElapsed, 5);      // data's date (Oct 5), not today (Oct 1 here)
+  const q = s.quarter;
+  assert.strictEqual(q.headlineTarget, 745000);
+  assert.strictEqual(q.progressTarget, 225000);
+  assert.strictEqual(q.qtdPl, 1000);
+  assert.strictEqual(q.daysElapsed, 5);              // the data's date (Oct 5), not today (Oct 30)
+  assert.ok(Math.abs(q.progressPct - (1000 / 225000 * 100)) < 1e-9);
+  assert.deepStrictEqual(q.groups, [{ label: "Retainers", total: 520000 }, { label: "CPA", total: 225000 }]);
+  assert.strictEqual(q.progressLabel, "CPA");
   assert.deepStrictEqual(s.accounts, { active: 3, onTrack: 2, offTrack: 1, paused: 1, total: 5 });
 });
 
