@@ -27,6 +27,13 @@ A GitHub Action rebuilds **`status.json` every Monday, Wednesday and Friday at 6
 2. Merge the branch, then run **Refresh Account Status** once to replace the placeholder.
 3. No Vercel changes or environment variables are needed. The token never reaches Vercel or the browser.
 
+## Layout
+
+1. **Card row** (reuses the dashboard's existing `.tile` cards): **Quarter Target** (headline) · **Progress to Target** (QTD P&L, % of target) · **Pacing** (QTD P&L vs prorated quarter target) · **Accounts** (active count, on/off track).
+2. **PV accounts**: primary measure is CPA (today, L7D, target, gap vs target).
+3. **Managed accounts**: CPA plus ad spend, with a **Bonus pace** column (placeholder, see below).
+4. **CPA accounts**: profit MTD vs monthly target, target to date, gap and pacing %.
+
 ## Status rules
 
 **PV and Managed** (Monday board): **On Target CPA** column.
@@ -47,4 +54,9 @@ PV vs Managed comes from **Client Type** (`PV / TESTING` / `Managed`).
 6. **"CPA accounts" = P&L-type offers in `data.json`** (the Media Buyers' trackers). Offers with `type: "cpa"` (purchases vs CPA target, no profit target) are skipped.
 7. **Days elapsed** = `dayOfMonth` in `data.json` (same as the Overview tab), **capped at 30** in 31-day months. Set `capDaysAtBasis: false` to remove the cap.
 8. **Offers with no entries this month** show Paused; offers with no monthly target are hidden.
-9. **CPA freshness:** profit comes from `data.json`, which its own job refreshes on a different schedule. At 6 AM the status job uses whatever `data.json` last committed (typically the prior day), and the tab shows when that data was refreshed.
+9. **Quarter Target is not stored anywhere yet.** Default = sum of every P&L offer's monthly target in `data.json` × 3 (currently $525,000, including offers with no entries this month). Set `quarter.targets: { "Q4 2026": <number> }` in config to use a real figure.
+10. **Quarter pacing** = QTD P&L ÷ (quarter target × days elapsed ÷ days in quarter), calendar days, anchored to the date `data.json` represents (same as the Overview), so a lagging data refresh isn't penalized. QTD P&L sums the current quarter's months in `data.json`.
+11. **Managed ad spend** = the board's *Current Spend L7D* (`columns.adSpend`; swap the column ID to use Maximum or Remaining Spend).
+12. **Bonus/commission pace is a placeholder, OFF by default** (shows "Rule TBD"). Set `managed.bonus.enabled: true` to try the placeholder rule (CPA L7D ≤ target CPA, optional minimum spend), or edit `metric` / `comparator` / `threshold` once the real rule is final. Logic: `evaluateBonus` in `lib/status-logic.js`.
+13. **"Active" accounts** = On Track + Off Track across all three groups (Paused and No Status excluded).
+14. **CPA freshness:** profit comes from `data.json`, which its own job refreshes on a different schedule. At 6 AM the status job uses whatever `data.json` last committed (typically the prior day), and the tab shows when that data was refreshed.

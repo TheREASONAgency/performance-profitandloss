@@ -121,6 +121,7 @@ async function run() {
     ...(process.env.STATUS_SEED ? { seed: true } : {}),
   };
   let failures = 0;
+  let data = null;
 
   try {
     const rows = logic.buildMondayRows(await fetchMondayItems(), config);
@@ -137,7 +138,7 @@ async function run() {
   }
 
   try {
-    const data = JSON.parse(fs.readFileSync(path.join(ROOT, config.cpa.dataFile), "utf8"));
+    data = JSON.parse(fs.readFileSync(path.join(ROOT, config.cpa.dataFile), "utf8"));
     const warnings = [];
     const monthNow = logic.currentMonthKey(now, config.timezone);
     if (data.currentMonth !== monthNow) {
@@ -157,6 +158,20 @@ async function run() {
     failures++;
     console.error("CPA section failed:", e.message);
     out.cpa = failedSection(e, prev.cpa, prev.generatedAt);
+  }
+
+  // Headline cards. Needs data.json for the quarter; uses kept rows if a source failed.
+  try {
+    out.summary = data
+      ? logic.buildSummary({
+          data, pv: out.pv.rows, managed: out.managed.rows, cpa: out.cpa.rows,
+          today: logic.todayParts(now, config.timezone), cfg: config,
+        })
+      : (prev.summary || null);
+  } catch (e) {
+    failures++;
+    console.error("Summary failed:", e.message);
+    out.summary = prev.summary || null;
   }
 
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + "\n");

@@ -279,6 +279,7 @@
       <div class="tile-note" id="st-updated" aria-live="polite">Loading&hellip;</div>
       <button class="st-refresh" id="st-refresh" type="button">Reload</button>
     </div>
+    <div class="tiles" id="st-tiles" style="margin-top:18px"></div>
     <div id="st-body"></div>
   </section>
 
@@ -1058,21 +1059,55 @@ function buyerPanel(d, b) {
     return wrap;
   }
 
-  function cpaTable(sec, st) {
+  function cpaTable(sec, st, managed) {
     const rows = sec.rows.map(r => {
       const target = r.cpaTarget;
       const cmp = (v) => v == null || target == null ? "" : (v <= target ? "pos" : "neg");
+      const gap = r.cpaGap == null ? "&mdash;" : (r.cpaGap > 0 ? "+" : r.cpaGap < 0 ? "-" : "") + usdC(Math.abs(r.cpaGap));
+      const tail = managed
+        ? "<td>" + usd(r.adSpend) + "</td>" +
+          "<td class='st-text'>" + (r.bonus ? "<span class='badge " + esc(r.bonus.tone) + "'>" + esc(r.bonus.label) + "</span>" : "") + "</td>"
+        : "<td class='" + (r.cpaGap == null ? "" : r.cpaGap > 0 ? "neg" : "pos") + "'>" + gap + "</td>";
       return "<tr><td>" + (r.url ? "<a href='" + esc(r.url) + "' target='_blank' rel='noopener'>" + esc(r.name) + "</a>"
           : esc(r.name)) + (r.group ? "<span class='st-sub'>" + esc(r.group) + "</span>" : "") + "</td>" +
         "<td class='st-text'>" + esc(r.platform) + "</td>" +
         "<td class='" + cmp(r.cpaToday) + "'>" + usdC(r.cpaToday) + "</td>" +
         "<td class='" + cmp(r.cpaL7d) + "'>" + usdC(r.cpaL7d) + "</td>" +
-        "<td>" + usdC(target) + "</td>" +
+        "<td>" + usdC(target) + "</td>" + tail +
         "<td class='st-text'>" + badge(st, r.status, r.rawLabel) + "</td></tr>";
     }).join("");
+    const tailHead = managed
+      ? "<th>Ad spend L7D</th><th class='st-text'>Bonus pace</th>"
+      : "<th>CPA vs target</th>";
     return "<table class='st-table'><thead><tr><th>Account</th><th class='st-text'>Platform</th>" +
-      "<th>CPA today</th><th>CPA L7D</th><th>Target CPA</th><th class='st-text'>Status</th></tr></thead>" +
-      "<tbody>" + rows + "</tbody></table>";
+      "<th>CPA today</th><th>CPA L7D</th><th>Target CPA</th>" + tailHead +
+      "<th class='st-text'>Status</th></tr></thead><tbody>" + rows + "</tbody></table>";
+  }
+
+  function renderSummary(sm, st) {
+    const holder = document.getElementById("st-tiles");
+    holder.innerHTML = "";
+    const q = sm && sm.quarter, a = sm && sm.accounts;
+    const pct = n => n == null ? "N/A" : Math.round(n) + "%";
+    const cards = q ? [
+      ["Quarter Target", usd(q.target), "", q.label + " · Day " + q.daysElapsed + " of " + q.daysInQuarter +
+        (q.targetSource === "tracker" ? " · sum of monthly targets" : "")],
+      ["Progress to Target", usd(q.qtdPl), signClass(q.qtdPl), pct(q.progressPct) + " of quarter target"],
+      ["Pacing", pct(q.pacingPct), q.pacingPct == null ? "" : (q.pacingPct >= 100 ? "pos" : "neg"), "vs prorated target"],
+      ["Accounts", String(a.active), "", a.onTrack + " on track · " + a.offTrack + " off track"],
+    ] : [
+      ["Quarter Target", "N/A", "", "No quarter target available"],
+      ["Progress to Target", "N/A", "", ""],
+      ["Pacing", "N/A", "", ""],
+      ["Accounts", a ? String(a.active) : "N/A", "", a ? a.onTrack + " on track · " + a.offTrack + " off track" : ""],
+    ];
+    cards.forEach(([label, value, cls, note]) => {
+      const t = el("div", "tile");
+      t.append(el("div", "tile-label", label));
+      t.append(el("div", "tile-value " + cls, value));
+      t.append(el("div", "tile-note", note));
+      holder.append(t);
+    });
   }
 
   function profitTable(sec, st) {
@@ -1101,8 +1136,12 @@ function buyerPanel(d, b) {
       body.append(el("div", "st-warn", "<strong>Placeholder data.</strong> The first scheduled " +
         "refresh hasn't run yet. Run the Refresh Account Status workflow to load live Monday data."));
     }
-    body.append(section("01", "PV ACCOUNTS", d.pv, cpaTable(d.pv, st)));
-    body.append(section("02", "MANAGED ACCOUNTS", d.managed, cpaTable(d.managed, st)));
+    renderSummary(d.summary, st);
+    body.append(section("01", "PV ACCOUNTS", d.pv, cpaTable(d.pv, st, false),
+      "Primary measure: CPA, to stay positioned for a long-term deal. Status from the Monday <b>On Target CPA</b> column."));
+    body.append(section("02", "MANAGED ACCOUNTS", d.managed, cpaTable(d.managed, st, true),
+      "Primary measures: ad spend and CPA, tracked toward bonus/commission pace. " +
+      "Bonus pace is a placeholder until the rule is finalized (see lib/status-config.js)."));
     const c = d.cpa;
     body.append(section("03", "CPA ACCOUNTS &mdash; PROFIT PACING", c, profitTable(c, st),
       c.ok ? "Target to date = monthly target ÷ " + c.daysBasis + " × " +

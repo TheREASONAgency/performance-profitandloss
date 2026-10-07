@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T20:35:11.906Z",
+  "generatedAt": "2026-10-07T19:37:32.779Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -191,5 +191,25 @@
     "daysElapsed": 5,
     "daysBasis": 30,
     "warnings": []
+  },
+  "summary": {
+    "quarter": {
+      "label": "Q4 2026",
+      "target": 525000,
+      "qtdPl": 4169,
+      "daysElapsed": 5,
+      "daysInQuarter": 92,
+      "proratedTarget": 28532.608695652172,
+      "progressPct": 0.794095238095238,
+      "pacingPct": 14.611352380952383,
+      "targetSource": "tracker"
+    },
+    "accounts": {
+      "active": 3,
+      "onTrack": 0,
+      "offTrack": 3,
+      "paused": 7,
+      "total": 10
+    }
   }
 }
