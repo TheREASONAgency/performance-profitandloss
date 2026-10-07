@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T20:08:18.558Z",
+  "generatedAt": "2026-10-07T20:10:46.798Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -116,23 +116,11 @@
         "note": "No entries this month"
       },
       {
-        "id": "jack:Medvi",
-        "name": "Medvi",
-        "buyer": "Jack",
-        "platform": "Meta",
-        "monthlyTarget": 5000,
-        "profit": 0,
-        "live": false,
-        "lastEntry": "2026-04-12",
-        "status": "paused",
-        "note": "No entries this month"
-      },
-      {
         "id": "stefan:Medvi GLP1",
         "name": "Medvi GLP1",
         "buyer": "Stefan",
         "platform": "Meta",
-        "monthlyTarget": 15000,
+        "monthlyTarget": 5000,
         "profit": 0,
         "live": false,
         "lastEntry": "2026-06-29",
@@ -193,7 +181,7 @@
     "counts": {
       "on_track": 0,
       "off_track": 2,
-      "paused": 9,
+      "paused": 8,
       "unknown": 0
     },
     "dataUpdated": "2026-10-05T09:27:37Z",
@@ -230,8 +218,8 @@
       "active": 2,
       "onTrack": 0,
       "offTrack": 2,
-      "paused": 9,
-      "total": 11
+      "paused": 8,
+      "total": 10
     }
   }
 }
