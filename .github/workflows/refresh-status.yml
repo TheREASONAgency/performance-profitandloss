@@ -51,6 +51,7 @@ jobs:
         if: steps.gate.outputs.decision == 'run'
         env:
           MONDAY_API_TOKEN: ${{ secrets.MONDAY_API_TOKEN }}
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
         run: node scripts/refresh_status.js
 
       - name: Commit if changed

@@ -16,6 +16,8 @@ const fs = require("fs");
 const path = require("path");
 const config = require("../lib/status-config");
 const logic = require("../lib/status-logic");
+const sheets = require("../lib/google-sheets");
+const sheetBoard = require("../lib/sheet-board");
 
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(ROOT, config.outputFile);
@@ -176,6 +178,24 @@ async function run() {
   // Managed goal progress needs the quarter's elapsed share, so it runs after the summary.
   logic.applyManagedGoal(out.managed.rows, config,
     logic.goalElapsedFraction(data, config, out.summary && out.summary.quarter));
+
+  // Master sheet board: targets from the sheet, blanks filled from P&L / Monday.
+  try {
+    const values = await sheets.getValues(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range);
+    const model = sheetBoard.parseBoard(values, config.board);
+    sheetBoard.fillActuals(model, sheetBoard.buildSources({
+      cpaRows: out.cpa.rows, mondayManaged: out.managed.rows, matchesAny: logic.matchesAny,
+      board: config.board, goalAmount: config.managed.goal.amount,
+    }));
+    out.board = { ok: true, ...model };
+  } catch (e) {
+    failures++;
+    const err = process.env.STATUS_SEED ? new Error(`Waiting for the first scheduled refresh (${config.scheduleLabel}).`) : e;
+    console.error("Sheet board failed:", e.message);
+    out.board = { ok: false, error: err.message, groups: [], quarter: null,
+      lastGood: (prev.board && (prev.board.ok === false ? prev.board.lastGood : prev.generatedAt)) || null,
+      ...(prev.board && prev.board.groups ? { groups: prev.board.groups, quarter: prev.board.quarter } : {}) };
+  }
 
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + "\n");
   console.log(
