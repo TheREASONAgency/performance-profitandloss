@@ -194,6 +194,26 @@
     border:1px solid var(--rule); color:var(--text-secondary); padding:5px 11px; border-radius:2px; }
   .st-refresh:hover { border-color:var(--text-secondary); color:var(--text-primary); }
   .st-refresh:disabled { opacity:.5; cursor:default; }
+  /* ---- Account Status: sheet board ---- */
+  .bd { margin-top:18px; }
+  .bd-label { font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); margin:22px 0 6px; }
+  .bd table { width:100%; border:none; border-collapse:collapse; }
+  .bd th, .bd td { padding:7px 12px; font-size:13px; white-space:nowrap; border-bottom:1px solid color-mix(in srgb, var(--g) 35%, transparent); }
+  .bd th { font-size:11.5px; font-weight:600; color:var(--text-secondary); text-align:right; }
+  .bd td { text-align:right; font-variant-numeric:tabular-nums; }
+  .bd th:first-child, .bd td:first-child { text-align:left; }
+  .bd td:first-child { font-weight:600; }
+  .bd .tg-cell { text-align:right; width:1%; }
+  .bd-gray { --g:#8a8f98; } .bd-blue { --g:#3d85c6; } .bd-purple { --g:#8e7cc3; } .bd-green { --g:#6aa84f; }
+  .bd-block { margin-bottom:14px; border:1px solid color-mix(in srgb, var(--g, var(--rule)) 40%, transparent); border-radius:3px; overflow-x:auto; }
+  .bd-block tbody td, .bd-block thead th { background:color-mix(in srgb, var(--g, transparent) 16%, transparent) !important; }
+  .bd-block tbody tr:last-child td { border-bottom:none; }
+  .tg { font:inherit; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;
+    min-width:92px; padding:5px 10px; border-radius:2px; border:1px solid var(--rule); background:var(--surface-2); color:var(--text-secondary); }
+  .tg.on  { background:var(--good); border-color:var(--good); color:#fff; }
+  .tg.off { background:var(--bad);  border-color:var(--bad);  color:#fff; }
+  .tg:disabled { opacity:.55; cursor:wait; }
+  .tg-note { font-size:12px; color:var(--text-muted); margin:8px 0 0; }
 </style>
 </head>
 <body>
@@ -1135,7 +1155,118 @@ function buyerPanel(d, b) {
       "<th class='st-text'>Status</th></tr></thead><tbody>" + rows + "</tbody></table>";
   }
 
+
+  /* ---- Sheet board (colored groups + manual on/off-track toggles) ---- */
+  const TOGGLE_API = "/api/toggles";
+  let passcode = null;
+  try { passcode = sessionStorage.getItem("st-pass"); } catch (_) {}
+
+  function toggleBtn(t) {
+    if (!t) return "";
+    const cls = t.state === "on" ? "on" : t.state === "off" ? "off" : "";
+    const txt = t.state === "on" ? "On Track" : t.state === "off" ? "Off Track" : "Set status";
+    return "<button type='button' class='tg " + cls + "' data-cell='" + esc(t.cell) + "' data-state='" +
+      esc(t.state || "") + "'>" + txt + "</button>";
+  }
+
+  function boardHtml(b) {
+    const q = b.quarter;
+    let h = "<div class='bd'>";
+    if (q) {
+      h += "<div class='bd-block'><table><thead><tr><th>Quarterly Goal</th><th>" + esc(q.labels.revenue) +
+        "</th><th>" + esc(q.labels.actual) + "</th><th></th></tr></thead><tbody><tr><td></td><td>" +
+        esc(q.revenue) + "</td><td>" + esc(q.actual) + "</td><td class='tg-cell'>" + toggleBtn(q.toggle) +
+        "</td></tr></tbody></table></div>";
+    }
+    let lastSection = null;
+    b.groups.forEach(g => {
+      if (g.section && g.section !== lastSection) { h += "<div class='bd-label'>" + esc(g.section) + "</div>"; lastSection = g.section; }
+      h += "<div class='bd-block bd-" + esc(g.tone) + "'><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
+        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th></th></tr></thead><tbody>";
+      g.rows.forEach(r => {
+        h += "<tr><td>" + esc(r.label) + "</td>" +
+          r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
+          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td></tr>";
+      });
+      h += "</tbody></table></div>";
+    });
+    return h + "<p class='tg-note'>Blank cells have no data yet. Toggle the status buttons during standup; they save to the sheet for everyone.</p></div>";
+  }
+
+  function applyLiveToggles(map) {
+    body.querySelectorAll(".tg").forEach(btn => {
+      const st = map[btn.dataset.cell];
+      if (st === undefined) return;
+      setBtn(btn, st);
+    });
+  }
+
+  function setBtn(btn, state) {
+    btn.dataset.state = state || "";
+    btn.className = "tg" + (state ? " " + state : "");
+    btn.textContent = state === "on" ? "On Track" : state === "off" ? "Off Track" : "Set status";
+  }
+
+  async function loadLiveToggles() {
+    try {
+      const r = await fetch(TOGGLE_API, { cache: "no-store" });
+      if (!r.ok) return;
+      applyLiveToggles((await r.json()).toggles || {});
+    } catch (_) { /* snapshot values stay */ }
+  }
+
+  async function onToggle(btn) {
+    if (!passcode) {
+      passcode = window.prompt("Team passcode to change status:");
+      if (!passcode) return;
+    }
+    const prev = btn.dataset.state || "";
+    const next = prev === "on" ? "off" : "on";
+    btn.disabled = true;
+    try {
+      const r = await fetch(TOGGLE_API, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cell: btn.dataset.cell, state: next, passcode }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        if (r.status === 401) { passcode = null; try { sessionStorage.removeItem("st-pass"); } catch (_) {} }
+        throw new Error(j.error || "HTTP " + r.status);
+      }
+      try { sessionStorage.setItem("st-pass", passcode); } catch (_) {}
+      setBtn(btn, next);
+    } catch (e) {
+      window.alert("Could not save: " + e.message);
+    } finally { btn.disabled = false; }
+  }
+
+  body.addEventListener("click", e => {
+    const btn = e.target.closest && e.target.closest(".tg");
+    if (btn) onToggle(btn);
+  });
+
+  function paintBoard(d) {
+    body.innerHTML = "";
+    document.getElementById("st-tiles").innerHTML = "";
+    const b = d.board;
+    if (d.seed) {
+      body.append(el("div", "st-warn", "<strong>Placeholder data.</strong> The first scheduled " +
+        "refresh hasn't run yet. Run the Refresh Account Status workflow to load the sheet."));
+    }
+    if (!b.ok) {
+      body.append(el("div", "st-error", "<strong>" + esc(b.error) + "</strong>" +
+        (b.lastGood ? " Showing the last good data from " + stamp(b.lastGood) + "." : "")));
+    }
+    if (b.groups && b.groups.length) {
+      const wrap = el("div", "", boardHtml(b));
+      body.append(wrap);
+      loadLiveToggles();
+    } else if (b.ok) {
+      body.append(el("div", "st-warn", "The sheet has no accounts yet."));
+    }
+    updated.textContent = "Last updated " + stamp(d.generatedAt) + " · refreshes " + (d.schedule || "on a schedule");
+  }
+
   function paint(d) {
+    if (d.board && (d.board.ok || (d.board.groups && d.board.groups.length))) { paintBoard(d); return; }
     body.innerHTML = "";
     const st = d.statuses;
     if (d.seed) {

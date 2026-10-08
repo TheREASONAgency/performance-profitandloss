@@ -42,7 +42,7 @@ jobs:
 
       - name: Run logic tests
         if: steps.gate.outputs.decision == 'run'
-        run: node --test tests/status-logic.test.js
+        run: node --test tests/status-logic.test.js tests/sheet-board.test.js
 
       # Writes status.json, then exits non-zero if a source failed, so the
       # commit step below still runs (always()) and the failure shows red.

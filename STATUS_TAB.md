@@ -60,3 +60,14 @@ PV vs Managed comes from **Client Type** (`PV / TESTING` / `Managed`).
 12. **Managed ad spend goal: $100,000 per account per month** while CPA stays under target CPA (`managed.goal`; set `period: "quarter"` if spend becomes cumulative). Spend comes from the board's new **MTD Spend** text column (`text_mm7xtsh1`, e.g. "$12,345.67"), which is still empty, so spend shows "—" and "No spend data" until it is filled in. "On pace" = spend ≥ $100K × share of the month elapsed (the data's day-of-month ÷ days in month); "CPA over target" if L7D CPA > target; "Goal hit" at $100K. The bonus/commission payout rule is not modeled.
 13. **"Active" accounts** = On Track + Off Track across all three groups (Paused and No Status excluded).
 14. **CPA freshness:** profit comes from `data.json`, which its own job refreshes on a different schedule. At 6 AM the status job uses whatever `data.json` last committed (typically the prior day), and the tab shows when that data was refreshed.
+
+## Master sheet board (current layout)
+
+The tab is drawn from the **Dashboard Data** sheet (`board` in `lib/status-config.js`). Colors follow the sheet's group order: gray (Retention), blue (Profit), purple (Managed CPA), green (Acquisition).
+
+- **Targets and typed values come from the sheet.** Blank cells stay blank on the dashboard. **Acquisition is typed by the team**; the job never fills it.
+- **Blanks are filled only when a source exists**, never overwriting a typed value: Profit rows' *Actual MTD* from the P&L trackers (KEE-HL, TRX, MED; QUAD and DMN have no tracker yet); Managed rows' *CPA* and *Total Spend* from Monday (L7D CPA, MTD Spend), *Remaining Spend* = $100K minus spend. Retainer rows and Actual Revenue have no source yet (the Meta report will fill them).
+- **Cadence:** the sheet can fill daily; the dashboard snapshot rebuilds Mon/Wed/Fri 6 AM ET. **Toggles are live** (read from the sheet when the tab opens).
+- **Toggles:** each status cell is a button (gray = not set, green = On Track, red = Off Track). Click saves "On Track"/"Off Track" into that sheet cell through `api/toggles.js`. A row has a toggle only if its toggle cell is non-empty in the sheet (DMN has none).
+- **Setup for toggles:** share the sheet with the service account as **Editor**; add Vercel env vars `GOOGLE_SA_KEY` (same JSON as the GitHub secret) and `TOGGLE_PASSCODE` (shared with the team; asked once per browser session). The job also needs the sheet shared with the service account (read).
+- Tests: `node --test tests/status-logic.test.js tests/sheet-board.test.js`.
