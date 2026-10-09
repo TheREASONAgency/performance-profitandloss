@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-10-08T09:02:55Z",
+  "lastUpdated": "2026-10-09T09:03:03Z",
   "currentMonth": "2026-10",
   "monthLabel": "October 2026",
-  "dayOfMonth": 8,
+  "dayOfMonth": 9,
   "daysInMonth": 31,
   "currentQuarter": "Q4 2026",
   "currentYear": 2026,
@@ -20,7 +20,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 3870.97,
+          "proratedTarget": 4354.84,
           "pacingPct": 0.0
         },
         {
@@ -32,7 +32,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 3870.97,
+          "proratedTarget": 4354.84,
           "pacingPct": 0.0
         },
         {
@@ -75,8 +75,8 @@
           "revenue": 42280,
           "adSpend": 29889,
           "pl": 12391,
-          "proratedTarget": 10322.58,
-          "pacingPct": 120.0
+          "proratedTarget": 11612.9,
+          "pacingPct": 106.7
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -96,7 +96,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 3870.97,
+          "proratedTarget": 4354.84,
           "pacingPct": 0.0
         },
         {
@@ -108,7 +108,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 3870.97,
+          "proratedTarget": 4354.84,
           "pacingPct": 0.0
         },
         {
@@ -120,7 +120,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 3870.97,
+          "proratedTarget": 4354.84,
           "pacingPct": 0.0
         }
       ],
@@ -141,7 +141,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 3870.97,
+          "proratedTarget": 4354.84,
           "pacingPct": 0.0
         },
         {
@@ -153,7 +153,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 3870.97,
+          "proratedTarget": 4354.84,
           "pacingPct": 0.0
         }
       ],
@@ -174,7 +174,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 3870.97,
+          "proratedTarget": 4354.84,
           "pacingPct": 0.0
         }
       ],
@@ -195,8 +195,8 @@
           "revenue": 0,
           "adSpend": 578,
           "pl": -578,
-          "proratedTarget": 3870.97,
-          "pacingPct": -14.9
+          "proratedTarget": 4354.84,
+          "pacingPct": -13.3
         },
         {
           "name": "Blue Haven",
