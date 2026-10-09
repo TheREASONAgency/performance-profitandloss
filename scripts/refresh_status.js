@@ -126,9 +126,14 @@ async function run() {
   let data = null;
 
   try {
-    const rows = logic.buildMondayRows(await fetchMondayItems(), config);
-    out.pv = section(rows.pv);
-    out.managed = section(rows.managed);
+    if (!config.monday.enabled) {
+      out.pv = section([], { disabled: true });
+      out.managed = section([], { disabled: true });
+    } else {
+      const rows = logic.buildMondayRows(await fetchMondayItems(), config);
+      out.pv = section(rows.pv);
+      out.managed = section(rows.managed);
+    }
   } catch (e) {
     failures++;
     const err = process.env.STATUS_SEED
