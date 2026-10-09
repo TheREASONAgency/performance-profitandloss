@@ -6,8 +6,9 @@ const sb = require("../lib/sheet-board");
 
 const T = "toggle button for on track off track";
 const VALUES = [
-  ["Quarterly Goal:", "Total Revenue", "Actual Revenue", "", T],
-  ["", "$589,500"],
+  ["", "Total Revenue", "Actual Revenue"],
+  ["Quarterly Goal:", "$589,500", "$78,908", "", "Off Track"],
+  ["Monthly Goal:", "$149,000", "$78,908", "", T],
   ["Retention:"],
   ["Partner", "Target Spend", "Acutal MTD", "Target CPA", "CPA"],
   ["OOO", "$100,000", "", "$65", "", T],
@@ -30,9 +31,12 @@ test("parses groups, tones, headers and fixes the Actual typo", () => {
   const m = sb.parseBoard(VALUES, config.board);
   assert.deepStrictEqual(m.groups.map((g) => g.tone), ["gray", "blue", "purple", "green"]);
   assert.strictEqual(m.groups[0].headers[1], "Actual MTD");
-  assert.strictEqual(m.quarter.revenue, "$589,500");
-  assert.strictEqual(m.quarter.toggle.cell, "E1");
-  assert.strictEqual(m.groups[3].rows[0].toggle.cell, "G16");
+  assert.strictEqual(m.goals.labels.revenue, "Total Revenue");
+  assert.deepStrictEqual(m.goals.rows.map((g) => [g.kind, g.revenue, g.actual]),
+    [["quarterly", "$589,500", "$78,908"], ["monthly", "$149,000", "$78,908"]]);
+  assert.deepStrictEqual(m.goals.rows[0].toggle, { cell: "E2", state: "off" });
+  assert.strictEqual(m.goals.rows[1].toggle.state, null);
+  assert.strictEqual(m.groups[3].rows[0].toggle.cell, "G17");
   assert.strictEqual(m.groups[3].firstColLabel, "October");
   assert.deepStrictEqual(m.groups[3].headers, ["Target", "Actual", "Revenue Target", "Revenue Actual", "Quarter"]);
   const tot = m.groups[3].rows[2];
@@ -46,7 +50,7 @@ test("toggle exists only when the cell is non-empty; state parsed", () => {
   assert.strictEqual(blue.find((r) => r.label === "DMN").toggle, null);
   assert.strictEqual(blue.find((r) => r.label === "TRX").toggle.state, "on");
   assert.strictEqual(blue.find((r) => r.label === "KEE-HL").toggle.state, null);
-  assert.strictEqual(sb.listToggles(m).length, 8);
+  assert.strictEqual(sb.listToggles(m).length, 9);
 });
 
 test("fills only blank cells from sources and leaves the rest empty", () => {
@@ -67,7 +71,7 @@ test("fills only blank cells from sources and leaves the rest empty", () => {
 
 test("never overwrites a value typed in the sheet", () => {
   const v = JSON.parse(JSON.stringify(VALUES));
-  v[7][2] = "$999";
+  v[8][2] = "$999";
   const m = sb.parseBoard(v, config.board);
   sb.fillActuals(m, { profitByLabel: { "kee-hl": 1 }, managedByLabel: {} });
   assert.strictEqual(m.groups[1].rows[0].cells[1], "$999");
@@ -75,9 +79,9 @@ test("never overwrites a value typed in the sheet", () => {
 
 test("Monday fallback: fills blank/zero cells only, never real values, and refreshes remaining spend", () => {
   const v = JSON.parse(JSON.stringify(VALUES));
-  v[4][2] = "$0";            // OOO Actual MTD written as $0 by the Meta script
-  v[5][2] = "$900";          // UAC already has a real Meta number
-  v[11] = ["GAL", "$400", "", "$100,000", "$0", T];
+  v[5][2] = "$0";            // OOO Actual MTD written as $0 by the Meta script
+  v[6][2] = "$900";          // UAC already has a real Meta number
+  v[12] = ["GAL", "$400", "", "$100,000", "$0", T];
   const m = sb.parseBoard(v, config.board);
   const src = sb.buildSources({
     cpaRows: [], matchesAny: logic.matchesAny, board: config.board, goalAmount: 100000,
