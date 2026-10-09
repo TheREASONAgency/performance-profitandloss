@@ -20,8 +20,10 @@ const VALUES = [
   ["GAL", "$400", "", "", "", T],
   [],
   ["Acquisition:"],
-  ["", "October", "November", "", "December", "Quarter"],
-  ["HG Retainer", "# of 5", "# of 5", "", "# of 5", "# of 10", T],
+  ["October", "Target", "Actual", "Revenue Target", "Revenue Actual", "Quarter"],
+  ["HG Retainer", "5", "1", "$37,500", "", "# of 10", T],
+  ["PV Lite", "1", "", "$7,500", "", "# of 3", T],
+  ["Total:", "6", "1", "$45,000", "$0", ""],
 ];
 
 test("parses groups, tones, headers and fixes the Actual typo", () => {
@@ -31,6 +33,11 @@ test("parses groups, tones, headers and fixes the Actual typo", () => {
   assert.strictEqual(m.quarter.revenue, "$589,500");
   assert.strictEqual(m.quarter.toggle.cell, "E1");
   assert.strictEqual(m.groups[3].rows[0].toggle.cell, "G16");
+  assert.strictEqual(m.groups[3].firstColLabel, "October");
+  assert.deepStrictEqual(m.groups[3].headers, ["Target", "Actual", "Revenue Target", "Revenue Actual", "Quarter"]);
+  const tot = m.groups[3].rows[2];
+  assert.ok(tot.total && tot.toggle === null);
+  assert.deepStrictEqual(tot.cells, ["6", "1", "$45,000", "$0", ""]);
 });
 
 test("toggle exists only when the cell is non-empty; state parsed", () => {
@@ -39,7 +46,7 @@ test("toggle exists only when the cell is non-empty; state parsed", () => {
   assert.strictEqual(blue.find((r) => r.label === "DMN").toggle, null);
   assert.strictEqual(blue.find((r) => r.label === "TRX").toggle.state, "on");
   assert.strictEqual(blue.find((r) => r.label === "KEE-HL").toggle.state, null);
-  assert.strictEqual(sb.listToggles(m).length, 7);
+  assert.strictEqual(sb.listToggles(m).length, 8);
 });
 
 test("fills only blank cells from sources and leaves the rest empty", () => {

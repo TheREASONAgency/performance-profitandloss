@@ -213,6 +213,7 @@
   .tg.on  { background:var(--good); border-color:var(--good); color:#fff; }
   .tg.off { background:var(--bad);  border-color:var(--bad);  color:#fff; }
   .tg:disabled { opacity:.55; cursor:wait; }
+  .bd-total td { font-weight:700; border-top:2px solid color-mix(in srgb, var(--g) 55%, transparent); }
   .tg-note { font-size:12px; color:var(--text-muted); margin:8px 0 0; }
 </style>
 </head>
@@ -232,11 +233,11 @@
       </div>
     </div>
     <div class="tabbar" role="tablist">
-      <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
+      <button role="tab" data-tab="overview" aria-selected="true">CPA Overview</button>
       <button role="tab" data-tab="daily" aria-selected="false">Daily</button>
       <button role="tab" data-tab="buyers" aria-selected="false">Media Buyers</button>
       <button role="tab" data-tab="compliance" aria-selected="false">Compliance</button>
-      <button role="tab" data-tab="status" aria-selected="false">Account Status</button>
+      <button role="tab" data-tab="status" aria-selected="false">Overview</button>
     </div>
   </div>
 </div>
@@ -1184,7 +1185,7 @@ function buyerPanel(d, b) {
       h += "<div class='bd-block bd-" + esc(g.tone) + "'><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
         g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th></th></tr></thead><tbody>";
       g.rows.forEach(r => {
-        h += "<tr><td>" + esc(r.label) + "</td>" +
+        h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
           r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
           "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td></tr>";
       });
