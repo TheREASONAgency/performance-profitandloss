@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T14:30:54.707Z",
+  "generatedAt": "2026-10-09T17:45:56.386Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -20,28 +20,362 @@
     }
   },
   "pv": {
-    "ok": false,
-    "error": "MONDAY_API_TOKEN is not set",
-    "rows": [],
+    "ok": true,
+    "rows": [
+      {
+        "id": "12968522996",
+        "name": "EDE ($200)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12968522996",
+        "platform": "Meta",
+        "group": "Onboarding",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 200,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "12279646763",
+        "name": "JSK (<$340)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12279646763",
+        "platform": "Meta",
+        "group": "PAUSED",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 340,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "12231983465",
+        "name": "WEL (<$320)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231983465",
+        "platform": "Meta",
+        "group": "PAUSED",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 320,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "12414815129",
+        "name": "WIN ($325)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
+        "platform": "Meta",
+        "group": "Onboarding",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 325,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "12409812564",
+        "name": "YUC (<$400)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409812564",
+        "platform": "Meta",
+        "group": "PAUSED",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 400,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "13097050406",
+        "name": "DME_NAD+",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13097050406",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "In Learning Phase",
+        "cpaTarget": null,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 1703.6
+      },
+      {
+        "id": "12893345311",
+        "name": "Elevated ($300)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12893345311",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "In Learning Phase",
+        "cpaTarget": 300,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 5501.27
+      },
+      {
+        "id": "12409786926",
+        "name": "GAL (<$400)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "In Learning Phase",
+        "cpaTarget": 400,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 450.29
+      },
+      {
+        "id": "12703976002",
+        "name": "HEY ($225)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12703976002",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "Pending External",
+        "cpaTarget": 225,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "12501823440",
+        "name": "HMD ($350)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12501823440",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "In Learning Phase",
+        "cpaTarget": 350,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 320.05
+      },
+      {
+        "id": "12231962344",
+        "name": "HUM (<$320)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "Stuck",
+        "cpaTarget": 320,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "12845003143",
+        "name": "RHE ($",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12845003143",
+        "platform": "Meta",
+        "group": "Blockers & Dependencies",
+        "status": "unknown",
+        "rawLabel": null,
+        "cpaTarget": null,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      }
+    ],
     "counts": {
       "on_track": 0,
       "off_track": 0,
-      "paused": 0,
-      "unknown": 0
-    },
-    "lastGood": null
+      "paused": 5,
+      "unknown": 7
+    }
   },
   "managed": {
-    "ok": false,
-    "error": "MONDAY_API_TOKEN is not set",
-    "rows": [],
+    "ok": true,
+    "rows": [
+      {
+        "id": "11860804394",
+        "name": "BMD (<$300)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/11860804394",
+        "platform": "Meta",
+        "group": "Blockers & Dependencies",
+        "status": "off_track",
+        "rawLabel": "Over",
+        "cpaTarget": 300,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null,
+        "goalTarget": 100000,
+        "goalPeriod": "month",
+        "goalPct": null,
+        "goalPace": {
+          "label": "No spend data",
+          "tone": "muted"
+        }
+      },
+      {
+        "id": "9518003033",
+        "name": "DME (CPA ~$224)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/9518003033",
+        "platform": "Meta",
+        "group": "Account Health Overview",
+        "status": "off_track",
+        "rawLabel": "Over",
+        "cpaTarget": 224,
+        "cpaToday": 246.99,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null,
+        "goalTarget": 100000,
+        "goalPeriod": "month",
+        "goalPct": null,
+        "goalPace": {
+          "label": "No spend data",
+          "tone": "muted"
+        }
+      },
+      {
+        "id": "9386705587",
+        "name": "CFA (CPBC <$300)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/9386705587",
+        "platform": "Meta",
+        "group": "Account Health Overview",
+        "status": "on_track",
+        "rawLabel": "On Target",
+        "cpaTarget": 300,
+        "cpaToday": 157.18,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null,
+        "goalTarget": 100000,
+        "goalPeriod": "month",
+        "goalPct": null,
+        "goalPace": {
+          "label": "No spend data",
+          "tone": "muted"
+        }
+      },
+      {
+        "id": "18223347011",
+        "name": "Fractional CFA (CPBC <$300)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/18223347011",
+        "platform": "Meta",
+        "group": "Account Health Overview",
+        "status": "on_track",
+        "rawLabel": "On Target",
+        "cpaTarget": 300,
+        "cpaToday": 178.23,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null,
+        "goalTarget": 100000,
+        "goalPeriod": "month",
+        "goalPct": null,
+        "goalPace": {
+          "label": "No spend data",
+          "tone": "muted"
+        }
+      },
+      {
+        "id": "9654403094",
+        "name": "LFA (CPA <$650 DEMO)>",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/9654403094",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "on_track",
+        "rawLabel": "On Target",
+        "cpaTarget": 650,
+        "cpaToday": 506.14,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null,
+        "goalTarget": 100000,
+        "goalPeriod": "month",
+        "goalPct": null,
+        "goalPace": {
+          "label": "No spend data",
+          "tone": "muted"
+        }
+      },
+      {
+        "id": "9386912524",
+        "name": "UAC (CPBC <$250)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/9386912524",
+        "platform": "Meta",
+        "group": "Account Health Overview",
+        "status": "on_track",
+        "rawLabel": "On Target",
+        "cpaTarget": 250,
+        "cpaToday": 136.51,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null,
+        "goalTarget": 100000,
+        "goalPeriod": "month",
+        "goalPct": null,
+        "goalPace": {
+          "label": "No spend data",
+          "tone": "muted"
+        }
+      },
+      {
+        "id": "9386846102",
+        "name": "SCH/CCH",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/9386846102",
+        "platform": "Meta",
+        "group": "Blockers & Dependencies",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": null,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null,
+        "goalTarget": 100000,
+        "goalPeriod": "month",
+        "goalPct": null,
+        "goalPace": {
+          "label": "No spend data",
+          "tone": "muted"
+        }
+      },
+      {
+        "id": "18278326069",
+        "name": "LFA (CPA <$650 APP Submit)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/18278326069",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": null,
+        "cpaTarget": 650,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null,
+        "goalTarget": 100000,
+        "goalPeriod": "month",
+        "goalPct": null,
+        "goalPace": {
+          "label": "No spend data",
+          "tone": "muted"
+        }
+      }
+    ],
     "counts": {
-      "on_track": 0,
-      "off_track": 0,
-      "paused": 0,
-      "unknown": 0
-    },
-    "lastGood": null
+      "on_track": 4,
+      "off_track": 2,
+      "paused": 1,
+      "unknown": 1
+    }
   },
   "cpa": {
     "ok": true,
@@ -202,11 +536,11 @@
       ]
     },
     "accounts": {
-      "active": 2,
-      "onTrack": 1,
-      "offTrack": 1,
-      "paused": 7,
-      "total": 9
+      "active": 8,
+      "onTrack": 5,
+      "offTrack": 3,
+      "paused": 13,
+      "total": 29
     }
   },
   "board": {
@@ -220,7 +554,7 @@
       "actual": "",
       "toggle": {
         "cell": "E1",
-        "state": null
+        "state": "off"
       }
     },
     "sections": [],
@@ -243,13 +577,13 @@
             "row": 5,
             "cells": [
               "$100,000",
-              "",
+              "$248",
               "$65",
               ""
             ],
             "toggle": {
               "cell": "F5",
-              "state": null
+              "state": "on"
             }
           },
           {
@@ -258,7 +592,7 @@
             "row": 6,
             "cells": [
               "$100,000",
-              "",
+              "$0",
               "$650",
               ""
             ],
@@ -334,7 +668,7 @@
               "$40,000",
               "$12,391",
               "$240",
-              ""
+              "$225.50"
             ],
             "toggle": {
               "cell": "F11",
@@ -344,6 +678,10 @@
               {
                 "col": 1,
                 "source": "P&L tracker"
+              },
+              {
+                "col": 3,
+                "source": "Monday (L7D CPA)"
               }
             ]
           },
@@ -437,8 +775,8 @@
             "cells": [
               "$225",
               "",
-              "",
-              ""
+              "$100,000",
+              "$0"
             ],
             "toggle": {
               "cell": "F17",
@@ -452,13 +790,23 @@
             "cells": [
               "$350",
               "",
-              "",
-              ""
+              "$99,679.95",
+              "$320.05"
             ],
             "toggle": {
               "cell": "F18",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)"
+              },
+              {
+                "col": 2,
+                "source": "Goal minus spend"
+              }
+            ]
           },
           {
             "label": "GAL",
@@ -467,13 +815,23 @@
             "cells": [
               "$400",
               "",
-              "",
-              ""
+              "$99,549.71",
+              "$450.29"
             ],
             "toggle": {
               "cell": "F19",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)"
+              },
+              {
+                "col": 2,
+                "source": "Goal minus spend"
+              }
+            ]
           },
           {
             "label": "ELE",
@@ -482,8 +840,8 @@
             "cells": [
               "$300",
               "",
-              "",
-              ""
+              "$94,745",
+              "$5,255"
             ],
             "toggle": {
               "cell": "F20",
@@ -497,11 +855,26 @@
             "cells": [
               "$320",
               "",
-              "",
-              ""
+              "$100,000",
+              "$0"
             ],
             "toggle": {
               "cell": "F21",
+              "state": null
+            }
+          },
+          {
+            "label": "WIN",
+            "total": false,
+            "row": 22,
+            "cells": [
+              "$325",
+              "",
+              "$100,000",
+              "$0"
+            ],
+            "toggle": {
+              "cell": "F22",
               "state": null
             }
           }
@@ -523,29 +896,13 @@
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 25,
+            "row": 26,
             "cells": [
               "5",
               "1",
               "$37,500",
               "",
-              "# of 10"
-            ],
-            "toggle": {
-              "cell": "G25",
-              "state": null
-            }
-          },
-          {
-            "label": "PV Lite",
-            "total": false,
-            "row": 26,
-            "cells": [
-              "1",
-              "",
-              "$7,500",
-              "",
-              "# of 3"
+              "1 of 10"
             ],
             "toggle": {
               "cell": "G26",
@@ -553,9 +910,25 @@
             }
           },
           {
+            "label": "PV Lite",
+            "total": false,
+            "row": 27,
+            "cells": [
+              "1",
+              "",
+              "$7,500",
+              "",
+              "0 of 3"
+            ],
+            "toggle": {
+              "cell": "G27",
+              "state": null
+            }
+          },
+          {
             "label": "Total:",
             "total": true,
-            "row": 27,
+            "row": 28,
             "cells": [
               "6",
               "1",
