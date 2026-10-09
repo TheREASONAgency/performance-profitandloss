@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T17:54:25.765Z",
+  "generatedAt": "2026-10-09T17:55:21.200Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -752,7 +752,10 @@
               "$280",
               ""
             ],
-            "toggle": null
+            "toggle": {
+              "cell": "F15",
+              "state": null
+            }
           }
         ]
       },
