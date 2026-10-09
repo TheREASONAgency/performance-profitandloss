@@ -215,6 +215,19 @@
   .tg:disabled { opacity:.55; cursor:wait; }
   .bd-total td { font-weight:700; border-top:2px solid color-mix(in srgb, var(--g) 55%, transparent); }
   .tg-note { font-size:12px; color:var(--text-muted); margin:8px 0 0; }
+  /* Quarterly / Monthly goal cards: the focus of the page */
+  .goals { display:grid; grid-template-columns:minmax(0,1fr); gap:14px; margin-bottom:28px; }
+  .goal { border:1px solid var(--rule); border-top:3px solid var(--text-primary); border-radius:4px; padding:20px 24px 22px; background:var(--surface-2); }
+  .goal-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+  .bd .goal .tg-cell { width:auto; flex:none; }
+  .goal-name { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); }
+  .goal .tg { font-size:13px; min-width:130px; padding:9px 16px; }
+  .goal-stats { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px; }
+  .goal-k { font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--text-secondary); margin-bottom:6px; }
+  .goal-v { font-size:34px; font-weight:800; line-height:1.1; font-variant-numeric:tabular-nums; min-height:37px; }
+  .goal-bar { height:8px; border-radius:4px; background:var(--rule); margin-top:18px; overflow:hidden; }
+  .goal-bar span { display:block; height:100%; background:var(--text-primary); border-radius:4px; }
+  @media (max-width:640px) { .goal-stats { grid-template-columns:1fr; gap:12px; } .goal-v { font-size:28px; } }
 </style>
 </head>
 <body>
@@ -1186,13 +1199,26 @@ function buyerPanel(d, b) {
   }
 
   function boardHtml(b) {
-    const q = b.quarter;
+    const num = s => { const n = Number(String(s || "").replace(/[^0-9.-]/g, "")); return String(s || "").trim() && isFinite(n) ? n : null; };
     let h = "<div class='bd'>";
-    if (q) {
-      h += "<div class='bd-block'><table><thead><tr><th>Quarterly Goal</th><th>" + esc(q.labels.revenue) +
-        "</th><th>" + esc(q.labels.actual) + "</th><th></th></tr></thead><tbody><tr><td></td><td>" +
-        esc(q.revenue) + "</td><td>" + esc(q.actual) + "</td><td class='tg-cell'>" + toggleBtn(q.toggle) +
-        "</td></tr></tbody></table></div>";
+    const goals = b.goals ? b.goals.rows : (b.quarter ? [Object.assign({ label: "Quarterly Goal" }, b.quarter)] : []);
+    if (goals.length) {
+      const lab = b.goals ? b.goals.labels : (b.quarter.labels || { revenue: "Total Revenue", actual: "Actual Revenue" });
+      h += "<div class='goals'>";
+      goals.forEach(g => {
+        const t = num(g.revenue), a = num(g.actual);
+        const pct = t && a != null ? Math.max(0, a / t * 100) : null;
+        h += "<div class='goal'><div class='goal-head'><span class='goal-name'>" + esc(g.label) + "</span>" +
+          "<span class='tg-cell'>" + toggleBtn(g.toggle) + "</span></div>" +
+          "<div class='goal-stats'>" +
+          "<div><div class='goal-k'>" + esc(lab.revenue) + "</div><div class='goal-v'>" + esc(g.revenue) + "</div></div>" +
+          "<div><div class='goal-k'>" + esc(lab.actual) + "</div><div class='goal-v'>" + esc(g.actual) + "</div></div>" +
+          "<div><div class='goal-k'>Progress</div><div class='goal-v'>" + (pct == null ? "" : pct.toFixed(1) + "%") + "</div></div>" +
+          "</div>" +
+          (pct == null ? "" : "<div class='goal-bar'><span style='width:" + Math.min(100, pct) + "%'></span></div>") +
+          "</div>";
+      });
+      h += "</div>";
     }
     let lastSection = null;
     b.groups.forEach(g => {
