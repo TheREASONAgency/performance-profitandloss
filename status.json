@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T17:45:56.386Z",
+  "generatedAt": "2026-10-09T17:50:32.032Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -672,7 +672,7 @@
             ],
             "toggle": {
               "cell": "F11",
-              "state": null
+              "state": "on"
             },
             "filled": [
               {
