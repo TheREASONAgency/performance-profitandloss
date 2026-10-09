@@ -233,11 +233,11 @@
       </div>
     </div>
     <div class="tabbar" role="tablist">
-      <button role="tab" data-tab="overview" aria-selected="true">CPA Overview</button>
+      <button role="tab" data-tab="status" aria-selected="true">Overview</button>
+      <button role="tab" data-tab="overview" aria-selected="false">CPA Overview</button>
       <button role="tab" data-tab="daily" aria-selected="false">Daily</button>
       <button role="tab" data-tab="buyers" aria-selected="false">Media Buyers</button>
       <button role="tab" data-tab="compliance" aria-selected="false">Compliance</button>
-      <button role="tab" data-tab="status" aria-selected="false">Overview</button>
     </div>
   </div>
 </div>
@@ -246,7 +246,7 @@
   <div id="notices"></div>
 
   <!-- ============ OVERVIEW ============ -->
-  <section class="panel" id="panel-overview" role="tabpanel">
+  <section class="panel" id="panel-overview" role="tabpanel" hidden>
     <div class="banner"><span class="num">01</span> &nbsp;/&nbsp; <span id="mtd-banner">MONTH TO DATE</span></div>
     <div class="tiles" id="tiles"></div>
     <div id="overview-buyers" style="margin-top:22px"></div>
@@ -295,7 +295,7 @@
   </section>
 
   <!-- ============ ACCOUNT STATUS ============ -->
-  <section class="panel" id="panel-status" role="tabpanel" hidden>
+  <section class="panel" id="panel-status" role="tabpanel">
     <div class="st-bar">
       <div class="tile-note" id="st-updated" aria-live="polite">Loading&hellip;</div>
       <button class="st-refresh" id="st-refresh" type="button">Reload</button>
@@ -1335,6 +1335,8 @@ function buyerPanel(d, b) {
 
   tabBtn.addEventListener("click", () => { if (!loaded) load(); });
   refreshBtn.addEventListener("click", load);
+  // Overview is the first (default) tab, so load it right away.
+  if (!document.getElementById("panel-status").hidden) load();
 })();
 
 start();
