@@ -124,13 +124,16 @@ async function run() {
   };
   let failures = 0;
   let data = null;
+  let mondayAll = [];
 
   try {
-    if (!config.monday.enabled) {
+    if (!config.monday.enabled || !process.env[config.monday.tokenEnv]) {
+      // Backup source is off or has no token: not a failure, the sheet just keeps its own values.
       out.pv = section([], { disabled: true });
       out.managed = section([], { disabled: true });
     } else {
       const rows = logic.buildMondayRows(await fetchMondayItems(), config);
+      mondayAll = rows.all;
       out.pv = section(rows.pv);
       out.managed = section(rows.managed);
     }
@@ -189,7 +192,7 @@ async function run() {
     const values = await sheets.getValues(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range);
     const model = sheetBoard.parseBoard(values, config.board);
     sheetBoard.fillActuals(model, sheetBoard.buildSources({
-      cpaRows: out.cpa.rows, mondayManaged: out.managed.rows, matchesAny: logic.matchesAny,
+      cpaRows: out.cpa.rows, mondayAll, matchesAny: logic.matchesAny,
       board: config.board, goalAmount: config.managed.goal.amount,
     }));
     out.board = { ok: true, ...model };

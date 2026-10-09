@@ -53,7 +53,7 @@ test("fills only blank cells from sources and leaves the rest empty", () => {
   const m = sb.parseBoard(VALUES, config.board);
   const sources = sb.buildSources({
     cpaRows: [{ buyer: "Travis", name: "Keeps", profit: 12345 }, { buyer: "Joe", name: "TrimRx", profit: 100 }, { buyer: "Kurt", name: "TrimRx", profit: 50 }],
-    mondayManaged: [{ name: "GAL (<$400)", cpaL7d: 380.5, adSpend: 25000 }],
+    mondayAll: [{ name: "GAL (<$400)", cpaL7d: 380.5, adSpend: 25000 }],
     matchesAny: logic.matchesAny, board: config.board, goalAmount: 100000,
   });
   sb.fillActuals(m, sources);
@@ -71,4 +71,34 @@ test("never overwrites a value typed in the sheet", () => {
   const m = sb.parseBoard(v, config.board);
   sb.fillActuals(m, { profitByLabel: { "kee-hl": 1 }, managedByLabel: {} });
   assert.strictEqual(m.groups[1].rows[0].cells[1], "$999");
+});
+
+test("Monday fallback: fills blank/zero cells only, never real values, and refreshes remaining spend", () => {
+  const v = JSON.parse(JSON.stringify(VALUES));
+  v[4][2] = "$0";            // OOO Actual MTD written as $0 by the Meta script
+  v[5][2] = "$900";          // UAC already has a real Meta number
+  v[11] = ["GAL", "$400", "", "$100,000", "$0", T];
+  const m = sb.parseBoard(v, config.board);
+  const src = sb.buildSources({
+    cpaRows: [], matchesAny: logic.matchesAny, board: config.board, goalAmount: 100000,
+    mondayAll: [
+      { name: "OOO ($65)", cpaL7d: 70, adSpend: 1234 },
+      { name: "UAC (2.0 ROAS)", cpaL7d: 50, adSpend: 777 },
+      { name: "GAL (<$400)", cpaL7d: 380.5, adSpend: 25000 },
+      { name: "GAL (<$400)", cpaL7d: 1, adSpend: 1, closed: true },   // closed duplicate loses
+    ],
+  });
+  sb.fillActuals(m, src);
+  const [ooo, uac] = m.groups[0].rows, gal = m.groups[2].rows[0];
+  assert.deepStrictEqual([ooo.cells[1], ooo.cells[3]], ["$1,234", "$70"]);   // $0 -> Monday
+  assert.strictEqual(uac.cells[1], "$900");                                  // real value kept
+  assert.deepStrictEqual(gal.cells, ["$400", "$380.50", "$75,000", "$25,000"]);
+});
+
+test("Monday fallback skips profit rows' Actual MTD and zero Monday values", () => {
+  const m = sb.parseBoard(VALUES, config.board);
+  sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
+    mondayByLabel: { "kee-hl": { cpa: 0, spend: 5000, rank: 0 } } });
+  const kee = m.groups[1].rows.find((r) => r.label === "KEE-HL");
+  assert.deepStrictEqual(kee.cells, ["$40,000", "", "$240", ""]); // spend never goes into profit; zero CPA ignored
 });
