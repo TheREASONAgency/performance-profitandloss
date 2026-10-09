@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T17:55:21.200Z",
+  "generatedAt": "2026-10-09T17:57:48.551Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -551,7 +551,7 @@
         "actual": "Actual Revenue"
       },
       "revenue": "$589,500",
-      "actual": "",
+      "actual": "$78,908",
       "toggle": {
         "cell": "E1",
         "state": "off"
