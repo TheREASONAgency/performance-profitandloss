@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T20:11:51.576Z",
+  "generatedAt": "2026-10-09T14:30:54.707Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -19,10 +19,9 @@
       "tone": "muted"
     }
   },
-  "seed": true,
   "pv": {
     "ok": false,
-    "error": "Waiting for the first scheduled refresh (Mon / Wed / Fri at 6:00 AM ET).",
+    "error": "MONDAY_API_TOKEN is not set",
     "rows": [],
     "counts": {
       "on_track": 0,
@@ -34,7 +33,7 @@
   },
   "managed": {
     "ok": false,
-    "error": "Waiting for the first scheduled refresh (Mon / Wed / Fri at 6:00 AM ET).",
+    "error": "MONDAY_API_TOKEN is not set",
     "rows": [],
     "counts": {
       "on_track": 0,
@@ -48,22 +47,6 @@
     "ok": true,
     "rows": [
       {
-        "id": "travis:Keeps",
-        "name": "Keeps",
-        "buyer": "Travis",
-        "platform": "Meta",
-        "monthlyTarget": 40000,
-        "profit": 4747,
-        "live": true,
-        "lastEntry": "2026-10-03",
-        "daysElapsed": 5,
-        "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 6666.666666666666,
-        "delta": -1919.666666666666,
-        "pacingPct": 71.20500000000001,
-        "status": "off_track"
-      },
-      {
         "id": "joe:TrimRx",
         "name": "TrimRx",
         "buyer": "Joe",
@@ -72,12 +55,28 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 5,
+        "daysElapsed": 9,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 833.3333333333333,
-        "delta": -833.3333333333333,
+        "expectedToDate": 1500,
+        "delta": -1500,
         "pacingPct": 0,
         "status": "off_track"
+      },
+      {
+        "id": "travis:Keeps",
+        "name": "Keeps",
+        "buyer": "Travis",
+        "platform": "Meta",
+        "monthlyTarget": 40000,
+        "profit": 12391,
+        "live": true,
+        "lastEntry": "2026-10-07",
+        "daysElapsed": 9,
+        "dailyTarget": 1333.3333333333333,
+        "expectedToDate": 12000,
+        "delta": 391,
+        "pacingPct": 103.25833333333334,
+        "status": "on_track"
       },
       {
         "id": "kurt:AltRx",
@@ -167,14 +166,14 @@
       }
     ],
     "counts": {
-      "on_track": 0,
-      "off_track": 2,
+      "on_track": 1,
+      "off_track": 1,
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-05T09:27:37Z",
+    "dataUpdated": "2026-10-09T09:03:03Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 5,
+    "daysElapsed": 9,
     "daysBasis": 30,
     "warnings": []
   },
@@ -183,12 +182,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 4747,
-      "daysElapsed": 5,
+      "qtdPl": 12391,
+      "daysElapsed": 9,
       "daysInQuarter": 92,
-      "proratedTarget": 13043.478260869566,
-      "progressPct": 1.9779166666666668,
-      "pacingPct": 36.39366666666666,
+      "proratedTarget": 23478.260869565216,
+      "progressPct": 5.162916666666666,
+      "pacingPct": 52.77648148148148,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -204,10 +203,370 @@
     },
     "accounts": {
       "active": 2,
-      "onTrack": 0,
-      "offTrack": 2,
+      "onTrack": 1,
+      "offTrack": 1,
       "paused": 7,
       "total": 9
     }
+  },
+  "board": {
+    "ok": true,
+    "quarter": {
+      "labels": {
+        "revenue": "Total Revenue",
+        "actual": "Actual Revenue"
+      },
+      "revenue": "$589,500",
+      "actual": "",
+      "toggle": {
+        "cell": "E1",
+        "state": null
+      }
+    },
+    "sections": [],
+    "groups": [
+      {
+        "section": "Retention",
+        "tone": "gray",
+        "firstColLabel": "Partner",
+        "headers": [
+          "Target Spend",
+          "Actual MTD",
+          "Target CPA",
+          "CPA"
+        ],
+        "toggleCol": 5,
+        "rows": [
+          {
+            "label": "OOO",
+            "total": false,
+            "row": 5,
+            "cells": [
+              "$100,000",
+              "",
+              "$65",
+              ""
+            ],
+            "toggle": {
+              "cell": "F5",
+              "state": null
+            }
+          },
+          {
+            "label": "LFA",
+            "total": false,
+            "row": 6,
+            "cells": [
+              "$100,000",
+              "",
+              "$650",
+              ""
+            ],
+            "toggle": {
+              "cell": "F6",
+              "state": null
+            }
+          },
+          {
+            "label": "UAC",
+            "total": false,
+            "row": 7,
+            "cells": [
+              "$100,000",
+              "",
+              "2.0 ROAS",
+              ""
+            ],
+            "toggle": {
+              "cell": "F7",
+              "state": null
+            }
+          },
+          {
+            "label": "BHA",
+            "total": false,
+            "row": 8,
+            "cells": [
+              "$100,000",
+              "",
+              "$320",
+              ""
+            ],
+            "toggle": {
+              "cell": "F8",
+              "state": null
+            }
+          },
+          {
+            "label": "KEE-ED",
+            "total": false,
+            "row": 9,
+            "cells": [
+              "$100,000",
+              "",
+              "$240",
+              ""
+            ],
+            "toggle": {
+              "cell": "F9",
+              "state": null
+            }
+          }
+        ]
+      },
+      {
+        "section": "Retention",
+        "tone": "blue",
+        "firstColLabel": "",
+        "headers": [
+          "Target Profit",
+          "Actual MTD",
+          "Target CPA",
+          "CPA"
+        ],
+        "toggleCol": 5,
+        "rows": [
+          {
+            "label": "KEE-HL",
+            "total": false,
+            "row": 11,
+            "cells": [
+              "$40,000",
+              "$12,391",
+              "$240",
+              ""
+            ],
+            "toggle": {
+              "cell": "F11",
+              "state": null
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "P&L tracker"
+              }
+            ]
+          },
+          {
+            "label": "TRX",
+            "total": false,
+            "row": 12,
+            "cells": [
+              "$5,000",
+              "$0",
+              "$350",
+              ""
+            ],
+            "toggle": {
+              "cell": "F12",
+              "state": null
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "P&L tracker"
+              }
+            ]
+          },
+          {
+            "label": "MED",
+            "total": false,
+            "row": 13,
+            "cells": [
+              "$5,000",
+              "$0",
+              "$375",
+              ""
+            ],
+            "toggle": {
+              "cell": "F13",
+              "state": null
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "P&L tracker"
+              }
+            ]
+          },
+          {
+            "label": "QUAD",
+            "total": false,
+            "row": 14,
+            "cells": [
+              "$5,000",
+              "",
+              "$350",
+              ""
+            ],
+            "toggle": {
+              "cell": "F14",
+              "state": null
+            }
+          },
+          {
+            "label": "DMN",
+            "total": false,
+            "row": 15,
+            "cells": [
+              "$5,000",
+              "",
+              "$280",
+              ""
+            ],
+            "toggle": null
+          }
+        ]
+      },
+      {
+        "section": "Retention",
+        "tone": "purple",
+        "firstColLabel": "",
+        "headers": [
+          "Target CPA",
+          "CPA",
+          "Remaining Spend",
+          "Total Spend"
+        ],
+        "toggleCol": 5,
+        "rows": [
+          {
+            "label": "HEY",
+            "total": false,
+            "row": 17,
+            "cells": [
+              "$225",
+              "",
+              "",
+              ""
+            ],
+            "toggle": {
+              "cell": "F17",
+              "state": null
+            }
+          },
+          {
+            "label": "HMD",
+            "total": false,
+            "row": 18,
+            "cells": [
+              "$350",
+              "",
+              "",
+              ""
+            ],
+            "toggle": {
+              "cell": "F18",
+              "state": null
+            }
+          },
+          {
+            "label": "GAL",
+            "total": false,
+            "row": 19,
+            "cells": [
+              "$400",
+              "",
+              "",
+              ""
+            ],
+            "toggle": {
+              "cell": "F19",
+              "state": null
+            }
+          },
+          {
+            "label": "ELE",
+            "total": false,
+            "row": 20,
+            "cells": [
+              "$300",
+              "",
+              "",
+              ""
+            ],
+            "toggle": {
+              "cell": "F20",
+              "state": null
+            }
+          },
+          {
+            "label": "HUM",
+            "total": false,
+            "row": 21,
+            "cells": [
+              "$320",
+              "",
+              "",
+              ""
+            ],
+            "toggle": {
+              "cell": "F21",
+              "state": null
+            }
+          }
+        ]
+      },
+      {
+        "section": "Acquisition",
+        "tone": "green",
+        "firstColLabel": "October",
+        "headers": [
+          "Target",
+          "Actual",
+          "Revenue Target",
+          "Revenue Actual",
+          "Quarter"
+        ],
+        "toggleCol": 6,
+        "rows": [
+          {
+            "label": "HG Retainer",
+            "total": false,
+            "row": 25,
+            "cells": [
+              "5",
+              "1",
+              "$37,500",
+              "",
+              "# of 10"
+            ],
+            "toggle": {
+              "cell": "G25",
+              "state": null
+            }
+          },
+          {
+            "label": "PV Lite",
+            "total": false,
+            "row": 26,
+            "cells": [
+              "1",
+              "",
+              "$7,500",
+              "",
+              "# of 3"
+            ],
+            "toggle": {
+              "cell": "G26",
+              "state": null
+            }
+          },
+          {
+            "label": "Total:",
+            "total": true,
+            "row": 27,
+            "cells": [
+              "6",
+              "1",
+              "$45,000",
+              "$0",
+              ""
+            ],
+            "toggle": null
+          }
+        ]
+      }
+    ]
   }
 }
