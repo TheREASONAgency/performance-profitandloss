@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T21:42:09.576Z",
+  "generatedAt": "2026-10-12T13:43:38.620Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -389,10 +389,10 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 9,
+        "daysElapsed": 12,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 1500,
-        "delta": -1500,
+        "expectedToDate": 2000,
+        "delta": -2000,
         "pacingPct": 0,
         "status": "off_track"
       },
@@ -402,14 +402,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 40000,
-        "profit": 12391,
+        "profit": 17034,
         "live": true,
-        "lastEntry": "2026-10-07",
-        "daysElapsed": 9,
+        "lastEntry": "2026-10-11",
+        "daysElapsed": 12,
         "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 12000,
-        "delta": 391,
-        "pacingPct": 103.25833333333334,
+        "expectedToDate": 16000,
+        "delta": 1034,
+        "pacingPct": 106.46249999999999,
         "status": "on_track"
       },
       {
@@ -505,9 +505,9 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-09T09:03:03Z",
+    "dataUpdated": "2026-10-12T09:03:07Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 9,
+    "daysElapsed": 12,
     "daysBasis": 30,
     "warnings": []
   },
@@ -516,12 +516,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 12391,
-      "daysElapsed": 9,
+      "qtdPl": 17034,
+      "daysElapsed": 12,
       "daysInQuarter": 92,
-      "proratedTarget": 23478.260869565216,
-      "progressPct": 5.162916666666666,
-      "pacingPct": 52.77648148148148,
+      "proratedTarget": 31304.347826086956,
+      "progressPct": 7.097499999999999,
+      "pacingPct": 54.41416666666667,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -552,7 +552,7 @@
       "actual": "$78,908",
       "toggle": {
         "cell": "E2",
-        "state": "off"
+        "state": "on"
       }
     },
     "sections": [],
@@ -611,7 +611,7 @@
             ],
             "toggle": {
               "cell": "F8",
-              "state": null
+              "state": "on"
             }
           },
           {
@@ -641,7 +641,7 @@
             ],
             "toggle": {
               "cell": "F10",
-              "state": null
+              "state": "off"
             }
           }
         ]
@@ -664,13 +664,13 @@
             "row": 12,
             "cells": [
               "$40,000",
-              "$12,391",
+              "$17,034",
               "$240",
               "$225.50"
             ],
             "toggle": {
               "cell": "F12",
-              "state": "on"
+              "state": "off"
             },
             "filled": [
               {
@@ -955,7 +955,7 @@
           "actual": "$78,908",
           "toggle": {
             "cell": "E2",
-            "state": "off"
+            "state": "on"
           }
         },
         {
@@ -965,7 +965,7 @@
           "actual": "$78,908",
           "toggle": {
             "cell": "E3",
-            "state": "off"
+            "state": "on"
           }
         }
       ]
