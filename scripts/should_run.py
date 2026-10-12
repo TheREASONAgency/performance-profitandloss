@@ -7,8 +7,7 @@ candidate UTC hours for each target and this guard lets exactly one through —
 the one that is really the wanted local time in America/New_York.
 
 Targets:
-  * Tuesday-Friday at 12:00 Eastern
-  * Monday at 08:00 and 15:00 Eastern
+  * Monday, Wednesday and Friday at 06:00 Eastern
 
 Exits 0 and prints "run" when the run should proceed, otherwise prints "skip".
 Manual runs (workflow_dispatch) never reach this script.
@@ -23,10 +22,7 @@ from zoneinfo import ZoneInfo
 ZONE = ZoneInfo("America/New_York")
 
 # (weekday, hour) in local Eastern time. Monday is 0.
-TARGETS = {
-    (1, 12), (2, 12), (3, 12), (4, 12),   # Tue-Fri at noon
-    (0, 8), (0, 15),                      # Monday morning and afternoon
-}
+TARGETS = {(0, 6), (2, 6), (4, 6)}   # Mon / Wed / Fri at 6 AM
 
 
 def should_run(now_utc: dt.datetime) -> bool:
