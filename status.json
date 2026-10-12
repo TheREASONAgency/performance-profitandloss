@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T13:49:37.875Z",
+  "generatedAt": "2026-10-12T13:54:58.956Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -549,7 +549,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$589,500",
-      "actual": "$78,908",
+      "actual": "$121,468",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -670,7 +670,7 @@
             ],
             "toggle": {
               "cell": "F12",
-              "state": "off"
+              "state": "on"
             },
             "filled": [
               {
@@ -952,7 +952,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$589,500",
-          "actual": "$78,908",
+          "actual": "$121,468",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -962,7 +962,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$149,000",
-          "actual": "$78,908",
+          "actual": "$121,468",
           "toggle": {
             "cell": "E3",
             "state": "on"
