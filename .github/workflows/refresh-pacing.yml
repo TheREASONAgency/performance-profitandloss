@@ -4,14 +4,11 @@ name: Refresh Pacing Dashboard
 # Eastern wall-clock time year round we fire at BOTH candidate UTC hours and
 # let scripts/should_run.py allow exactly one through.
 #
-#   Tue-Fri 12:00 Eastern  = 16:00 UTC (EDT) or 17:00 UTC (EST)
-#   Mon     08:00 Eastern  = 12:00 UTC (EDT) or 13:00 UTC (EST)
-#   Mon     15:00 Eastern  = 19:00 UTC (EDT) or 20:00 UTC (EST)
+#   Mon/Wed/Fri 06:00 Eastern = 10:00 UTC (EDT) or 11:00 UTC (EST)
+# The Account Status workflow runs right after this one finishes.
 on:
   schedule:
-    - cron: "0 16,17 * * 2-5"
-    - cron: "0 12,13 * * 1"
-    - cron: "0 19,20 * * 1"
+    - cron: "0 10,11 * * 1,3,5"
   workflow_dispatch:
 
 permissions:
