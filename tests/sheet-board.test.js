@@ -126,5 +126,24 @@ test("mondayWrites: only PV Total Spend cells that Monday filled, with column le
   const m = sb.parseBoard(v, config.board);
   sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
     mondayByLabel: { gal: { cpa: 380, spend: 800.29, rank: 0 }, ooo: { cpa: 0, spend: 5, rank: 0 } } });
-  assert.deepStrictEqual(sb.mondayWrites(m), [{ a1: "E13", value: 800.29, label: "GAL" }]);
+  assert.deepStrictEqual(sb.mondayWrites(m), [
+    { a1: "C13", value: 380, label: "GAL" },
+    { a1: "E13", value: 800.29, label: "GAL" },
+  ]);
+});
+
+test("PV CPA: Monday L7D CPA when present, otherwise N/A; real values kept; written back", () => {
+  const v = JSON.parse(JSON.stringify(VALUES));
+  v[12] = ["GAL", "$400", "", "$100,000", "$0", T];
+  v.splice(13, 0, ["HEY", "$225", "", "$100,000", "$0", T], ["HMD", "$350", "$300", "$100,000", "$0", T], ["ELE", "$300", "N/A", "$100,000", "$0", T]);
+  const m = sb.parseBoard(v, config.board);
+  sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
+    mondayByLabel: { gal: { cpa: 380.5, spend: 0, rank: 0 }, ele: { cpa: 250, spend: 0, rank: 0 } } });
+  const pv = m.groups[2].rows;
+  assert.strictEqual(pv[0].cells[1], "$380.50");   // GAL: Monday
+  assert.strictEqual(pv[1].cells[1], "N/A");       // HEY: no Monday row at all
+  assert.strictEqual(pv[2].cells[1], "$300");      // HMD: real value kept
+  assert.strictEqual(pv[3].cells[1], "$250");      // ELE: N/A is replaced once Monday has a figure
+  const w = sb.mondayWrites(m).filter((x) => /^C/.test(x.a1));
+  assert.deepStrictEqual(w.map((x) => [x.label, x.value]), [["GAL", 380.5], ["HEY", "N/A"], ["ELE", 250]]);
 });
