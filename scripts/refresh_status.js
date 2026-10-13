@@ -200,6 +200,15 @@ async function run() {
       cpaRows: out.cpa.rows, mondayAll, matchesAny: logic.matchesAny,
       board: config.board, goalAmount: config.managed.goal.amount,
     }));
+    // Monday is the second data source for the sheet: write its MTD Spend into blank/$0
+    // PV "Total Spend" cells. Never overwrites a real value; a write failure is only a warning.
+    try {
+      const writes = sheetBoard.mondayWrites(model);
+      for (const w of writes) {
+        await sheets.setCell(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.tab, w.a1, w.value, "USER_ENTERED");
+        console.log(`Sheet ${w.a1} (${w.label}) <- Monday MTD spend`);
+      }
+    } catch (e) { console.warn("Could not write Monday spend into the sheet:", e.message); }
     out.board = { ok: true, ...model };
   } catch (e) {
     failures++;
