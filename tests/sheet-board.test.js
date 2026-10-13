@@ -119,3 +119,12 @@ test("group colors follow the sheet's data-row color; white keeps the default to
   assert.strictEqual(m.groups[1].color, "#ff9900");
   assert.strictEqual(m.groups[0].color, undefined);
 });
+
+test("mondayWrites: only PV Total Spend cells that Monday filled, with column letters", () => {
+  const v = JSON.parse(JSON.stringify(VALUES));
+  v[12] = ["GAL", "$400", "", "$100,000", "$0", T];     // PV row at sheet row 13
+  const m = sb.parseBoard(v, config.board);
+  sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
+    mondayByLabel: { gal: { cpa: 380, spend: 800.29, rank: 0 }, ooo: { cpa: 0, spend: 5, rank: 0 } } });
+  assert.deepStrictEqual(sb.mondayWrites(m), [{ a1: "E13", value: 800.29, label: "GAL" }]);
+});
