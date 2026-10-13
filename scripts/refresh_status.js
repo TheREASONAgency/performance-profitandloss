@@ -191,6 +191,11 @@ async function run() {
   try {
     const values = await sheets.getValues(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range);
     const model = sheetBoard.parseBoard(values, config.board);
+    // Group colors follow the sheet's own cell colors; any failure keeps the default tones.
+    try {
+      const grid = await sheets.getBackgrounds(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range);
+      sheetBoard.applyColors(model, grid.map((r) => r.map(sheetBoard.colorHex)));
+    } catch (e) { console.warn("Sheet colors not read:", e.message); }
     sheetBoard.fillActuals(model, sheetBoard.buildSources({
       cpaRows: out.cpa.rows, mondayAll, matchesAny: logic.matchesAny,
       board: config.board, goalAmount: config.managed.goal.amount,

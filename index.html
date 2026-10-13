@@ -1223,7 +1223,8 @@ function buyerPanel(d, b) {
     let lastSection = null;
     b.groups.forEach(g => {
       if (g.section && g.section !== lastSection) { h += "<div class='bd-label'>" + esc(g.section) + "</div>"; lastSection = g.section; }
-      h += "<div class='bd-block bd-" + esc(g.tone) + "'><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
+      h += "<div class='bd-block bd-" + esc(g.tone) + "'" +
+        (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " style='--g:" + g.color + "'" : "") + "><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
         g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th></th></tr></thead><tbody>";
       g.rows.forEach(r => {
         h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
