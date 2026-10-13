@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T14:03:07.200Z",
+  "generatedAt": "2026-10-13T14:05:02.624Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -594,7 +594,7 @@
       "actual": "$67,719",
       "toggle": {
         "cell": "E2",
-        "state": "off"
+        "state": "on"
       }
     },
     "sections": [],
@@ -990,7 +990,7 @@
           "actual": "$67,719",
           "toggle": {
             "cell": "E2",
-            "state": "off"
+            "state": "on"
           }
         },
         {
