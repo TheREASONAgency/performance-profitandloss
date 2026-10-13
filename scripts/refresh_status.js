@@ -194,7 +194,9 @@ async function run() {
     // Group colors follow the sheet's own cell colors; any failure keeps the default tones.
     try {
       const grid = await sheets.getBackgrounds(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range);
-      sheetBoard.applyColors(model, grid.map((r) => r.map(sheetBoard.colorHex)));
+      const hex = grid.map((r) => r.map(sheetBoard.colorHex));
+      sheetBoard.applyColors(model, hex);
+      if (process.env.DEBUG_COLORS) hex.forEach((r, i) => console.log("row " + (i + 1) + ": " + r.map((c) => c || "-").join(" ")));
     } catch (e) { console.warn("Sheet colors not read:", e.message); }
     sheetBoard.fillActuals(model, sheetBoard.buildSources({
       cpaRows: out.cpa.rows, mondayAll, matchesAny: logic.matchesAny,
