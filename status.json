@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T14:01:31.136Z",
+  "generatedAt": "2026-10-13T17:39:26.172Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -49,6 +49,62 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": null
+      },
+      {
+        "id": "12409786926",
+        "name": "GAL (<$400)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 400,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 800.29
+      },
+      {
+        "id": "12703976002",
+        "name": "HEY ($225)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12703976002",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 225,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "12501823440",
+        "name": "HMD ($350)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12501823440",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 350,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 600.05
+      },
+      {
+        "id": "12231962344",
+        "name": "HUM (<$320)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 320,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 75
       },
       {
         "id": "12279646763",
@@ -132,21 +188,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 6380.48
-      },
-      {
-        "id": "12409786926",
-        "name": "GAL (<$400)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "In Learning Phase",
-        "cpaTarget": 400,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": 800.29
+        "adSpend": 6646.49
       },
       {
         "id": "13276477296",
@@ -163,34 +205,6 @@
         "adSpend": 800.29
       },
       {
-        "id": "12703976002",
-        "name": "HEY ($225)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12703976002",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "Pending External",
-        "cpaTarget": 225,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": null
-      },
-      {
-        "id": "12501823440",
-        "name": "HMD ($350)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12501823440",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "In Learning Phase",
-        "cpaTarget": 350,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": 600.05
-      },
-      {
         "id": "13276477249",
         "name": "HMD ($350)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477249",
@@ -203,20 +217,6 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": 600.05
-      },
-      {
-        "id": "12231962344",
-        "name": "HUM (<$320)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "Stuck",
-        "cpaTarget": 320,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": 75
       },
       {
         "id": "13276477300",
@@ -236,8 +236,8 @@
     "counts": {
       "on_track": 0,
       "off_track": 0,
-      "paused": 6,
-      "unknown": 9
+      "paused": 10,
+      "unknown": 5
     }
   },
   "managed": {
@@ -581,7 +581,7 @@
       "active": 8,
       "onTrack": 5,
       "offTrack": 3,
-      "paused": 14,
+      "paused": 18,
       "total": 32
     }
   },
@@ -594,7 +594,7 @@
       "actual": "$67,719",
       "toggle": {
         "cell": "E2",
-        "state": "off"
+        "state": "on"
       }
     },
     "sections": [],
@@ -688,7 +688,9 @@
             }
           }
         ],
-        "color": "#cccccc"
+        "color": "#cccccc",
+        "kind": "spend",
+        "spendCol": -1
       },
       {
         "section": "Retention",
@@ -775,7 +777,7 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "$0",
+              "-$2,348",
               "$280",
               ""
             ],
@@ -785,7 +787,9 @@
             }
           }
         ],
-        "color": "#cccccc"
+        "color": "#cccccc",
+        "kind": "profit",
+        "spendCol": -1
       },
       {
         "section": "Retention",
@@ -832,7 +836,8 @@
             "filled": [
               {
                 "col": 3,
-                "source": "Monday (MTD Spend)"
+                "source": "Monday (MTD Spend)",
+                "value": 600.05
               }
             ]
           },
@@ -853,7 +858,8 @@
             "filled": [
               {
                 "col": 3,
-                "source": "Monday (MTD Spend)"
+                "source": "Monday (MTD Spend)",
+                "value": 800.29
               }
             ]
           },
@@ -889,7 +895,8 @@
             "filled": [
               {
                 "col": 3,
-                "source": "Monday (MTD Spend)"
+                "source": "Monday (MTD Spend)",
+                "value": 75
               }
             ]
           },
@@ -909,7 +916,9 @@
             }
           }
         ],
-        "color": "#cccccc"
+        "color": "#cccccc",
+        "kind": "pv",
+        "spendCol": 3
       },
       {
         "section": "Acquisition",
@@ -974,7 +983,9 @@
             }
           }
         ],
-        "color": "#d9d9d9"
+        "color": "#d9d9d9",
+        "kind": "other",
+        "spendCol": -1
       }
     ],
     "goals": {
@@ -990,7 +1001,7 @@
           "actual": "$67,719",
           "toggle": {
             "cell": "E2",
-            "state": "off"
+            "state": "on"
           }
         },
         {
