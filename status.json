@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T14:05:02.624Z",
+  "generatedAt": "2026-10-13T14:06:28.334Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -1004,6 +1004,39 @@
           }
         }
       ]
-    }
+    },
+    "colorDebug": [
+      "row 1: - - - -",
+      "row 2: - - - - -",
+      "row 3: - - - - -",
+      "row 4: - - - - -",
+      "row 5: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 6: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 7: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 8: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 9: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 10: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 11: - - - - -",
+      "row 12: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 13: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 14: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 15: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 16: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 17: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 18: - - - - -",
+      "row 19: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 20: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 21: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 22: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 23: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 24: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 25: #cccccc #cccccc #cccccc #cccccc #cccccc #cccccc",
+      "row 26: ",
+      "row 27: #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9",
+      "row 28: #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9",
+      "row 29: #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9",
+      "row 30: #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9",
+      "row 31: #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9 #d9d9d9"
+    ]
   }
 }
