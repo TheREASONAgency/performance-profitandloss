@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T17:39:26.172Z",
+  "generatedAt": "2026-10-13T19:18:49.290Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -121,20 +121,6 @@
         "adSpend": null
       },
       {
-        "id": "12231983465",
-        "name": "WEL (<$320)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231983465",
-        "platform": "Meta",
-        "group": "PAUSED",
-        "status": "paused",
-        "rawLabel": "N/A",
-        "cpaTarget": 320,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": null
-      },
-      {
         "id": "12414815129",
         "name": "WIN ($325)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
@@ -172,7 +158,7 @@
         "rawLabel": "In Learning Phase",
         "cpaTarget": null,
         "cpaToday": null,
-        "cpaL7d": null,
+        "cpaL7d": 780,
         "cpaGap": null,
         "adSpend": 2348.3
       },
@@ -188,7 +174,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 6646.49
+        "adSpend": 6737.22
       },
       {
         "id": "13276477296",
@@ -236,7 +222,7 @@
     "counts": {
       "on_track": 0,
       "off_track": 0,
-      "paused": 10,
+      "paused": 9,
       "unknown": 5
     }
   },
@@ -370,32 +356,11 @@
         }
       },
       {
-        "id": "9386846102",
-        "name": "SCH/CCH",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/9386846102",
-        "platform": "Meta",
-        "group": "Blockers & Dependencies",
-        "status": "paused",
-        "rawLabel": "N/A",
-        "cpaTarget": null,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": null,
-        "goalTarget": 100000,
-        "goalPeriod": "month",
-        "goalPct": null,
-        "goalPace": {
-          "label": "No spend data",
-          "tone": "muted"
-        }
-      },
-      {
         "id": "18278326069",
         "name": "LFA (CPA <$650 APP Submit)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/18278326069",
         "platform": "Meta",
-        "group": "Break/Fix HQ",
+        "group": "Blockers & Dependencies",
         "status": "unknown",
         "rawLabel": null,
         "cpaTarget": 650,
@@ -415,7 +380,7 @@
     "counts": {
       "on_track": 4,
       "off_track": 2,
-      "paused": 1,
+      "paused": 0,
       "unknown": 1
     }
   },
@@ -581,8 +546,8 @@
       "active": 8,
       "onTrack": 5,
       "offTrack": 3,
-      "paused": 18,
-      "total": 32
+      "paused": 16,
+      "total": 30
     }
   },
   "board": {
@@ -690,7 +655,8 @@
         ],
         "color": "#cccccc",
         "kind": "spend",
-        "spendCol": -1
+        "spendCol": -1,
+        "cpaCol": 3
       },
       {
         "section": "Retention",
@@ -777,7 +743,7 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "-$2,348",
+              "-$1,508",
               "$280",
               ""
             ],
@@ -789,7 +755,8 @@
         ],
         "color": "#cccccc",
         "kind": "profit",
-        "spendCol": -1
+        "spendCol": -1,
+        "cpaCol": 3
       },
       {
         "section": "Retention",
@@ -810,14 +777,21 @@
             "row": 20,
             "cells": [
               "$225",
-              "",
+              "N/A",
               "$20,000",
               "$0"
             ],
             "toggle": {
               "cell": "F20",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
           },
           {
             "label": "HMD",
@@ -825,9 +799,9 @@
             "row": 21,
             "cells": [
               "$350",
-              "",
+              "N/A",
               "$20,000",
-              "$600.05"
+              "$600"
             ],
             "toggle": {
               "cell": "F21",
@@ -835,9 +809,9 @@
             },
             "filled": [
               {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 600.05
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
               }
             ]
           },
@@ -847,9 +821,9 @@
             "row": 22,
             "cells": [
               "$400",
-              "",
+              "N/A",
               "$20,000",
-              "$800.29"
+              "$800"
             ],
             "toggle": {
               "cell": "F22",
@@ -857,9 +831,9 @@
             },
             "filled": [
               {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 800.29
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
               }
             ]
           },
@@ -869,14 +843,21 @@
             "row": 23,
             "cells": [
               "$300",
-              "",
+              "N/A",
               "$20,000",
               "$5,255"
             ],
             "toggle": {
               "cell": "F23",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
           },
           {
             "label": "HUM",
@@ -884,7 +865,7 @@
             "row": 24,
             "cells": [
               "$320",
-              "",
+              "N/A",
               "$20,000",
               "$75"
             ],
@@ -894,31 +875,61 @@
             },
             "filled": [
               {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 75
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
+          },
+          {
+            "label": "EDE",
+            "total": false,
+            "row": 25,
+            "cells": [
+              "$200",
+              "N/A",
+              "$25,000",
+              "$0"
+            ],
+            "toggle": {
+              "cell": "F25",
+              "state": null
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
               }
             ]
           },
           {
             "label": "WIN",
             "total": false,
-            "row": 25,
+            "row": 26,
             "cells": [
               "$325",
-              "",
+              "N/A",
               "$20,000",
               "$0"
             ],
             "toggle": {
-              "cell": "F25",
+              "cell": "F26",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
           }
         ],
         "color": "#cccccc",
         "kind": "pv",
-        "spendCol": 3
+        "spendCol": 3,
+        "cpaCol": 1
       },
       {
         "section": "Acquisition",
@@ -932,12 +943,12 @@
           "Quarter"
         ],
         "toggleCol": 6,
-        "headerRow": 28,
+        "headerRow": 29,
         "rows": [
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 29,
+            "row": 30,
             "cells": [
               "5",
               "1",
@@ -946,14 +957,14 @@
               "1 of 10"
             ],
             "toggle": {
-              "cell": "G29",
+              "cell": "G30",
               "state": null
             }
           },
           {
             "label": "PV Lite",
             "total": false,
-            "row": 30,
+            "row": 31,
             "cells": [
               "1",
               "",
@@ -962,14 +973,14 @@
               "0 of 3"
             ],
             "toggle": {
-              "cell": "G30",
+              "cell": "G31",
               "state": null
             }
           },
           {
             "label": "Total:",
             "total": true,
-            "row": 31,
+            "row": 32,
             "cells": [
               "6",
               "1",
@@ -978,14 +989,15 @@
               ""
             ],
             "toggle": {
-              "cell": "G31",
+              "cell": "G32",
               "state": null
             }
           }
         ],
         "color": "#d9d9d9",
         "kind": "other",
-        "spendCol": -1
+        "spendCol": -1,
+        "cpaCol": -1
       }
     ],
     "goals": {
