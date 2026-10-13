@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T13:20:21.922Z",
+  "generatedAt": "2026-10-13T13:24:21.583Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -491,7 +491,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-13T13:20:07Z",
+    "dataUpdated": "2026-10-13T13:24:06Z",
     "monthLabel": "October 2026",
     "daysElapsed": 13,
     "daysBasis": 30,
@@ -535,7 +535,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$589,500",
-      "actual": "$136,098",
+      "actual": "$67,719",
       "toggle": {
         "cell": "E2",
         "state": "off"
@@ -629,67 +629,54 @@
               "cell": "F10",
               "state": "off"
             }
-          },
-          {
-            "label": "CPA Offers",
-            "total": false,
-            "row": 11,
-            "cells": [
-              "Target Profit",
-              "Acutal MTD",
-              "Target CPA",
-              "CPA"
-            ],
-            "toggle": null
-          },
+          }
+        ]
+      },
+      {
+        "section": "Retention",
+        "tone": "blue",
+        "firstColLabel": "CPA Offers",
+        "headers": [
+          "Target Profit",
+          "Actual MTD",
+          "Target CPA",
+          "CPA"
+        ],
+        "toggleCol": 5,
+        "rows": [
           {
             "label": "KEE-HL",
             "total": false,
-            "row": 12,
+            "row": 13,
             "cells": [
               "$40,000",
-              "$50,803.82",
+              "$19,422",
               "$240",
               "$225.50"
             ],
             "toggle": {
-              "cell": "F12",
+              "cell": "F13",
               "state": "on"
             },
             "filled": [
               {
-                "col": 3,
-                "source": "Monday (L7D CPA)"
+                "col": 1,
+                "source": "P&L tracker"
               },
               {
-                "col": 1,
-                "source": "Monday (MTD Spend)"
+                "col": 3,
+                "source": "Monday (L7D CPA)"
               }
             ]
           },
           {
             "label": "TRX",
             "total": false,
-            "row": 13,
-            "cells": [
-              "$5,000",
-              "",
-              "$350",
-              ""
-            ],
-            "toggle": {
-              "cell": "F13",
-              "state": "off"
-            }
-          },
-          {
-            "label": "MED",
-            "total": false,
             "row": 14,
             "cells": [
               "$5,000",
-              "",
-              "$375",
+              "$0",
+              "$350",
               ""
             ],
             "toggle": {
@@ -698,45 +685,54 @@
             }
           },
           {
-            "label": "QUAD",
+            "label": "MED",
             "total": false,
             "row": 15,
             "cells": [
               "$5,000",
-              "",
-              "$350",
+              "$0",
+              "$375",
               ""
             ],
             "toggle": {
               "cell": "F15",
+              "state": "off"
+            }
+          },
+          {
+            "label": "QUAD",
+            "total": false,
+            "row": 16,
+            "cells": [
+              "$5,000",
+              "$0",
+              "$350",
+              ""
+            ],
+            "toggle": {
+              "cell": "F16",
               "state": null
             }
           },
           {
             "label": "DMN",
             "total": false,
-            "row": 16,
+            "row": 17,
             "cells": [
               "$5,000",
-              "$1,703.60",
+              "$0",
               "$280",
               ""
             ],
             "toggle": {
-              "cell": "F16",
+              "cell": "F17",
               "state": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (MTD Spend)"
-              }
-            ]
+            }
           },
           {
             "label": "PVs",
             "total": false,
-            "row": 17,
+            "row": 18,
             "cells": [
               "Target CPA",
               "CPA",
@@ -748,7 +744,7 @@
           {
             "label": "HEY",
             "total": false,
-            "row": 18,
+            "row": 19,
             "cells": [
               "$225",
               "",
@@ -756,106 +752,82 @@
               "$0"
             ],
             "toggle": {
-              "cell": "F18",
+              "cell": "F19",
               "state": null
             }
           },
           {
             "label": "HMD",
             "total": false,
-            "row": 19,
-            "cells": [
-              "$350",
-              "$600.05",
-              "$20,000",
-              "$0"
-            ],
-            "toggle": {
-              "cell": "F19",
-              "state": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (MTD Spend)"
-              }
-            ]
-          },
-          {
-            "label": "GAL",
-            "total": false,
             "row": 20,
             "cells": [
-              "$400",
-              "$800.29",
-              "$100,000",
+              "$350",
+              "",
+              "$20,000",
               "$0"
             ],
             "toggle": {
               "cell": "F20",
               "state": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (MTD Spend)"
-              }
-            ]
+            }
           },
           {
-            "label": "ELE",
+            "label": "GAL",
             "total": false,
             "row": 21,
             "cells": [
-              "$300",
-              "$6,380.48",
+              "$400",
               "",
-              "$5,255"
+              "$20,000",
+              "$0"
             ],
             "toggle": {
               "cell": "F21",
               "state": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (MTD Spend)"
-              }
-            ]
+            }
           },
           {
-            "label": "HUM",
+            "label": "ELE",
             "total": false,
             "row": 22,
             "cells": [
-              "$320",
-              "$75",
-              "$100,000",
-              "$0"
+              "$300",
+              "",
+              "$20,000",
+              "$5,255"
             ],
             "toggle": {
               "cell": "F22",
               "state": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (MTD Spend)"
-              }
-            ]
+            }
           },
           {
-            "label": "WIN",
+            "label": "HUM",
             "total": false,
             "row": 23,
             "cells": [
-              "$325",
+              "$320",
               "",
-              "$100,000",
+              "$20,000",
               "$0"
             ],
             "toggle": {
               "cell": "F23",
+              "state": null
+            }
+          },
+          {
+            "label": "WIN",
+            "total": false,
+            "row": 24,
+            "cells": [
+              "$325",
+              "",
+              "$20,000",
+              "$0"
+            ],
+            "toggle": {
+              "cell": "F24",
               "state": null
             }
           }
@@ -877,7 +849,7 @@
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 27,
+            "row": 28,
             "cells": [
               "5",
               "1",
@@ -886,14 +858,14 @@
               "1 of 10"
             ],
             "toggle": {
-              "cell": "G27",
+              "cell": "G28",
               "state": null
             }
           },
           {
             "label": "PV Lite",
             "total": false,
-            "row": 28,
+            "row": 29,
             "cells": [
               "1",
               "",
@@ -902,14 +874,14 @@
               "0 of 3"
             ],
             "toggle": {
-              "cell": "G28",
+              "cell": "G29",
               "state": null
             }
           },
           {
             "label": "Total:",
             "total": true,
-            "row": 29,
+            "row": 30,
             "cells": [
               "6",
               "1",
@@ -917,7 +889,10 @@
               "$7,500",
               ""
             ],
-            "toggle": null
+            "toggle": {
+              "cell": "G30",
+              "state": null
+            }
           }
         ]
       }
@@ -932,7 +907,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$589,500",
-          "actual": "$136,098",
+          "actual": "$67,719",
           "toggle": {
             "cell": "E2",
             "state": "off"
@@ -942,7 +917,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$149,000",
-          "actual": "$136,098",
+          "actual": "$67,719",
           "toggle": {
             "cell": "E3",
             "state": "on"
