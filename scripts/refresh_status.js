@@ -196,7 +196,7 @@ async function run() {
       const grid = await sheets.getBackgrounds(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range);
       const hex = grid.map((r) => r.map(sheetBoard.colorHex));
       sheetBoard.applyColors(model, hex);
-      if (process.env.DEBUG_COLORS) hex.forEach((r, i) => console.log("row " + (i + 1) + ": " + r.map((c) => c || "-").join(" ")));
+      if (process.env.DEBUG_COLORS) model.colorDebug = hex.map((r, i) => "row " + (i + 1) + ": " + r.map((c) => c || "-").join(" "));
     } catch (e) { console.warn("Sheet colors not read:", e.message); }
     sheetBoard.fillActuals(model, sheetBoard.buildSources({
       cpaRows: out.cpa.rows, mondayAll, matchesAny: logic.matchesAny,
