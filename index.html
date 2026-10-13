@@ -207,6 +207,7 @@
   .bd-gray { --g:#8a8f98; } .bd-blue { --g:#3d85c6; } .bd-purple { --g:#8e7cc3; } .bd-green { --g:#6aa84f; }
   .bd-block { margin-bottom:14px; border:1px solid color-mix(in srgb, var(--g, var(--rule)) 40%, transparent); border-radius:3px; overflow-x:auto; }
   .bd-block tbody td, .bd-block thead th { background:color-mix(in srgb, var(--g, transparent) 16%, transparent) !important; }
+  .bd-block.bd-sheet tbody td, .bd-block.bd-sheet thead th { background:color-mix(in srgb, var(--g) 70%, var(--surface-0)) !important; }
   .bd-block tbody tr:last-child td { border-bottom:none; }
   .tg { font:inherit; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;
     min-width:92px; padding:5px 10px; border-radius:2px; border:1px solid var(--rule); background:var(--surface-2); color:var(--text-secondary); }
@@ -1223,7 +1224,7 @@ function buyerPanel(d, b) {
     let lastSection = null;
     b.groups.forEach(g => {
       if (g.section && g.section !== lastSection) { h += "<div class='bd-label'>" + esc(g.section) + "</div>"; lastSection = g.section; }
-      h += "<div class='bd-block bd-" + esc(g.tone) + "'" +
+      h += "<div class='bd-block bd-" + esc(g.tone) + (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " bd-sheet" : "") + "'" +
         (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " style='--g:" + g.color + "'" : "") + "><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
         g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th></th></tr></thead><tbody>";
       g.rows.forEach(r => {
