@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T14:19:08.715Z",
+  "generatedAt": "2026-10-13T09:03:37.034Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -27,7 +27,7 @@
         "name": "EDE ($200)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12968522996",
         "platform": "Meta",
-        "group": "Onboarding",
+        "group": "Break/Fix HQ",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 200,
@@ -69,7 +69,7 @@
         "name": "WIN ($325)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
         "platform": "Meta",
-        "group": "Onboarding",
+        "group": "Break/Fix HQ",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 325,
@@ -104,7 +104,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 1703.6
+        "adSpend": 2348.3
       },
       {
         "id": "12893345311",
@@ -118,7 +118,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 5501.27
+        "adSpend": 6380.48
       },
       {
         "id": "12409786926",
@@ -132,7 +132,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 450.29
+        "adSpend": 800.29
       },
       {
         "id": "12703976002",
@@ -160,7 +160,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 320.05
+        "adSpend": 600.05
       },
       {
         "id": "12231962344",
@@ -174,28 +174,14 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": null
-      },
-      {
-        "id": "12845003143",
-        "name": "RHE ($",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12845003143",
-        "platform": "Meta",
-        "group": "Blockers & Dependencies",
-        "status": "unknown",
-        "rawLabel": null,
-        "cpaTarget": null,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": null
+        "adSpend": 75
       }
     ],
     "counts": {
       "on_track": 0,
       "off_track": 0,
       "paused": 5,
-      "unknown": 7
+      "unknown": 6
     }
   },
   "managed": {
@@ -389,10 +375,10 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 12,
+        "daysElapsed": 13,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 2000,
-        "delta": -2000,
+        "expectedToDate": 2166.6666666666665,
+        "delta": -2166.6666666666665,
         "pacingPct": 0,
         "status": "off_track"
       },
@@ -402,14 +388,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 40000,
-        "profit": 17034,
+        "profit": 19422,
         "live": true,
-        "lastEntry": "2026-10-11",
-        "daysElapsed": 12,
+        "lastEntry": "2026-10-12",
+        "daysElapsed": 13,
         "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 16000,
-        "delta": 1034,
-        "pacingPct": 106.46249999999999,
+        "expectedToDate": 17333.333333333332,
+        "delta": 2088.666666666668,
+        "pacingPct": 112.05000000000001,
         "status": "on_track"
       },
       {
@@ -505,9 +491,9 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-12T14:18:53Z",
+    "dataUpdated": "2026-10-13T09:03:21Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 12,
+    "daysElapsed": 13,
     "daysBasis": 30,
     "warnings": []
   },
@@ -516,12 +502,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 17034,
-      "daysElapsed": 12,
+      "qtdPl": 19422,
+      "daysElapsed": 13,
       "daysInQuarter": 92,
-      "proratedTarget": 31304.347826086956,
-      "progressPct": 7.097499999999999,
-      "pacingPct": 54.41416666666667,
+      "proratedTarget": 33913.04347826087,
+      "progressPct": 8.0925,
+      "pacingPct": 57.269999999999996,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -540,7 +526,7 @@
       "onTrack": 5,
       "offTrack": 3,
       "paused": 13,
-      "total": 29
+      "total": 28
     }
   },
   "board": {
@@ -549,10 +535,10 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$589,500",
-      "actual": "$54,541",
+      "actual": "$136,098",
       "toggle": {
         "cell": "E2",
-        "state": "on"
+        "state": "off"
       }
     },
     "sections": [],
@@ -643,28 +629,26 @@
               "cell": "F10",
               "state": "off"
             }
-          }
-        ]
-      },
-      {
-        "section": "Retention",
-        "tone": "blue",
-        "firstColLabel": "",
-        "headers": [
-          "Target Profit",
-          "Actual MTD",
-          "Target CPA",
-          "CPA"
-        ],
-        "toggleCol": 5,
-        "rows": [
+          },
+          {
+            "label": "CPA Offers",
+            "total": false,
+            "row": 11,
+            "cells": [
+              "Target Profit",
+              "Acutal MTD",
+              "Target CPA",
+              "CPA"
+            ],
+            "toggle": null
+          },
           {
             "label": "KEE-HL",
             "total": false,
             "row": 12,
             "cells": [
               "$40,000",
-              "$17,034",
+              "$50,803.82",
               "$240",
               "$225.50"
             ],
@@ -674,12 +658,12 @@
             },
             "filled": [
               {
-                "col": 1,
-                "source": "P&L tracker"
-              },
-              {
                 "col": 3,
                 "source": "Monday (L7D CPA)"
+              },
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)"
               }
             ]
           },
@@ -689,20 +673,14 @@
             "row": 13,
             "cells": [
               "$5,000",
-              "$0",
+              "",
               "$350",
               ""
             ],
             "toggle": {
               "cell": "F13",
-              "state": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "P&L tracker"
-              }
-            ]
+              "state": "off"
+            }
           },
           {
             "label": "MED",
@@ -710,20 +688,14 @@
             "row": 14,
             "cells": [
               "$5,000",
-              "$0",
+              "",
               "$375",
               ""
             ],
             "toggle": {
               "cell": "F14",
-              "state": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "P&L tracker"
-              }
-            ]
+              "state": "off"
+            }
           },
           {
             "label": "QUAD",
@@ -746,29 +718,33 @@
             "row": 16,
             "cells": [
               "$5,000",
-              "",
+              "$1,703.60",
               "$280",
               ""
             ],
             "toggle": {
               "cell": "F16",
               "state": null
-            }
-          }
-        ]
-      },
-      {
-        "section": "Retention",
-        "tone": "purple",
-        "firstColLabel": "",
-        "headers": [
-          "Target CPA",
-          "CPA",
-          "Remaining Spend",
-          "Total Spend"
-        ],
-        "toggleCol": 5,
-        "rows": [
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
+          },
+          {
+            "label": "PVs",
+            "total": false,
+            "row": 17,
+            "cells": [
+              "Target CPA",
+              "CPA",
+              "Remaining Spend",
+              "Total Spend"
+            ],
+            "toggle": null
+          },
           {
             "label": "HEY",
             "total": false,
@@ -790,9 +766,9 @@
             "row": 19,
             "cells": [
               "$350",
-              "",
-              "$99,679.95",
-              "$320.05"
+              "$600.05",
+              "$100,000",
+              "$0"
             ],
             "toggle": {
               "cell": "F19",
@@ -800,12 +776,8 @@
             },
             "filled": [
               {
-                "col": 3,
+                "col": 1,
                 "source": "Monday (MTD Spend)"
-              },
-              {
-                "col": 2,
-                "source": "Goal minus spend"
               }
             ]
           },
@@ -815,9 +787,9 @@
             "row": 20,
             "cells": [
               "$400",
-              "",
-              "$99,549.71",
-              "$450.29"
+              "$800.29",
+              "$100,000",
+              "$0"
             ],
             "toggle": {
               "cell": "F20",
@@ -825,12 +797,8 @@
             },
             "filled": [
               {
-                "col": 3,
+                "col": 1,
                 "source": "Monday (MTD Spend)"
-              },
-              {
-                "col": 2,
-                "source": "Goal minus spend"
               }
             ]
           },
@@ -840,14 +808,20 @@
             "row": 21,
             "cells": [
               "$300",
-              "",
+              "$6,380.48",
               "$94,745",
               "$5,255"
             ],
             "toggle": {
               "cell": "F21",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
           },
           {
             "label": "HUM",
@@ -855,14 +829,20 @@
             "row": 22,
             "cells": [
               "$320",
-              "",
+              "$75",
               "$100,000",
               "$0"
             ],
             "toggle": {
               "cell": "F22",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
           },
           {
             "label": "WIN",
@@ -952,17 +932,17 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$589,500",
-          "actual": "$54,541",
+          "actual": "$136,098",
           "toggle": {
             "cell": "E2",
-            "state": "on"
+            "state": "off"
           }
         },
         {
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$149,000",
-          "actual": "$54,541",
+          "actual": "$136,098",
           "toggle": {
             "cell": "E3",
             "state": "on"
