@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T13:24:21.583Z",
+  "generatedAt": "2026-10-13T13:54:56.610Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -28,6 +28,20 @@
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12968522996",
         "platform": "Meta",
         "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 200,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
+        "id": "13276477298",
+        "name": "EDE ($200) (copy)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477298",
+        "platform": "Meta",
+        "group": "Whitelistly",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 200,
@@ -135,6 +149,20 @@
         "adSpend": 800.29
       },
       {
+        "id": "13276477296",
+        "name": "GAL (<$400) (copy)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477296",
+        "platform": "Meta",
+        "group": "Whitelistly",
+        "status": "unknown",
+        "rawLabel": "In Learning Phase",
+        "cpaTarget": 400,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 800.29
+      },
+      {
         "id": "12703976002",
         "name": "HEY ($225)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12703976002",
@@ -163,6 +191,20 @@
         "adSpend": 600.05
       },
       {
+        "id": "13276477249",
+        "name": "HMD ($350) (copy)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477249",
+        "platform": "Meta",
+        "group": "Whitelistly",
+        "status": "unknown",
+        "rawLabel": "In Learning Phase",
+        "cpaTarget": 350,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 600.05
+      },
+      {
         "id": "12231962344",
         "name": "HUM (<$320)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
@@ -175,13 +217,27 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": 75
+      },
+      {
+        "id": "13276477300",
+        "name": "HUM (<$320) (copy)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477300",
+        "platform": "Meta",
+        "group": "Whitelistly",
+        "status": "unknown",
+        "rawLabel": "Stuck",
+        "cpaTarget": 320,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 75
       }
     ],
     "counts": {
       "on_track": 0,
       "off_track": 0,
-      "paused": 5,
-      "unknown": 6
+      "paused": 6,
+      "unknown": 9
     }
   },
   "managed": {
@@ -491,7 +547,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-13T13:24:06Z",
+    "dataUpdated": "2026-10-13T13:54:40Z",
     "monthLabel": "October 2026",
     "daysElapsed": 13,
     "daysBasis": 30,
@@ -525,8 +581,8 @@
       "active": 8,
       "onTrack": 5,
       "offTrack": 3,
-      "paused": 13,
-      "total": 28
+      "paused": 14,
+      "total": 32
     }
   },
   "board": {
@@ -650,7 +706,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$19,422",
+              "$19,421",
               "$240",
               "$225.50"
             ],
@@ -659,10 +715,6 @@
               "state": "on"
             },
             "filled": [
-              {
-                "col": 1,
-                "source": "P&L tracker"
-              },
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)"
@@ -728,40 +780,27 @@
               "cell": "F17",
               "state": null
             }
-          },
-          {
-            "label": "PVs",
-            "total": false,
-            "row": 18,
-            "cells": [
-              "Target CPA",
-              "CPA",
-              "Starting Spend Spend",
-              "Total Spend"
-            ],
-            "toggle": null
-          },
+          }
+        ]
+      },
+      {
+        "section": "Retention",
+        "tone": "purple",
+        "firstColLabel": "PVs",
+        "headers": [
+          "Target CPA",
+          "CPA",
+          "Starting Spend",
+          "Total Spend"
+        ],
+        "toggleCol": 5,
+        "rows": [
           {
             "label": "HEY",
             "total": false,
-            "row": 19,
-            "cells": [
-              "$225",
-              "",
-              "$20,000",
-              "$0"
-            ],
-            "toggle": {
-              "cell": "F19",
-              "state": null
-            }
-          },
-          {
-            "label": "HMD",
-            "total": false,
             "row": 20,
             "cells": [
-              "$350",
+              "$225",
               "",
               "$20,000",
               "$0"
@@ -772,24 +811,51 @@
             }
           },
           {
-            "label": "GAL",
+            "label": "HMD",
             "total": false,
             "row": 21,
             "cells": [
-              "$400",
+              "$350",
               "",
               "$20,000",
-              "$0"
+              "$600.05"
             ],
             "toggle": {
               "cell": "F21",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
+          },
+          {
+            "label": "GAL",
+            "total": false,
+            "row": 22,
+            "cells": [
+              "$400",
+              "",
+              "$20,000",
+              "$800.29"
+            ],
+            "toggle": {
+              "cell": "F22",
+              "state": null
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
           },
           {
             "label": "ELE",
             "total": false,
-            "row": 22,
+            "row": 23,
             "cells": [
               "$300",
               "",
@@ -797,29 +863,35 @@
               "$5,255"
             ],
             "toggle": {
-              "cell": "F22",
+              "cell": "F23",
               "state": null
             }
           },
           {
             "label": "HUM",
             "total": false,
-            "row": 23,
+            "row": 24,
             "cells": [
               "$320",
               "",
               "$20,000",
-              "$0"
+              "$75"
             ],
             "toggle": {
-              "cell": "F23",
+              "cell": "F24",
               "state": null
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
           },
           {
             "label": "WIN",
             "total": false,
-            "row": 24,
+            "row": 25,
             "cells": [
               "$325",
               "",
@@ -827,7 +899,7 @@
               "$0"
             ],
             "toggle": {
-              "cell": "F24",
+              "cell": "F25",
               "state": null
             }
           }
@@ -849,7 +921,7 @@
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 28,
+            "row": 29,
             "cells": [
               "5",
               "1",
@@ -858,14 +930,14 @@
               "1 of 10"
             ],
             "toggle": {
-              "cell": "G28",
+              "cell": "G29",
               "state": null
             }
           },
           {
             "label": "PV Lite",
             "total": false,
-            "row": 29,
+            "row": 30,
             "cells": [
               "1",
               "",
@@ -874,14 +946,14 @@
               "0 of 3"
             ],
             "toggle": {
-              "cell": "G29",
+              "cell": "G30",
               "state": null
             }
           },
           {
             "label": "Total:",
             "total": true,
-            "row": 30,
+            "row": 31,
             "cells": [
               "6",
               "1",
@@ -890,7 +962,7 @@
               ""
             ],
             "toggle": {
-              "cell": "G30",
+              "cell": "G31",
               "state": null
             }
           }
