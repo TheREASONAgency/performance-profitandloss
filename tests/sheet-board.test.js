@@ -107,13 +107,14 @@ test("Monday fallback skips profit rows' Actual MTD and zero Monday values", () 
   assert.deepStrictEqual(kee.cells, ["$40,000", "", "$240", ""]); // spend never goes into profit; zero CPA ignored
 });
 
-test("group colors follow the sheet's header-row color; white keeps the default tone", () => {
+test("group colors follow the sheet's data-row color; white keeps the default tone", () => {
   assert.strictEqual(sb.colorHex({ red: 1, green: 1, blue: 1 }), "");
   assert.strictEqual(sb.colorHex(null), "");
   assert.strictEqual(sb.colorHex({ red: 0.8, green: 0.2 }), "#cc3300");
   const m = sb.parseBoard(VALUES, config.board);
   const bg = VALUES.map(() => []);
-  bg[m.groups[1].headerRow - 1][1] = "#ff9900";
+  bg[m.groups[1].headerRow - 1][1] = "#cccccc";
+  bg[m.groups[1].rows[0].row - 1][1] = "#ff9900";
   sb.applyColors(m, bg);
   assert.strictEqual(m.groups[1].color, "#ff9900");
   assert.strictEqual(m.groups[0].color, undefined);
