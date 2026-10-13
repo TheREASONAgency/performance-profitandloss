@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T13:54:56.610Z",
+  "generatedAt": "2026-10-13T13:59:48.656Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -38,7 +38,7 @@
       },
       {
         "id": "13276477298",
-        "name": "EDE ($200) (copy)",
+        "name": "EDE ($200)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477298",
         "platform": "Meta",
         "group": "Whitelistly",
@@ -150,7 +150,7 @@
       },
       {
         "id": "13276477296",
-        "name": "GAL (<$400) (copy)",
+        "name": "GAL (<$400)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477296",
         "platform": "Meta",
         "group": "Whitelistly",
@@ -192,7 +192,7 @@
       },
       {
         "id": "13276477249",
-        "name": "HMD ($350) (copy)",
+        "name": "HMD ($350)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477249",
         "platform": "Meta",
         "group": "Whitelistly",
@@ -220,7 +220,7 @@
       },
       {
         "id": "13276477300",
-        "name": "HUM (<$320) (copy)",
+        "name": "HUM (<$320)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477300",
         "platform": "Meta",
         "group": "Whitelistly",
@@ -610,6 +610,7 @@
           "CPA"
         ],
         "toggleCol": 5,
+        "headerRow": 5,
         "rows": [
           {
             "label": "OOO",
@@ -686,7 +687,8 @@
               "state": "off"
             }
           }
-        ]
+        ],
+        "color": "#cccccc"
       },
       {
         "section": "Retention",
@@ -699,6 +701,7 @@
           "CPA"
         ],
         "toggleCol": 5,
+        "headerRow": 12,
         "rows": [
           {
             "label": "KEE-HL",
@@ -781,7 +784,8 @@
               "state": null
             }
           }
-        ]
+        ],
+        "color": "#cccccc"
       },
       {
         "section": "Retention",
@@ -794,6 +798,7 @@
           "Total Spend"
         ],
         "toggleCol": 5,
+        "headerRow": 19,
         "rows": [
           {
             "label": "HEY",
@@ -903,7 +908,8 @@
               "state": null
             }
           }
-        ]
+        ],
+        "color": "#cccccc"
       },
       {
         "section": "Acquisition",
@@ -917,6 +923,7 @@
           "Quarter"
         ],
         "toggleCol": 6,
+        "headerRow": 28,
         "rows": [
           {
             "label": "HG Retainer",
@@ -966,7 +973,8 @@
               "state": null
             }
           }
-        ]
+        ],
+        "color": "#d9d9d9"
       }
     ],
     "goals": {
