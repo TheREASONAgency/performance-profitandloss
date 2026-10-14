@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T14:56:21.157Z",
+  "generatedAt": "2026-10-14T15:23:12.752Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -409,14 +409,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 40000,
-        "profit": 19422,
+        "profit": 21829,
         "live": true,
-        "lastEntry": "2026-10-12",
+        "lastEntry": "2026-10-13",
         "daysElapsed": 14,
         "dailyTarget": 1333.3333333333333,
         "expectedToDate": 18666.666666666664,
-        "delta": 755.3333333333358,
-        "pacingPct": 104.04642857142858,
+        "delta": 3162.3333333333358,
+        "pacingPct": 116.94107142857145,
         "status": "on_track"
       },
       {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-14T09:03:14Z",
+    "dataUpdated": "2026-10-14T15:22:58Z",
     "monthLabel": "October 2026",
     "daysElapsed": 14,
     "daysBasis": 30,
@@ -523,12 +523,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 17914,
+      "qtdPl": 20279,
       "daysElapsed": 14,
       "daysInQuarter": 92,
       "proratedTarget": 36521.739130434784,
-      "progressPct": 7.464166666666666,
-      "pacingPct": 49.05023809523809,
+      "progressPct": 8.449583333333335,
+      "pacingPct": 55.52583333333333,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -555,8 +555,8 @@
     "quarter": {
       "kind": "quarterly",
       "label": "Quarterly Goal",
-      "revenue": "$589,500",
-      "actual": "$67,719",
+      "revenue": "$622,500",
+      "actual": "$62,006",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -677,7 +677,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$19,421",
+              "$21,828",
               "$240",
               "$225.50"
             ],
@@ -903,7 +903,7 @@
             "cells": [
               "5",
               "1",
-              "$37,500",
+              "$50,000",
               "$7,500",
               "1 of 10"
             ],
@@ -935,7 +935,7 @@
             "cells": [
               "6",
               "1",
-              "$45,000",
+              "$57,500",
               "$7,500",
               ""
             ],
@@ -960,8 +960,8 @@
         {
           "kind": "quarterly",
           "label": "Quarterly Goal",
-          "revenue": "$589,500",
-          "actual": "$67,719",
+          "revenue": "$622,500",
+          "actual": "$62,006",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -970,8 +970,8 @@
         {
           "kind": "monthly",
           "label": "Monthly Goal",
-          "revenue": "$149,000",
-          "actual": "$67,719",
+          "revenue": "$154,500",
+          "actual": "$62,006",
           "toggle": {
             "cell": "E3",
             "state": "on"
