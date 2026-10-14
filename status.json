@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T15:23:12.752Z",
+  "generatedAt": "2026-10-14T15:28:09.970Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-14T15:22:58Z",
+    "dataUpdated": "2026-10-14T15:27:54Z",
     "monthLabel": "October 2026",
     "daysElapsed": 14,
     "daysBasis": 30,
@@ -559,7 +559,7 @@
       "actual": "$62,006",
       "toggle": {
         "cell": "E2",
-        "state": "on"
+        "state": "off"
       }
     },
     "sections": [],
@@ -909,7 +909,7 @@
             ],
             "toggle": {
               "cell": "G30",
-              "state": null
+              "state": "off"
             }
           },
           {
@@ -918,14 +918,14 @@
             "row": 31,
             "cells": [
               "1",
-              "",
+              "1",
               "$7,500",
-              "",
+              "$7,250",
               "0 of 3"
             ],
             "toggle": {
               "cell": "G31",
-              "state": null
+              "state": "on"
             }
           },
           {
@@ -934,14 +934,14 @@
             "row": 32,
             "cells": [
               "6",
-              "1",
+              "2",
               "$57,500",
-              "$7,500",
+              "$14,750",
               ""
             ],
             "toggle": {
               "cell": "G32",
-              "state": null
+              "state": "off"
             }
           }
         ],
@@ -964,7 +964,7 @@
           "actual": "$62,006",
           "toggle": {
             "cell": "E2",
-            "state": "on"
+            "state": "off"
           }
         },
         {
@@ -974,7 +974,7 @@
           "actual": "$62,006",
           "toggle": {
             "cell": "E3",
-            "state": "on"
+            "state": "off"
           }
         }
       ]
