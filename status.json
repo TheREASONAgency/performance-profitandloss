@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T09:03:28.376Z",
+  "generatedAt": "2026-10-14T14:56:21.157Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -743,9 +743,9 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "-$1,508",
+              "-$1,550",
               "$280",
-              ""
+              "$667"
             ],
             "toggle": {
               "cell": "F17",
