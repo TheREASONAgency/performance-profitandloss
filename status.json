@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T15:28:09.970Z",
+  "generatedAt": "2026-10-15T09:03:09.541Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -396,10 +396,10 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 14,
+        "daysElapsed": 15,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 2333.333333333333,
-        "delta": -2333.333333333333,
+        "expectedToDate": 2500,
+        "delta": -2500,
         "pacingPct": 0,
         "status": "off_track"
       },
@@ -412,11 +412,11 @@
         "profit": 21829,
         "live": true,
         "lastEntry": "2026-10-13",
-        "daysElapsed": 14,
+        "daysElapsed": 15,
         "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 18666.666666666664,
-        "delta": 3162.3333333333358,
-        "pacingPct": 116.94107142857145,
+        "expectedToDate": 20000,
+        "delta": 1829,
+        "pacingPct": 109.14500000000001,
         "status": "on_track"
       },
       {
@@ -512,9 +512,9 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-14T15:27:54Z",
+    "dataUpdated": "2026-10-15T09:02:51Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 14,
+    "daysElapsed": 15,
     "daysBasis": 30,
     "warnings": []
   },
@@ -524,11 +524,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 20279,
-      "daysElapsed": 14,
+      "daysElapsed": 15,
       "daysInQuarter": 92,
-      "proratedTarget": 36521.739130434784,
+      "proratedTarget": 39130.434782608696,
       "progressPct": 8.449583333333335,
-      "pacingPct": 55.52583333333333,
+      "pacingPct": 51.824111111111115,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -604,7 +604,7 @@
             ],
             "toggle": {
               "cell": "F7",
-              "state": "on"
+              "state": "off"
             }
           },
           {
@@ -749,7 +749,7 @@
             ],
             "toggle": {
               "cell": "F17",
-              "state": null
+              "state": "off"
             }
           }
         ],
