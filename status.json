@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T09:02:53.048Z",
+  "generatedAt": "2026-10-16T14:37:54.117Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -31,10 +31,10 @@
         "status": "off_track",
         "rawLabel": "Over",
         "cpaTarget": 280,
-        "cpaToday": null,
-        "cpaL7d": 413.47,
-        "cpaGap": 133.47000000000003,
-        "adSpend": 4243.19
+        "cpaToday": 261.5,
+        "cpaL7d": 486.46,
+        "cpaGap": 206.45999999999998,
+        "adSpend": 5121.34
       },
       {
         "id": "12968522996",
@@ -42,20 +42,6 @@
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12968522996",
         "platform": "Meta",
         "group": "Break/Fix HQ",
-        "status": "paused",
-        "rawLabel": "N/A",
-        "cpaTarget": 200,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": null
-      },
-      {
-        "id": "13276477298",
-        "name": "EDE ($200)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477298",
-        "platform": "Meta",
-        "group": "Whitelistly",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 200,
@@ -174,7 +160,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 7244.45
+        "adSpend": 7376.42
       },
       {
         "id": "13276477296",
@@ -222,7 +208,7 @@
     "counts": {
       "on_track": 0,
       "off_track": 1,
-      "paused": 9,
+      "paused": 8,
       "unknown": 4
     }
   },
@@ -512,7 +498,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-16T09:02:39Z",
+    "dataUpdated": "2026-10-16T14:37:40Z",
     "monthLabel": "October 2026",
     "daysElapsed": 16,
     "daysBasis": 30,
@@ -523,12 +509,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 19647,
+      "qtdPl": 18705,
       "daysElapsed": 16,
       "daysInQuarter": 92,
       "proratedTarget": 41739.13043478261,
-      "progressPct": 8.186250000000001,
-      "pacingPct": 47.0709375,
+      "progressPct": 7.793750000000001,
+      "pacingPct": 44.8140625,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -546,8 +532,8 @@
       "active": 9,
       "onTrack": 5,
       "offTrack": 4,
-      "paused": 16,
-      "total": 30
+      "paused": 15,
+      "total": 29
     }
   },
   "board": {
@@ -749,7 +735,7 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "-$1,921",
+              "-$2,863",
               "$280",
               "$667"
             ],
