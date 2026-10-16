@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-10-15T09:02:51Z",
+  "lastUpdated": "2026-10-16T09:02:39Z",
   "currentMonth": "2026-10",
   "monthLabel": "October 2026",
-  "dayOfMonth": 15,
+  "dayOfMonth": 16,
   "daysInMonth": 31,
   "currentQuarter": "Q4 2026",
   "currentYear": 2026,
@@ -20,7 +20,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7258.06,
+          "proratedTarget": 7741.94,
           "pacingPct": 0.0
         },
         {
@@ -32,7 +32,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7258.06,
+          "proratedTarget": 7741.94,
           "pacingPct": 0.0
         },
         {
@@ -69,14 +69,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-10-13",
+          "lastEntry": "2026-10-15",
           "liveThisMonth": true,
           "monthlyTarget": 40000.0,
-          "revenue": 80920,
-          "adSpend": 59091,
-          "pl": 21829,
-          "proratedTarget": 19354.84,
-          "pacingPct": 112.8
+          "revenue": 92120,
+          "adSpend": 70552,
+          "pl": 21568,
+          "proratedTarget": 20645.16,
+          "pacingPct": 104.5
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -96,7 +96,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7258.06,
+          "proratedTarget": 7741.94,
           "pacingPct": 0.0
         },
         {
@@ -108,7 +108,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7258.06,
+          "proratedTarget": 7741.94,
           "pacingPct": 0.0
         },
         {
@@ -120,7 +120,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7258.06,
+          "proratedTarget": 7741.94,
           "pacingPct": 0.0
         }
       ],
@@ -141,7 +141,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7258.06,
+          "proratedTarget": 7741.94,
           "pacingPct": 0.0
         },
         {
@@ -153,7 +153,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7258.06,
+          "proratedTarget": 7741.94,
           "pacingPct": 0.0
         }
       ],
@@ -174,7 +174,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 7258.06,
+          "proratedTarget": 7741.94,
           "pacingPct": 0.0
         }
       ],
@@ -195,8 +195,8 @@
           "revenue": 0,
           "adSpend": 578,
           "pl": -578,
-          "proratedTarget": 7258.06,
-          "pacingPct": -8.0
+          "proratedTarget": 7741.94,
+          "pacingPct": -7.5
         },
         {
           "name": "Blue Haven",
@@ -232,12 +232,12 @@
         {
           "name": "DME | NAD",
           "status": "Active",
-          "lastEntry": "2026-10-13",
+          "lastEntry": "2026-10-14",
           "liveThisMonth": true,
           "monthlyTarget": null,
-          "revenue": 1120,
-          "adSpend": 2670,
-          "pl": -1550,
+          "revenue": 1680,
+          "adSpend": 3601,
+          "pl": -1921,
           "proratedTarget": null,
           "pacingPct": null
         }
@@ -1144,6 +1144,7 @@
           0,
           0,
           0,
+          6440,
           0,
           0,
           0,
@@ -1151,8 +1152,7 @@
           0,
           0,
           0,
-          0,
-          0,
+          560,
           0,
           0
         ]
@@ -1163,7 +1163,7 @@
           0,
           0,
           0,
-          0,
+          4760,
           0,
           0,
           0,
@@ -2379,6 +2379,7 @@
           0,
           0,
           0,
+          6708,
           0,
           0,
           0,
@@ -2386,8 +2387,7 @@
           0,
           0,
           0,
-          0,
-          0,
+          931,
           0,
           0
         ]
@@ -2398,7 +2398,7 @@
           0,
           0,
           0,
-          0,
+          4753,
           0,
           0,
           0,
@@ -2942,9 +2942,9 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 80920,
-          "adSpend": 59091,
-          "pl": 21829
+          "revenue": 92120,
+          "adSpend": 70552,
+          "pl": 21568
         },
         {
           "buyer": "Joe",
@@ -2977,9 +2977,9 @@
           "buyer": "Brian",
           "buyerId": "brian",
           "account": "DME | NAD",
-          "revenue": 1120,
-          "adSpend": 2670,
-          "pl": -1550
+          "revenue": 1680,
+          "adSpend": 3601,
+          "pl": -1921
         }
       ]
     }
