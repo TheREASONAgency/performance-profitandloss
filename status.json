@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T09:03:09.541Z",
+  "generatedAt": "2026-10-16T09:02:53.048Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -22,6 +22,20 @@
   "pv": {
     "ok": true,
     "rows": [
+      {
+        "id": "13097050406",
+        "name": "DME_NAD+ ($280) (ADV + PT)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13097050406",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "off_track",
+        "rawLabel": "Over",
+        "cpaTarget": 280,
+        "cpaToday": null,
+        "cpaL7d": 413.47,
+        "cpaGap": 133.47000000000003,
+        "adSpend": 4243.19
+      },
       {
         "id": "12968522996",
         "name": "EDE ($200)",
@@ -149,20 +163,6 @@
         "adSpend": null
       },
       {
-        "id": "13097050406",
-        "name": "DME_NAD+",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13097050406",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "In Learning Phase",
-        "cpaTarget": null,
-        "cpaToday": null,
-        "cpaL7d": 780,
-        "cpaGap": null,
-        "adSpend": 2348.3
-      },
-      {
         "id": "12893345311",
         "name": "Elevated ($300)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12893345311",
@@ -174,7 +174,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 6737.22
+        "adSpend": 7244.45
       },
       {
         "id": "13276477296",
@@ -221,9 +221,9 @@
     ],
     "counts": {
       "on_track": 0,
-      "off_track": 0,
+      "off_track": 1,
       "paused": 9,
-      "unknown": 5
+      "unknown": 4
     }
   },
   "managed": {
@@ -396,10 +396,10 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 15,
+        "daysElapsed": 16,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 2500,
-        "delta": -2500,
+        "expectedToDate": 2666.6666666666665,
+        "delta": -2666.6666666666665,
         "pacingPct": 0,
         "status": "off_track"
       },
@@ -409,14 +409,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 40000,
-        "profit": 21829,
+        "profit": 21568,
         "live": true,
-        "lastEntry": "2026-10-13",
-        "daysElapsed": 15,
+        "lastEntry": "2026-10-15",
+        "daysElapsed": 16,
         "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 20000,
-        "delta": 1829,
-        "pacingPct": 109.14500000000001,
+        "expectedToDate": 21333.333333333332,
+        "delta": 234.66666666666788,
+        "pacingPct": 101.10000000000001,
         "status": "on_track"
       },
       {
@@ -512,9 +512,9 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-15T09:02:51Z",
+    "dataUpdated": "2026-10-16T09:02:39Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 15,
+    "daysElapsed": 16,
     "daysBasis": 30,
     "warnings": []
   },
@@ -523,12 +523,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 20279,
-      "daysElapsed": 15,
+      "qtdPl": 19647,
+      "daysElapsed": 16,
       "daysInQuarter": 92,
-      "proratedTarget": 39130.434782608696,
-      "progressPct": 8.449583333333335,
-      "pacingPct": 51.824111111111115,
+      "proratedTarget": 41739.13043478261,
+      "progressPct": 8.186250000000001,
+      "pacingPct": 47.0709375,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -543,9 +543,9 @@
       ]
     },
     "accounts": {
-      "active": 8,
+      "active": 9,
       "onTrack": 5,
-      "offTrack": 3,
+      "offTrack": 4,
       "paused": 16,
       "total": 30
     }
@@ -556,7 +556,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$62,006",
+      "actual": "$51,485",
       "toggle": {
         "cell": "E2",
         "state": "off"
@@ -628,14 +628,20 @@
             "row": 9,
             "cells": [
               "$100,000",
-              "",
+              "$2,242.03",
               "$320",
               ""
             ],
             "toggle": {
               "cell": "F9",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
           },
           {
             "label": "KEE-ED",
@@ -677,9 +683,9 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$21,828",
+              "$21,567",
               "$240",
-              "$225.50"
+              "$229.28"
             ],
             "toggle": {
               "cell": "F13",
@@ -743,7 +749,7 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "-$1,550",
+              "-$1,921",
               "$280",
               "$667"
             ],
@@ -921,7 +927,7 @@
               "1",
               "$7,500",
               "$7,250",
-              "0 of 3"
+              "1 of 3"
             ],
             "toggle": {
               "cell": "G31",
@@ -961,7 +967,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$62,006",
+          "actual": "$51,485",
           "toggle": {
             "cell": "E2",
             "state": "off"
@@ -971,7 +977,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$62,006",
+          "actual": "$51,485",
           "toggle": {
             "cell": "E3",
             "state": "off"
