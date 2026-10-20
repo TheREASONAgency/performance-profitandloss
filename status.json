@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T18:02:18.471Z",
+  "generatedAt": "2026-10-20T18:17:53.818Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -498,7 +498,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-20T18:02:04Z",
+    "dataUpdated": "2026-10-20T18:17:40Z",
     "monthLabel": "October 2026",
     "daysElapsed": 20,
     "daysBasis": 30,
@@ -871,7 +871,7 @@
       {
         "section": "Acquisition",
         "tone": "green",
-        "firstColLabel": "",
+        "firstColLabel": "Monthly",
         "headers": [
           "REVENUE",
           "PV Lites CLOSED",
@@ -917,67 +917,45 @@
       {
         "section": "Acquisition",
         "tone": "green",
-        "firstColLabel": "October",
+        "firstColLabel": "Quarterly",
         "headers": [
-          "Target",
-          "Actual",
-          "Revenue Target",
-          "Revenue Actual",
-          "Quarter"
+          "REVENUE",
+          "PV Lites CLOSED",
+          "HG Retainer DEALS CLOSED",
+          "OUTREACH",
+          "BOOKED CALLS"
         ],
         "toggleCol": 6,
-        "headerRow": 42,
+        "headerRow": 34,
         "rows": [
           {
-            "label": "HG Retainer",
+            "label": "Actual",
             "total": false,
-            "row": 43,
+            "row": 35,
             "cells": [
-              "5",
-              "1",
-              "$50,000",
-              "$7,500",
-              "1 of 10"
-            ],
-            "toggle": {
-              "cell": "G43",
-              "state": "off"
-            }
-          },
-          {
-            "label": "PV Lite",
-            "total": false,
-            "row": 44,
-            "cells": [
-              "1",
-              "1",
-              "$7,500",
-              "$7,250",
-              "1 of 3"
-            ],
-            "toggle": {
-              "cell": "G44",
-              "state": "on"
-            }
-          },
-          {
-            "label": "Total:",
-            "total": true,
-            "row": 45,
-            "cells": [
-              "6",
-              "2",
-              "$57,500",
               "$14,750",
+              "1",
+              "1",
+              "-",
+              "-"
+            ],
+            "toggle": null
+          },
+          {
+            "label": "Target",
+            "total": false,
+            "row": 36,
+            "cells": [
+              "$57,500",
+              "1",
+              "5",
+              "",
               ""
             ],
-            "toggle": {
-              "cell": "G45",
-              "state": "off"
-            }
+            "toggle": null
           }
         ],
-        "color": "#d9d9d9",
+        "color": "#efefef",
         "kind": "other",
         "spendCol": -1,
         "cpaCol": -1
