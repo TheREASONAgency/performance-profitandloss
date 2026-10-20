@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T18:33:51.187Z",
+  "generatedAt": "2026-10-20T18:37:55.398Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -498,7 +498,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-20T18:33:37Z",
+    "dataUpdated": "2026-10-20T18:37:39Z",
     "monthLabel": "October 2026",
     "daysElapsed": 20,
     "daysBasis": 30,
@@ -542,7 +542,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$36,309",
+      "actual": "$87,609",
       "toggle": {
         "cell": "E2",
         "state": "off"
@@ -1039,7 +1039,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$36,309",
+          "actual": "$87,609",
           "toggle": {
             "cell": "E2",
             "state": "off"
@@ -1049,7 +1049,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$36,309",
+          "actual": "$87,609",
           "toggle": {
             "cell": "E3",
             "state": "off"
