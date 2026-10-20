@@ -1229,7 +1229,7 @@ function buyerPanel(d, b) {
     let lastSection = null;
     // A group laid out as label / Actual / Target / % rows (the Sales Scorecard strip) is drawn as colored tiles.
     const isTiles = g => g.rows.length >= 2 && /^actual/i.test(g.rows[0].label) && /^target/i.test(g.rows[1].label);
-    const TILE_COLORS = ["#c7ede7", "#c7ddfc", "#cbdafd", "#e6ebc7", "#dcdbfd"];
+    const TILE_COLORS = ["#efefef", "#d9d9d9", "#cccccc", "#b7b7b7", "#999999"];
     b.groups.forEach(g => {
       if (g.section && g.section !== lastSection) {
         h += "<div class='bd-label'>" + esc(g.section) + (isTiles(g) && g.firstColLabel ? " &middot; " + esc(g.firstColLabel) : "") + "</div>";
