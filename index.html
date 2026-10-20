@@ -215,6 +215,11 @@
   .tg.off { background:var(--bad);  border-color:var(--bad);  color:#fff; }
   .tg:disabled { opacity:.55; cursor:wait; }
   .bd-total td { font-weight:700; border-top:2px solid color-mix(in srgb, var(--g) 55%, transparent); }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); margin-bottom:14px; border-radius:4px; overflow:hidden; }
+  .tile { padding:18px 14px 20px; text-align:center; color:#1b2330; }
+  .tile-k { font-size:12px; font-weight:700; letter-spacing:.04em; margin-bottom:10px; }
+  .tile-v { font-size:34px; font-weight:800; line-height:1.1; font-variant-numeric:tabular-nums; margin-bottom:8px; }
+  .tile-s { font-size:12px; color:#4b5563; }
   .tg-note { font-size:12px; color:var(--text-muted); margin:8px 0 0; }
   /* Quarterly / Monthly goal cards: the focus of the page */
   .goals { display:grid; grid-template-columns:minmax(0,1fr); gap:14px; margin-bottom:28px; }
@@ -1222,8 +1227,26 @@ function buyerPanel(d, b) {
       h += "</div>";
     }
     let lastSection = null;
+    // A group laid out as label / Actual / Target / % rows (the Sales Scorecard strip) is drawn as colored tiles.
+    const isTiles = g => g.rows.length >= 2 && /^actual/i.test(g.rows[0].label) && /^target/i.test(g.rows[1].label);
+    const TILE_COLORS = ["#c7ede7", "#c7ddfc", "#cbdafd", "#e6ebc7", "#dcdbfd"];
     b.groups.forEach(g => {
-      if (g.section && g.section !== lastSection) { h += "<div class='bd-label'>" + esc(g.section) + "</div>"; lastSection = g.section; }
+      if (g.section && g.section !== lastSection) {
+        h += "<div class='bd-label'>" + esc(g.section) + (isTiles(g) && g.firstColLabel ? " &middot; " + esc(g.firstColLabel) : "") + "</div>";
+        lastSection = g.section;
+      }
+      if (isTiles(g)) {
+        const cell = (r, i) => (r && r.cells[i]) || "";
+        h += "<div class='tiles'>" + g.headers.map((label, i) => {
+          const pct = cell(g.rows[2], i);
+          return "<div class='tile' style='background:" + TILE_COLORS[i % TILE_COLORS.length] + "'>" +
+            "<div class='tile-k'>" + esc(label) + "</div>" +
+            "<div class='tile-v'>" + (esc(cell(g.rows[0], i)) || "-") + "</div>" +
+            "<div class='tile-s'>" + esc(cell(g.rows[1], i)) + "</div>" +
+            (pct ? "<div class='tile-s'>" + esc(pct) + "</div>" : "") + "</div>";
+        }).join("") + "</div>";
+        return;
+      }
       h += "<div class='bd-block bd-" + esc(g.tone) + (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " bd-sheet" : "") + "'" +
         (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " style='--g:" + g.color + "'" : "") + "><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
         g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th></th></tr></thead><tbody>";
