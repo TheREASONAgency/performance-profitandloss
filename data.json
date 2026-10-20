@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-20T09:08:43Z",
+  "lastUpdated": "2026-10-20T18:02:04Z",
   "currentMonth": "2026-10",
   "monthLabel": "October 2026",
   "dayOfMonth": 20,
@@ -69,14 +69,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-10-18",
+          "lastEntry": "2026-10-19",
           "liveThisMonth": true,
           "monthlyTarget": 40000.0,
-          "revenue": 113680,
-          "adSpend": 83243,
-          "pl": 30437,
+          "revenue": 120680,
+          "adSpend": 89369,
+          "pl": 31311,
           "proratedTarget": 25806.45,
-          "pacingPct": 117.9
+          "pacingPct": 121.3
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -232,12 +232,12 @@
         {
           "name": "DME | NAD",
           "status": "Active",
-          "lastEntry": "2026-10-18",
+          "lastEntry": "2026-10-19",
           "liveThisMonth": true,
           "monthlyTarget": null,
-          "revenue": 3360,
-          "adSpend": 7301,
-          "pl": -3941,
+          "revenue": 3920,
+          "adSpend": 7886,
+          "pl": -3966,
           "proratedTarget": null,
           "pacingPct": null
         }
@@ -1239,6 +1239,7 @@
           0,
           0,
           0,
+          7000,
           0,
           0,
           0,
@@ -1246,8 +1247,7 @@
           0,
           0,
           0,
-          0,
-          0,
+          560,
           0,
           0
         ]
@@ -2474,6 +2474,7 @@
           0,
           0,
           0,
+          6126,
           0,
           0,
           0,
@@ -2481,8 +2482,7 @@
           0,
           0,
           0,
-          0,
-          0,
+          585,
           0,
           0
         ]
@@ -2942,9 +2942,9 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 113680,
-          "adSpend": 83243,
-          "pl": 30437
+          "revenue": 120680,
+          "adSpend": 89369,
+          "pl": 31311
         },
         {
           "buyer": "Joe",
@@ -2977,9 +2977,9 @@
           "buyer": "Brian",
           "buyerId": "brian",
           "account": "DME | NAD",
-          "revenue": 3360,
-          "adSpend": 7301,
-          "pl": -3941
+          "revenue": 3920,
+          "adSpend": 7886,
+          "pl": -3966
         }
       ]
     }
