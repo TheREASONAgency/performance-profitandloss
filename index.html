@@ -1231,9 +1231,12 @@ function buyerPanel(d, b) {
     const isTiles = g => g.rows.length >= 2 && /^actual/i.test(g.rows[0].label) && /^target/i.test(g.rows[1].label);
     const TILE_COLORS = ["#efefef", "#d9d9d9", "#cccccc", "#b7b7b7", "#999999"];
     b.groups.forEach(g => {
-      if (g.section && g.section !== lastSection) {
-        h += "<div class='bd-label'>" + esc(g.section) + (isTiles(g) && g.firstColLabel ? " &middot; " + esc(g.firstColLabel) : "") + "</div>";
+      if (isTiles(g) && g.firstColLabel) {
+        // each tile strip gets its own caption, e.g. "Acquisition · Monthly", "Acquisition · Quarterly"
+        h += "<div class='bd-label'>" + esc(g.section || "") + (g.section ? " &middot; " : "") + esc(g.firstColLabel) + "</div>";
         lastSection = g.section;
+      } else if (g.section && g.section !== lastSection) {
+        h += "<div class='bd-label'>" + esc(g.section) + "</div>"; lastSection = g.section;
       }
       if (isTiles(g)) {
         const cell = (r, i) => (r && r.cells[i]) || "";
