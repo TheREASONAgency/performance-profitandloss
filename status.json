@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T18:17:53.818Z",
+  "generatedAt": "2026-10-20T18:33:51.187Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -498,7 +498,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-20T18:17:40Z",
+    "dataUpdated": "2026-10-20T18:33:37Z",
     "monthLabel": "October 2026",
     "daysElapsed": 20,
     "daysBasis": 30,
@@ -946,9 +946,9 @@
             "total": false,
             "row": 36,
             "cells": [
-              "$57,500",
-              "1",
-              "5",
+              "$122,500",
+              "3",
+              "10",
               "",
               ""
             ],
@@ -956,6 +956,74 @@
           }
         ],
         "color": "#efefef",
+        "kind": "other",
+        "spendCol": -1,
+        "cpaCol": -1
+      },
+      {
+        "section": "Acquisition",
+        "tone": "green",
+        "firstColLabel": "October",
+        "headers": [
+          "Target",
+          "Actual",
+          "Revenue Target",
+          "Revenue Actual",
+          "Quarter"
+        ],
+        "toggleCol": 6,
+        "headerRow": 40,
+        "rows": [
+          {
+            "label": "HG Retainer",
+            "total": false,
+            "row": 41,
+            "cells": [
+              "5",
+              "1",
+              "$50,000",
+              "$7,500",
+              "1 of 10"
+            ],
+            "toggle": {
+              "cell": "G41",
+              "state": "off"
+            }
+          },
+          {
+            "label": "PV Lite",
+            "total": false,
+            "row": 42,
+            "cells": [
+              "1",
+              "1",
+              "$7,500",
+              "$7,250",
+              "1 of 3"
+            ],
+            "toggle": {
+              "cell": "G42",
+              "state": "on"
+            }
+          },
+          {
+            "label": "Total:",
+            "total": true,
+            "row": 43,
+            "cells": [
+              "6",
+              "2",
+              "$57,500",
+              "$14,750",
+              ""
+            ],
+            "toggle": {
+              "cell": "G43",
+              "state": "off"
+            }
+          }
+        ],
+        "color": "#d9d9d9",
         "kind": "other",
         "spendCol": -1,
         "cpaCol": -1
