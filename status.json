@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T09:10:52.802Z",
+  "generatedAt": "2026-10-21T14:55:49.366Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -569,7 +569,7 @@
             "row": 6,
             "cells": [
               "$100,000",
-              "$249",
+              "$5,802",
               "$65",
               ""
             ],
@@ -686,7 +686,7 @@
               "$5,000",
               "$0",
               "$350",
-              ""
+              "N/A"
             ],
             "toggle": {
               "cell": "F14",
@@ -701,7 +701,7 @@
               "$5,000",
               "$0",
               "$375",
-              ""
+              "N/A"
             ],
             "toggle": {
               "cell": "F15",
@@ -716,7 +716,7 @@
               "$5,000",
               "$0",
               "$350",
-              ""
+              "N/A"
             ],
             "toggle": {
               "cell": "F16",
@@ -770,7 +770,14 @@
             "toggle": {
               "cell": "F20",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
           },
           {
             "label": "HMD",
@@ -780,12 +787,24 @@
               "$350",
               "N/A",
               "$20,000",
-              "$600"
+              "$600.05"
             ],
             "toggle": {
               "cell": "F21",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              },
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)",
+                "value": 600.05
+              }
+            ]
           },
           {
             "label": "GAL",
@@ -795,12 +814,24 @@
               "$400",
               "N/A",
               "$20,000",
-              "$800"
+              "$1,044.59"
             ],
             "toggle": {
               "cell": "F22",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              },
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)",
+                "value": 1044.59
+              }
+            ]
           },
           {
             "label": "ELE",
@@ -808,14 +839,21 @@
             "row": 23,
             "cells": [
               "$300",
-              "$198",
+              "$248.54",
               "$20,000",
-              "$5,255"
+              "$10,156"
             ],
             "toggle": {
               "cell": "F23",
               "state": "on"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (L7D CPA)",
+                "value": 248.54
+              }
+            ]
           },
           {
             "label": "HUM",
@@ -830,7 +868,19 @@
             "toggle": {
               "cell": "F24",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              },
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)",
+                "value": 75
+              }
+            ]
           },
           {
             "label": "EDE",
@@ -855,12 +905,19 @@
               "$325",
               "N/A",
               "$20,000",
-              "$123"
+              "$144"
             ],
             "toggle": {
               "cell": "F26",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
           }
         ],
         "color": "#cccccc",
@@ -900,11 +957,11 @@
             "total": false,
             "row": 31,
             "cells": [
-              "$37,500.00",
-              "1",
-              "5",
+              "#REF!",
+              "",
+              "",
               "200",
-              "0 new · 0 follow-up  |  no target"
+              "10"
             ],
             "toggle": null
           }
@@ -950,7 +1007,7 @@
               "3",
               "10",
               "500",
-              ""
+              "20"
             ],
             "toggle": null
           }
