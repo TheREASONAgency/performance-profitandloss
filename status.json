@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T18:37:55.398Z",
+  "generatedAt": "2026-10-21T09:10:52.802Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -382,10 +382,10 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 20,
+        "daysElapsed": 21,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 3333.333333333333,
-        "delta": -3333.333333333333,
+        "expectedToDate": 3500,
+        "delta": -3500,
         "pacingPct": 0,
         "status": "off_track"
       },
@@ -398,11 +398,11 @@
         "profit": 31311,
         "live": true,
         "lastEntry": "2026-10-19",
-        "daysElapsed": 20,
+        "daysElapsed": 21,
         "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 26666.666666666664,
-        "delta": 4644.333333333336,
-        "pacingPct": 117.41625,
+        "expectedToDate": 28000,
+        "delta": 3311,
+        "pacingPct": 111.825,
         "status": "on_track"
       },
       {
@@ -498,9 +498,9 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-20T18:37:39Z",
+    "dataUpdated": "2026-10-21T09:10:40Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 20,
+    "daysElapsed": 21,
     "daysBasis": 30,
     "warnings": []
   },
@@ -510,11 +510,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 27345,
-      "daysElapsed": 20,
+      "daysElapsed": 21,
       "daysInQuarter": 92,
-      "proratedTarget": 52173.913043478264,
+      "proratedTarget": 54782.608695652176,
       "progressPct": 11.393749999999999,
-      "pacingPct": 52.411249999999995,
+      "pacingPct": 49.91547619047619,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -949,7 +949,7 @@
               "$122,500",
               "3",
               "10",
-              "",
+              "500",
               ""
             ],
             "toggle": null
