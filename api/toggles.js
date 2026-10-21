@@ -6,7 +6,7 @@
  *
  * Server-only secrets (Vercel env vars): GOOGLE_SA_KEY, TOGGLE_PASSCODE.
  * POST only writes cells that are real toggle cells in the sheet, and only the
- * two values "On Track" / "Off Track", so it cannot edit anything else.
+ * three values "On Track" / "Off Track" / "On Hold", so it cannot edit anything else.
  */
 const crypto = require("crypto");
 const config = require("../lib/status-config");
@@ -41,7 +41,7 @@ module.exports = async function handler(req, res) {
       if (!expected) return res.status(503).json({ error: "Toggling is not set up (TOGGLE_PASSCODE missing)." });
       const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
       if (!sameSecret(body.passcode, expected)) return res.status(401).json({ error: "Wrong passcode." });
-      if (body.state !== "on" && body.state !== "off") return res.status(400).json({ error: "Bad state." });
+      if (!["on", "off", "hold"].includes(body.state)) return res.status(400).json({ error: "Bad state." });
 
       const list = await readToggles();
       if (!list.some((t) => t.cell === body.cell)) return res.status(400).json({ error: "Not a toggle cell." });
