@@ -147,3 +147,9 @@ test("PV CPA: Monday L7D CPA when present, otherwise N/A; real values kept; writ
   const w = sb.mondayWrites(m).filter((x) => /^C/.test(x.a1));
   assert.deepStrictEqual(w.map((x) => [x.label, x.value]), [["GAL", 380.5], ["HEY", "N/A"], ["ELE", 250]]);
 });
+
+test("On Hold is a third toggle state", () => {
+  assert.strictEqual(sb.parseToggleValue("On Hold"), "hold");
+  assert.strictEqual(sb.parseToggleValue("on track"), "on");
+  assert.strictEqual(sb.parseToggleValue("Off Track"), "off");
+});

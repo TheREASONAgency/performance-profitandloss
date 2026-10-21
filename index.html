@@ -213,6 +213,7 @@
     min-width:92px; padding:5px 10px; border-radius:2px; border:1px solid var(--rule); background:var(--surface-2); color:var(--text-secondary); }
   .tg.on  { background:var(--good); border-color:var(--good); color:#fff; }
   .tg.off { background:var(--bad);  border-color:var(--bad);  color:#fff; }
+  .tg.hold { background:#facc15; border-color:#eab308; color:#422006; }
   .tg:disabled { opacity:.55; cursor:wait; }
   .bd-total td { font-weight:700; border-top:2px solid color-mix(in srgb, var(--g) 55%, transparent); }
   .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); margin-bottom:14px; border-radius:4px; overflow:hidden; }
@@ -1196,10 +1197,11 @@ function buyerPanel(d, b) {
   let passcode = null;
   try { passcode = sessionStorage.getItem("st-pass"); } catch (_) {}
 
+  const TG_TXT = { on: "On Track", off: "Off Track", hold: "On Hold" };
   function toggleBtn(t) {
     if (!t) return "";
-    const cls = t.state === "on" ? "on" : t.state === "off" ? "off" : "";
-    const txt = t.state === "on" ? "On Track" : t.state === "off" ? "Off Track" : "Set status";
+    const cls = t.state === "on" || t.state === "off" || t.state === "hold" ? t.state : "";
+    const txt = TG_TXT[t.state] || "Set status";
     return "<button type='button' class='tg " + cls + "' data-cell='" + esc(t.cell) + "' data-state='" +
       esc(t.state || "") + "'>" + txt + "</button>";
   }
@@ -1274,7 +1276,7 @@ function buyerPanel(d, b) {
   function setBtn(btn, state) {
     btn.dataset.state = state || "";
     btn.className = "tg" + (state ? " " + state : "");
-    btn.textContent = state === "on" ? "On Track" : state === "off" ? "Off Track" : "Set status";
+    btn.textContent = TG_TXT[state] || "Set status";
   }
 
   async function loadLiveToggles() {
@@ -1291,7 +1293,7 @@ function buyerPanel(d, b) {
       if (!passcode) return;
     }
     const prev = btn.dataset.state || "";
-    const next = prev === "on" ? "off" : "on";
+    const next = prev === "on" ? "off" : prev === "off" ? "hold" : "on";
     btn.disabled = true;
     try {
       const r = await fetch(TOGGLE_API, { method: "POST", headers: { "Content-Type": "application/json" },
