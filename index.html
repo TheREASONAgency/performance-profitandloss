@@ -213,6 +213,9 @@
     min-width:92px; padding:5px 10px; border-radius:2px; border:1px solid var(--rule); background:var(--surface-2); color:var(--text-secondary); }
   .tg.on  { background:var(--good); border-color:var(--good); color:#fff; }
   .tg.off { background:var(--bad);  border-color:var(--bad);  color:#fff; }
+  #tg-menu { position:absolute; z-index:50; display:flex; flex-direction:column; gap:4px; padding:6px; width:110px;
+    background:var(--surface-0); border:1px solid var(--rule); border-radius:4px; box-shadow:0 4px 14px rgba(0,0,0,.18); }
+  #tg-menu .tg { width:100%; } #tg-menu .tg.cur { outline:2px solid var(--text-primary); outline-offset:1px; }
   .tg.hold { background:#facc15; border-color:#eab308; color:#422006; }
   .tg:disabled { opacity:.55; cursor:wait; }
   .bd-total td { font-weight:700; border-top:2px solid color-mix(in srgb, var(--g) 55%, transparent); }
@@ -1287,13 +1290,11 @@ function buyerPanel(d, b) {
     } catch (_) { /* snapshot values stay */ }
   }
 
-  async function onToggle(btn) {
+  async function saveToggle(btn, next) {
     if (!passcode) {
       passcode = window.prompt("Team passcode to change status:");
       if (!passcode) return;
     }
-    const prev = btn.dataset.state || "";
-    const next = prev === "on" ? "off" : prev === "off" ? "hold" : "on";
     btn.disabled = true;
     try {
       const r = await fetch(TOGGLE_API, { method: "POST", headers: { "Content-Type": "application/json" },
@@ -1310,10 +1311,33 @@ function buyerPanel(d, b) {
     } finally { btn.disabled = false; }
   }
 
+  /* Clicking a status button opens a menu with all three options. */
+  function closeTgMenu() { const m = document.getElementById("tg-menu"); if (m) m.remove(); }
+  function onToggle(btn) {
+    const open = document.getElementById("tg-menu");
+    closeTgMenu();
+    if (open && open.dataset.cell === btn.dataset.cell) return;
+    const m = document.createElement("div");
+    m.id = "tg-menu"; m.dataset.cell = btn.dataset.cell;
+    ["on", "off", "hold"].forEach(st => {
+      const o = document.createElement("button");
+      o.type = "button"; o.className = "tg " + st + (btn.dataset.state === st ? " cur" : "");
+      o.textContent = TG_TXT[st];
+      o.addEventListener("click", ev => { ev.stopPropagation(); closeTgMenu(); saveToggle(btn, st); });
+      m.append(o);
+    });
+    const r = btn.getBoundingClientRect();
+    m.style.top = (window.scrollY + r.bottom + 4) + "px";
+    m.style.left = Math.max(8, window.scrollX + r.right - 110) + "px";
+    document.body.append(m);
+  }
+
   body.addEventListener("click", e => {
     const btn = e.target.closest && e.target.closest(".tg");
-    if (btn) onToggle(btn);
+    if (btn) { e.stopPropagation(); onToggle(btn); }
   });
+  document.addEventListener("click", closeTgMenu);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeTgMenu(); });
 
   function paintBoard(d) {
     body.innerHTML = "";
