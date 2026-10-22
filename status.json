@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T15:26:53.550Z",
+  "generatedAt": "2026-10-22T09:09:56.377Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -382,10 +382,10 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 21,
+        "daysElapsed": 22,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 3500,
-        "delta": -3500,
+        "expectedToDate": 3666.6666666666665,
+        "delta": -3666.6666666666665,
         "pacingPct": 0,
         "status": "off_track"
       },
@@ -395,14 +395,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 40000,
-        "profit": 34962,
+        "profit": 37135,
         "live": true,
-        "lastEntry": "2026-10-20",
-        "daysElapsed": 21,
+        "lastEntry": "2026-10-21",
+        "daysElapsed": 22,
         "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 28000,
-        "delta": 6962,
-        "pacingPct": 124.86428571428571,
+        "expectedToDate": 29333.333333333332,
+        "delta": 7801.666666666668,
+        "pacingPct": 126.59659090909092,
         "status": "on_track"
       },
       {
@@ -498,9 +498,9 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-21T15:26:39Z",
+    "dataUpdated": "2026-10-22T09:09:42Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 21,
+    "daysElapsed": 22,
     "daysBasis": 30,
     "warnings": []
   },
@@ -509,12 +509,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 30996,
-      "daysElapsed": 21,
+      "qtdPl": 33169,
+      "daysElapsed": 22,
       "daysInQuarter": 92,
-      "proratedTarget": 54782.608695652176,
-      "progressPct": 12.915,
-      "pacingPct": 56.58,
+      "proratedTarget": 57391.30434782609,
+      "progressPct": 13.820416666666665,
+      "pacingPct": 57.7944696969697,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -542,7 +542,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$82,020",
+      "actual": "$76,353",
       "toggle": {
         "cell": "E2",
         "state": "off"
@@ -663,7 +663,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$34,962",
+              "$37,135",
               "$240",
               "$219.73"
             ],
@@ -690,7 +690,7 @@
             ],
             "toggle": {
               "cell": "F14",
-              "state": "off"
+              "state": "hold"
             }
           },
           {
@@ -705,7 +705,7 @@
             ],
             "toggle": {
               "cell": "F15",
-              "state": "off"
+              "state": "hold"
             }
           },
           {
@@ -769,7 +769,7 @@
             ],
             "toggle": {
               "cell": "F20",
-              "state": "off"
+              "state": "hold"
             }
           },
           {
@@ -784,7 +784,7 @@
             ],
             "toggle": {
               "cell": "F21",
-              "state": "off"
+              "state": "hold"
             }
           },
           {
@@ -814,7 +814,7 @@
             ],
             "toggle": {
               "cell": "F23",
-              "state": "on"
+              "state": "off"
             }
           },
           {
@@ -1039,7 +1039,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$82,020",
+          "actual": "$76,353",
           "toggle": {
             "cell": "E2",
             "state": "off"
@@ -1049,7 +1049,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$82,020",
+          "actual": "$76,353",
           "toggle": {
             "cell": "E3",
             "state": "off"
