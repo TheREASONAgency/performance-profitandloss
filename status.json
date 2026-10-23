@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T09:08:08.269Z",
+  "generatedAt": "2026-10-23T14:43:54.851Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -34,7 +34,7 @@
         "cpaToday": null,
         "cpaL7d": 1193.02,
         "cpaGap": 913.02,
-        "adSpend": 9519.89
+        "adSpend": 9786.25
       },
       {
         "id": "12893345311",
@@ -48,7 +48,7 @@
         "cpaToday": null,
         "cpaL7d": 457.23,
         "cpaGap": 157.23000000000002,
-        "adSpend": 10537.64
+        "adSpend": 10739.5
       },
       {
         "id": "12968522996",
@@ -160,7 +160,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 1087.76
+        "adSpend": 1704.54
       },
       {
         "id": "12409812564",
@@ -628,14 +628,24 @@
             "row": 9,
             "cells": [
               "$100,000",
-              "",
+              "$12,155.39",
               "$320",
-              ""
+              "$1,898.48"
             ],
             "toggle": {
               "cell": "F9",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (L7D CPA)"
+              },
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
           },
           {
             "label": "KEE-ED",
@@ -643,14 +653,24 @@
             "row": 10,
             "cells": [
               "$100,000",
-              "",
+              "$7,013.65",
               "$240",
-              ""
+              "$556.29"
             ],
             "toggle": {
               "cell": "F10",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (L7D CPA)"
+              },
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)"
+              }
+            ]
           }
         ],
         "color": "#cccccc",
@@ -677,7 +697,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$37,135",
+              "$36,611",
               "$240",
               "$204.08"
             ],
@@ -743,7 +763,7 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "-$1,414",
+              "-$1,548",
               "$280",
               "$667"
             ],
