@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T09:09:56.377Z",
+  "generatedAt": "2026-10-23T09:08:08.269Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -23,18 +23,32 @@
     "ok": true,
     "rows": [
       {
+        "id": "13097050406",
+        "name": "DME_NAD+ ($280) (ADV + PT)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13097050406",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "off_track",
+        "rawLabel": "Over",
+        "cpaTarget": 280,
+        "cpaToday": null,
+        "cpaL7d": 1193.02,
+        "cpaGap": 913.02,
+        "adSpend": 9519.89
+      },
+      {
         "id": "12893345311",
         "name": "Elevated ($300)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12893345311",
         "platform": "Meta",
         "group": "Break/Fix HQ",
-        "status": "on_track",
-        "rawLabel": "On Target",
+        "status": "off_track",
+        "rawLabel": "Over",
         "cpaTarget": 300,
         "cpaToday": null,
-        "cpaL7d": 248.54,
-        "cpaGap": -51.46000000000001,
-        "adSpend": 9657.55
+        "cpaL7d": 457.23,
+        "cpaGap": 157.23000000000002,
+        "adSpend": 10537.64
       },
       {
         "id": "12968522996",
@@ -121,6 +135,20 @@
         "adSpend": null
       },
       {
+        "id": "13358920419",
+        "name": "REV ($65)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13358920419",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 65,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
         "id": "12414815129",
         "name": "WIN ($325)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
@@ -132,7 +160,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 139
+        "adSpend": 1087.76
       },
       {
         "id": "12409812564",
@@ -147,20 +175,6 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": null
-      },
-      {
-        "id": "13097050406",
-        "name": "DME_NAD+ ($280) (ADV + PT)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13097050406",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "Pushing CPA",
-        "cpaTarget": 280,
-        "cpaToday": null,
-        "cpaL7d": 489.69,
-        "cpaGap": 209.69,
-        "adSpend": 8298.49
       },
       {
         "id": "13276477296",
@@ -206,10 +220,10 @@
       }
     ],
     "counts": {
-      "on_track": 1,
-      "off_track": 0,
-      "paused": 8,
-      "unknown": 4
+      "on_track": 0,
+      "off_track": 2,
+      "paused": 9,
+      "unknown": 3
     }
   },
   "managed": {
@@ -382,10 +396,10 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 22,
+        "daysElapsed": 23,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 3666.6666666666665,
-        "delta": -3666.6666666666665,
+        "expectedToDate": 3833.333333333333,
+        "delta": -3833.333333333333,
         "pacingPct": 0,
         "status": "off_track"
       },
@@ -398,11 +412,11 @@
         "profit": 37135,
         "live": true,
         "lastEntry": "2026-10-21",
-        "daysElapsed": 22,
+        "daysElapsed": 23,
         "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 29333.333333333332,
-        "delta": 7801.666666666668,
-        "pacingPct": 126.59659090909092,
+        "expectedToDate": 30666.666666666664,
+        "delta": 6468.333333333336,
+        "pacingPct": 121.09239130434784,
         "status": "on_track"
       },
       {
@@ -498,9 +512,9 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-22T09:09:42Z",
+    "dataUpdated": "2026-10-23T09:07:55Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 22,
+    "daysElapsed": 23,
     "daysBasis": 30,
     "warnings": []
   },
@@ -509,12 +523,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 33169,
-      "daysElapsed": 22,
+      "qtdPl": 31780,
+      "daysElapsed": 23,
       "daysInQuarter": 92,
-      "proratedTarget": 57391.30434782609,
-      "progressPct": 13.820416666666665,
-      "pacingPct": 57.7944696969697,
+      "proratedTarget": 60000,
+      "progressPct": 13.241666666666665,
+      "pacingPct": 52.96666666666666,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -529,11 +543,11 @@
       ]
     },
     "accounts": {
-      "active": 9,
-      "onTrack": 6,
-      "offTrack": 3,
-      "paused": 15,
-      "total": 29
+      "active": 10,
+      "onTrack": 5,
+      "offTrack": 5,
+      "paused": 16,
+      "total": 30
     }
   },
   "board": {
@@ -542,7 +556,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$76,353",
+      "actual": "$220,078",
       "toggle": {
         "cell": "E2",
         "state": "off"
@@ -665,7 +679,7 @@
               "$40,000",
               "$37,135",
               "$240",
-              "$219.73"
+              "$204.08"
             ],
             "toggle": {
               "cell": "F13",
@@ -729,7 +743,7 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "-$25",
+              "-$1,414",
               "$280",
               "$667"
             ],
@@ -1039,7 +1053,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$76,353",
+          "actual": "$220,078",
           "toggle": {
             "cell": "E2",
             "state": "off"
@@ -1049,7 +1063,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$76,353",
+          "actual": "$220,078",
           "toggle": {
             "cell": "E3",
             "state": "off"
