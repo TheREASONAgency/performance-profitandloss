@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-10-22T09:09:42Z",
+  "lastUpdated": "2026-10-23T09:07:55Z",
   "currentMonth": "2026-10",
   "monthLabel": "October 2026",
-  "dayOfMonth": 22,
+  "dayOfMonth": 23,
   "daysInMonth": 31,
   "currentQuarter": "Q4 2026",
   "currentYear": 2026,
@@ -20,7 +20,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10645.16,
+          "proratedTarget": 11129.03,
           "pacingPct": 0.0
         },
         {
@@ -32,7 +32,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10645.16,
+          "proratedTarget": 11129.03,
           "pacingPct": 0.0
         },
         {
@@ -75,8 +75,8 @@
           "revenue": 137760,
           "adSpend": 100625,
           "pl": 37135,
-          "proratedTarget": 28387.1,
-          "pacingPct": 130.8
+          "proratedTarget": 29677.42,
+          "pacingPct": 125.1
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -96,7 +96,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10645.16,
+          "proratedTarget": 11129.03,
           "pacingPct": 0.0
         },
         {
@@ -108,7 +108,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10645.16,
+          "proratedTarget": 11129.03,
           "pacingPct": 0.0
         },
         {
@@ -120,7 +120,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10645.16,
+          "proratedTarget": 11129.03,
           "pacingPct": 0.0
         }
       ],
@@ -141,7 +141,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10645.16,
+          "proratedTarget": 11129.03,
           "pacingPct": 0.0
         },
         {
@@ -153,7 +153,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10645.16,
+          "proratedTarget": 11129.03,
           "pacingPct": 0.0
         }
       ],
@@ -174,7 +174,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10645.16,
+          "proratedTarget": 11129.03,
           "pacingPct": 0.0
         }
       ],
@@ -195,8 +195,8 @@
           "revenue": 0,
           "adSpend": 578,
           "pl": -578,
-          "proratedTarget": 10645.16,
-          "pacingPct": -5.4
+          "proratedTarget": 11129.03,
+          "pacingPct": -5.2
         },
         {
           "name": "Blue Haven",
@@ -232,12 +232,12 @@
         {
           "name": "DME | NAD",
           "status": "Active",
-          "lastEntry": "2026-10-19",
+          "lastEntry": "2026-10-21",
           "liveThisMonth": true,
           "monthlyTarget": null,
           "revenue": 3920,
-          "adSpend": 7886,
-          "pl": -3966,
+          "adSpend": 9275,
+          "pl": -5355,
           "proratedTarget": null,
           "pacingPct": null
         }
@@ -2501,7 +2501,7 @@
           0,
           0,
           0,
-          0,
+          786,
           0,
           0
         ]
@@ -2520,7 +2520,7 @@
           0,
           0,
           0,
-          0,
+          603,
           0,
           0
         ]
@@ -2978,8 +2978,8 @@
           "buyerId": "brian",
           "account": "DME | NAD",
           "revenue": 3920,
-          "adSpend": 7886,
-          "pl": -3966
+          "adSpend": 9275,
+          "pl": -5355
         }
       ]
     }
