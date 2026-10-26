@@ -126,7 +126,7 @@ test("mondayWrites: only PV Total Spend cells that Monday filled, with column le
   const m = sb.parseBoard(v, config.board);
   sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
     mondayByLabel: { gal: { cpa: 380, spend: 800.29, rank: 0 }, ooo: { cpa: 0, spend: 5, rank: 0 } } });
-  assert.deepStrictEqual(sb.mondayWrites(m), [
+  assert.deepStrictEqual(sb.mondayWrites(m).filter((x) => x.label === "GAL"), [
     { a1: "C13", value: 380, label: "GAL" },
     { a1: "E13", value: 800.29, label: "GAL" },
   ]);
@@ -164,4 +164,14 @@ test("Partner (spend) rows: Monday overrides stale sheet values; rows without Mo
   const [ooo, uac] = m.groups[0].rows;
   assert.deepStrictEqual([ooo.cells[1], ooo.cells[3]], ["$1,234", "$70"]);
   assert.strictEqual(uac.cells[1], "$777");
+});
+
+test("mondayWrites also writes Partner rows' Actual MTD and CPA from Monday", () => {
+  const m = sb.parseBoard(VALUES, config.board);
+  sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
+    mondayByLabel: { ooo: { cpa: 70, spend: 1234, rank: 0 } } });
+  assert.deepStrictEqual(sb.mondayWrites(m).filter((x) => x.label === "OOO"), [
+    { a1: "E6", value: 70, label: "OOO" },
+    { a1: "C6", value: 1234, label: "OOO" },
+  ]);
 });
