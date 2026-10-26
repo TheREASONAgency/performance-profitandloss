@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T14:49:09.913Z",
+  "generatedAt": "2026-10-26T15:00:51.921Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-26T14:48:54Z",
+    "dataUpdated": "2026-10-26T15:00:35Z",
     "monthLabel": "October 2026",
     "daysElapsed": 26,
     "daysBasis": 30,
@@ -594,7 +594,8 @@
             "filled": [
               {
                 "col": 1,
-                "source": "Monday (MTD Spend)"
+                "source": "Monday (MTD Spend)",
+                "value": 512.22
               }
             ]
           },
@@ -645,11 +646,13 @@
             "filled": [
               {
                 "col": 3,
-                "source": "Monday (L7D CPA)"
+                "source": "Monday (L7D CPA)",
+                "value": 1898.48
               },
               {
                 "col": 1,
-                "source": "Monday (MTD Spend)"
+                "source": "Monday (MTD Spend)",
+                "value": 12155.39
               }
             ]
           },
@@ -670,11 +673,13 @@
             "filled": [
               {
                 "col": 3,
-                "source": "Monday (L7D CPA)"
+                "source": "Monday (L7D CPA)",
+                "value": 295
               },
               {
                 "col": 1,
-                "source": "Monday (MTD Spend)"
+                "source": "Monday (MTD Spend)",
+                "value": 10738.54
               }
             ]
           }
@@ -682,6 +687,7 @@
         "color": "#cccccc",
         "kind": "spend",
         "spendCol": -1,
+        "actualCol": 1,
         "cpaCol": 3
       },
       {
@@ -714,7 +720,8 @@
             "filled": [
               {
                 "col": 3,
-                "source": "Monday (L7D CPA)"
+                "source": "Monday (L7D CPA)",
+                "value": 204.08
               }
             ]
           },
@@ -782,6 +789,7 @@
         "color": "#cccccc",
         "kind": "profit",
         "spendCol": -1,
+        "actualCol": 1,
         "cpaCol": 3
       },
       {
@@ -881,7 +889,7 @@
               "$300",
               "$457.23",
               "$20,000",
-              "$11,993"
+              "$11,999"
             ],
             "toggle": {
               "cell": "F23",
@@ -963,6 +971,7 @@
         "color": "#cccccc",
         "kind": "pv",
         "spendCol": 3,
+        "actualCol": -1,
         "cpaCol": 1
       },
       {
@@ -1009,6 +1018,7 @@
         "color": "#efefef",
         "kind": "other",
         "spendCol": -1,
+        "actualCol": -1,
         "cpaCol": -1
       },
       {
@@ -1055,6 +1065,7 @@
         "color": "#efefef",
         "kind": "other",
         "spendCol": -1,
+        "actualCol": -1,
         "cpaCol": -1
       },
       {
@@ -1123,6 +1134,7 @@
         "color": "#d9d9d9",
         "kind": "other",
         "spendCol": -1,
+        "actualCol": 1,
         "cpaCol": -1
       }
     ],
