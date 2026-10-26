@@ -175,3 +175,12 @@ test("mondayWrites also writes Partner rows' Actual MTD and CPA from Monday", ()
     { a1: "C6", value: 1234, label: "OOO" },
   ]);
 });
+
+test("two active Monday items for one label: the one with an L7D CPA wins", () => {
+  const src = sb.buildSources({ cpaRows: [], matchesAny: logic.matchesAny, board: config.board, goalAmount: 100000,
+    mondayAll: [
+      { name: "OOO ($100)", cpaL7d: null, adSpend: 512.22 },
+      { name: "OOO ($60)", cpaL7d: 130.93, adSpend: 6910.18 },
+    ] });
+  assert.deepStrictEqual(src.mondayByLabel.ooo, { cpa: 130.93, spend: 6910.18, rank: 0 });
+});
