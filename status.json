@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T09:09:29.890Z",
+  "generatedAt": "2026-10-26T14:00:00.184Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-26T09:09:16Z",
+    "dataUpdated": "2026-10-26T13:59:46Z",
     "monthLabel": "October 2026",
     "daysElapsed": 26,
     "daysBasis": 30,
@@ -556,7 +556,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$70,255",
+      "actual": "$118,555",
       "toggle": {
         "cell": "E2",
         "state": "off"
@@ -921,8 +921,8 @@
             "total": false,
             "row": 30,
             "cells": [
-              "$14,750",
-              "1",
+              "$22,000",
+              "2",
               "1",
               "-",
               "-"
@@ -934,7 +934,7 @@
             "total": false,
             "row": 31,
             "cells": [
-              "#REF!",
+              "$37,500",
               "",
               "",
               "200",
@@ -967,8 +967,8 @@
             "total": false,
             "row": 35,
             "cells": [
-              "$14,750",
-              "1",
+              "$22,000",
+              "2",
               "1",
               "-",
               "-"
@@ -1073,7 +1073,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$70,255",
+          "actual": "$118,555",
           "toggle": {
             "cell": "E2",
             "state": "off"
@@ -1083,7 +1083,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$70,255",
+          "actual": "$118,555",
           "toggle": {
             "cell": "E3",
             "state": "off"
