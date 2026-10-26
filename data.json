@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-26T13:59:46Z",
+  "lastUpdated": "2026-10-26T14:05:50Z",
   "currentMonth": "2026-10",
   "monthLabel": "October 2026",
   "dayOfMonth": 26,
@@ -232,12 +232,12 @@
         {
           "name": "DME | NAD",
           "status": "Active",
-          "lastEntry": "2026-10-22",
+          "lastEntry": "2026-10-25",
           "liveThisMonth": true,
           "monthlyTarget": null,
-          "revenue": 4200,
-          "adSpend": 9689,
-          "pl": -5489,
+          "revenue": 4480,
+          "adSpend": 10994,
+          "pl": -6514,
           "proratedTarget": null,
           "pacingPct": null
         }
@@ -1342,7 +1342,7 @@
           0,
           0,
           0,
-          0,
+          280,
           0,
           0
         ]
@@ -2558,7 +2558,7 @@
           0,
           0,
           0,
-          0,
+          598,
           0,
           0
         ]
@@ -2577,7 +2577,7 @@
           0,
           0,
           0,
-          0,
+          328,
           0,
           0
         ]
@@ -2596,7 +2596,7 @@
           0,
           0,
           0,
-          0,
+          379,
           0,
           0
         ]
@@ -2977,9 +2977,9 @@
           "buyer": "Brian",
           "buyerId": "brian",
           "account": "DME | NAD",
-          "revenue": 4200,
-          "adSpend": 9689,
-          "pl": -5489
+          "revenue": 4480,
+          "adSpend": 10994,
+          "pl": -6514
         }
       ]
     }
