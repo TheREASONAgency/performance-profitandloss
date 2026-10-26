@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T15:13:29.709Z",
+  "generatedAt": "2026-10-26T15:14:57.549Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-26T15:13:16Z",
+    "dataUpdated": "2026-10-26T15:14:44Z",
     "monthLabel": "October 2026",
     "daysElapsed": 26,
     "daysBasis": 30,
@@ -716,19 +716,12 @@
               "$40,000",
               "$38,057",
               "$240",
-              "$204.08"
+              "$204"
             ],
             "toggle": {
               "cell": "F13",
               "state": "on"
-            },
-            "filled": [
-              {
-                "col": 3,
-                "source": "Monday (L7D CPA)",
-                "value": 204.08
-              }
-            ]
+            }
           },
           {
             "label": "TRX",
