@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T14:00:00.184Z",
+  "generatedAt": "2026-10-26T14:06:11.938Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-26T13:59:46Z",
+    "dataUpdated": "2026-10-26T14:05:50Z",
     "monthLabel": "October 2026",
     "daysElapsed": 26,
     "daysBasis": 30,
@@ -523,12 +523,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 32568,
+      "qtdPl": 31543,
       "daysElapsed": 26,
       "daysInQuarter": 92,
       "proratedTarget": 67826.08695652174,
-      "progressPct": 13.569999999999999,
-      "pacingPct": 48.01692307692307,
+      "progressPct": 13.142916666666668,
+      "pacingPct": 46.50570512820513,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -556,10 +556,10 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$118,555",
+      "actual": "$119,395",
       "toggle": {
         "cell": "E2",
-        "state": "off"
+        "state": "on"
       }
     },
     "sections": [],
@@ -763,7 +763,7 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "-$1,548",
+              "-$2,573",
               "$280",
               "$667"
             ],
@@ -1030,10 +1030,10 @@
             "row": 42,
             "cells": [
               "1",
-              "1",
+              "2",
               "$7,500",
-              "$7,250",
-              "1 of 3"
+              "$14,500",
+              "2 of 3"
             ],
             "toggle": {
               "cell": "G42",
@@ -1046,9 +1046,9 @@
             "row": 43,
             "cells": [
               "6",
-              "2",
+              "3",
               "$57,500",
-              "$14,750",
+              "$22,000",
               ""
             ],
             "toggle": {
@@ -1073,20 +1073,20 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$118,555",
+          "actual": "$119,395",
           "toggle": {
             "cell": "E2",
-            "state": "off"
+            "state": "on"
           }
         },
         {
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$118,555",
+          "actual": "$119,395",
           "toggle": {
             "cell": "E3",
-            "state": "off"
+            "state": "on"
           }
         }
       ]
