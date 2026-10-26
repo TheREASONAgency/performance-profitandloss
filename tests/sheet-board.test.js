@@ -77,7 +77,7 @@ test("never overwrites a value typed in the sheet", () => {
   assert.strictEqual(m.groups[1].rows[0].cells[1], "$999");
 });
 
-test("Monday fallback: fills blank/zero cells only, never real values, and refreshes remaining spend", () => {
+test("Monday fallback: PV rows fill blank/zero cells only; Partner rows take Monday; remaining spend refreshes", () => {
   const v = JSON.parse(JSON.stringify(VALUES));
   v[5][2] = "$0";            // OOO Actual MTD written as $0 by the Meta script
   v[6][2] = "$900";          // UAC already has a real Meta number
@@ -95,7 +95,7 @@ test("Monday fallback: fills blank/zero cells only, never real values, and refre
   sb.fillActuals(m, src);
   const [ooo, uac] = m.groups[0].rows, gal = m.groups[2].rows[0];
   assert.deepStrictEqual([ooo.cells[1], ooo.cells[3]], ["$1,234", "$70"]);   // $0 -> Monday
-  assert.strictEqual(uac.cells[1], "$900");                                  // real value kept
+  assert.strictEqual(uac.cells[1], "$777");                                  // Partner rows: Monday overrides the sheet
   assert.deepStrictEqual(gal.cells, ["$400", "$380.50", "$75,000", "$25,000"]);
 });
 
@@ -152,4 +152,16 @@ test("On Hold is a third toggle state", () => {
   assert.strictEqual(sb.parseToggleValue("On Hold"), "hold");
   assert.strictEqual(sb.parseToggleValue("on track"), "on");
   assert.strictEqual(sb.parseToggleValue("Off Track"), "off");
+});
+
+test("Partner (spend) rows: Monday overrides stale sheet values; rows without Monday data keep the sheet value", () => {
+  const v = JSON.parse(JSON.stringify(VALUES));
+  v[5][2] = "$5,802"; v[5][4] = "$99";   // OOO: stale Meta-script values
+  v[6][2] = "$777";                       // UAC: no Monday data -> keep
+  const m = sb.parseBoard(v, config.board);
+  sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
+    mondayByLabel: { ooo: { cpa: 70, spend: 1234, rank: 0 } } });
+  const [ooo, uac] = m.groups[0].rows;
+  assert.deepStrictEqual([ooo.cells[1], ooo.cells[3]], ["$1,234", "$70"]);
+  assert.strictEqual(uac.cells[1], "$777");
 });
