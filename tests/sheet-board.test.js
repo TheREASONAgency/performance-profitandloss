@@ -184,3 +184,10 @@ test("two active Monday items for one label: the one with an L7D CPA wins", () =
     ] });
   assert.deepStrictEqual(src.mondayByLabel.ooo, { cpa: 130.93, spend: 6910.18, rank: 0 });
 });
+
+test("mondayWrites writes a blank CPA Offers CPA (KEE-HL) from Monday L7D", () => {
+  const m = sb.parseBoard(VALUES, config.board);
+  sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
+    mondayByLabel: { "kee-hl": { cpa: 204.08, spend: 0, rank: 0 } } });
+  assert.deepStrictEqual(sb.mondayWrites(m).filter((x) => x.label === "KEE-HL"), [{ a1: "E9", value: 204.08, label: "KEE-HL" }]);
+});
