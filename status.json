@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T15:25:42.658Z",
+  "generatedAt": "2026-10-28T16:29:05.075Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -160,7 +160,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 1704.54
+        "adSpend": 2946.72
       },
       {
         "id": "12409812564",
@@ -673,7 +673,7 @@
             ],
             "toggle": {
               "cell": "F10",
-              "state": "off"
+              "state": "on"
             },
             "filled": [
               {
