@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T15:19:33.252Z",
+  "generatedAt": "2026-10-28T15:25:42.658Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-28T15:19:19Z",
+    "dataUpdated": "2026-10-28T15:25:26Z",
     "monthLabel": "October 2026",
     "daysElapsed": 28,
     "daysBasis": 30,
@@ -556,7 +556,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$105,370",
+      "actual": "$117,670",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -583,7 +583,7 @@
             "row": 6,
             "cells": [
               "$100,000",
-              "$8,414.60",
+              "$10,056.36",
               "$65",
               "$130.93"
             ],
@@ -600,7 +600,7 @@
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 8414.6
+                "value": 10056.36
               }
             ]
           },
@@ -640,7 +640,7 @@
             "row": 9,
             "cells": [
               "$100,000",
-              "$12,155.39",
+              "$20,929.43",
               "$320",
               "$1,898.48"
             ],
@@ -657,7 +657,7 @@
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 12155.39
+                "value": 20929.43
               }
             ]
           },
@@ -667,9 +667,9 @@
             "row": 10,
             "cells": [
               "$100,000",
-              "$10,826.94",
+              "$13,838.87",
               "$240",
-              "$295"
+              "$241.37"
             ],
             "toggle": {
               "cell": "F10",
@@ -679,12 +679,12 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 295
+                "value": 241.37
               },
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 10826.94
+                "value": 13838.87
               }
             ]
           }
@@ -1089,7 +1089,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$105,370",
+          "actual": "$117,670",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1099,7 +1099,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$105,370",
+          "actual": "$117,670",
           "toggle": {
             "cell": "E3",
             "state": "on"
