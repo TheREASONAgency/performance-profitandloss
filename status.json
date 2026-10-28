@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T09:09:30.284Z",
+  "generatedAt": "2026-10-28T15:19:33.252Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -48,7 +48,7 @@
         "cpaToday": null,
         "cpaL7d": 457.23,
         "cpaGap": 157.23000000000002,
-        "adSpend": 12222.04
+        "adSpend": 12405.64
       },
       {
         "id": "12968522996",
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-28T09:09:15Z",
+    "dataUpdated": "2026-10-28T15:19:19Z",
     "monthLabel": "October 2026",
     "daysElapsed": 28,
     "daysBasis": 30,
@@ -556,7 +556,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$268,658",
+      "actual": "$105,370",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -1089,7 +1089,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$268,658",
+          "actual": "$105,370",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1099,7 +1099,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$268,658",
+          "actual": "$105,370",
           "toggle": {
             "cell": "E3",
             "state": "on"
