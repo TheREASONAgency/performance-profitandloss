@@ -225,3 +225,27 @@ test("Monday label match: a new item with data beats an older empty one in a bet
   assert.deepStrictEqual(src.mondayByLabel.uac, { cpa: 23.4, spend: 34763.52, rank: 1 });
   assert.strictEqual(src.mondayByLabel.xyz.rank, 0);   // open item beats the closed one even if empty
 });
+
+test("trends: scaling spend with a stable CPA is on track; rising CPA is flagged; short history is 'building'", () => {
+  const tr = require("../lib/trends");
+  const mk = (fn) => { let d = {}; for (let i = 0; i < 28; i++) { const date = new Date(Date.UTC(2026, 9, 1 + i)).toISOString().slice(0, 10); d = tr.record(d, date, fn(i)); } return d; };
+  // OK: MTD grows faster in week 4 than week 3, CPA flat
+  let mtd = 0;
+  const good = mk((i) => { mtd += i >= 21 ? 700 : 500; return { OK: { mtd, cpa: 100 } }; });
+  const g = tr.summarize(good, "OK", "2026-10-28");
+  assert.strictEqual(g.trend.code, "good");
+  assert.ok(g.change.spend7 > 0.3 && Math.abs(g.change.cpa7) < 0.01);
+  assert.ok(g.spark.length >= 25);
+  // BAD: CPA climbs about 15% in a week
+  mtd = 0;
+  const bad = mk((i) => { mtd += 500; return { BAD: { mtd, cpa: 100 + i * 4 } }; });
+  assert.strictEqual(tr.summarize(bad, "BAD", "2026-10-28").trend.code, "bad");
+  // NEW: only 3 days of history
+  const fresh = tr.record(tr.record(tr.record({}, "2026-10-26", { N: { mtd: 100, cpa: 50 } }), "2026-10-27", { N: { mtd: 200, cpa: 50 } }), "2026-10-28", { N: { mtd: 300, cpa: 50 } });
+  assert.deepStrictEqual(tr.summarize(fresh, "N", "2026-10-28").trend, { code: "building", text: "Building history (3/7 days)" });
+  // month rollover: first snapshot of a month uses spend since the 1st
+  const roll = tr.series({ "2026-10-31": { A: { mtd: 3100, cpa: 1 } }, "2026-11-02": { A: { mtd: 400, cpa: 1 } } }, "A");
+  assert.strictEqual(roll[1].spend, 200);
+  // history older than 150 days is pruned
+  assert.strictEqual(Object.keys(tr.record({ "2026-01-01": {} }, "2026-10-28", {})).length, 1);
+});
