@@ -192,16 +192,21 @@ test("mondayWrites writes a blank CPA Offers CPA (KEE-HL) from Monday L7D", () =
   assert.deepStrictEqual(sb.mondayWrites(m).filter((x) => x.label === "KEE-HL"), [{ a1: "E9", value: 204.08, label: "KEE-HL" }]);
 });
 
-test("status days: tracking starts on the start date; same state keeps its date, a change restarts it", () => {
+test("meetings in status: same status adds 1, a change restarts at 1; counting starts on the start date", () => {
   const sd = require("../lib/status-days");
-  const items = (a, b) => [{ key: "retention|ooo", state: a }, { key: "retention|lfa", state: b }, { key: "retention|uac", state: null }];
-  assert.deepStrictEqual(sd.update(null, items("on", "off"), "2026-10-29", "2026-10-30"), { tracking: false, startsOn: "2026-10-30", items: {} });
-  const d1 = sd.update(null, items("on", "off"), "2026-10-30", "2026-10-30");
-  assert.deepStrictEqual(d1.items["retention|ooo"], { state: "on", since: "2026-10-30" });
-  assert.strictEqual(d1.items["retention|uac"], undefined);
-  const d2 = sd.update(d1, items("on", "hold"), "2026-11-02", "2026-10-30");
-  assert.strictEqual(d2.items["retention|ooo"].since, "2026-10-30");   // unchanged
-  assert.strictEqual(d2.items["retention|lfa"].since, "2026-11-02");   // changed -> restarts
-  assert.strictEqual(sd.daysIn("2026-10-30", "2026-10-30"), 1);
-  assert.strictEqual(sd.daysIn("2026-10-30", "2026-11-02"), 4);
+  assert.strictEqual(sd.nextCount("on", 3, "on"), 4);
+  assert.strictEqual(sd.nextCount("on", 3, "off"), 1);
+  assert.strictEqual(sd.nextCount(null, null, "on"), 1);
+  assert.strictEqual(sd.nextCount("hold", null, "hold"), 1);
+  assert.strictEqual(sd.countingStarted(new Date("2026-10-29T20:00:00Z"), "2026-10-30"), false);
+  assert.strictEqual(sd.countingStarted(new Date("2026-10-30T14:00:00Z"), "2026-10-30"), true);
+});
+
+test("status cells carry the count cell right after them (G, or H for Acquisition)", () => {
+  const v = JSON.parse(JSON.stringify(VALUES));
+  v[5][6] = "4";                                  // OOO: count under the status cell (G6)
+  const m = sb.parseBoard(v, config.board);
+  assert.deepStrictEqual(m.groups[0].rows[0].toggle, { cell: "F6", state: null, countCell: "G6", count: 4 });
+  assert.deepStrictEqual(m.groups[3].rows[0].toggle.countCell, "H17");
+  assert.strictEqual(m.groups[3].rows[0].toggle.count, null);
 });
