@@ -191,3 +191,17 @@ test("mondayWrites writes a blank CPA Offers CPA (KEE-HL) from Monday L7D", () =
     mondayByLabel: { "kee-hl": { cpa: 204.08, spend: 0, rank: 0 } } });
   assert.deepStrictEqual(sb.mondayWrites(m).filter((x) => x.label === "KEE-HL"), [{ a1: "E9", value: 204.08, label: "KEE-HL" }]);
 });
+
+test("status days: tracking starts on the start date; same state keeps its date, a change restarts it", () => {
+  const sd = require("../lib/status-days");
+  const items = (a, b) => [{ key: "retention|ooo", state: a }, { key: "retention|lfa", state: b }, { key: "retention|uac", state: null }];
+  assert.deepStrictEqual(sd.update(null, items("on", "off"), "2026-10-29", "2026-10-30"), { tracking: false, startsOn: "2026-10-30", items: {} });
+  const d1 = sd.update(null, items("on", "off"), "2026-10-30", "2026-10-30");
+  assert.deepStrictEqual(d1.items["retention|ooo"], { state: "on", since: "2026-10-30" });
+  assert.strictEqual(d1.items["retention|uac"], undefined);
+  const d2 = sd.update(d1, items("on", "hold"), "2026-11-02", "2026-10-30");
+  assert.strictEqual(d2.items["retention|ooo"].since, "2026-10-30");   // unchanged
+  assert.strictEqual(d2.items["retention|lfa"].since, "2026-11-02");   // changed -> restarts
+  assert.strictEqual(sd.daysIn("2026-10-30", "2026-10-30"), 1);
+  assert.strictEqual(sd.daysIn("2026-10-30", "2026-11-02"), 4);
+});
