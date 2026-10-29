@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T09:09:30.083Z",
+  "generatedAt": "2026-10-29T14:48:32.941Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -46,9 +46,23 @@
         "rawLabel": "Over",
         "cpaTarget": 300,
         "cpaToday": null,
-        "cpaL7d": 457.23,
-        "cpaGap": 157.23000000000002,
-        "adSpend": 12405.64
+        "cpaL7d": 1297.02,
+        "cpaGap": 997.02,
+        "adSpend": 12576.38
+      },
+      {
+        "id": "12414815129",
+        "name": "WIN ($325)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "off_track",
+        "rawLabel": "Over",
+        "cpaTarget": 325,
+        "cpaToday": null,
+        "cpaL7d": 2438,
+        "cpaGap": 2113,
+        "adSpend": 3350.72
       },
       {
         "id": "12968522996",
@@ -149,20 +163,6 @@
         "adSpend": null
       },
       {
-        "id": "12414815129",
-        "name": "WIN ($325)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "paused",
-        "rawLabel": "N/A",
-        "cpaTarget": 325,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": 2946.72
-      },
-      {
         "id": "12409812564",
         "name": "YUC (<$400)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409812564",
@@ -221,8 +221,8 @@
     ],
     "counts": {
       "on_track": 0,
-      "off_track": 2,
-      "paused": 9,
+      "off_track": 3,
+      "paused": 8,
       "unknown": 3
     }
   },
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-29T09:09:16Z",
+    "dataUpdated": "2026-10-29T14:48:18Z",
     "monthLabel": "October 2026",
     "daysElapsed": 29,
     "daysBasis": 30,
@@ -543,12 +543,19 @@
       ]
     },
     "accounts": {
-      "active": 10,
+      "active": 11,
       "onTrack": 5,
-      "offTrack": 5,
-      "paused": 16,
+      "offTrack": 6,
+      "paused": 15,
       "total": 30
     }
+  },
+  "keepsHl": {
+    "ok": true,
+    "tab": "October | 2026",
+    "revenue": 187200,
+    "adSpend": 132805,
+    "profit": 54395
   },
   "board": {
     "ok": true,
@@ -583,9 +590,9 @@
             "row": 6,
             "cells": [
               "$100,000",
-              "$10,056.36",
+              "$10,675.15",
               "$65",
-              "$130.93"
+              "$88"
             ],
             "toggle": {
               "cell": "F6",
@@ -595,12 +602,12 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 130.93
+                "value": 88
               },
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 10056.36
+                "value": 10675.15
               }
             ]
           },
@@ -640,7 +647,7 @@
             "row": 9,
             "cells": [
               "$100,000",
-              "$20,929.43",
+              "$21,003.90",
               "$320",
               "$1,898.48"
             ],
@@ -657,7 +664,7 @@
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 20929.43
+                "value": 21003.9
               }
             ]
           },
@@ -667,9 +674,9 @@
             "row": 10,
             "cells": [
               "$100,000",
-              "$13,838.87",
+              "$16,548.45",
               "$240",
-              "$241.37"
+              "$296.73"
             ],
             "toggle": {
               "cell": "F10",
@@ -679,12 +686,12 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 241.37
+                "value": 296.73
               },
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 13838.87
+                "value": 16548.45
               }
             ]
           }
@@ -721,7 +728,13 @@
             "toggle": {
               "cell": "F13",
               "state": "on"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Keeps P&L sheet"
+              }
+            ]
           },
           {
             "label": "TRX",
@@ -761,12 +774,19 @@
               "$5,000",
               "-$1,597",
               "$195",
-              "N/A"
+              "$426.85"
             ],
             "toggle": {
               "cell": "F16",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (L7D CPA)",
+                "value": 426.85
+              }
+            ]
           },
           {
             "label": "DMN",
@@ -899,14 +919,21 @@
             "row": 26,
             "cells": [
               "$325",
-              "N/A",
+              "$2,438",
               "$20,000",
               "$144"
             ],
             "toggle": {
               "cell": "F26",
               "state": "off"
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (L7D CPA)",
+                "value": 2438
+              }
+            ]
           }
         ],
         "color": "#cccccc",
