@@ -18,6 +18,7 @@ const config = require("../lib/status-config");
 const logic = require("../lib/status-logic");
 const sheets = require("../lib/google-sheets");
 const sheetBoard = require("../lib/sheet-board");
+const keepsPl = require("../lib/keeps-pl");
 
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(ROOT, config.outputFile);
@@ -196,10 +197,26 @@ async function run() {
       const grid = await sheets.getBackgrounds(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range);
       sheetBoard.applyColors(model, grid.map((r) => r.map(sheetBoard.colorHex)));
     } catch (e) { console.warn("Sheet colors not read:", e.message); }
-    sheetBoard.fillActuals(model, sheetBoard.buildSources({
+    const sources = sheetBoard.buildSources({
       cpaRows: out.cpa.rows, mondayAll, matchesAny: logic.matchesAny,
       board: config.board, goalAmount: config.managed.goal.amount,
-    }));
+    });
+    // Keeps Hair Loss comes straight from Travis's P&L (this month's tab). Needs the sheet
+    // shared with the service account; any failure keeps the previous source.
+    if (config.board.keepsPl) {
+      const tab = keepsPl.monthTab(now);
+      try {
+        const vals = await sheets.getValues(process.env[config.board.serviceAccountEnv], config.board.keepsPl.sheetId, `'${tab}'!A1:H60`);
+        const t = keepsPl.parseKeepsTotals(vals);
+        if (!t) throw new Error(`no TOTALS row found on "${tab}"`);
+        sources.profitForce[sheetBoard.norm(config.board.keepsPl.label)] = t.profit;
+        out.keepsHl = { ok: true, tab, ...t };
+      } catch (e) {
+        console.warn("Keeps P&L sheet not read:", e.message);
+        out.keepsHl = { ok: false, tab, error: e.message };
+      }
+    }
+    sheetBoard.fillActuals(model, sources);
     // Monday is the second data source for the sheet: write its MTD Spend into blank/$0
     // PV "Total Spend" cells. Never overwrites a real value; a write failure is only a warning.
     try {

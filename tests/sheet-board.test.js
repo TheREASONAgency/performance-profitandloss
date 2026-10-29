@@ -191,3 +191,19 @@ test("mondayWrites writes a blank CPA Offers CPA (KEE-HL) from Monday L7D", () =
     mondayByLabel: { "kee-hl": { cpa: 204.08, spend: 0, rank: 0 } } });
   assert.deepStrictEqual(sb.mondayWrites(m).filter((x) => x.label === "KEE-HL"), [{ a1: "E9", value: 204.08, label: "KEE-HL" }]);
 });
+
+test("Keeps P&L: totals parsed from the TOTALS row; its profit overrides KEE-HL Actual MTD", () => {
+  const kp = require("../lib/keeps-pl");
+  const tab = [
+    ["", "KEEPS"], ["", "DATE", "REVENUE", "AD SPEND", "P/L"], ["", "10/01/2026", "$5,100", "$4,033", "$1,067"], [],
+    ["", "TOTALS", "Earnings", "Ad Spend", "P/L"], ["", "", "$187,200", "$132,805", "-$54,395"],
+  ];
+  assert.deepStrictEqual(kp.parseKeepsTotals(tab), { revenue: 187200, adSpend: 132805, profit: -54395 });
+  assert.strictEqual(kp.monthTab(new Date("2026-10-29T14:00:00Z")), "October | 2026");
+  const v = JSON.parse(JSON.stringify(VALUES));
+  v[8][2] = "$38,057";                     // KEE-HL: older value in the sheet
+  const m = sb.parseBoard(v, config.board);
+  const src = { profitByLabel: {}, profitForce: { "kee-hl": 54395 }, goalAmount: 100000, mondayByLabel: {} };
+  sb.fillActuals(m, src);
+  assert.strictEqual(m.groups[1].rows.find((r) => r.label === "KEE-HL").cells[1], "$54,395");
+});
