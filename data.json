@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-10-28T15:25:26Z",
+  "lastUpdated": "2026-10-29T09:09:16Z",
   "currentMonth": "2026-10",
   "monthLabel": "October 2026",
-  "dayOfMonth": 28,
+  "dayOfMonth": 29,
   "daysInMonth": 31,
   "currentQuarter": "Q4 2026",
   "currentYear": 2026,
@@ -20,7 +20,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 13548.39,
+          "proratedTarget": 14032.26,
           "pacingPct": 0.0
         },
         {
@@ -32,7 +32,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 13548.39,
+          "proratedTarget": 14032.26,
           "pacingPct": 0.0
         },
         {
@@ -69,14 +69,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-10-27",
+          "lastEntry": "2026-10-28",
           "liveThisMonth": true,
           "monthlyTarget": 40000.0,
-          "revenue": 181200,
-          "adSpend": 128288,
-          "pl": 52912,
-          "proratedTarget": 36129.03,
-          "pacingPct": 146.5
+          "revenue": 187200,
+          "adSpend": 132804,
+          "pl": 54396,
+          "proratedTarget": 37419.35,
+          "pacingPct": 145.4
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -96,7 +96,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 13548.39,
+          "proratedTarget": 14032.26,
           "pacingPct": 0.0
         },
         {
@@ -108,7 +108,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 13548.39,
+          "proratedTarget": 14032.26,
           "pacingPct": 0.0
         },
         {
@@ -120,7 +120,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 13548.39,
+          "proratedTarget": 14032.26,
           "pacingPct": 0.0
         }
       ],
@@ -141,7 +141,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 13548.39,
+          "proratedTarget": 14032.26,
           "pacingPct": 0.0
         },
         {
@@ -153,7 +153,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 13548.39,
+          "proratedTarget": 14032.26,
           "pacingPct": 0.0
         }
       ],
@@ -174,7 +174,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 13548.39,
+          "proratedTarget": 14032.26,
           "pacingPct": 0.0
         }
       ],
@@ -195,8 +195,8 @@
           "revenue": 0,
           "adSpend": 578,
           "pl": -578,
-          "proratedTarget": 13548.39,
-          "pacingPct": -4.3
+          "proratedTarget": 14032.26,
+          "pacingPct": -4.1
         },
         {
           "name": "Blue Haven",
@@ -1410,7 +1410,7 @@
           0,
           0,
           0,
-          0,
+          6000,
           0,
           0,
           0,
@@ -2645,7 +2645,7 @@
           0,
           0,
           0,
-          0,
+          4516,
           0,
           0,
           0,
@@ -2942,9 +2942,9 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 181200,
-          "adSpend": 128288,
-          "pl": 52912
+          "revenue": 187200,
+          "adSpend": 132804,
+          "pl": 54396
         },
         {
           "buyer": "Joe",
