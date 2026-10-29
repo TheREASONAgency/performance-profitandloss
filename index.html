@@ -218,6 +218,14 @@
   #tg-menu .tg { width:100%; } #tg-menu .tg.cur { outline:2px solid var(--text-primary); outline-offset:1px; }
   .tg-days { font-size:12px; color:var(--text-secondary); white-space:nowrap; }
   .bd .dys-cell { text-align:left; width:1%; white-space:nowrap; padding-left:14px; }
+  .bd .trd-cell { text-align:left; white-space:nowrap; padding-left:14px; }
+  .bd .trd-cell .spark { display:inline-block; width:84px; height:22px; max-width:84px; vertical-align:middle; margin-right:8px; color:var(--text-secondary); }
+  .trd-chip { display:inline-block; font-size:11px; font-weight:700; padding:3px 8px; border-radius:2px; margin-right:8px; border:1px solid transparent; }
+  .trd-good { background:color-mix(in srgb, var(--good) 18%, transparent); color:var(--good); border-color:var(--good); }
+  .trd-bad  { background:color-mix(in srgb, var(--bad) 16%, transparent); color:var(--bad); border-color:var(--bad); }
+  .trd-flat { background:#facc1533; color:#7a5b00; border-color:#eab308; }
+  .trd-building, .trd-none { color:var(--text-muted); border-color:var(--rule); }
+  .trd-note { font-size:11px; color:var(--text-muted); }
   .tg.hold { background:#facc15; border-color:#eab308; color:#422006; }
   .tg:disabled { opacity:.55; cursor:wait; }
   .bd-total td { font-weight:700; border-top:2px solid color-mix(in srgb, var(--g) 55%, transparent); }
@@ -1267,11 +1275,11 @@ function buyerPanel(d, b) {
       }
       h += "<div class='bd-block bd-" + esc(g.tone) + (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " bd-sheet" : "") + "'" +
         (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " style='--g:" + g.color + "'" : "") + "><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
-        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th></tr></thead><tbody>";
+        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th><th class='trd-cell'>Trend &middot; 7d / 28d</th></tr></thead><tbody>";
       g.rows.forEach(r => {
         h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
           r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
-          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td></tr>";
+          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td><td class='trd-cell'" + (r.total || !/^(spend|profit|pv)$/.test(g.kind || "") ? "" : " data-label='" + esc(r.label) + "'") + "></td></tr>";
       });
       h += "</tbody></table></div>";
     });
@@ -1291,6 +1299,34 @@ function buyerPanel(d, b) {
     btn.dataset.state = state || "";
     btn.className = "tg" + (state ? " " + state : "");
     btn.textContent = TG_TXT[state] || "Set status";
+  }
+
+  /* ---- Trends: 7-day / 28-day checkpoints from the daily snapshot (trends.json) ---- */
+  let TRENDS = null;
+  const arrow = p => p == null ? "" : (p > 0.005 ? "&#9650;" : p < -0.005 ? "&#9660;" : "&#9644;") + Math.abs(Math.round(p * 100)) + "%";
+  function sparkSvg(pts) {
+    if (!pts || pts.length < 2) return "";
+    const v = pts.map(p => p[1]), lo = Math.min.apply(null, v), hi = Math.max.apply(null, v), W = 84, H = 22;
+    const xy = v.map((y, i) => (i / (v.length - 1) * (W - 2) + 1).toFixed(1) + "," + (hi === lo ? H / 2 : H - 2 - (y - lo) / (hi - lo) * (H - 4)).toFixed(1));
+    return "<svg class='spark' width='" + W + "' height='" + H + "' viewBox='0 0 " + W + " " + H + "' aria-hidden='true'><polyline fill='none' stroke='currentColor' stroke-width='1.6' points='" + xy.join(" ") + "'/></svg>";
+  }
+  function applyTrends() {
+    if (!TRENDS || !TRENDS.summary) return;
+    body.querySelectorAll(".trd-cell[data-label]").forEach(td => {
+      const s = TRENDS.summary[td.dataset.label];
+      if (!s) { td.innerHTML = "<span class='trd-note'>No history yet</span>"; return; }
+      const cpa = s.change && (s.change.cpa7 != null || s.change.cpa28 != null)
+        ? "<span class='trd-note' title='CPA now vs 7 and 28 days ago'>CPA " + (arrow(s.change.cpa7) || "&ndash;") + " / " + (arrow(s.change.cpa28) || "&ndash;") + "</span>" : "";
+      td.innerHTML = sparkSvg(s.spark) + "<span class='trd-chip trd-" + esc(s.trend.code) + "'>" + esc(s.trend.text) + "</span>" + cpa;
+    });
+  }
+  async function loadTrends() {
+    try {
+      const r = await fetch("trends.json?" + Date.now());
+      if (!r.ok) return;
+      TRENDS = await r.json();
+      applyTrends();
+    } catch (_) { /* no history yet */ }
   }
 
   async function loadLiveToggles() {
@@ -1367,6 +1403,7 @@ function buyerPanel(d, b) {
       const wrap = el("div", "", boardHtml(b));
       body.append(wrap);
       loadLiveToggles();
+      loadTrends();
     } else if (b.ok) {
       body.append(el("div", "st-warn", "The sheet has no accounts yet."));
     }

@@ -1,0 +1,47 @@
+name: Snapshot Trends
+
+# Records each account's month-to-date spend and CPA L7D once a day (about 7 AM Eastern)
+# so the Overview can show 7-day and 28-day trends. Writes trends.json only.
+on:
+  schedule:
+    - cron: "30 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot-trends
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run logic tests
+        run: node --test tests/status-logic.test.js tests/sheet-board.test.js
+
+      - name: Record snapshot
+        env:
+          MONDAY_API_TOKEN: ${{ secrets.MONDAY_API_TOKEN }}
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+        run: node scripts/snapshot_trends.js
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- trends.json; then
+            echo "No change in trends.json"
+          else
+            git add trends.json
+            git commit -m "trends: snapshot $(date -u +%Y-%m-%d)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi

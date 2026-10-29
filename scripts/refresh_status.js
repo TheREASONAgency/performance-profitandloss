@@ -227,7 +227,7 @@ async function run() {
   return failures;
 }
 
-module.exports = { run };
+module.exports = { run, fetchMondayItems };
 
 if (require.main === module) {
   run().then((f) => process.exit(f ? 1 : 0)).catch((e) => { console.error(e); process.exit(1); });
