@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T17:05:05.006Z",
+  "generatedAt": "2026-10-29T17:20:03.585Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-29T17:04:49Z",
+    "dataUpdated": "2026-10-29T17:19:47Z",
     "monthLabel": "October 2026",
     "daysElapsed": 29,
     "daysBasis": 30,
@@ -549,11 +549,6 @@
       "paused": 15,
       "total": 30
     }
-  },
-  "statusDays": {
-    "tracking": false,
-    "startsOn": "2026-10-30",
-    "items": {}
   },
   "board": {
     "ok": true,
@@ -595,7 +590,9 @@
             ],
             "toggle": {
               "cell": "F6",
-              "state": "on"
+              "state": "on",
+              "countCell": "G6",
+              "count": null
             },
             "filled": [
               {
@@ -622,7 +619,9 @@
             ],
             "toggle": {
               "cell": "F7",
-              "state": "off"
+              "state": "off",
+              "countCell": "G7",
+              "count": null
             }
           },
           {
@@ -637,7 +636,9 @@
             ],
             "toggle": {
               "cell": "F8",
-              "state": "on"
+              "state": "on",
+              "countCell": "G8",
+              "count": null
             }
           },
           {
@@ -652,7 +653,9 @@
             ],
             "toggle": {
               "cell": "F9",
-              "state": "off"
+              "state": "off",
+              "countCell": "G9",
+              "count": null
             },
             "filled": [
               {
@@ -679,7 +682,9 @@
             ],
             "toggle": {
               "cell": "F10",
-              "state": "on"
+              "state": "on",
+              "countCell": "G10",
+              "count": null
             },
             "filled": [
               {
@@ -727,7 +732,9 @@
             ],
             "toggle": {
               "cell": "F13",
-              "state": "on"
+              "state": "on",
+              "countCell": "G13",
+              "count": null
             }
           },
           {
@@ -742,7 +749,9 @@
             ],
             "toggle": {
               "cell": "F14",
-              "state": "hold"
+              "state": "hold",
+              "countCell": "G14",
+              "count": null
             }
           },
           {
@@ -757,7 +766,9 @@
             ],
             "toggle": {
               "cell": "F15",
-              "state": "hold"
+              "state": "hold",
+              "countCell": "G15",
+              "count": null
             }
           },
           {
@@ -772,7 +783,9 @@
             ],
             "toggle": {
               "cell": "F16",
-              "state": "off"
+              "state": "off",
+              "countCell": "G16",
+              "count": null
             }
           },
           {
@@ -787,7 +800,9 @@
             ],
             "toggle": {
               "cell": "F17",
-              "state": "off"
+              "state": "off",
+              "countCell": "G17",
+              "count": null
             }
           }
         ],
@@ -823,7 +838,9 @@
             ],
             "toggle": {
               "cell": "F20",
-              "state": "hold"
+              "state": "hold",
+              "countCell": "G20",
+              "count": null
             }
           },
           {
@@ -838,7 +855,9 @@
             ],
             "toggle": {
               "cell": "F21",
-              "state": "hold"
+              "state": "hold",
+              "countCell": "G21",
+              "count": null
             }
           },
           {
@@ -853,7 +872,9 @@
             ],
             "toggle": {
               "cell": "F22",
-              "state": "hold"
+              "state": "hold",
+              "countCell": "G22",
+              "count": null
             }
           },
           {
@@ -868,7 +889,9 @@
             ],
             "toggle": {
               "cell": "F23",
-              "state": "off"
+              "state": "off",
+              "countCell": "G23",
+              "count": null
             }
           },
           {
@@ -883,7 +906,9 @@
             ],
             "toggle": {
               "cell": "F24",
-              "state": "off"
+              "state": "off",
+              "countCell": "G24",
+              "count": null
             }
           },
           {
@@ -898,7 +923,9 @@
             ],
             "toggle": {
               "cell": "F25",
-              "state": "hold"
+              "state": "hold",
+              "countCell": "G25",
+              "count": null
             }
           },
           {
@@ -913,7 +940,9 @@
             ],
             "toggle": {
               "cell": "F26",
-              "state": "off"
+              "state": "off",
+              "countCell": "G26",
+              "count": null
             }
           }
         ],
@@ -1047,7 +1076,9 @@
             ],
             "toggle": {
               "cell": "G41",
-              "state": "off"
+              "state": "off",
+              "countCell": "H41",
+              "count": null
             }
           },
           {
@@ -1063,7 +1094,9 @@
             ],
             "toggle": {
               "cell": "G42",
-              "state": "on"
+              "state": "on",
+              "countCell": "H42",
+              "count": null
             }
           },
           {
@@ -1079,7 +1112,9 @@
             ],
             "toggle": {
               "cell": "G43",
-              "state": "off"
+              "state": "off",
+              "countCell": "H43",
+              "count": null
             }
           }
         ],
