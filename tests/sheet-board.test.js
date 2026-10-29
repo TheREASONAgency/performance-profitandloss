@@ -210,3 +210,18 @@ test("status cells carry the count cell right after them (G, or H for Acquisitio
   assert.deepStrictEqual(m.groups[3].rows[0].toggle.countCell, "H17");
   assert.strictEqual(m.groups[3].rows[0].toggle.count, null);
 });
+
+test("Monday label match: a new item with data beats an older empty one in a better-ranked group", () => {
+  const src = sb.buildSources({ cpaRows: [], matchesAny: logic.matchesAny, board: config.board, goalAmount: 100000,
+    mondayAll: [
+      { name: "LFA (CPA <$650 DEMO)>", cpaL7d: null, adSpend: null, groupExcluded: false },
+      { name: "LFA ($300 CPQL)", cpaL7d: 287.75, adSpend: 22306.8, groupExcluded: true },
+      { name: "UAC (CPBC <$250)", cpaL7d: null, adSpend: null, groupExcluded: false },
+      { name: "UAC (P/L +$3000)", cpaL7d: 23.4, adSpend: 34763.52, groupExcluded: true },
+      { name: "XYZ (closed)", cpaL7d: 5, adSpend: 5, closed: true },
+      { name: "XYZ (open, empty)", cpaL7d: null, adSpend: null },
+    ] });
+  assert.deepStrictEqual(src.mondayByLabel.lfa, { cpa: 287.75, spend: 22306.8, rank: 1 });
+  assert.deepStrictEqual(src.mondayByLabel.uac, { cpa: 23.4, spend: 34763.52, rank: 1 });
+  assert.strictEqual(src.mondayByLabel.xyz.rank, 0);   // open item beats the closed one even if empty
+});
