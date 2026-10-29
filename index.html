@@ -216,7 +216,8 @@
   #tg-menu { position:absolute; z-index:50; display:flex; flex-direction:column; gap:4px; padding:6px; width:110px;
     background:var(--surface-0); border:1px solid var(--rule); border-radius:4px; box-shadow:0 4px 14px rgba(0,0,0,.18); }
   #tg-menu .tg { width:100%; } #tg-menu .tg.cur { outline:2px solid var(--text-primary); outline-offset:1px; }
-  .tg-days { font-size:11px; color:var(--text-muted); margin-right:8px; white-space:nowrap; }
+  .tg-days { font-size:12px; color:var(--text-secondary); white-space:nowrap; }
+  .bd .dys-cell { text-align:left; width:1%; white-space:nowrap; padding-left:14px; }
   .tg.hold { background:#facc15; border-color:#eab308; color:#422006; }
   .tg:disabled { opacity:.55; cursor:wait; }
   .bd-total td { font-weight:700; border-top:2px solid color-mix(in srgb, var(--g) 55%, transparent); }
@@ -1208,13 +1209,16 @@ function buyerPanel(d, b) {
     const n = Math.round((Date.parse(today) - Date.parse(since)) / 86400000) + 1;
     return n > 0 ? n : 0;
   }
+  // "Days in status" column, shown next to the status button.
+  function daysCell(t) {
+    const d = t && t.since && t.state ? daysInStatus(t.since) : 0;
+    return d ? "<span class='tg-days' data-snap='" + esc(t.state) + "' title='In this status since " + esc(t.since) + "'>" + d + (d === 1 ? " day" : " days") + "</span>" : "";
+  }
   function toggleBtn(t) {
     if (!t) return "";
     const cls = t.state === "on" || t.state === "off" || t.state === "hold" ? t.state : "";
     const txt = TG_TXT[t.state] || "Set status";
-    const d = t.since && cls ? daysInStatus(t.since) : 0;
-    return (d ? "<span class='tg-days' data-snap='" + esc(t.state) + "' title='In this status since " + esc(t.since) + "'>" + d + (d === 1 ? " day" : " days") + "</span>" : "") +
-      "<button type='button' class='tg " + cls + "' data-cell='" + esc(t.cell) + "' data-state='" +
+    return "<button type='button' class='tg " + cls + "' data-cell='" + esc(t.cell) + "' data-state='" +
       esc(t.state || "") + "'>" + txt + "</button>";
   }
 
@@ -1266,11 +1270,11 @@ function buyerPanel(d, b) {
       }
       h += "<div class='bd-block bd-" + esc(g.tone) + (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " bd-sheet" : "") + "'" +
         (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " style='--g:" + g.color + "'" : "") + "><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
-        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th></tr></thead><tbody>";
+        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th><th class='dys-cell'>Days in Status</th></tr></thead><tbody>";
       g.rows.forEach(r => {
         h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
           r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
-          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td></tr>";
+          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td><td class='dys-cell'>" + daysCell(r.toggle) + "</td></tr>";
       });
       h += "</tbody></table></div>";
     });
@@ -1290,8 +1294,8 @@ function buyerPanel(d, b) {
     btn.className = "tg" + (state ? " " + state : "");
     btn.textContent = TG_TXT[state] || "Set status";
     // The day count only applies while the live status still matches the snapshot's.
-    const dd = btn.previousElementSibling;
-    if (dd && dd.classList.contains("tg-days")) dd.style.display = dd.dataset.snap === (state || "") ? "" : "none";
+    const row = btn.closest("tr"), dd = row && row.querySelector(".tg-days");
+    if (dd) dd.style.display = dd.dataset.snap === (state || "") ? "" : "none";
   }
 
   async function loadLiveToggles() {
