@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T14:50:59.056Z",
+  "generatedAt": "2026-10-29T17:05:05.006Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-29T14:50:44Z",
+    "dataUpdated": "2026-10-29T17:04:49Z",
     "monthLabel": "October 2026",
     "daysElapsed": 29,
     "daysBasis": 30,
@@ -550,6 +550,11 @@
       "total": 30
     }
   },
+  "statusDays": {
+    "tracking": false,
+    "startsOn": "2026-10-30",
+    "items": {}
+  },
   "board": {
     "ok": true,
     "quarter": {
@@ -575,6 +580,7 @@
           "CPA"
         ],
         "toggleCol": 5,
+        "toggleHeader": "CPA Stable and Spend Increasing",
         "headerRow": 5,
         "rows": [
           {
@@ -706,6 +712,7 @@
           "CPA"
         ],
         "toggleCol": 5,
+        "toggleHeader": "CPA Stable and Spend Increasing",
         "headerRow": 12,
         "rows": [
           {
@@ -801,6 +808,7 @@
           "Total Spend"
         ],
         "toggleCol": 5,
+        "toggleHeader": "",
         "headerRow": 19,
         "rows": [
           {
@@ -927,6 +935,7 @@
           "BOOKED CALLS"
         ],
         "toggleCol": 6,
+        "toggleHeader": "",
         "headerRow": 29,
         "rows": [
           {
@@ -974,6 +983,7 @@
           "BOOKED CALLS"
         ],
         "toggleCol": 6,
+        "toggleHeader": "",
         "headerRow": 34,
         "rows": [
           {
@@ -1021,6 +1031,7 @@
           "Quarter"
         ],
         "toggleCol": 6,
+        "toggleHeader": "",
         "headerRow": 40,
         "rows": [
           {
