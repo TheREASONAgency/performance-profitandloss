@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T14:49:43.341Z",
+  "generatedAt": "2026-10-29T14:50:59.056Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-29T14:49:27Z",
+    "dataUpdated": "2026-10-29T14:50:44Z",
     "monthLabel": "October 2026",
     "daysElapsed": 29,
     "daysBasis": 30,
@@ -550,20 +550,13 @@
       "total": 30
     }
   },
-  "keepsHl": {
-    "ok": true,
-    "tab": "October | 2026",
-    "revenue": 187200,
-    "adSpend": 132805,
-    "profit": 54395
-  },
   "board": {
     "ok": true,
     "quarter": {
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$113,153",
+      "actual": "$119,453",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -728,13 +721,7 @@
             "toggle": {
               "cell": "F13",
               "state": "on"
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Keeps P&L sheet"
-              }
-            ]
+            }
           },
           {
             "label": "TRX",
@@ -1102,7 +1089,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$113,153",
+          "actual": "$119,453",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1112,7 +1099,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$113,153",
+          "actual": "$119,453",
           "toggle": {
             "cell": "E3",
             "state": "on"
