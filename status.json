@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T17:28:25.309Z",
+  "generatedAt": "2026-10-29T17:59:14.728Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-29T17:28:09Z",
+    "dataUpdated": "2026-10-29T17:58:58Z",
     "monthLabel": "October 2026",
     "daysElapsed": 29,
     "daysBasis": 30,
@@ -643,7 +643,7 @@
             "cells": [
               "$100,000",
               "$34,763.52",
-              "2.0 ROAS",
+              "$500",
               "$23.40"
             ],
             "toggle": {
@@ -996,9 +996,9 @@
             "total": false,
             "row": 30,
             "cells": [
-              "$37,000",
+              "$22,000",
               "2",
-              "3",
+              "1",
               "-",
               "-"
             ],
@@ -1044,9 +1044,9 @@
             "total": false,
             "row": 35,
             "cells": [
-              "$37,000",
+              "$22,000",
               "2",
-              "3",
+              "1",
               "-",
               "-"
             ],
