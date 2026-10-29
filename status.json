@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T14:48:32.941Z",
+  "generatedAt": "2026-10-29T14:49:43.341Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-29T14:48:18Z",
+    "dataUpdated": "2026-10-29T14:49:27Z",
     "monthLabel": "October 2026",
     "daysElapsed": 29,
     "daysBasis": 30,
@@ -774,19 +774,12 @@
               "$5,000",
               "-$1,597",
               "$195",
-              "$426.85"
+              "$427"
             ],
             "toggle": {
               "cell": "F16",
               "state": "off"
-            },
-            "filled": [
-              {
-                "col": 3,
-                "source": "Monday (L7D CPA)",
-                "value": 426.85
-              }
-            ]
+            }
           },
           {
             "label": "DMN",
@@ -926,14 +919,7 @@
             "toggle": {
               "cell": "F26",
               "state": "off"
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (L7D CPA)",
-                "value": 2438
-              }
-            ]
+            }
           }
         ],
         "color": "#cccccc",
