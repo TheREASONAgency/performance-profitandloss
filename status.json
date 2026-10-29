@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T17:26:38.842Z",
+  "generatedAt": "2026-10-29T17:28:25.309Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -512,7 +512,7 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-29T17:26:22Z",
+    "dataUpdated": "2026-10-29T17:28:09Z",
     "monthLabel": "October 2026",
     "daysElapsed": 29,
     "daysBasis": 30,
@@ -613,16 +613,28 @@
             "row": 7,
             "cells": [
               "$100,000",
-              "$0",
+              "$22,306.80",
               "$650",
-              ""
+              "$287.75"
             ],
             "toggle": {
               "cell": "F7",
               "state": "off",
               "countCell": "G7",
               "count": null
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (L7D CPA)",
+                "value": 287.75
+              },
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)",
+                "value": 22306.8
+              }
+            ]
           },
           {
             "label": "UAC",
@@ -630,16 +642,28 @@
             "row": 8,
             "cells": [
               "$100,000",
-              "",
+              "$34,763.52",
               "2.0 ROAS",
-              ""
+              "$23.40"
             ],
             "toggle": {
               "cell": "F8",
               "state": "on",
               "countCell": "G8",
               "count": null
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (L7D CPA)",
+                "value": 23.4
+              },
+              {
+                "col": 1,
+                "source": "Monday (MTD Spend)",
+                "value": 34763.52
+              }
+            ]
           },
           {
             "label": "BHA",
