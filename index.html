@@ -1207,6 +1207,7 @@ function buyerPanel(d, b) {
   function mtgText(n) { return n > 0 ? "<span class='tg-days'>" + n + (n === 1 ? " meeting" : " meetings") + "</span>" : ""; }
   function daysCell(t) { return t && t.state ? mtgText(Number(t.count) || 0) : ""; }
   function setCount(btn, count) {
+    // The "Meetings in Status" column is hidden for now; counts are still saved in the sheet.
     const row = btn.closest("tr"), td = row && row.querySelector(".dys-cell");
     if (td) td.innerHTML = mtgText(Number(count) || 0);
   }
@@ -1266,11 +1267,11 @@ function buyerPanel(d, b) {
       }
       h += "<div class='bd-block bd-" + esc(g.tone) + (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " bd-sheet" : "") + "'" +
         (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " style='--g:" + g.color + "'" : "") + "><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
-        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th><th class='dys-cell'>Meetings in Status</th></tr></thead><tbody>";
+        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th></tr></thead><tbody>";
       g.rows.forEach(r => {
         h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
           r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
-          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td><td class='dys-cell'>" + daysCell(r.toggle) + "</td></tr>";
+          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td></tr>";
       });
       h += "</tbody></table></div>";
     });
