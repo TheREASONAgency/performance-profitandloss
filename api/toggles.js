@@ -12,6 +12,7 @@ const crypto = require("crypto");
 const config = require("../lib/status-config");
 const sheets = require("../lib/google-sheets");
 const sheetBoard = require("../lib/sheet-board");
+const statusDays = require("../lib/status-days");
 
 const b = config.board;
 
@@ -32,8 +33,9 @@ module.exports = async function handler(req, res) {
     if (req.method === "GET") {
       const list = await readToggles();
       const toggles = {};
-      list.forEach((t) => { toggles[t.cell] = t.state; });
-      return res.status(200).json({ toggles });
+      const counts = {};
+      list.forEach((t) => { toggles[t.cell] = t.state; if (t.countCell && t.count > 0) counts[t.cell] = t.count; });
+      return res.status(200).json({ toggles, counts });
     }
 
     if (req.method === "POST") {
@@ -44,10 +46,18 @@ module.exports = async function handler(req, res) {
       if (!["on", "off", "hold"].includes(body.state)) return res.status(400).json({ error: "Bad state." });
 
       const list = await readToggles();
-      if (!list.some((t) => t.cell === body.cell)) return res.status(400).json({ error: "Not a toggle cell." });
+      const t = list.find((x) => x.cell === body.cell);
+      if (!t) return res.status(400).json({ error: "Not a toggle cell." });
 
-      await sheets.setCell(process.env[b.serviceAccountEnv], b.sheetId, b.tab, body.cell, b.toggleLabels[body.state]);
-      return res.status(200).json({ ok: true, cell: body.cell, state: body.state });
+      const key = process.env[b.serviceAccountEnv];
+      await sheets.setCell(key, b.sheetId, b.tab, body.cell, b.toggleLabels[body.state]);
+      // Meetings in status: checking the same status again adds 1; a different status restarts at 1.
+      let count = null;
+      if (t.countCell && statusDays.countingStarted(new Date(), b.trackStatusFrom)) {
+        count = statusDays.nextCount(t.state, t.count, body.state);
+        await sheets.setCell(key, b.sheetId, b.tab, t.countCell, count);
+      }
+      return res.status(200).json({ ok: true, cell: body.cell, state: body.state, count });
     }
 
     res.setHeader("Allow", "GET, POST");

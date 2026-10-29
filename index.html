@@ -1203,16 +1203,12 @@ function buyerPanel(d, b) {
   try { passcode = sessionStorage.getItem("st-pass"); } catch (_) {}
 
   const TG_TXT = { on: "On Track", off: "Off Track", hold: "On Hold" };
-  // Whole days since a status began (the start day counts as day 1), by Eastern date.
-  function daysInStatus(since) {
-    const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-    const n = Math.round((Date.parse(today) - Date.parse(since)) / 86400000) + 1;
-    return n > 0 ? n : 0;
-  }
-  // "Days in status" column, shown next to the status button.
-  function daysCell(t) {
-    const d = t && t.since && t.state ? daysInStatus(t.since) : 0;
-    return d ? "<span class='tg-days' data-snap='" + esc(t.state) + "' title='In this status since " + esc(t.since) + "'>" + d + (d === 1 ? " day" : " days") + "</span>" : "";
+  // "Meetings in Status": how many team calls in a row this status has been checked.
+  function mtgText(n) { return n > 0 ? "<span class='tg-days'>" + n + (n === 1 ? " meeting" : " meetings") + "</span>" : ""; }
+  function daysCell(t) { return t && t.state ? mtgText(Number(t.count) || 0) : ""; }
+  function setCount(btn, count) {
+    const row = btn.closest("tr"), td = row && row.querySelector(".dys-cell");
+    if (td) td.innerHTML = mtgText(Number(count) || 0);
   }
   function toggleBtn(t) {
     if (!t) return "";
@@ -1270,7 +1266,7 @@ function buyerPanel(d, b) {
       }
       h += "<div class='bd-block bd-" + esc(g.tone) + (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " bd-sheet" : "") + "'" +
         (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " style='--g:" + g.color + "'" : "") + "><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
-        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th><th class='dys-cell'>Days in Status</th></tr></thead><tbody>";
+        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th><th class='dys-cell'>Meetings in Status</th></tr></thead><tbody>";
       g.rows.forEach(r => {
         h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
           r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
@@ -1281,11 +1277,12 @@ function buyerPanel(d, b) {
     return h + "<p class='tg-note'>Blank cells have no data yet. Toggle the status buttons during standup; they save to the sheet for everyone.</p></div>";
   }
 
-  function applyLiveToggles(map) {
+  function applyLiveToggles(map, counts) {
     body.querySelectorAll(".tg").forEach(btn => {
       const st = map[btn.dataset.cell];
       if (st === undefined) return;
       setBtn(btn, st);
+      setCount(btn, (counts || {})[btn.dataset.cell]);
     });
   }
 
@@ -1293,16 +1290,13 @@ function buyerPanel(d, b) {
     btn.dataset.state = state || "";
     btn.className = "tg" + (state ? " " + state : "");
     btn.textContent = TG_TXT[state] || "Set status";
-    // The day count only applies while the live status still matches the snapshot's.
-    const row = btn.closest("tr"), dd = row && row.querySelector(".tg-days");
-    if (dd) dd.style.display = dd.dataset.snap === (state || "") ? "" : "none";
   }
 
   async function loadLiveToggles() {
     try {
       const r = await fetch(TOGGLE_API, { cache: "no-store" });
       if (!r.ok) return;
-      applyLiveToggles((await r.json()).toggles || {});
+      const j = await r.json(); applyLiveToggles(j.toggles || {}, j.counts || {});
     } catch (_) { /* snapshot values stay */ }
   }
 
@@ -1322,6 +1316,7 @@ function buyerPanel(d, b) {
       }
       try { sessionStorage.setItem("st-pass", passcode); } catch (_) {}
       setBtn(btn, next);
+      if (j.count != null) setCount(btn, j.count);
     } catch (e) {
       window.alert("Could not save: " + e.message);
     } finally { btn.disabled = false; }

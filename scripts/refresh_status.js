@@ -18,7 +18,6 @@ const config = require("../lib/status-config");
 const logic = require("../lib/status-logic");
 const sheets = require("../lib/google-sheets");
 const sheetBoard = require("../lib/sheet-board");
-const statusDays = require("../lib/status-days");
 
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(ROOT, config.outputFile);
@@ -210,13 +209,6 @@ async function run() {
         console.log(`Sheet ${w.a1} (${w.label}) <- Monday MTD spend`);
       }
     } catch (e) { console.warn("Could not write Monday spend into the sheet:", e.message); }
-    // Days in current status: carry each row's start date; tracking begins on config.board.trackStatusFrom.
-    try {
-      const items = [];
-      model.groups.forEach((g) => g.rows.forEach((r) => { if (r.toggle) items.push({ key: `${g.section || ""}|${r.label}`.toLowerCase(), state: r.toggle.state, r }); }));
-      out.statusDays = statusDays.update(prev.statusDays, items, statusDays.etDate(now), config.board.trackStatusFrom);
-      items.forEach((it) => { const h = out.statusDays.items[it.key]; if (h) it.r.toggle.since = h.since; });
-    } catch (e) { console.warn("Status days not updated:", e.message); out.statusDays = prev.statusDays || null; }
     out.board = { ok: true, ...model };
   } catch (e) {
     failures++;
