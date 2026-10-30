@@ -249,3 +249,13 @@ test("trends: scaling spend with a stable CPA is on track; rising CPA is flagged
   // history older than 150 days is pruned
   assert.strictEqual(Object.keys(tr.record({ "2026-01-01": {} }, "2026-10-28", {})).length, 1);
 });
+
+test("PV rows: Monday MTD Spend and L7D CPA replace stale sheet values (WIN), remaining spend follows", () => {
+  const v = JSON.parse(JSON.stringify(VALUES));
+  v[12] = ["WIN", "$325", "$2,438", "$100,000", "$144", T];
+  const m = sb.parseBoard(v, config.board);
+  sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
+    mondayByLabel: { win: { cpa: 2500, spend: 3350.72, rank: 0 } } });
+  assert.deepStrictEqual(m.groups[2].rows[0].cells, ["$325", "$2,500", "$96,649.28", "$3,350.72"]);
+  assert.deepStrictEqual(sb.mondayWrites(m).map((x) => [x.a1, x.value]), [["C13", 2500], ["E13", 3350.72]]);
+});
