@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T17:59:14.728Z",
+  "generatedAt": "2026-10-30T09:08:01.670Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -90,7 +90,7 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 1044.59
+        "adSpend": 812.7
       },
       {
         "id": "12703976002",
@@ -396,10 +396,10 @@
         "profit": 0,
         "live": true,
         "lastEntry": "2026-10-01",
-        "daysElapsed": 29,
+        "daysElapsed": 30,
         "dailyTarget": 166.66666666666666,
-        "expectedToDate": 4833.333333333333,
-        "delta": -4833.333333333333,
+        "expectedToDate": 5000,
+        "delta": -5000,
         "pacingPct": 0,
         "status": "off_track"
       },
@@ -412,11 +412,11 @@
         "profit": 54396,
         "live": true,
         "lastEntry": "2026-10-28",
-        "daysElapsed": 29,
+        "daysElapsed": 30,
         "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 38666.666666666664,
-        "delta": 15729.333333333336,
-        "pacingPct": 140.6793103448276,
+        "expectedToDate": 40000,
+        "delta": 14396,
+        "pacingPct": 135.99,
         "status": "on_track"
       },
       {
@@ -512,9 +512,9 @@
       "paused": 7,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-29T17:58:58Z",
+    "dataUpdated": "2026-10-30T09:07:47Z",
     "monthLabel": "October 2026",
-    "daysElapsed": 29,
+    "daysElapsed": 30,
     "daysBasis": 30,
     "warnings": []
   },
@@ -524,11 +524,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 47882,
-      "daysElapsed": 29,
+      "daysElapsed": 30,
       "daysInQuarter": 92,
-      "proratedTarget": 75652.17391304347,
+      "proratedTarget": 78260.86956521739,
       "progressPct": 19.950833333333335,
-      "pacingPct": 63.29229885057471,
+      "pacingPct": 61.18255555555555,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -615,7 +615,7 @@
               "$100,000",
               "$22,306.80",
               "$650",
-              "$287.75"
+              "$241"
             ],
             "toggle": {
               "cell": "F7",
@@ -627,7 +627,7 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 287.75
+                "value": 241
               },
               {
                 "col": 1,
