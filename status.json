@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T14:48:18.581Z",
+  "generatedAt": "2026-11-02T14:55:50.066Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -508,7 +508,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-02T14:47:49Z",
+    "dataUpdated": "2026-11-02T14:55:36Z",
     "monthLabel": "November 2026",
     "daysElapsed": 2,
     "daysBasis": 30,
