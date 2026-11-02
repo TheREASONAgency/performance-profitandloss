@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T16:28:12.424Z",
+  "generatedAt": "2026-11-02T20:02:45.966Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -582,7 +582,7 @@
               "$100,000",
               "$10,675.15",
               "$65",
-              "$88"
+              "$113.85"
             ],
             "toggle": {
               "cell": "F6",
@@ -594,7 +594,7 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 88
+                "value": 113.85
               },
               {
                 "col": 1,
@@ -611,19 +611,19 @@
               "$100,000",
               "$22,306.80",
               "$650",
-              "$241"
+              "$381"
             ],
             "toggle": {
               "cell": "F7",
-              "state": "off",
+              "state": "on",
               "countCell": "G7",
-              "count": null
+              "count": 1
             },
             "filled": [
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 241
+                "value": 381
               },
               {
                 "col": 1,
@@ -640,7 +640,7 @@
               "$100,000",
               "$34,763.52",
               "$500",
-              "$23.40"
+              "$32.93"
             ],
             "toggle": {
               "cell": "F8",
@@ -652,7 +652,7 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 23.4
+                "value": 32.93
               },
               {
                 "col": 1,
@@ -698,7 +698,7 @@
               "$100,000",
               "$16,548.45",
               "$240",
-              "$296.73"
+              "$220.01"
             ],
             "toggle": {
               "cell": "F10",
@@ -710,7 +710,7 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 296.73
+                "value": 220.01
               },
               {
                 "col": 1,
