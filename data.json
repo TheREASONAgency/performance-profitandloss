@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-02T14:58:19Z",
+  "lastUpdated": "2026-11-02T16:27:44Z",
   "currentMonth": "2026-11",
   "monthLabel": "November 2026",
   "dayOfMonth": 2,
@@ -72,11 +72,11 @@
           "lastEntry": "2026-11-01",
           "liveThisMonth": true,
           "monthlyTarget": 40000.0,
-          "revenue": 0,
-          "adSpend": 0,
-          "pl": 0,
+          "revenue": 9300,
+          "adSpend": 8370,
+          "pl": 930,
           "proratedTarget": 2666.67,
-          "pacingPct": 0.0
+          "pacingPct": 34.9
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -916,7 +916,7 @@
           0,
           0,
           0,
-          0,
+          9300,
           0,
           0,
           0,
@@ -2151,7 +2151,7 @@
           0,
           0,
           0,
-          0,
+          8370,
           0,
           0,
           0,
@@ -3004,9 +3004,9 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 0,
-          "adSpend": 0,
-          "pl": 0
+          "revenue": 9300,
+          "adSpend": 8370,
+          "pl": 930
         }
       ]
     }
