@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T09:09:38.681Z",
+  "generatedAt": "2026-11-02T14:48:18.581Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -508,7 +508,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-02T09:09:22Z",
+    "dataUpdated": "2026-11-02T14:47:49Z",
     "monthLabel": "November 2026",
     "daysElapsed": 2,
     "daysBasis": 30,
@@ -519,12 +519,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 52997,
+      "qtdPl": 52661,
       "daysElapsed": 33,
       "daysInQuarter": 92,
       "proratedTarget": 86086.95652173914,
-      "progressPct": 22.082083333333333,
-      "pacingPct": 61.56217171717171,
+      "progressPct": 21.942083333333333,
+      "pacingPct": 61.17186868686868,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -552,7 +552,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$111,068",
+      "actual": "$122,732",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -1212,7 +1212,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$111,068",
+          "actual": "$122,732",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1222,7 +1222,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$111,068",
+          "actual": "$122,732",
           "toggle": {
             "cell": "E3",
             "state": "on"
