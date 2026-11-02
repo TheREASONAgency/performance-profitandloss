@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T20:02:45.966Z",
+  "generatedAt": "2026-11-02T20:51:05.683Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -508,7 +508,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-02T16:27:44Z",
+    "dataUpdated": "2026-11-02T20:50:49Z",
     "monthLabel": "November 2026",
     "daysElapsed": 2,
     "daysBasis": 30,
@@ -552,7 +552,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$126,521",
+      "actual": "$159,375",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -1049,9 +1049,9 @@
             "total": false,
             "row": 30,
             "cells": [
-              "$22,000",
-              "2",
-              "1",
+              "#REF!",
+              "0",
+              "0",
               "-",
               "-"
             ],
@@ -1128,6 +1128,82 @@
       {
         "section": "Acquisition",
         "tone": "green",
+        "firstColLabel": "November",
+        "headers": [
+          "Target",
+          "Actual",
+          "Revenue Target",
+          "Revenue Actual",
+          "Quarter"
+        ],
+        "toggleCol": 6,
+        "toggleHeader": "",
+        "headerRow": 39,
+        "rows": [
+          {
+            "label": "HG Retainer",
+            "total": false,
+            "row": 40,
+            "cells": [
+              "5",
+              "",
+              "$50,000",
+              "$0",
+              "0 of 10"
+            ],
+            "toggle": {
+              "cell": "G40",
+              "state": "off",
+              "countCell": "H40",
+              "count": null
+            }
+          },
+          {
+            "label": "PV Lite",
+            "total": false,
+            "row": 41,
+            "cells": [
+              "1",
+              "",
+              "$7,500",
+              "$0",
+              "0 of 3"
+            ],
+            "toggle": {
+              "cell": "G41",
+              "state": "on",
+              "countCell": "H41",
+              "count": null
+            }
+          },
+          {
+            "label": "Total:",
+            "total": true,
+            "row": 42,
+            "cells": [
+              "6",
+              "0",
+              "$57,500",
+              "$0",
+              ""
+            ],
+            "toggle": {
+              "cell": "G42",
+              "state": "off",
+              "countCell": "H42",
+              "count": null
+            }
+          }
+        ],
+        "color": "#d9d9d9",
+        "kind": "other",
+        "spendCol": -1,
+        "actualCol": 1,
+        "cpaCol": -1
+      },
+      {
+        "section": "Acquisition",
+        "tone": "green",
         "firstColLabel": "October",
         "headers": [
           "Target",
@@ -1138,12 +1214,12 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "",
-        "headerRow": 40,
+        "headerRow": 44,
         "rows": [
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 41,
+            "row": 45,
             "cells": [
               "5",
               "1",
@@ -1152,16 +1228,16 @@
               "1 of 10"
             ],
             "toggle": {
-              "cell": "G41",
+              "cell": "G45",
               "state": "off",
-              "countCell": "H41",
+              "countCell": "H45",
               "count": null
             }
           },
           {
             "label": "PV Lite",
             "total": false,
-            "row": 42,
+            "row": 46,
             "cells": [
               "1",
               "2",
@@ -1170,16 +1246,16 @@
               "2 of 3"
             ],
             "toggle": {
-              "cell": "G42",
+              "cell": "G46",
               "state": "on",
-              "countCell": "H42",
+              "countCell": "H46",
               "count": null
             }
           },
           {
             "label": "Total:",
             "total": true,
-            "row": 43,
+            "row": 47,
             "cells": [
               "6",
               "3",
@@ -1188,9 +1264,9 @@
               ""
             ],
             "toggle": {
-              "cell": "G43",
+              "cell": "G47",
               "state": "off",
-              "countCell": "H43",
+              "countCell": "H47",
               "count": null
             }
           }
@@ -1199,6 +1275,27 @@
         "kind": "other",
         "spendCol": -1,
         "actualCol": 1,
+        "cpaCol": -1
+      },
+      {
+        "section": "Acquisition",
+        "tone": "green",
+        "firstColLabel": "",
+        "headers": [
+          "Monthly : October",
+          "$154,500",
+          "$126,521",
+          "81.89%",
+          "On Track"
+        ],
+        "toggleCol": 6,
+        "toggleHeader": "",
+        "headerRow": 49,
+        "rows": [],
+        "color": "#d9ead3",
+        "kind": "other",
+        "spendCol": -1,
+        "actualCol": -1,
         "cpaCol": -1
       }
     ],
@@ -1212,7 +1309,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$126,521",
+          "actual": "$159,375",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1221,8 +1318,8 @@
         {
           "kind": "monthly",
           "label": "Monthly Goal",
-          "revenue": "$154,500",
-          "actual": "$126,521",
+          "revenue": "$219,000",
+          "actual": "$32,854",
           "toggle": {
             "cell": "E3",
             "state": "on"
