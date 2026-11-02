@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-02T09:09:22Z",
+  "lastUpdated": "2026-11-02T14:47:49Z",
   "currentMonth": "2026-11",
   "monthLabel": "November 2026",
   "dayOfMonth": 2,
@@ -2132,7 +2132,7 @@
           0,
           0,
           0,
-          6350,
+          6686,
           0,
           0,
           0,
@@ -2943,8 +2943,8 @@
           "buyerId": "travis",
           "account": "Keeps",
           "revenue": 207300,
-          "adSpend": 147789,
-          "pl": 59511
+          "adSpend": 148125,
+          "pl": 59175
         },
         {
           "buyer": "Joe",
