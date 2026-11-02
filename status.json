@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T17:36:29.962Z",
+  "generatedAt": "2026-11-02T09:09:38.681Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -388,36 +388,20 @@
     "ok": true,
     "rows": [
       {
-        "id": "joe:TrimRx",
-        "name": "TrimRx",
-        "buyer": "Joe",
-        "platform": "Meta",
-        "monthlyTarget": 5000,
-        "profit": 0,
-        "live": true,
-        "lastEntry": "2026-10-01",
-        "daysElapsed": 30,
-        "dailyTarget": 166.66666666666666,
-        "expectedToDate": 5000,
-        "delta": -5000,
-        "pacingPct": 0,
-        "status": "off_track"
-      },
-      {
         "id": "travis:Keeps",
         "name": "Keeps",
         "buyer": "Travis",
         "platform": "Meta",
-        "monthlyTarget": 40000,
-        "profit": 54396,
+        "monthlyTarget": 45000,
+        "profit": 0,
         "live": true,
-        "lastEntry": "2026-10-28",
-        "daysElapsed": 30,
-        "dailyTarget": 1333.3333333333333,
-        "expectedToDate": 40000,
-        "delta": 14396,
-        "pacingPct": 135.99,
-        "status": "on_track"
+        "lastEntry": "2026-11-01",
+        "daysElapsed": 2,
+        "dailyTarget": 1500,
+        "expectedToDate": 3000,
+        "delta": -3000,
+        "pacingPct": 0,
+        "status": "off_track"
       },
       {
         "id": "kurt:AltRx",
@@ -460,7 +444,7 @@
         "name": "NAD+",
         "buyer": "Tracker pending",
         "platform": "Meta",
-        "monthlyTarget": 5000,
+        "monthlyTarget": 10000,
         "profit": 0,
         "live": false,
         "lastEntry": null,
@@ -473,7 +457,7 @@
         "name": "Quad",
         "buyer": "Tracker pending",
         "platform": "Meta",
-        "monthlyTarget": 5000,
+        "monthlyTarget": 10000,
         "profit": 0,
         "live": false,
         "lastEntry": null,
@@ -482,11 +466,23 @@
         "note": "placeholder, all zeros"
       },
       {
+        "id": "joe:TrimRx",
+        "name": "TrimRx",
+        "buyer": "Joe",
+        "platform": "Meta",
+        "monthlyTarget": 10000,
+        "profit": 0,
+        "live": false,
+        "lastEntry": "2026-10-01",
+        "status": "paused",
+        "note": "No entries this month"
+      },
+      {
         "id": "kurt:TrimRx",
         "name": "TrimRx",
         "buyer": "Kurt",
         "platform": "Meta",
-        "monthlyTarget": 5000,
+        "monthlyTarget": 10000,
         "profit": 0,
         "live": false,
         "lastEntry": "2026-06-10",
@@ -498,7 +494,7 @@
         "name": "TrimRx",
         "buyer": "Jack",
         "platform": "Meta",
-        "monthlyTarget": 5000,
+        "monthlyTarget": 10000,
         "profit": 0,
         "live": false,
         "lastEntry": "2026-04-30",
@@ -507,14 +503,14 @@
       }
     ],
     "counts": {
-      "on_track": 1,
+      "on_track": 0,
       "off_track": 1,
-      "paused": 7,
+      "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-10-30T17:34:09Z",
-    "monthLabel": "October 2026",
-    "daysElapsed": 30,
+    "dataUpdated": "2026-11-02T09:09:22Z",
+    "monthLabel": "November 2026",
+    "daysElapsed": 2,
     "daysBasis": 30,
     "warnings": []
   },
@@ -523,12 +519,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 47882,
-      "daysElapsed": 30,
+      "qtdPl": 52997,
+      "daysElapsed": 33,
       "daysInQuarter": 92,
-      "proratedTarget": 78260.86956521739,
-      "progressPct": 19.950833333333335,
-      "pacingPct": 61.18255555555555,
+      "proratedTarget": 86086.95652173914,
+      "progressPct": 22.082083333333333,
+      "pacingPct": 61.56217171717171,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -543,10 +539,10 @@
       ]
     },
     "accounts": {
-      "active": 11,
-      "onTrack": 5,
+      "active": 10,
+      "onTrack": 4,
       "offTrack": 6,
-      "paused": 15,
+      "paused": 16,
       "total": 30
     }
   },
@@ -556,7 +552,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$622,500",
-      "actual": "$126,053",
+      "actual": "$111,068",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -750,7 +746,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$54,395",
+              "$0",
               "$240",
               "$204"
             ],
@@ -776,7 +772,13 @@
               "state": "hold",
               "countCell": "G14",
               "count": null
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "P&L tracker"
+              }
+            ]
           },
           {
             "label": "MED",
@@ -793,7 +795,13 @@
               "state": "hold",
               "countCell": "G15",
               "count": null
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "P&L tracker"
+              }
+            ]
           },
           {
             "label": "QUAD",
@@ -818,7 +826,7 @@
             "row": 17,
             "cells": [
               "$5,000",
-              "-$2,573",
+              "",
               "$280",
               "$667"
             ],
@@ -1204,7 +1212,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$622,500",
-          "actual": "$126,053",
+          "actual": "$111,068",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1214,7 +1222,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$154,500",
-          "actual": "$126,053",
+          "actual": "$111,068",
           "toggle": {
             "cell": "E3",
             "state": "on"
