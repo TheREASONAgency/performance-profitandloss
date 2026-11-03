@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T20:51:05.683Z",
+  "generatedAt": "2026-11-03T09:08:01.870Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -396,11 +396,11 @@
         "profit": 930,
         "live": true,
         "lastEntry": "2026-11-01",
-        "daysElapsed": 2,
+        "daysElapsed": 3,
         "dailyTarget": 1500,
-        "expectedToDate": 3000,
-        "delta": -2070,
-        "pacingPct": 31,
+        "expectedToDate": 4500,
+        "delta": -3570,
+        "pacingPct": 20.666666666666668,
         "status": "off_track"
       },
       {
@@ -508,9 +508,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-02T20:50:49Z",
+    "dataUpdated": "2026-11-03T09:07:49Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 2,
+    "daysElapsed": 3,
     "daysBasis": 30,
     "warnings": []
   },
@@ -520,11 +520,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 53591,
-      "daysElapsed": 33,
+      "daysElapsed": 34,
       "daysInQuarter": 92,
-      "proratedTarget": 86086.95652173914,
+      "proratedTarget": 88695.65217391304,
       "progressPct": 22.329583333333332,
-      "pacingPct": 62.25217171717171,
+      "pacingPct": 60.421225490196086,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -1049,7 +1049,7 @@
             "total": false,
             "row": 30,
             "cells": [
-              "#REF!",
+              "",
               "0",
               "0",
               "-",
@@ -1275,27 +1275,6 @@
         "kind": "other",
         "spendCol": -1,
         "actualCol": 1,
-        "cpaCol": -1
-      },
-      {
-        "section": "Acquisition",
-        "tone": "green",
-        "firstColLabel": "",
-        "headers": [
-          "Monthly : October",
-          "$154,500",
-          "$126,521",
-          "81.89%",
-          "On Track"
-        ],
-        "toggleCol": 6,
-        "toggleHeader": "",
-        "headerRow": 49,
-        "rows": [],
-        "color": "#d9ead3",
-        "kind": "other",
-        "spendCol": -1,
-        "actualCol": -1,
         "cpaCol": -1
       }
     ],
