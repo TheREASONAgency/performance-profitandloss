@@ -340,18 +340,18 @@ class TestPayload(unittest.TestCase):
 class TestSchedule(unittest.TestCase):
     """The DST gate. GitHub cron is UTC-only, so the workflow fires at both
     candidate hours and should_run() must let exactly one through.
-    Everything refreshes Mon/Wed/Fri at 6:00 AM Eastern."""
+    Everything refreshes Mon/Wed/Fri at 9:00 AM Central."""
 
     UTC = dt.timezone.utc
 
     def _fires(self, year):
-        """Exactly what the cron line in the workflow fires: 10:00 and 11:00 UTC Mon/Wed/Fri."""
+        """Exactly what the cron line in the workflow fires: 14:00 and 15:00 UTC Mon/Wed/Fri."""
         day = dt.datetime(year, 1, 1, tzinfo=self.UTC)
         end = dt.datetime(year + 1, 1, 1, tzinfo=self.UTC)
         while day < end:
             if day.isoweekday() in (1, 3, 5):
-                yield day.replace(hour=10)
-                yield day.replace(hour=11)
+                yield day.replace(hour=14)
+                yield day.replace(hour=15)
             day += dt.timedelta(days=1)
 
     def _allowed(self, year=2026):
@@ -367,25 +367,25 @@ class TestSchedule(unittest.TestCase):
         )
         self.assertEqual(len(counts), expected)
 
-    def test_always_6am_eastern_and_no_other_days(self):
-        self.assertTrue(all(l.hour == 6 and l.weekday() in (0, 2, 4) for l in self._allowed()))
+    def test_always_9am_central_and_no_other_days(self):
+        self.assertTrue(all(l.hour == 9 and l.weekday() in (0, 2, 4) for l in self._allowed()))
 
     def test_gate_halves_the_firings(self):
         self.assertEqual(len(self._allowed()) * 2, len(list(self._fires(2026))))
 
     def test_survives_spring_forward(self):
-        # 2026-03-02 Mon (EST, UTC-5): 11 UTC = 6am. 2026-03-09 Mon (EDT): 10 UTC = 6am.
-        self.assertTrue(sr.should_run(dt.datetime(2026,3,2,11,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,3,2,10,tzinfo=self.UTC)))
-        self.assertTrue(sr.should_run(dt.datetime(2026,3,9,10,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,3,9,11,tzinfo=self.UTC)))
+        # 2026-03-02 Mon (CST, UTC-6): 15 UTC = 9am. 2026-03-09 Mon (CDT, UTC-5): 14 UTC = 9am.
+        self.assertTrue(sr.should_run(dt.datetime(2026,3,2,15,tzinfo=self.UTC)))
+        self.assertFalse(sr.should_run(dt.datetime(2026,3,2,14,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,3,9,14,tzinfo=self.UTC)))
+        self.assertFalse(sr.should_run(dt.datetime(2026,3,9,15,tzinfo=self.UTC)))
 
     def test_survives_fall_back(self):
-        # 2026-10-30 Fri (EDT): 10 UTC = 6am. 2026-11-04 Wed (EST): 11 UTC = 6am.
-        self.assertTrue(sr.should_run(dt.datetime(2026,10,30,10,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,10,30,11,tzinfo=self.UTC)))
-        self.assertTrue(sr.should_run(dt.datetime(2026,11,4,11,tzinfo=self.UTC)))
-        self.assertFalse(sr.should_run(dt.datetime(2026,11,4,10,tzinfo=self.UTC)))
+        # 2026-10-30 Fri (CDT): 14 UTC = 9am. 2026-11-04 Wed (CST): 15 UTC = 9am.
+        self.assertTrue(sr.should_run(dt.datetime(2026,10,30,14,tzinfo=self.UTC)))
+        self.assertFalse(sr.should_run(dt.datetime(2026,10,30,15,tzinfo=self.UTC)))
+        self.assertTrue(sr.should_run(dt.datetime(2026,11,4,15,tzinfo=self.UTC)))
+        self.assertFalse(sr.should_run(dt.datetime(2026,11,4,14,tzinfo=self.UTC)))
 
 
 if __name__ == "__main__":
