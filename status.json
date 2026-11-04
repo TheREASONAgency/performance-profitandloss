@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T14:51:07.737Z",
+  "generatedAt": "2026-11-04T09:08:20.522Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -107,20 +107,6 @@
         "adSpend": null
       },
       {
-        "id": "12501823440",
-        "name": "HMD ($350)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12501823440",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "paused",
-        "rawLabel": "N/A",
-        "cpaTarget": 350,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": 600.05
-      },
-      {
         "id": "12231962344",
         "name": "HUM (<$320)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
@@ -161,6 +147,20 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": null
+      },
+      {
+        "id": "12501823440",
+        "name": "YMD ($350)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12501823440",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 350,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 600.05
       },
       {
         "id": "12409812564",
@@ -396,11 +396,11 @@
         "profit": 1976,
         "live": true,
         "lastEntry": "2026-11-02",
-        "daysElapsed": 3,
+        "daysElapsed": 4,
         "dailyTarget": 1500,
-        "expectedToDate": 4500,
-        "delta": -2524,
-        "pacingPct": 43.91111111111111,
+        "expectedToDate": 6000,
+        "delta": -4024,
+        "pacingPct": 32.93333333333333,
         "status": "off_track"
       },
       {
@@ -508,9 +508,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-03T14:50:50Z",
+    "dataUpdated": "2026-11-04T09:08:02Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 3,
+    "daysElapsed": 4,
     "daysBasis": 30,
     "warnings": []
   },
@@ -520,11 +520,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 54637,
-      "daysElapsed": 34,
+      "daysElapsed": 35,
       "daysInQuarter": 92,
-      "proratedTarget": 88695.65217391304,
+      "proratedTarget": 91304.34782608696,
       "progressPct": 22.765416666666667,
-      "pacingPct": 61.600539215686275,
+      "pacingPct": 59.8405238095238,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -552,7 +552,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$583,000",
-      "actual": "$158,522",
+      "actual": "$161,522",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -1288,7 +1288,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$583,000",
-          "actual": "$158,522",
+          "actual": "$161,522",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1298,7 +1298,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$179,500",
-          "actual": "$32,001",
+          "actual": "$35,001",
           "toggle": {
             "cell": "E3",
             "state": "on"
