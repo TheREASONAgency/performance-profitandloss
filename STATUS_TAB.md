@@ -13,7 +13,7 @@ A GitHub Action rebuilds **`status.json` every Monday, Wednesday and Friday at 6
 
 | File | Role |
 |---|---|
-| `.github/workflows/refresh-status.yml` | The Mon/Wed/Fri 6 AM ET schedule |
+| `.github/workflows/refresh-status.yml` | The Mon/Wed/Fri 9 AM CT schedule |
 | `scripts/refresh_status.js` | Fetches Monday (server-side), builds `status.json` |
 | `lib/status-config.js` | **The one place to change** rules, column IDs, exclusions, pacing basis |
 | `lib/status-logic.js` | Pure functions: status mapping and `computeCpaPacing` |
@@ -59,7 +59,7 @@ PV vs Managed comes from **Client Type** (`PV / TESTING` / `Managed`).
 11. **CPA account targets for the current month come from the table**, replacing the tracker's `monthlyTarget` via `trackerMatch`: Keeps: HL → Travis/Keeps · TRX → TrimRx (any buyer) · Medvi → Kurt/Medvi only ($5,000). **Jack's Medvi and Medvi GLP1 are excluded** because only Kurt's Medvi account is tracked. **Rugiet is removed** from this tab (`cpa.excludeAccounts`: its row and its P&L are dropped from the tab and the quarter-to-date figure; the other tabs are unaffected). **Quad and NAD+** show zero-filled **placeholder rows** (`cpa.placeholders`, status Paused, target from the table) until their trackers exist; then add a `trackerMatch` for each and remove it from the list.
 12. **Managed ad spend goal: $100,000 per account per month** while CPA stays under target CPA (`managed.goal`; set `period: "quarter"` if spend becomes cumulative). Spend comes from the board's new **MTD Spend** text column (`text_mm7xtsh1`, e.g. "$12,345.67"), which is still empty, so spend shows "—" and "No spend data" until it is filled in. "On pace" = spend ≥ $100K × share of the month elapsed (the data's day-of-month ÷ days in month); "CPA over target" if L7D CPA > target; "Goal hit" at $100K. The bonus/commission payout rule is not modeled.
 13. **"Active" accounts** = On Track + Off Track across all three groups (Paused and No Status excluded).
-14. **CPA freshness:** profit comes from `data.json`, which its own job refreshes on a different schedule. At 6 AM the status job uses whatever `data.json` last committed (typically the prior day), and the tab shows when that data was refreshed.
+14. **CPA freshness:** profit comes from `data.json`, which its own job refreshes on a different schedule. At 9 AM the status job uses whatever `data.json` last committed (typically the prior day), and the tab shows when that data was refreshed.
 
 ## Master sheet board (current layout)
 
@@ -68,7 +68,7 @@ The tab is drawn from the **Dashboard Data** sheet (`board` in `lib/status-confi
 - **Targets and typed values come from the sheet.** Blank cells stay blank on the dashboard. **Acquisition is typed by the team**; the job never fills it.
 - **PV rows follow Monday (permanent rule):** Total Spend = Monday MTD Spend and CPA = Monday L7D CPA on every refresh, replacing any older value in the sheet (including earlier Monday writes); Remaining Spend is recalculated. A PV with no Monday figure keeps the sheet value (CPA shows N/A).
 - **Partner (spend) rows take Monday (MTD Spend → Actual MTD, L7D CPA → CPA) even over typed values.** Other blanks are filled only when a source exists, never overwriting a typed value: Profit rows' *Actual MTD* from the P&L trackers (KEE-HL, TRX, MED; QUAD and DMN have no tracker yet); Managed rows' *CPA* and *Total Spend* from Monday (L7D CPA, MTD Spend), *Remaining Spend* = $100K minus spend. Retainer rows and Actual Revenue have no source yet (the Meta report will fill them).
-- **Cadence:** the sheet can fill daily; the dashboard snapshot rebuilds Mon/Wed/Fri 6 AM ET. **Toggles are live** (read from the sheet when the tab opens).
+- **Cadence:** the sheet can fill daily; the dashboard snapshot rebuilds Mon/Wed/Fri 9 AM CT. **Toggles are live** (read from the sheet when the tab opens).
 - **Toggles:** each status cell is a button (gray = not set, green = On Track, red = Off Track, yellow = On Hold). Click cycles On Track → Off Track → On Hold and saves that label into that sheet cell through `api/toggles.js`. A row has a toggle only if its toggle cell is non-empty in the sheet (DMN has none).
 - **Setup for toggles:** share the sheet with the service account as **Editor**; add Vercel env vars `GOOGLE_SA_KEY` (same JSON as the GitHub secret) and `TOGGLE_PASSCODE` (shared with the team; asked once per browser session). The job also needs the sheet shared with the service account (read).
 - Tests: `node --test tests/status-logic.test.js tests/sheet-board.test.js`.

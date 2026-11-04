@@ -1,7 +1,7 @@
 name: Refresh Account Status
 
 # Rebuilds status.json (the Overview tab). It runs right after "Refresh Pacing
-# Dashboard" finishes, which is Monday, Wednesday and Friday at 6:00 AM Eastern,
+# Dashboard" finishes, which is Monday, Wednesday and Friday at 9:00 AM Central,
 # so every tab updates together and the profit rows match the CPA Overview.
 on:
   workflow_run:
@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: "22"
 
-      # Manual and after-pacing runs always proceed; scheduled runs must land on 6 AM Eastern.
+      # Manual and after-pacing runs always proceed; scheduled runs must land on 9 AM Central.
       - name: Should this run proceed?
         id: gate
         run: |
@@ -37,10 +37,10 @@ jobs:
           elif [ "${{ github.event_name }}" != "schedule" ]; then
             echo "Manual or after-pacing run — proceeding."
             echo "decision=run" >> "$GITHUB_OUTPUT"
-          elif [ "$(TZ=America/New_York date +%H)" = "06" ]; then
+          elif [ "$(TZ=America/Chicago date +%H)" = "09" ]; then
             echo "decision=run" >> "$GITHUB_OUTPUT"
           else
-            echo "Not 6 AM Eastern — skipping (the other DST cron will run)."
+            echo "Not 9 AM Central — skipping (the other DST cron will run)."
             echo "decision=skip" >> "$GITHUB_OUTPUT"
           fi
 

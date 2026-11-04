@@ -4,10 +4,10 @@
 GitHub cron is UTC-only and does not follow daylight saving, so a single UTC
 cron drifts by an hour twice a year. The workflow therefore fires at BOTH
 candidate UTC hours for each target and this guard lets exactly one through —
-the one that is really the wanted local time in America/New_York.
+the one that is really the wanted local time in America/Chicago.
 
 Targets:
-  * Monday, Wednesday and Friday at 06:00 Eastern
+  * Monday, Wednesday and Friday at 09:00 Central
 
 Exits 0 and prints "run" when the run should proceed, otherwise prints "skip".
 Manual runs (workflow_dispatch) never reach this script.
@@ -19,10 +19,10 @@ import datetime as dt
 import sys
 from zoneinfo import ZoneInfo
 
-ZONE = ZoneInfo("America/New_York")
+ZONE = ZoneInfo("America/Chicago")
 
-# (weekday, hour) in local Eastern time. Monday is 0.
-TARGETS = {(0, 6), (2, 6), (4, 6)}   # Mon / Wed / Fri at 6 AM
+# (weekday, hour) in local Central time. Monday is 0.
+TARGETS = {(0, 9), (2, 9), (4, 9)}   # Mon / Wed / Fri at 9 AM Central
 
 
 def should_run(now_utc: dt.datetime) -> bool:
@@ -35,7 +35,7 @@ def main() -> None:
     local = now.astimezone(ZONE)
     decision = should_run(now)
     print(
-        f"UTC {now:%Y-%m-%d %H:%M} = Eastern {local:%Y-%m-%d %H:%M %Z} "
+        f"UTC {now:%Y-%m-%d %H:%M} = Central {local:%Y-%m-%d %H:%M %Z} "
         f"({local:%A}) -> {'run' if decision else 'skip'}"
     )
     # GitHub Actions step output
