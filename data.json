@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-04T09:08:02Z",
+  "lastUpdated": "2026-11-04T14:45:13Z",
   "currentMonth": "2026-11",
   "monthLabel": "November 2026",
   "dayOfMonth": 4,
@@ -69,14 +69,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-11-02",
+          "lastEntry": "2026-11-03",
           "liveThisMonth": true,
           "monthlyTarget": 40000.0,
-          "revenue": 17700,
-          "adSpend": 15724,
-          "pl": 1976,
+          "revenue": 23400,
+          "adSpend": 21122,
+          "pl": 2278,
           "proratedTarget": 5333.33,
-          "pacingPct": 37.1
+          "pacingPct": 42.7
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -954,7 +954,7 @@
           0,
           0,
           0,
-          0,
+          5700,
           0,
           0,
           0,
@@ -2189,7 +2189,7 @@
           0,
           0,
           0,
-          0,
+          5398,
           0,
           0,
           0,
@@ -3004,9 +3004,9 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 17700,
-          "adSpend": 15724,
-          "pl": 1976
+          "revenue": 23400,
+          "adSpend": 21122,
+          "pl": 2278
         }
       ]
     }
