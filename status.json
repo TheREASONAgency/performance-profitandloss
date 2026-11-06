@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T14:49:48.989Z",
+  "generatedAt": "2026-11-06T15:02:03.128Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -522,7 +522,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-06T14:49:33Z",
+    "dataUpdated": "2026-11-06T15:01:42Z",
     "monthLabel": "November 2026",
     "daysElapsed": 6,
     "daysBasis": 30,
@@ -566,7 +566,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$583,000",
-      "actual": "$126,521",
+      "actual": "$200,929",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -624,8 +624,8 @@
             "cells": [
               "$100,000",
               "$22,306.80",
-              "$650",
-              "$381"
+              "$350 CPMQL",
+              "$246"
             ],
             "toggle": {
               "cell": "F7",
@@ -634,11 +634,6 @@
               "count": 1
             },
             "filled": [
-              {
-                "col": 3,
-                "source": "Monday (L7D CPA)",
-                "value": 381
-              },
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
@@ -1302,7 +1297,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$583,000",
-          "actual": "$126,521",
+          "actual": "$200,929",
           "toggle": {
             "cell": "E2",
             "state": "on"
