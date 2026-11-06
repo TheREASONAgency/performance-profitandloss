@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T09:08:21.133Z",
+  "generatedAt": "2026-11-06T14:49:48.989Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -522,7 +522,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-06T09:07:59Z",
+    "dataUpdated": "2026-11-06T14:49:33Z",
     "monthLabel": "November 2026",
     "daysElapsed": 6,
     "daysBasis": 30,
@@ -600,9 +600,9 @@
             ],
             "toggle": {
               "cell": "F6",
-              "state": "on",
+              "state": "off",
               "countCell": "G6",
-              "count": null
+              "count": 1
             },
             "filled": [
               {
@@ -1066,8 +1066,8 @@
               "",
               "0",
               "0",
-              "-",
-              "-"
+              "70",
+              "16"
             ],
             "toggle": null
           },
@@ -1077,8 +1077,8 @@
             "row": 31,
             "cells": [
               "$37,500",
-              "",
-              "",
+              "2",
+              "4",
               "200",
               "10"
             ],
@@ -1111,11 +1111,11 @@
             "total": false,
             "row": 35,
             "cells": [
-              "#N/A",
-              "#N/A",
-              "#N/A",
-              "#N/A",
-              "#N/A"
+              "$22,000",
+              "2",
+              "1",
+              "70",
+              "16"
             ],
             "toggle": null
           },
@@ -1312,13 +1312,23 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$179,500",
-          "actual": "$58,332",
+          "actual": "$65,232",
           "toggle": {
             "cell": "E3",
             "state": "on"
           }
         }
       ]
-    }
+    },
+    "monthlyResults": [
+      {
+        "label": "Monthly : October",
+        "row": 49,
+        "target": "$154,500",
+        "actual": "$135,697",
+        "pct": "87.83%",
+        "status": "On Track"
+      }
+    ]
   }
 }
