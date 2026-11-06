@@ -1283,6 +1283,14 @@ function buyerPanel(d, b) {
       });
       h += "</tbody></table></div>";
     });
+    (b.monthlyResults || []).forEach(m => {
+      const tone = /^on track/i.test(m.status) ? "good" : /off/i.test(m.status) ? "bad" : /hold/i.test(m.status) ? "paused" : "muted";
+      h += "<div class='bd-label'>Monthly result</div><div class='goal'><div class='goal-head'><span class='goal-name'>" + esc(m.label) + "</span>" +
+        (m.status ? "<span class='badge " + tone + "'>" + esc(m.status) + "</span>" : "") + "</div><div class='goal-stats'>" +
+        "<div><div class='goal-k'>Target</div><div class='goal-v'>" + esc(m.target) + "</div></div>" +
+        "<div><div class='goal-k'>Actual</div><div class='goal-v'>" + esc(m.actual) + "</div></div>" +
+        "<div><div class='goal-k'>% to target</div><div class='goal-v'>" + esc(m.pct) + "</div></div></div></div>";
+    });
     return h + "<p class='tg-note'>Blank cells have no data yet. Toggle the status buttons during standup; they save to the sheet for everyone.</p></div>";
   }
 
