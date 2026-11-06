@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T16:25:52.570Z",
+  "generatedAt": "2026-11-06T09:08:21.133Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -149,6 +149,20 @@
         "adSpend": null
       },
       {
+        "id": "13418957118",
+        "name": "SHE ED ($101-$400 TBD)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13418957118",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 101,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
+      },
+      {
         "id": "12501823440",
         "name": "YMD ($350)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12501823440",
@@ -222,7 +236,7 @@
     "counts": {
       "on_track": 0,
       "off_track": 3,
-      "paused": 8,
+      "paused": 9,
       "unknown": 3
     }
   },
@@ -393,14 +407,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 45000,
-        "profit": 2278,
+        "profit": 3307,
         "live": true,
-        "lastEntry": "2026-11-03",
-        "daysElapsed": 4,
+        "lastEntry": "2026-11-04",
+        "daysElapsed": 6,
         "dailyTarget": 1500,
-        "expectedToDate": 6000,
-        "delta": -3722,
-        "pacingPct": 37.96666666666667,
+        "expectedToDate": 9000,
+        "delta": -5693,
+        "pacingPct": 36.74444444444445,
         "status": "off_track"
       },
       {
@@ -508,9 +522,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-04T16:22:44Z",
+    "dataUpdated": "2026-11-06T09:07:59Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 4,
+    "daysElapsed": 6,
     "daysBasis": 30,
     "warnings": []
   },
@@ -519,12 +533,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 54939,
-      "daysElapsed": 35,
+      "qtdPl": 55968,
+      "daysElapsed": 37,
       "daysInQuarter": 92,
-      "proratedTarget": 91304.34782608696,
-      "progressPct": 22.89125,
-      "pacingPct": 60.171285714285716,
+      "proratedTarget": 96521.73913043478,
+      "progressPct": 23.32,
+      "pacingPct": 57.98486486486486,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -542,8 +556,8 @@
       "active": 10,
       "onTrack": 4,
       "offTrack": 6,
-      "paused": 16,
-      "total": 30
+      "paused": 17,
+      "total": 31
     }
   },
   "board": {
@@ -552,7 +566,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$583,000",
-      "actual": "$181,024",
+      "actual": "$126,521",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -696,7 +710,7 @@
             "row": 10,
             "cells": [
               "$100,000",
-              "$16,548.45",
+              "$20,662.75",
               "$240",
               "$220.01"
             ],
@@ -715,7 +729,7 @@
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 16548.45
+                "value": 20662.75
               }
             ]
           }
@@ -746,7 +760,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$2,279",
+              "$3,308",
               "$240",
               "$204"
             ],
@@ -876,7 +890,7 @@
             }
           },
           {
-            "label": "HMD",
+            "label": "YMD",
             "total": false,
             "row": 21,
             "cells": [
@@ -1097,11 +1111,11 @@
             "total": false,
             "row": 35,
             "cells": [
-              "$22,000",
-              "2",
-              "1",
-              "-",
-              "-"
+              "#N/A",
+              "#N/A",
+              "#N/A",
+              "#N/A",
+              "#N/A"
             ],
             "toggle": null
           },
@@ -1288,7 +1302,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$583,000",
-          "actual": "$181,024",
+          "actual": "$126,521",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1298,7 +1312,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$179,500",
-          "actual": "$54,503",
+          "actual": "$58,332",
           "toggle": {
             "cell": "E3",
             "state": "on"
