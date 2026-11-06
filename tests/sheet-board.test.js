@@ -259,3 +259,13 @@ test("PV rows: Monday MTD Spend and L7D CPA replace stale sheet values (WIN), re
   assert.deepStrictEqual(m.groups[2].rows[0].cells, ["$325", "$2,500", "$96,649.28", "$3,350.72"]);
   assert.deepStrictEqual(sb.mondayWrites(m).map((x) => [x.a1, x.value]), [["C13", 2500], ["E13", 3350.72]]);
 });
+
+test("Monthly : <month> result row is captured, not dropped", () => {
+  const rows = [
+    ["", "Total Revenue", "Actual Revenue"], ["Quarterly Goal:", "$1", "$1", "", "On Track"],
+    ["Acquisition:"], ["October", "Target", "Actual"], ["Total:", "6", "3", "", "", "", "Off Track"], [],
+    ["Monthly : October", "", "$154,500", "$135,697", "87.83%", "On Track"],
+  ];
+  const m = sb.parseBoard(rows, config.board);
+  assert.deepEqual(m.monthlyResults, [{ label: "Monthly : October", row: 7, target: "$154,500", actual: "$135,697", pct: "87.83%", status: "On Track" }]);
+});
