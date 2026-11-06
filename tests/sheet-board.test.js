@@ -269,3 +269,10 @@ test("Monthly : <month> result row is captured, not dropped", () => {
   const m = sb.parseBoard(rows, config.board);
   assert.deepEqual(m.monthlyResults, [{ label: "Monthly : October", row: 7, target: "$154,500", actual: "$135,697", pct: "87.83%", status: "On Track" }]);
 });
+
+test("cpaFromSheet rows keep the sheet CPA; Monday only supplies spend", () => {
+  const model = { groups: [{ headers: ["Target Spend", "Actual MTD", "Target CPA", "CPA"], rows: [{ label: "LFA", cells: ["$100,000", "$1", "$300", "$270"] }] }] };
+  sb.fillActuals(model, { mondayByLabel: { lfa: { cpa: 381, spend: 22307 } }, sheetCpa: ["lfa"] });
+  assert.equal(model.groups[0].rows[0].cells[3], "$270");
+  assert.equal(model.groups[0].rows[0].cells[1], "$22,307");
+});
