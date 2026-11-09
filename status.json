@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T15:27:31.538Z",
+  "generatedAt": "2026-11-09T23:15:20.538Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -37,20 +37,6 @@
         "adSpend": 11196.83
       },
       {
-        "id": "12893345311",
-        "name": "Elevated ($300)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12893345311",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "off_track",
-        "rawLabel": "Over",
-        "cpaTarget": 300,
-        "cpaToday": null,
-        "cpaL7d": 1297.02,
-        "cpaGap": 997.02,
-        "adSpend": 12576.38
-      },
-      {
         "id": "12414815129",
         "name": "WIN ($325)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
@@ -60,8 +46,8 @@
         "rawLabel": "Over",
         "cpaTarget": 325,
         "cpaToday": null,
-        "cpaL7d": 2438,
-        "cpaGap": 2113,
+        "cpaL7d": 2617,
+        "cpaGap": 2292,
         "adSpend": 3350.72
       },
       {
@@ -191,6 +177,20 @@
         "adSpend": null
       },
       {
+        "id": "12893345311",
+        "name": "Elevated ($300)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12893345311",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "Pushing CPA",
+        "cpaTarget": 300,
+        "cpaToday": null,
+        "cpaL7d": 1052.56,
+        "cpaGap": 752.56,
+        "adSpend": 12576.38
+      },
+      {
         "id": "13276477296",
         "name": "GAL (<$400)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477296",
@@ -235,9 +235,9 @@
     ],
     "counts": {
       "on_track": 0,
-      "off_track": 3,
+      "off_track": 2,
       "paused": 9,
-      "unknown": 3
+      "unknown": 4
     }
   },
   "managed": {
@@ -553,9 +553,9 @@
       ]
     },
     "accounts": {
-      "active": 10,
+      "active": 9,
       "onTrack": 4,
-      "offTrack": 6,
+      "offTrack": 5,
       "paused": 17,
       "total": 31
     }
@@ -566,7 +566,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$583,000",
-      "actual": "$217,194",
+      "actual": "$210,352",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -596,7 +596,7 @@
               "$100,000",
               "$10,675.15",
               "$65",
-              "$113.85"
+              "$101.79"
             ],
             "toggle": {
               "cell": "F6",
@@ -608,7 +608,7 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 113.85
+                "value": 101.79
               },
               {
                 "col": 1,
@@ -682,9 +682,9 @@
             ],
             "toggle": {
               "cell": "F9",
-              "state": "off",
+              "state": "hold",
               "countCell": "G9",
-              "count": null
+              "count": 1
             },
             "filled": [
               {
@@ -755,7 +755,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$8,767",
+              "$7,925",
               "$240",
               "$204"
             ],
@@ -824,9 +824,9 @@
             ],
             "toggle": {
               "cell": "F16",
-              "state": "off",
+              "state": "hold",
               "countCell": "G16",
-              "count": null
+              "count": 1
             }
           },
           {
@@ -841,9 +841,9 @@
             ],
             "toggle": {
               "cell": "F17",
-              "state": "off",
+              "state": "hold",
               "countCell": "G17",
-              "count": null
+              "count": 1
             }
           }
         ],
@@ -938,7 +938,7 @@
             "row": 23,
             "cells": [
               "$300",
-              "$1,297.02",
+              "$1,052.56",
               "$22,000",
               "$12,576.38"
             ],
@@ -952,7 +952,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 1297.02
+                "value": 1052.56
               },
               {
                 "col": 3,
@@ -1008,7 +1008,7 @@
             "row": 26,
             "cells": [
               "$325",
-              "$2,438",
+              "$2,617",
               "$20,000",
               "$3,350.72"
             ],
@@ -1022,7 +1022,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 2438
+                "value": 2617
               },
               {
                 "col": 3,
@@ -1297,7 +1297,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$583,000",
-          "actual": "$217,194",
+          "actual": "$210,352",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1307,7 +1307,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$179,500",
-          "actual": "$81,497",
+          "actual": "$74,655",
           "toggle": {
             "cell": "E3",
             "state": "on"
