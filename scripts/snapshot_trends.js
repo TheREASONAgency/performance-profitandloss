@@ -42,7 +42,18 @@ async function main() {
   let prev = {};
   try { prev = JSON.parse(fs.readFileSync(OUT, "utf8")); } catch (_) {}
   const days = trends.record(prev.days, today, snap);
-  const out = { generatedAt: now.toISOString(), today, days, summary: trends.summarizeAll(days, today) };
+  // Meta's own daily spend/results ("Meta Daily" tab, written by the Apps Script) for exact 7d/28d windows.
+  const metaDaily = {};
+  try {
+    const rows = await sheets.getValues(key, config.board.sheetId, "'Meta Daily'!A2:D2000");
+    rows.forEach(([date, label, spend, results]) => {
+      if (!date || !label) return;
+      const n = (v) => Number(String(v == null ? "" : v).replace(/[$,\s]/g, "")) || 0;
+      (metaDaily[label] = metaDaily[label] || {})[String(date).slice(0, 10)] = { spend: n(spend), results: n(results) };
+    });
+    console.log(`Meta Daily: ${Object.keys(metaDaily).length} account(s)`);
+  } catch (e) { console.warn("Meta Daily tab not read:", e.message); }
+  const out = { generatedAt: now.toISOString(), today, days, summary: trends.summarizeAll(days, today, metaDaily) };
   fs.writeFileSync(OUT, JSON.stringify(out) + "\n");
   console.log(`Trend snapshot ${today}: ${Object.keys(snap).length} accounts, ${Object.keys(days).length} day(s) of history`);
 }
