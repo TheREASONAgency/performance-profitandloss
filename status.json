@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T09:09:39.340Z",
+  "generatedAt": "2026-11-13T16:15:07.705Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -28,27 +28,13 @@
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13097050406",
         "platform": "Meta",
         "group": "Break/Fix HQ",
-        "status": "off_track",
-        "rawLabel": "Over",
+        "status": "paused",
+        "rawLabel": "N/A",
         "cpaTarget": 280,
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": 11196.83
-      },
-      {
-        "id": "12414815129",
-        "name": "WIN ($325)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "off_track",
-        "rawLabel": "Over",
-        "cpaTarget": 325,
-        "cpaToday": null,
-        "cpaL7d": 1428.99,
-        "cpaGap": 1103.99,
-        "adSpend": 3350.72
       },
       {
         "id": "12968522996",
@@ -183,11 +169,11 @@
         "platform": "Meta",
         "group": "Break/Fix HQ",
         "status": "unknown",
-        "rawLabel": "Pushing CPA",
+        "rawLabel": "CPA Trending Down",
         "cpaTarget": 300,
         "cpaToday": null,
-        "cpaL7d": 1052.56,
-        "cpaGap": 752.56,
+        "cpaL7d": 281.05,
+        "cpaGap": -18.94999999999999,
         "adSpend": 12576.38
       },
       {
@@ -233,6 +219,20 @@
         "adSpend": 75
       },
       {
+        "id": "12414815129",
+        "name": "WIN ($325)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12414815129",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "CPA Trending Down",
+        "cpaTarget": 325,
+        "cpaToday": null,
+        "cpaL7d": 536.06,
+        "cpaGap": 211.05999999999995,
+        "adSpend": 3350.72
+      },
+      {
         "id": "13516146631",
         "name": "YMD ED",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13516146631",
@@ -249,9 +249,9 @@
     ],
     "counts": {
       "on_track": 0,
-      "off_track": 2,
-      "paused": 9,
-      "unknown": 5
+      "off_track": 0,
+      "paused": 10,
+      "unknown": 6
     }
   },
   "managed": {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-13T09:09:21Z",
+    "dataUpdated": "2026-11-13T16:14:49Z",
     "monthLabel": "November 2026",
     "daysElapsed": 13,
     "daysBasis": 30,
@@ -567,10 +567,10 @@
       ]
     },
     "accounts": {
-      "active": 9,
+      "active": 7,
       "onTrack": 4,
-      "offTrack": 5,
-      "paused": 17,
+      "offTrack": 3,
+      "paused": 18,
       "total": 32
     }
   },
@@ -580,7 +580,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$583,000",
-      "actual": "$214,813",
+      "actual": "$225,510",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -947,7 +947,7 @@
             "row": 23,
             "cells": [
               "$300",
-              "$1,052.56",
+              "$281.05",
               "$22,000",
               "$12,576.38"
             ],
@@ -961,7 +961,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 1052.56
+                "value": 281.05
               },
               {
                 "col": 3,
@@ -1017,7 +1017,7 @@
             "row": 26,
             "cells": [
               "$325",
-              "$1,428.99",
+              "$536.06",
               "$20,000",
               "$3,350.72"
             ],
@@ -1031,7 +1031,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 1428.99
+                "value": 536.06
               },
               {
                 "col": 3,
@@ -1070,8 +1070,8 @@
               "",
               "0",
               "0",
-              "70",
-              "22"
+              "120",
+              "42"
             ],
             "toggle": null
           },
@@ -1118,8 +1118,8 @@
               "$22,000",
               "2",
               "1",
-              "70",
-              "22"
+              "120",
+              "42"
             ],
             "toggle": null
           },
@@ -1306,7 +1306,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$583,000",
-          "actual": "$214,813",
+          "actual": "$225,510",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1316,7 +1316,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$179,500",
-          "actual": "$79,116",
+          "actual": "$89,813",
           "toggle": {
             "cell": "E3",
             "state": "on"
