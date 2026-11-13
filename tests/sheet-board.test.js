@@ -306,3 +306,17 @@ test("trends: Meta daily data drives exact 7d/28d spend and CPA windows", () => 
   assert.ok(m.w28.spendChange > 0);
   assert.equal(tr.metaWindows(daily, "2026-11-20"), null); // stale data is ignored
 });
+
+test("trends: Meta spend with zero Meta results keeps the CPA line from snapshots", () => {
+  const tr = require("../lib/trends");
+  const days = {}, meta = {};
+  for (let i = 9; i >= 1; i--) {
+    const d = new Date(Date.parse("2026-11-13") - i * 86400000).toISOString().slice(0, 10);
+    days[d] = { A: { mtd: 1, cpa: 100 + i } };
+    meta[d] = { spend: 500, results: 0 };
+  }
+  const w = tr.summarize(days, "A", "2026-11-13", meta).w7;
+  assert.equal(w.source, "Meta");
+  assert.ok(w.spendPts.length >= 2);
+  assert.ok(w.cpaPts.length >= 2);
+});
