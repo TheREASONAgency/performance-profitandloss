@@ -206,9 +206,11 @@
   .bd .tg-cell { text-align:right; width:1%; }
   .bd-gray { --g:#8a8f98; } .bd-blue { --g:#3d85c6; } .bd-purple { --g:#8e7cc3; } .bd-green { --g:#6aa84f; }
   .bd-block { margin-bottom:14px; border:1px solid color-mix(in srgb, var(--g, var(--rule)) 40%, transparent); border-radius:3px; overflow-x:auto; }
-  .bd-block tbody td, .bd-block thead th { background:color-mix(in srgb, var(--g, transparent) 16%, transparent) !important; }
-  .bd-block.bd-sheet tbody td, .bd-block.bd-sheet thead th { background:color-mix(in srgb, var(--g) 70%, var(--surface-0)) !important; }
+  .bd-block tbody td, .bd-block thead th { background:color-mix(in srgb, var(--g, #ffffff) 16%, #ffffff) !important; }
+  .bd-block.bd-sheet tbody td, .bd-block.bd-sheet thead th { background:color-mix(in srgb, var(--g) 70%, #ffffff) !important; }
   .bd-block tbody tr:last-child td { border-bottom:none; }
+  /* Table text is black on the light sheet colors, in every theme, for readability. */
+  .bd-block th, .bd-block td, .bd-block td a, .bd-block .trd-note, .bd-block .trd-cell .spark, .tile-k, .tile-v, .tile-s { color:#000 !important; }
   .tg { font:inherit; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;
     min-width:92px; padding:5px 10px; border-radius:2px; border:1px solid var(--rule); background:var(--surface-2); color:var(--text-secondary); }
   .tg.on  { background:var(--good); border-color:var(--good); color:#fff; }
