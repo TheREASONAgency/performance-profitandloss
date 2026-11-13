@@ -290,3 +290,19 @@ test("trends: 7/28-day windows carry spend + CPA points, and stale MTD gives no 
   const stale = tr.series({ "2026-10-31": { A: { mtd: 5000, cpa: 1 } }, "2026-11-01": { A: { mtd: 5000, cpa: 1 } } }, "A");
   assert.equal(stale[1].spend, null);
 });
+
+test("trends: Meta daily data drives exact 7d/28d spend and CPA windows", () => {
+  const tr = require("../lib/trends");
+  const daily = {};
+  for (let i = 0; i < 56; i++) {
+    const d = new Date(Date.parse("2026-11-12") - i * 86400000).toISOString().slice(0, 10);
+    const week = Math.floor(i / 7);
+    daily[d] = { spend: 100 + (7 - week) * 10, results: week < 1 ? 4 : week < 4 ? 2 : 1 }; // spend rising, CPA falling
+  }
+  const m = tr.metaWindows(daily, "2026-11-13");
+  assert.equal(m.w7.spendPts.length, 7);
+  assert.ok(m.w7.spendChange > 0);
+  assert.ok(m.w7.cpaChange < 0);
+  assert.ok(m.w28.spendChange > 0);
+  assert.equal(tr.metaWindows(daily, "2026-11-20"), null); // stale data is ignored
+});
