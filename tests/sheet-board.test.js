@@ -276,3 +276,17 @@ test("cpaFromSheet rows keep the sheet CPA; Monday only supplies spend", () => {
   assert.equal(model.groups[0].rows[0].cells[3], "$270");
   assert.equal(model.groups[0].rows[0].cells[1], "$22,307");
 });
+
+test("trends: 7/28-day windows carry spend + CPA points, and stale MTD gives no spend", () => {
+  const tr = require("../lib/trends");
+  const days = {};
+  for (let d = 1; d <= 14; d++) days["2026-11-" + String(d).padStart(2, "0")] = { A: { mtd: d * 100, cpa: 200 - d } };
+  const w = tr.summarize(days, "A", "2026-11-14").w7;
+  assert.equal(w.spendPts.length, 7);
+  assert.equal(w.cpaPts.length, 7);
+  assert.ok(w.spendChange === 0 || Math.abs(w.spendChange) < 0.01);
+  assert.ok(w.cpaChange < 0);
+  assert.equal(tr.summarize(days, "A", "2026-11-14").w28.spendChange, null); // prior 28 days missing
+  const stale = tr.series({ "2026-10-31": { A: { mtd: 5000, cpa: 1 } }, "2026-11-01": { A: { mtd: 5000, cpa: 1 } } }, "A");
+  assert.equal(stale[1].spend, null);
+});
