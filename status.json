@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T19:14:35.690Z",
+  "generatedAt": "2026-11-13T20:44:51.754Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -580,7 +580,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$583,000",
-      "actual": "$221,638",
+      "actual": "$230,018",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -997,14 +997,7 @@
               "state": null,
               "countCell": "G26",
               "count": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "N/A (no Monday L7D CPA)",
-                "value": "N/A"
-              }
-            ]
+            }
           },
           {
             "label": "SHED",
@@ -1021,14 +1014,7 @@
               "state": null,
               "countCell": "G27",
               "count": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "N/A (no Monday L7D CPA)",
-                "value": "N/A"
-              }
-            ]
+            }
           },
           {
             "label": "HEY",
@@ -1354,7 +1340,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$583,000",
-          "actual": "$221,638",
+          "actual": "$230,018",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1364,7 +1350,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$179,500",
-          "actual": "$85,941",
+          "actual": "$94,321",
           "toggle": {
             "cell": "E3",
             "state": "on"
