@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T16:16:52.990Z",
+  "generatedAt": "2026-11-13T19:14:35.690Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -421,14 +421,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 45000,
-        "profit": 10986,
+        "profit": 10714,
         "live": true,
-        "lastEntry": "2026-11-11",
+        "lastEntry": "2026-11-12",
         "daysElapsed": 13,
         "dailyTarget": 1500,
         "expectedToDate": 19500,
-        "delta": -8514,
-        "pacingPct": 56.33846153846154,
+        "delta": -8786,
+        "pacingPct": 54.94358974358975,
         "status": "off_track"
       },
       {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-13T16:16:37Z",
+    "dataUpdated": "2026-11-13T19:14:19Z",
     "monthLabel": "November 2026",
     "daysElapsed": 13,
     "daysBasis": 30,
@@ -547,12 +547,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 63647,
+      "qtdPl": 63375,
       "daysElapsed": 44,
       "daysInQuarter": 92,
       "proratedTarget": 114782.60869565218,
-      "progressPct": 26.519583333333337,
-      "pacingPct": 55.45003787878788,
+      "progressPct": 26.406249999999996,
+      "pacingPct": 55.21306818181818,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -580,7 +580,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$583,000",
-      "actual": "$225,510",
+      "actual": "$221,638",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -685,9 +685,21 @@
             ]
           },
           {
-            "label": "BHA",
+            "label": "J+B",
             "total": false,
             "row": 9,
+            "cells": [
+              "$400,000",
+              "",
+              "",
+              ""
+            ],
+            "toggle": null
+          },
+          {
+            "label": "BHA",
+            "total": false,
+            "row": 10,
             "cells": [
               "$100,000",
               "$21,003.90",
@@ -695,9 +707,9 @@
               "$1,898"
             ],
             "toggle": {
-              "cell": "F9",
+              "cell": "F10",
               "state": "hold",
-              "countCell": "G9",
+              "countCell": "G10",
               "count": 1
             },
             "filled": [
@@ -705,35 +717,6 @@
                 "col": 1,
                 "source": "Monday (MTD Spend)",
                 "value": 21003.9
-              }
-            ]
-          },
-          {
-            "label": "KEE-ED",
-            "total": false,
-            "row": 10,
-            "cells": [
-              "$100,000",
-              "$20,662.75",
-              "$240",
-              "$220.01"
-            ],
-            "toggle": {
-              "cell": "F10",
-              "state": "on",
-              "countCell": "G10",
-              "count": null
-            },
-            "filled": [
-              {
-                "col": 3,
-                "source": "Monday (L7D CPA)",
-                "value": 220.01
-              },
-              {
-                "col": 1,
-                "source": "Monday (MTD Spend)",
-                "value": 20662.75
               }
             ]
           }
@@ -756,56 +739,33 @@
         ],
         "toggleCol": 5,
         "toggleHeader": "CPA Stable and Spend Increasing",
-        "headerRow": 12,
+        "headerRow": 13,
         "rows": [
           {
             "label": "KEE-HL",
             "total": false,
-            "row": 13,
+            "row": 14,
             "cells": [
               "$40,000",
-              "$10,986",
+              "$10,714",
               "$240",
               "$204"
             ],
             "toggle": {
-              "cell": "F13",
-              "state": "on",
-              "countCell": "G13",
-              "count": null
+              "cell": "F14",
+              "state": "off",
+              "countCell": "G14",
+              "count": 1
             }
           },
           {
             "label": "TRX",
             "total": false,
-            "row": 14,
-            "cells": [
-              "$5,000",
-              "$0",
-              "$350",
-              "N/A"
-            ],
-            "toggle": {
-              "cell": "F14",
-              "state": "hold",
-              "countCell": "G14",
-              "count": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "P&L tracker"
-              }
-            ]
-          },
-          {
-            "label": "MED",
-            "total": false,
             "row": 15,
             "cells": [
               "$5,000",
               "$0",
-              "$375",
+              "$350",
               "N/A"
             ],
             "toggle": {
@@ -822,9 +782,49 @@
             ]
           },
           {
-            "label": "QUAD",
+            "label": "KEE-ED",
             "total": false,
             "row": 16,
+            "cells": [
+              "$100,000",
+              "$20,663",
+              "$240",
+              "$220"
+            ],
+            "toggle": {
+              "cell": "F16",
+              "state": "on",
+              "countCell": "G16",
+              "count": null
+            }
+          },
+          {
+            "label": "MED",
+            "total": false,
+            "row": 17,
+            "cells": [
+              "$5,000",
+              "$0",
+              "$375",
+              "N/A"
+            ],
+            "toggle": {
+              "cell": "F17",
+              "state": "hold",
+              "countCell": "G17",
+              "count": null
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "P&L tracker"
+              }
+            ]
+          },
+          {
+            "label": "QUAD",
+            "total": false,
+            "row": 18,
             "cells": [
               "$5,000",
               "-$2,438",
@@ -832,16 +832,16 @@
               "$427"
             ],
             "toggle": {
-              "cell": "F16",
+              "cell": "F18",
               "state": "hold",
-              "countCell": "G16",
+              "countCell": "G18",
               "count": 1
             }
           },
           {
             "label": "DMN",
             "total": false,
-            "row": 17,
+            "row": 19,
             "cells": [
               "$5,000",
               "",
@@ -849,9 +849,9 @@
               "$667"
             ],
             "toggle": {
-              "cell": "F17",
+              "cell": "F19",
               "state": "hold",
-              "countCell": "G17",
+              "countCell": "G19",
               "count": 1
             }
           }
@@ -874,49 +874,8 @@
         ],
         "toggleCol": 5,
         "toggleHeader": "",
-        "headerRow": 19,
+        "headerRow": 21,
         "rows": [
-          {
-            "label": "HEY",
-            "total": false,
-            "row": 20,
-            "cells": [
-              "$225",
-              "N/A",
-              "$20,000",
-              "$0"
-            ],
-            "toggle": {
-              "cell": "F20",
-              "state": "hold",
-              "countCell": "G20",
-              "count": null
-            }
-          },
-          {
-            "label": "YMD",
-            "total": false,
-            "row": 21,
-            "cells": [
-              "$350",
-              "N/A",
-              "$20,000",
-              "$600.05"
-            ],
-            "toggle": {
-              "cell": "F21",
-              "state": "hold",
-              "countCell": "G21",
-              "count": null
-            },
-            "filled": [
-              {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 600.05
-              }
-            ]
-          },
           {
             "label": "GAL",
             "total": false,
@@ -953,9 +912,9 @@
             ],
             "toggle": {
               "cell": "F23",
-              "state": "off",
+              "state": "on",
               "countCell": "G23",
-              "count": null
+              "count": 1
             },
             "filled": [
               {
@@ -971,50 +930,9 @@
             ]
           },
           {
-            "label": "HUM",
-            "total": false,
-            "row": 24,
-            "cells": [
-              "$320",
-              "N/A",
-              "$20,000",
-              "$75"
-            ],
-            "toggle": {
-              "cell": "F24",
-              "state": "off",
-              "countCell": "G24",
-              "count": null
-            },
-            "filled": [
-              {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 75
-              }
-            ]
-          },
-          {
-            "label": "EDE",
-            "total": false,
-            "row": 25,
-            "cells": [
-              "$200",
-              "N/A",
-              "$25,000",
-              "$0"
-            ],
-            "toggle": {
-              "cell": "F25",
-              "state": "hold",
-              "countCell": "G25",
-              "count": null
-            }
-          },
-          {
             "label": "WIN",
             "total": false,
-            "row": 26,
+            "row": 24,
             "cells": [
               "$325",
               "$536.06",
@@ -1022,10 +940,10 @@
               "$3,350.72"
             ],
             "toggle": {
-              "cell": "F26",
-              "state": "off",
-              "countCell": "G26",
-              "count": null
+              "cell": "F24",
+              "state": "on",
+              "countCell": "G24",
+              "count": 1
             },
             "filled": [
               {
@@ -1039,6 +957,136 @@
                 "value": 3350.72
               }
             ]
+          },
+          {
+            "label": "HUM",
+            "total": false,
+            "row": 25,
+            "cells": [
+              "$320",
+              "N/A",
+              "$20,000",
+              "$75"
+            ],
+            "toggle": {
+              "cell": "F25",
+              "state": "off",
+              "countCell": "G25",
+              "count": null
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)",
+                "value": 75
+              }
+            ]
+          },
+          {
+            "label": "REV",
+            "total": false,
+            "row": 26,
+            "cells": [
+              "$65",
+              "N/A",
+              "",
+              ""
+            ],
+            "toggle": {
+              "cell": "F26",
+              "state": null,
+              "countCell": "G26",
+              "count": null
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
+          },
+          {
+            "label": "SHED",
+            "total": false,
+            "row": 27,
+            "cells": [
+              "TBD",
+              "N/A",
+              "",
+              ""
+            ],
+            "toggle": {
+              "cell": "F27",
+              "state": null,
+              "countCell": "G27",
+              "count": null
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
+          },
+          {
+            "label": "HEY",
+            "total": false,
+            "row": 28,
+            "cells": [
+              "$225",
+              "N/A",
+              "$20,000",
+              "$0"
+            ],
+            "toggle": {
+              "cell": "F28",
+              "state": "hold",
+              "countCell": "G28",
+              "count": null
+            }
+          },
+          {
+            "label": "YMD",
+            "total": false,
+            "row": 29,
+            "cells": [
+              "$350",
+              "N/A",
+              "$20,000",
+              "$600.05"
+            ],
+            "toggle": {
+              "cell": "F29",
+              "state": "hold",
+              "countCell": "G29",
+              "count": null
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday (MTD Spend)",
+                "value": 600.05
+              }
+            ]
+          },
+          {
+            "label": "EDE",
+            "total": false,
+            "row": 30,
+            "cells": [
+              "$200",
+              "N/A",
+              "$25,000",
+              "$0"
+            ],
+            "toggle": {
+              "cell": "F30",
+              "state": "hold",
+              "countCell": "G30",
+              "count": null
+            }
           }
         ],
         "color": "#cccccc",
@@ -1060,12 +1108,12 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "",
-        "headerRow": 29,
+        "headerRow": 33,
         "rows": [
           {
             "label": "Actual",
             "total": false,
-            "row": 30,
+            "row": 34,
             "cells": [
               "",
               "0",
@@ -1078,7 +1126,7 @@
           {
             "label": "Target",
             "total": false,
-            "row": 31,
+            "row": 35,
             "cells": [
               "$37,500",
               "2",
@@ -1108,12 +1156,12 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "",
-        "headerRow": 34,
+        "headerRow": 38,
         "rows": [
           {
             "label": "Actual",
             "total": false,
-            "row": 35,
+            "row": 39,
             "cells": [
               "$22,000",
               "2",
@@ -1126,7 +1174,7 @@
           {
             "label": "Target",
             "total": false,
-            "row": 36,
+            "row": 40,
             "cells": [
               "$122,500",
               "3",
@@ -1156,12 +1204,12 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "",
-        "headerRow": 39,
+        "headerRow": 43,
         "rows": [
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 40,
+            "row": 44,
             "cells": [
               "5",
               "",
@@ -1170,16 +1218,16 @@
               "0 of 10"
             ],
             "toggle": {
-              "cell": "G40",
+              "cell": "G44",
               "state": "off",
-              "countCell": "H40",
+              "countCell": "H44",
               "count": null
             }
           },
           {
             "label": "PV Lite",
             "total": false,
-            "row": 41,
+            "row": 45,
             "cells": [
               "1",
               "",
@@ -1188,16 +1236,16 @@
               "0 of 3"
             ],
             "toggle": {
-              "cell": "G41",
+              "cell": "G45",
               "state": "on",
-              "countCell": "H41",
+              "countCell": "H45",
               "count": null
             }
           },
           {
             "label": "Total:",
             "total": true,
-            "row": 42,
+            "row": 46,
             "cells": [
               "6",
               "0",
@@ -1206,9 +1254,9 @@
               ""
             ],
             "toggle": {
-              "cell": "G42",
+              "cell": "G46",
               "state": "off",
-              "countCell": "H42",
+              "countCell": "H46",
               "count": null
             }
           }
@@ -1232,12 +1280,12 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "",
-        "headerRow": 44,
+        "headerRow": 48,
         "rows": [
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 45,
+            "row": 49,
             "cells": [
               "5",
               "1",
@@ -1246,16 +1294,16 @@
               "1 of 10"
             ],
             "toggle": {
-              "cell": "G45",
+              "cell": "G49",
               "state": "off",
-              "countCell": "H45",
+              "countCell": "H49",
               "count": null
             }
           },
           {
             "label": "PV Lite",
             "total": false,
-            "row": 46,
+            "row": 50,
             "cells": [
               "1",
               "2",
@@ -1264,16 +1312,16 @@
               "2 of 3"
             ],
             "toggle": {
-              "cell": "G46",
+              "cell": "G50",
               "state": "on",
-              "countCell": "H46",
+              "countCell": "H50",
               "count": null
             }
           },
           {
             "label": "Total:",
             "total": true,
-            "row": 47,
+            "row": 51,
             "cells": [
               "6",
               "3",
@@ -1282,9 +1330,9 @@
               ""
             ],
             "toggle": {
-              "cell": "G47",
+              "cell": "G51",
               "state": "off",
-              "countCell": "H47",
+              "countCell": "H51",
               "count": null
             }
           }
@@ -1306,7 +1354,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$583,000",
-          "actual": "$225,510",
+          "actual": "$221,638",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1316,7 +1364,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$179,500",
-          "actual": "$89,813",
+          "actual": "$85,941",
           "toggle": {
             "cell": "E3",
             "state": "on"
@@ -1327,7 +1375,7 @@
     "monthlyResults": [
       {
         "label": "Monthly : October",
-        "row": 49,
+        "row": 53,
         "target": "$154,500",
         "actual": "$135,697",
         "pct": "87.83%",
