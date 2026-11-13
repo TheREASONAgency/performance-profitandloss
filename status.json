@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T09:07:45.748Z",
+  "generatedAt": "2026-11-13T09:09:39.340Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -32,8 +32,8 @@
         "rawLabel": "Over",
         "cpaTarget": 280,
         "cpaToday": null,
-        "cpaL7d": 1193.02,
-        "cpaGap": 913.02,
+        "cpaL7d": null,
+        "cpaGap": null,
         "adSpend": 11196.83
       },
       {
@@ -80,7 +80,7 @@
       },
       {
         "id": "12703976002",
-        "name": "HEY ($225)",
+        "name": "HOA (prev HEY FEELS) ($225)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12703976002",
         "platform": "Meta",
         "group": "Break/Fix HQ",
@@ -424,11 +424,11 @@
         "profit": 10986,
         "live": true,
         "lastEntry": "2026-11-11",
-        "daysElapsed": 12,
+        "daysElapsed": 13,
         "dailyTarget": 1500,
-        "expectedToDate": 18000,
-        "delta": -7014,
-        "pacingPct": 61.03333333333333,
+        "expectedToDate": 19500,
+        "delta": -8514,
+        "pacingPct": 56.33846153846154,
         "status": "off_track"
       },
       {
@@ -536,9 +536,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-12T09:07:26Z",
+    "dataUpdated": "2026-11-13T09:09:21Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 12,
+    "daysElapsed": 13,
     "daysBasis": 30,
     "warnings": []
   },
@@ -548,11 +548,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 63647,
-      "daysElapsed": 43,
+      "daysElapsed": 44,
       "daysInQuarter": 92,
-      "proratedTarget": 112173.91304347826,
+      "proratedTarget": 114782.60869565218,
       "progressPct": 26.519583333333337,
-      "pacingPct": 56.73957364341086,
+      "pacingPct": 55.45003787878788,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -610,7 +610,7 @@
               "$100,000",
               "$10,675.15",
               "$65",
-              "$101.79"
+              "$118.34"
             ],
             "toggle": {
               "cell": "F6",
@@ -622,7 +622,7 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 101.79
+                "value": 118.34
               },
               {
                 "col": 1,
@@ -692,7 +692,7 @@
               "$100,000",
               "$21,003.90",
               "$320",
-              "$1,898.48"
+              "$1,898"
             ],
             "toggle": {
               "cell": "F9",
@@ -701,11 +701,6 @@
               "count": 1
             },
             "filled": [
-              {
-                "col": 3,
-                "source": "Monday (L7D CPA)",
-                "value": 1898.48
-              },
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
