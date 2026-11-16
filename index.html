@@ -1283,7 +1283,7 @@ function buyerPanel(d, b) {
       g.rows.forEach(r => {
         h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
           r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
-          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td><td class='trd-cell'" + (r.total || !/^(spend|profit|pv)$/.test(g.kind || "") ? "" : " data-label='" + esc(r.label) + "'") + "></td></tr>";
+          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td>" + trendCells(g, r) + "</tr>";
       });
       h += "</tbody></table></div>";
     });
@@ -1313,6 +1313,11 @@ function buyerPanel(d, b) {
     btn.textContent = TG_TXT[state] || "Set status";
   }
 
+  function trendCells(g, r) {
+    const a = r.total || !/^(spend|profit|pv)$/.test(g.kind || "") ? "" : " data-label='" + esc(r.label) + "'";
+    return "<td class='trd-cell'" + a + " data-win='7'></td><td class='trd-cell'" + a + " data-win='28'></td>";
+  }
+
   /* ---- Trends: 7-day / 28-day checkpoints from the daily snapshot (trends.json) ---- */
   let TRENDS = null;
   const arrow = p => p == null ? "" : (p > 0.005 ? "&#9650;" : p < -0.005 ? "&#9660;" : "&#9644;") + Math.abs(Math.round(p * 100)) + "%";
@@ -1324,7 +1329,7 @@ function buyerPanel(d, b) {
   }
   // Spend = green, CPA = blue; each line is scaled to its own range.
   function sparkSvg(w) {
-    const W = 96, H = 26, g = (w.spendPts || []).some(p => p[1] > 0) ? line(w.spendPts, "#16a34a", W, H) : "", c = line(w.cpaPts, "#2563eb", W, H);
+    const W = 96, H = 26, g = w.source === "Meta" && (w.spendPts || []).some(p => p[1] > 0) ? line(w.spendPts, "#16a34a", W, H) : "", c = line(w.cpaPts, "#2563eb", W, H);
     if (!g && !c) return "<span class='trd-note'>building</span>";
     return "<svg class='spark' width='" + W + "' height='" + H + "' viewBox='0 0 " + W + " " + H + "' aria-hidden='true'>" + g + c + "</svg>";
   }
@@ -1334,7 +1339,7 @@ function buyerPanel(d, b) {
       const s = TRENDS.summary[td.dataset.label], w = s && s["w" + td.dataset.win];
       if (!w) { td.innerHTML = "<span class='trd-note'>No history yet</span>"; return; }
       const txt = "<span class='trd-note' title='Spend: avg daily spend vs the prior " + w.days + " days. CPA: now vs " + w.days + " days ago.'>" +
-        "<span class='trd-g'>Spend " + (arrow(w.spendChange) || "&ndash;") + "</span> &middot; <span class='trd-b'>CPA " + (arrow(w.cpaChange) || "&ndash;") + "</span></span>";
+        "<span class='trd-g'>Spend " + (w.source === "Meta" && arrow(w.spendChange) || "&ndash;") + "</span> &middot; <span class='trd-b'>CPA " + (arrow(w.cpaChange) || "&ndash;") + "</span></span>";
       td.innerHTML = sparkSvg(w) + txt + (td.dataset.win === "7" ? "<br><span class='trd-chip trd-" + esc(s.trend.code) + "'>" + esc(s.trend.text) + "</span>" : "");
     });
   }
