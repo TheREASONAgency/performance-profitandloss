@@ -286,7 +286,7 @@ test("trends: 7/28-day windows carry spend + CPA points, and stale MTD gives no 
   assert.equal(w.cpaPts.length, 7);
   assert.ok(w.spendChange === 0 || Math.abs(w.spendChange) < 0.01);
   assert.ok(w.cpaChange < 0);
-  assert.equal(tr.summarize(days, "A", "2026-11-14").w28.spendChange, null); // prior 28 days missing
+  assert.equal(tr.summarize(days, "A", "2026-11-14").w28.spendChange, 0); // no prior 28 days: steady daily spend across halves
   const stale = tr.series({ "2026-10-31": { A: { mtd: 5000, cpa: 1 } }, "2026-11-01": { A: { mtd: 5000, cpa: 1 } } }, "A");
   assert.equal(stale[1].spend, null);
 });
@@ -333,4 +333,17 @@ test("rows hidden in the sheet are dropped from the board", () => {
   assert.deepEqual(m.groups[0].rows.map((r) => r.label), ["OOO"]);
   sb.dropHidden(m, new Set([4]));
   assert.equal(m.groups.length, 0);
+});
+
+test("trends: accounts without Meta data fall back to the Monday snapshots (flat spend = stable)", () => {
+  const tr = require("../lib/trends");
+  const days = {};
+  for (let i = 20; i >= 0; i--) {
+    const d = new Date(Date.parse("2026-11-16") - i * 86400000).toISOString().slice(0, 10);
+    days[d] = { A: { mtd: 5000, cpa: 300 - i } };
+  }
+  const s = tr.summarize(days, "A", "2026-11-16");
+  assert.equal(s.w7.source, "Monday");
+  assert.equal(s.w7.spendChange, 0);
+  assert.ok(s.w7.cpaChange < 0 || s.w7.cpaChange > 0 || s.w7.cpaChange === 0);
 });
