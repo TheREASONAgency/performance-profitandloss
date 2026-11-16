@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T09:08:18.224Z",
+  "generatedAt": "2026-11-16T15:19:22.197Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -27,7 +27,7 @@
         "name": "DME_NAD+ ($280) (ADV + PT)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13097050406",
         "platform": "Meta",
-        "group": "Break/Fix HQ",
+        "group": "PAUSED",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 280,
@@ -41,7 +41,7 @@
         "name": "EDE ($200)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12968522996",
         "platform": "Meta",
-        "group": "Break/Fix HQ",
+        "group": "PAUSED",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 200,
@@ -51,25 +51,11 @@
         "adSpend": null
       },
       {
-        "id": "12409786926",
-        "name": "GAL (<$400)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "paused",
-        "rawLabel": "N/A",
-        "cpaTarget": 400,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": 812.7
-      },
-      {
         "id": "12703976002",
         "name": "HOA (prev HEY FEELS) ($225)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12703976002",
         "platform": "Meta",
-        "group": "Break/Fix HQ",
+        "group": "PAUSED",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 225,
@@ -139,7 +125,7 @@
         "name": "YMD ($350)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12501823440",
         "platform": "Meta",
-        "group": "Break/Fix HQ",
+        "group": "PAUSED",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 350,
@@ -147,6 +133,20 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": 600.05
+      },
+      {
+        "id": "13516146631",
+        "name": "YMD ED",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13516146631",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": null,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": null
       },
       {
         "id": "12409812564",
@@ -169,12 +169,26 @@
         "platform": "Meta",
         "group": "Break/Fix HQ",
         "status": "unknown",
-        "rawLabel": "CPA Trending Down",
+        "rawLabel": "SAP THIS WEEK",
         "cpaTarget": 300,
         "cpaToday": null,
-        "cpaL7d": 281.05,
-        "cpaGap": -18.94999999999999,
+        "cpaL7d": 995.6,
+        "cpaGap": 695.6,
         "adSpend": 12576.38
+      },
+      {
+        "id": "12409786926",
+        "name": "GAL (<$400)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "CPA Trending Down",
+        "cpaTarget": 400,
+        "cpaToday": null,
+        "cpaL7d": 443.93,
+        "cpaGap": 43.93000000000001,
+        "adSpend": 812.7
       },
       {
         "id": "13276477296",
@@ -228,23 +242,9 @@
         "rawLabel": "CPA Trending Down",
         "cpaTarget": 325,
         "cpaToday": null,
-        "cpaL7d": 536.06,
-        "cpaGap": 211.05999999999995,
+        "cpaL7d": 436.79,
+        "cpaGap": 111.79000000000002,
         "adSpend": 3350.72
-      },
-      {
-        "id": "13516146631",
-        "name": "YMD ED",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13516146631",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": null,
-        "cpaTarget": null,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": null
       }
     ],
     "counts": {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-16T09:08:00Z",
+    "dataUpdated": "2026-11-16T15:19:02Z",
     "monthLabel": "November 2026",
     "daysElapsed": 16,
     "daysBasis": 30,
@@ -580,7 +580,7 @@
       "kind": "quarterly",
       "label": "Quarterly Goal",
       "revenue": "$583,000",
-      "actual": "$230,018",
+      "actual": "$208,794",
       "toggle": {
         "cell": "E2",
         "state": "on"
@@ -882,17 +882,22 @@
             "row": 22,
             "cells": [
               "$400",
-              "N/A",
+              "$443.93",
               "$20,000",
               "$812.70"
             ],
             "toggle": {
               "cell": "F22",
-              "state": "hold",
+              "state": "on",
               "countCell": "G22",
-              "count": null
+              "count": 1
             },
             "filled": [
+              {
+                "col": 1,
+                "source": "Monday (L7D CPA)",
+                "value": 443.93
+              },
               {
                 "col": 3,
                 "source": "Monday (MTD Spend)",
@@ -906,7 +911,7 @@
             "row": 23,
             "cells": [
               "$300",
-              "$281.05",
+              "$995.60",
               "$22,000",
               "$12,576.38"
             ],
@@ -920,7 +925,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 281.05
+                "value": 995.6
               },
               {
                 "col": 3,
@@ -935,7 +940,7 @@
             "row": 24,
             "cells": [
               "$325",
-              "$536.06",
+              "$436.79",
               "$20,000",
               "$3,350.72"
             ],
@@ -949,7 +954,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 536.06
+                "value": 436.79
               },
               {
                 "col": 3,
@@ -1340,7 +1345,7 @@
           "kind": "quarterly",
           "label": "Quarterly Goal",
           "revenue": "$583,000",
-          "actual": "$230,018",
+          "actual": "$208,794",
           "toggle": {
             "cell": "E2",
             "state": "on"
@@ -1350,7 +1355,7 @@
           "kind": "monthly",
           "label": "Monthly Goal",
           "revenue": "$179,500",
-          "actual": "$94,321",
+          "actual": "$73,097",
           "toggle": {
             "cell": "E3",
             "state": "on"
