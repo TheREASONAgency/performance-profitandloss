@@ -320,3 +320,17 @@ test("trends: Meta spend with zero Meta results keeps the CPA line from snapshot
   assert.ok(w.spendPts.length >= 2);
   assert.ok(w.cpaPts.length >= 2);
 });
+
+test("rows hidden in the sheet are dropped from the board", () => {
+  const rows = [
+    ["", "Total Revenue", "Actual Revenue"], ["Quarterly Goal:", "$1", "$1", "", "On Track"], ["Monthly Goal:", "$1", "$1", "", "On Track"],
+    ["Partner", "Target Spend", "Acutal MTD", "Target CPA", "CPA", "CPA Stable"],
+    ["OOO", "$1", "$1", "$1", "$1", "On Track"], ["LFA", "$1", "$1", "$1", "$1", "On Track"],
+  ];
+  const m = sb.parseBoard(rows, config.board);
+  sb.dropHidden(m, new Set([3, 6]));
+  assert.deepEqual(m.goals.rows.map((g) => g.kind), ["quarterly"]);
+  assert.deepEqual(m.groups[0].rows.map((r) => r.label), ["OOO"]);
+  sb.dropHidden(m, new Set([4]));
+  assert.equal(m.groups.length, 0);
+});
