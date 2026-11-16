@@ -210,7 +210,7 @@
   .bd-block.bd-sheet tbody td, .bd-block.bd-sheet thead th { background:color-mix(in srgb, var(--g) 70%, #ffffff) !important; }
   .bd-block tbody tr:last-child td { border-bottom:none; }
   /* Table text is black on the light sheet colors, in every theme, for readability. */
-  .bd-block th, .bd-block td, .bd-block td a, .bd-block .trd-note, .bd-block .trd-cell .spark, .tile-k, .tile-v, .tile-s { color:#000 !important; }
+  .bd-block th, .bd-block td, .bd-block td a, .bd-block .trd-note, .tile-k, .tile-v, .tile-s { color:#000 !important; }
   .tg { font:inherit; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;
     min-width:92px; padding:5px 10px; border-radius:2px; border:1px solid var(--rule); background:var(--surface-2); color:var(--text-secondary); }
   .tg.on  { background:var(--good); border-color:var(--good); color:#fff; }
@@ -222,14 +222,12 @@
   .bd .dys-cell { text-align:left; width:1%; white-space:nowrap; padding-left:14px; }
   .bd .trd-cell { text-align:left; white-space:nowrap; padding-left:14px; }
   .bd .trd-cell .spark { display:inline-block; width:96px; height:26px; max-width:96px; vertical-align:middle; margin-right:8px; color:var(--text-secondary); }
-  .trd-chip { display:inline-block; font-size:11px; font-weight:700; padding:3px 8px; border-radius:2px; margin-right:8px; border:1px solid transparent; }
-  .trd-good { background:color-mix(in srgb, var(--good) 18%, transparent); color:var(--good); border-color:var(--good); }
-  .trd-bad  { background:color-mix(in srgb, var(--bad) 16%, transparent); color:var(--bad); border-color:var(--bad); }
-  .trd-flat { background:#facc1533; color:#7a5b00; border-color:#eab308; }
-  .trd-building, .trd-none { color:var(--text-muted); border-color:var(--rule); }
+  .tr-chip { display:inline-block; font-size:11px; font-weight:700; padding:4px 9px; border-radius:2px; border:1px solid transparent; white-space:nowrap; }
+  .tr-green  { background:#16a34a2e; color:#15803d; border-color:#16a34a; }
+  .tr-yellow { background:#facc1538; color:#7a5b00; border-color:#eab308; }
+  .tr-orange { background:#f973162e; color:#9a3d00; border-color:#ea6a0c; }
+  .tr-red    { background:#dc26262e; color:#991b1b; border-color:#dc2626; }
   .trd-note { font-size:11px; color:var(--text-muted); }
-  .trd-g { border-bottom:2px solid #16a34a; } .trd-b { border-bottom:2px solid #2563eb; }
-  .bd .trd-cell .trd-chip { margin-top:4px; }
   .tg.hold { background:#facc15; border-color:#eab308; color:#422006; }
   .tg:disabled { opacity:.55; cursor:wait; }
   .bd-total td { font-weight:700; border-top:2px solid color-mix(in srgb, var(--g) 55%, transparent); }
@@ -1320,27 +1318,20 @@ function buyerPanel(d, b) {
 
   /* ---- Trends: 7-day / 28-day checkpoints from the daily snapshot (trends.json) ---- */
   let TRENDS = null;
-  const arrow = p => p == null ? "" : (p > 0.005 ? "&#9650;" : p < -0.005 ? "&#9660;" : "&#9644;") + Math.abs(Math.round(p * 100)) + "%";
-  function line(pts, color, W, H) {
-    if (!pts || pts.length < 2) return "";
-    const v = pts.map(p => p[1]), lo = Math.min.apply(null, v), hi = Math.max.apply(null, v);
-    const xy = v.map((y, i) => (i / (v.length - 1) * (W - 2) + 1).toFixed(1) + "," + (hi === lo ? H / 2 : H - 2 - (y - lo) / (hi - lo) * (H - 4)).toFixed(1));
-    return "<polyline fill='none' stroke='" + color + "' stroke-width='1.8' stroke-linejoin='round' points='" + xy.join(" ") + "'/>";
-  }
-  // Spend = green, CPA = blue; each line is scaled to its own range.
-  function sparkSvg(w) {
-    const W = 96, H = 26, g = w.source === "Meta" && (w.spendPts || []).some(p => p[1] > 0) ? line(w.spendPts, "#16a34a", W, H) : "", c = line(w.cpaPts, "#2563eb", W, H);
-    if (!g && !c) return "<span class='trd-note'>building</span>";
-    return "<svg class='spark' width='" + W + "' height='" + H + "' viewBox='0 0 " + W + " " + H + "' aria-hidden='true'>" + g + c + "</svg>";
+  const pctTxt = p => p == null ? "n/a" : (p >= 0 ? "+" : "") + Math.round(p * 100) + "%";
+  // One chip per window. Spend: Scaling (not down more than 5%) or Falling. CPA: Rising (up more than 10%) or not.
+  function trendChip(w) {
+    if (!w || w.source !== "Meta" || w.spendChange == null || w.cpaChange == null) return "<span class='trd-note'>&ndash;</span>";
+    const falling = w.spendChange < -0.05, rising = w.cpaChange > 0.10;
+    const [cls, txt] = !falling ? (rising ? ["yellow", "Scaling \u00b7 CPA rising"] : ["green", "Scaling \u00b7 CPA down"])
+                                : (rising ? ["red", "Spend falling \u00b7 CPA rising"] : ["orange", "Spend falling \u00b7 CPA stable"]);
+    return "<span class='tr-chip tr-" + cls + "' title='Spend " + pctTxt(w.spendChange) + ", CPA " + pctTxt(w.cpaChange) + " vs the prior " + w.days + " days'>" + txt + "</span>";
   }
   function applyTrends() {
     if (!TRENDS || !TRENDS.summary) return;
     body.querySelectorAll(".trd-cell[data-label]").forEach(td => {
-      const s = TRENDS.summary[td.dataset.label], w = s && s["w" + td.dataset.win];
-      if (!w) { td.innerHTML = "<span class='trd-note'>No history yet</span>"; return; }
-      const txt = "<span class='trd-note' title='Spend: avg daily spend vs the prior " + w.days + " days. CPA: now vs " + w.days + " days ago.'>" +
-        "<span class='trd-g'>Spend " + (w.source === "Meta" && arrow(w.spendChange) || "&ndash;") + "</span> &middot; <span class='trd-b'>CPA " + (arrow(w.cpaChange) || "&ndash;") + "</span></span>";
-      td.innerHTML = sparkSvg(w) + txt + (td.dataset.win === "7" ? "<br><span class='trd-chip trd-" + esc(s.trend.code) + "'>" + esc(s.trend.text) + "</span>" : "");
+      const s = TRENDS.summary[td.dataset.label];
+      td.innerHTML = trendChip(s && s["w" + td.dataset.win]);
     });
   }
   async function loadTrends() {
