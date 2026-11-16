@@ -196,6 +196,10 @@ async function run() {
       const grid = await sheets.getBackgrounds(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range);
       sheetBoard.applyColors(model, grid.map((r) => r.map(sheetBoard.colorHex)));
     } catch (e) { console.warn("Sheet colors not read:", e.message); }
+    // A row hidden in the sheet is not shown on the dashboard (and gets no Monday write-back).
+    try {
+      sheetBoard.dropHidden(model, await sheets.getHiddenRows(process.env[config.board.serviceAccountEnv], config.board.sheetId, config.board.range));
+    } catch (e) { console.warn("Hidden rows not read (showing every row):", e.message); }
     sheetBoard.fillActuals(model, sheetBoard.buildSources({
       cpaRows: out.cpa.rows, mondayAll, matchesAny: logic.matchesAny,
       board: config.board, goalAmount: config.managed.goal.amount,
