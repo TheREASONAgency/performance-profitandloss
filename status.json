@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T15:32:18.709Z",
+  "generatedAt": "2026-11-16T16:26:15.084Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-16T15:32:03Z",
+    "dataUpdated": "2026-11-16T16:25:59Z",
     "monthLabel": "November 2026",
     "daysElapsed": 16,
     "daysBasis": 30,
@@ -775,7 +775,7 @@
             "row": 15,
             "cells": [
               "$100,000",
-              "$20,663",
+              "$24,607",
               "$240",
               "$220"
             ],
@@ -1097,8 +1097,8 @@
               "",
               "0",
               "0",
-              "120",
-              "42"
+              "160",
+              "32"
             ],
             "toggle": null
           },
@@ -1145,8 +1145,8 @@
               "$22,000",
               "2",
               "1",
-              "120",
-              "42"
+              "160",
+              "32"
             ],
             "toggle": null
           },
