@@ -226,6 +226,8 @@
   .tr-green  { background:#16a34a2e; color:#15803d; border-color:#16a34a; }
   .tr-yellow { background:#facc1538; color:#7a5b00; border-color:#eab308; }
   .tr-orange { background:#f973162e; color:#9a3d00; border-color:#ea6a0c; }
+  .tr-lightgreen { background:#86efac40; color:#166534; border-color:#4ade80; }
+  .tr-darkorange { background:#c2410c2e; color:#7c2d12; border-color:#c2410c; }
   .tr-red    { background:#dc26262e; color:#991b1b; border-color:#dc2626; }
   .trd-note { font-size:11px; color:var(--text-muted); }
   .tg.hold { background:#facc15; border-color:#eab308; color:#422006; }
@@ -1319,12 +1321,14 @@ function buyerPanel(d, b) {
   /* ---- Trends: 7-day / 28-day checkpoints from the daily snapshot (trends.json) ---- */
   let TRENDS = null;
   const pctTxt = p => p == null ? "n/a" : (p >= 0 ? "+" : "") + Math.round(p * 100) + "%";
-  // One chip per window. Spend: Scaling (not down more than 5%) or Falling. CPA: Rising (up more than 10%) or not.
+  // One chip per window. Spend: Scaling (up more than 5%), Stable (within 5%) or Falling (down more than 5%).
+  // CPA: Rising (up more than 10%) or not.
   function trendChip(w) {
     if (!w || w.source !== "Meta" || w.spendChange == null || w.cpaChange == null) return "<span class='trd-note'>&ndash;</span>";
-    const falling = w.spendChange < -0.05, rising = w.cpaChange > 0.10;
-    const [cls, txt] = !falling ? (rising ? ["yellow", "Scaling \u00b7 CPA rising"] : ["green", "Scaling \u00b7 CPA down"])
-                                : (rising ? ["red", "Spend falling \u00b7 CPA rising"] : ["orange", "Spend falling \u00b7 CPA stable"]);
+    const sp = w.spendChange > 0.05 ? "up" : w.spendChange < -0.05 ? "down" : "flat", rising = w.cpaChange > 0.10;
+    const [cls, txt] = sp === "up" ? (rising ? ["yellow", "Scaling \u00b7 CPA rising"] : ["green", "Scaling \u00b7 CPA down"])
+      : sp === "flat" ? (rising ? ["darkorange", "Spend stable \u00b7 CPA rising"] : ["lightgreen", "Spend stable \u00b7 CPA down"])
+      : (rising ? ["red", "Spend falling \u00b7 CPA rising"] : ["orange", "Spend falling \u00b7 CPA stable"]);
     return "<span class='tr-chip tr-" + cls + "' title='Spend " + pctTxt(w.spendChange) + ", CPA " + pctTxt(w.cpaChange) + " vs the prior " + w.days + " days'>" + txt + "</span>";
   }
   function applyTrends() {
