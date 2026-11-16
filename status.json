@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T17:34:09.688Z",
+  "generatedAt": "2026-11-16T23:10:37.074Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -728,7 +728,7 @@
             "total": false,
             "row": 15,
             "cells": [
-              "$100,000",
+              "$40,000",
               "$24,607",
               "$240",
               "$220"
@@ -903,64 +903,6 @@
               "cell": "F26",
               "state": null,
               "countCell": "G26",
-              "count": null
-            }
-          },
-          {
-            "label": "HEY",
-            "total": false,
-            "row": 27,
-            "cells": [
-              "$225",
-              "N/A",
-              "$20,000",
-              "$0"
-            ],
-            "toggle": {
-              "cell": "F27",
-              "state": "hold",
-              "countCell": "G27",
-              "count": null
-            }
-          },
-          {
-            "label": "YMD",
-            "total": false,
-            "row": 28,
-            "cells": [
-              "$350",
-              "N/A",
-              "$20,000",
-              "$600.05"
-            ],
-            "toggle": {
-              "cell": "F28",
-              "state": "hold",
-              "countCell": "G28",
-              "count": null
-            },
-            "filled": [
-              {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 600.05
-              }
-            ]
-          },
-          {
-            "label": "EDE",
-            "total": false,
-            "row": 29,
-            "cells": [
-              "$200",
-              "N/A",
-              "$25,000",
-              "$0"
-            ],
-            "toggle": {
-              "cell": "F29",
-              "state": "hold",
-              "countCell": "G29",
               "count": null
             }
           }
