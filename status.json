@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T20:44:51.754Z",
+  "generatedAt": "2026-11-16T09:08:18.224Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -421,14 +421,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 45000,
-        "profit": 10714,
+        "profit": 9669,
         "live": true,
-        "lastEntry": "2026-11-12",
-        "daysElapsed": 13,
+        "lastEntry": "2026-11-14",
+        "daysElapsed": 16,
         "dailyTarget": 1500,
-        "expectedToDate": 19500,
-        "delta": -8786,
-        "pacingPct": 54.94358974358975,
+        "expectedToDate": 24000,
+        "delta": -14331,
+        "pacingPct": 40.2875,
         "status": "off_track"
       },
       {
@@ -536,9 +536,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-13T19:14:19Z",
+    "dataUpdated": "2026-11-16T09:08:00Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 13,
+    "daysElapsed": 16,
     "daysBasis": 30,
     "warnings": []
   },
@@ -547,12 +547,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 63375,
-      "daysElapsed": 44,
+      "qtdPl": 62330,
+      "daysElapsed": 47,
       "daysInQuarter": 92,
-      "proratedTarget": 114782.60869565218,
-      "progressPct": 26.406249999999996,
-      "pacingPct": 55.21306818181818,
+      "proratedTarget": 122608.69565217392,
+      "progressPct": 25.97083333333333,
+      "pacingPct": 50.836524822695026,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -747,7 +747,7 @@
             "row": 14,
             "cells": [
               "$40,000",
-              "$10,714",
+              "$9,669",
               "$240",
               "$204"
             ],
