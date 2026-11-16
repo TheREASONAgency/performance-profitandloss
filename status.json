@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T16:31:25.431Z",
+  "generatedAt": "2026-11-16T17:27:56.369Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-16T16:30:58Z",
+    "dataUpdated": "2026-11-16T17:27:43Z",
     "monthLabel": "November 2026",
     "daysElapsed": 16,
     "daysBasis": 30,
@@ -584,7 +584,7 @@
       "actual": "$208,794",
       "toggle": {
         "cell": "E2",
-        "state": "on"
+        "state": "off"
       }
     },
     "sections": [],
@@ -611,7 +611,7 @@
               "$100,000",
               "$10,675.15",
               "$65",
-              "$118.34"
+              "$71"
             ],
             "toggle": {
               "cell": "F6",
@@ -623,7 +623,7 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 118.34
+                "value": 71
               },
               {
                 "col": 1,
@@ -1234,7 +1234,7 @@
           "actual": "$208,794",
           "toggle": {
             "cell": "E2",
-            "state": "on"
+            "state": "off"
           }
         },
         {
