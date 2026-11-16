@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T16:26:15.084Z",
+  "generatedAt": "2026-11-16T16:31:25.431Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -421,14 +421,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 45000,
-        "profit": 9669,
+        "profit": 9259,
         "live": true,
-        "lastEntry": "2026-11-14",
+        "lastEntry": "2026-11-15",
         "daysElapsed": 16,
         "dailyTarget": 1500,
         "expectedToDate": 24000,
-        "delta": -14331,
-        "pacingPct": 40.2875,
+        "delta": -14741,
+        "pacingPct": 38.579166666666666,
         "status": "off_track"
       },
       {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-16T16:25:59Z",
+    "dataUpdated": "2026-11-16T16:30:58Z",
     "monthLabel": "November 2026",
     "daysElapsed": 16,
     "daysBasis": 30,
@@ -547,12 +547,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 62330,
+      "qtdPl": 61920,
       "daysElapsed": 47,
       "daysInQuarter": 92,
       "proratedTarget": 122608.69565217392,
-      "progressPct": 25.97083333333333,
-      "pacingPct": 50.836524822695026,
+      "progressPct": 25.8,
+      "pacingPct": 50.50212765957447,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -579,6 +579,7 @@
     "quarter": {
       "kind": "quarterly",
       "label": "Quarterly Goal",
+      "row": 2,
       "revenue": "$583,000",
       "actual": "$208,794",
       "toggle": {
@@ -683,30 +684,6 @@
                 "value": 34763.52
               }
             ]
-          },
-          {
-            "label": "BHA",
-            "total": false,
-            "row": 9,
-            "cells": [
-              "$100,000",
-              "$21,003.90",
-              "$320",
-              "$1,898"
-            ],
-            "toggle": {
-              "cell": "F9",
-              "state": "hold",
-              "countCell": "G9",
-              "count": 1
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (MTD Spend)",
-                "value": 21003.9
-              }
-            ]
           }
         ],
         "color": "#cccccc",
@@ -735,7 +712,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$9,669",
+              "$9,259",
               "$240",
               "$204"
             ],
@@ -745,29 +722,6 @@
               "countCell": "G13",
               "count": 1
             }
-          },
-          {
-            "label": "TRX",
-            "total": false,
-            "row": 14,
-            "cells": [
-              "$5,000",
-              "$0",
-              "$350",
-              "N/A"
-            ],
-            "toggle": {
-              "cell": "F14",
-              "state": "hold",
-              "countCell": "G14",
-              "count": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "P&L tracker"
-              }
-            ]
           },
           {
             "label": "KEE-ED",
@@ -784,63 +738,6 @@
               "state": "on",
               "countCell": "G15",
               "count": null
-            }
-          },
-          {
-            "label": "MED",
-            "total": false,
-            "row": 16,
-            "cells": [
-              "$5,000",
-              "$0",
-              "$375",
-              "N/A"
-            ],
-            "toggle": {
-              "cell": "F16",
-              "state": "hold",
-              "countCell": "G16",
-              "count": null
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "P&L tracker"
-              }
-            ]
-          },
-          {
-            "label": "QUAD",
-            "total": false,
-            "row": 17,
-            "cells": [
-              "$5,000",
-              "-$2,438",
-              "$195",
-              "$427"
-            ],
-            "toggle": {
-              "cell": "F17",
-              "state": "hold",
-              "countCell": "G17",
-              "count": 1
-            }
-          },
-          {
-            "label": "DMN",
-            "total": false,
-            "row": 18,
-            "cells": [
-              "$5,000",
-              "",
-              "$280",
-              "$667"
-            ],
-            "toggle": {
-              "cell": "F18",
-              "state": "hold",
-              "countCell": "G18",
-              "count": 1
             }
           }
         ],
@@ -1332,6 +1229,7 @@
         {
           "kind": "quarterly",
           "label": "Quarterly Goal",
+          "row": 2,
           "revenue": "$583,000",
           "actual": "$208,794",
           "toggle": {
@@ -1342,6 +1240,7 @@
         {
           "kind": "monthly",
           "label": "Monthly Goal",
+          "row": 3,
           "revenue": "$179,500",
           "actual": "$73,097",
           "toggle": {
