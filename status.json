@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T23:10:37.074Z",
+  "generatedAt": "2026-11-17T09:08:30.366Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -424,11 +424,11 @@
         "profit": 9259,
         "live": true,
         "lastEntry": "2026-11-15",
-        "daysElapsed": 16,
+        "daysElapsed": 17,
         "dailyTarget": 1500,
-        "expectedToDate": 24000,
-        "delta": -14741,
-        "pacingPct": 38.579166666666666,
+        "expectedToDate": 25500,
+        "delta": -16241,
+        "pacingPct": 36.30980392156863,
         "status": "off_track"
       },
       {
@@ -536,9 +536,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-16T17:33:54Z",
+    "dataUpdated": "2026-11-17T09:08:16Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 16,
+    "daysElapsed": 17,
     "daysBasis": 30,
     "warnings": []
   },
@@ -548,11 +548,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 61920,
-      "daysElapsed": 47,
+      "daysElapsed": 48,
       "daysInQuarter": 92,
-      "proratedTarget": 122608.69565217392,
+      "proratedTarget": 125217.39130434782,
       "progressPct": 25.8,
-      "pacingPct": 50.50212765957447,
+      "pacingPct": 49.45,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
