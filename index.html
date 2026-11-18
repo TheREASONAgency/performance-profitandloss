@@ -1293,7 +1293,7 @@ function buyerPanel(d, b) {
         h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
           r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
           "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td>" +
-          (isAcq(g) ? (g.extraHeader ? "<td>" + esc(r.extra || "") + "</td>" : "") : trendCells(g, r)) + "</tr>";
+          (isAcq(g) ? (g.extraHeader ? "<td>" + (r.extra !== "" && r.extra != null ? "<span class='badge bad' style='margin-right:10px'>Off Track</span>" : "") + esc(r.extra || "") + "</td>" : "") : trendCells(g, r)) + "</tr>";
       });
       h += "</tbody></table></div>";
     });
