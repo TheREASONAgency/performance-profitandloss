@@ -67,6 +67,15 @@ async function fetchMondayItems() {
   const token = process.env[config.monday.tokenEnv];
   if (!token) throw new Error(`${config.monday.tokenEnv} is not set`);
 
+  // The spend column is found by its title ("Current MTD Spend"), not the old fixed ID, which pointed
+  // at a stale/previous-month column. Falls back to the configured ID if the title is not found.
+  try {
+    const meta = await mondayQuery(token, `query ($b: [ID!]) { boards(ids: $b) { columns { id title } } }`, { b: [config.monday.boardId] });
+    const hit = ((meta.boards && meta.boards[0] && meta.boards[0].columns) || []).find((c) => /^current\s+mtd\s+spend/i.test(c.title));
+    if (hit) { config.monday.columns.adSpend = hit.id; console.log(`Monday spend column: "${hit.title}" (${hit.id})`); }
+    else console.warn(`Monday: no "Current MTD Spend" column found, using ${config.monday.columns.adSpend}`);
+  } catch (e) { console.warn("Monday column lookup failed: " + e.message); }
+
   const cols = Object.values(config.monday.columns).filter(Boolean);
   const first = await mondayQuery(
     token,
