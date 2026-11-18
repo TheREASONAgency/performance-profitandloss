@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T20:47:38.916Z",
+  "generatedAt": "2026-11-18T20:50:12.380Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-18T20:47:23Z",
+    "dataUpdated": "2026-11-18T20:49:57Z",
     "monthLabel": "November 2026",
     "daysElapsed": 18,
     "daysBasis": 30,
@@ -601,6 +601,7 @@
         ],
         "toggleCol": 5,
         "toggleHeader": "CPA Stable and Spend Increasing",
+        "extraHeader": "",
         "headerRow": 5,
         "rows": [
           {
@@ -613,6 +614,8 @@
               "$65",
               "$74.62"
             ],
+            "raw": "On Track",
+            "extra": "1",
             "toggle": {
               "cell": "F6",
               "state": "on",
@@ -642,6 +645,8 @@
               "$350 CPMQL",
               "$246"
             ],
+            "raw": "On Track",
+            "extra": "1",
             "toggle": {
               "cell": "F7",
               "state": "on",
@@ -666,6 +671,8 @@
               "$500",
               "$22.03"
             ],
+            "raw": "On Track",
+            "extra": "",
             "toggle": {
               "cell": "F8",
               "state": "on",
@@ -704,6 +711,7 @@
         ],
         "toggleCol": 5,
         "toggleHeader": "CPA Stable and Spend Increasing",
+        "extraHeader": "",
         "headerRow": 12,
         "rows": [
           {
@@ -716,6 +724,8 @@
               "$240",
               "$204"
             ],
+            "raw": "Off Track",
+            "extra": "1",
             "toggle": {
               "cell": "F13",
               "state": "off",
@@ -733,6 +743,8 @@
               "$240",
               "$220"
             ],
+            "raw": "On Track",
+            "extra": "",
             "toggle": {
               "cell": "F15",
               "state": "on",
@@ -759,6 +771,7 @@
         ],
         "toggleCol": 5,
         "toggleHeader": "",
+        "extraHeader": "",
         "headerRow": 20,
         "rows": [
           {
@@ -771,6 +784,8 @@
               "$20,000",
               "$18,626.59"
             ],
+            "raw": "On Track",
+            "extra": "1",
             "toggle": {
               "cell": "F21",
               "state": "on",
@@ -800,6 +815,8 @@
               "$22,000",
               "$11,985.51"
             ],
+            "raw": "On Track",
+            "extra": "1",
             "toggle": {
               "cell": "F22",
               "state": "on",
@@ -829,6 +846,8 @@
               "$20,000",
               "$13,243.84"
             ],
+            "raw": "On Track",
+            "extra": "1",
             "toggle": {
               "cell": "F23",
               "state": "on",
@@ -858,6 +877,8 @@
               "$20,000",
               "$18,517.59"
             ],
+            "raw": "Off Track",
+            "extra": "",
             "toggle": {
               "cell": "F24",
               "state": "off",
@@ -882,6 +903,8 @@
               "",
               "$19,955.23"
             ],
+            "raw": "On Track",
+            "extra": "1",
             "toggle": {
               "cell": "F25",
               "state": "on",
@@ -906,6 +929,8 @@
               "",
               ""
             ],
+            "raw": "Onboarding",
+            "extra": "",
             "toggle": {
               "cell": "F26",
               "state": null,
@@ -933,6 +958,7 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "Proposals Out",
+        "extraHeader": "",
         "headerRow": 32,
         "rows": [
           {
@@ -946,6 +972,8 @@
               "160",
               "32"
             ],
+            "raw": "6",
+            "extra": "",
             "toggle": {
               "cell": "G33",
               "state": null,
@@ -964,6 +992,8 @@
               "200",
               "10"
             ],
+            "raw": "",
+            "extra": "",
             "toggle": null
           }
         ],
@@ -986,6 +1016,7 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "",
+        "extraHeader": "",
         "headerRow": 37,
         "rows": [
           {
@@ -999,6 +1030,8 @@
               "160",
               "32"
             ],
+            "raw": "",
+            "extra": "",
             "toggle": null
           },
           {
@@ -1012,6 +1045,8 @@
               "500",
               "20"
             ],
+            "raw": "",
+            "extra": "",
             "toggle": null
           }
         ],
@@ -1034,6 +1069,7 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "",
+        "extraHeader": "Proposals Out",
         "headerRow": 42,
         "rows": [
           {
@@ -1047,6 +1083,8 @@
               "$0",
               "0"
             ],
+            "raw": "Off Track",
+            "extra": "4",
             "toggle": {
               "cell": "G43",
               "state": "off",
@@ -1065,6 +1103,8 @@
               "$0",
               "0"
             ],
+            "raw": "",
+            "extra": "0",
             "toggle": null
           },
           {
@@ -1078,6 +1118,8 @@
               "$0",
               "1"
             ],
+            "raw": "",
+            "extra": "1",
             "toggle": null
           },
           {
@@ -1091,6 +1133,8 @@
               "$0",
               "2"
             ],
+            "raw": "On Track",
+            "extra": "1",
             "toggle": {
               "cell": "G46",
               "state": "on",
@@ -1109,6 +1153,8 @@
               "$0",
               ""
             ],
+            "raw": "Off Track",
+            "extra": "6",
             "toggle": {
               "cell": "G47",
               "state": "off",
@@ -1136,6 +1182,7 @@
         ],
         "toggleCol": 6,
         "toggleHeader": "",
+        "extraHeader": "",
         "headerRow": 49,
         "rows": [
           {
@@ -1149,6 +1196,8 @@
               "$0",
               "0"
             ],
+            "raw": "Off Track",
+            "extra": "",
             "toggle": {
               "cell": "G50",
               "state": "off",
@@ -1167,6 +1216,8 @@
               "$0",
               "0"
             ],
+            "raw": "",
+            "extra": "",
             "toggle": null
           },
           {
@@ -1180,6 +1231,8 @@
               "$7,500",
               "1"
             ],
+            "raw": "",
+            "extra": "",
             "toggle": null
           },
           {
@@ -1193,6 +1246,8 @@
               "$14,500",
               "2"
             ],
+            "raw": "On Track",
+            "extra": "",
             "toggle": {
               "cell": "G53",
               "state": "on",
@@ -1211,6 +1266,8 @@
               "$22,000",
               ""
             ],
+            "raw": "Off Track",
+            "extra": "",
             "toggle": {
               "cell": "G54",
               "state": "off",
