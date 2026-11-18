@@ -1256,8 +1256,9 @@ function buyerPanel(d, b) {
     }
     let lastSection = null;
     // A group laid out as label / Actual / Target / % rows (the Sales Scorecard strip) is drawn as colored tiles.
+    const isAcq = g => /^acquisition$/i.test(g.section || "");
     const isTiles = g => g.rows.length >= 2 && /^actual/i.test(g.rows[0].label) && /^target/i.test(g.rows[1].label);
-    const TILE_COLORS = ["#efefef", "#d9d9d9", "#cccccc", "#b7b7b7", "#999999"];
+    const TILE_COLORS = ["#efefef", "#d9d9d9", "#cccccc", "#b7b7b7", "#999999", "#8a8a8a"];
     b.groups.forEach(g => {
       if (isTiles(g) && g.firstColLabel) {
         // each tile strip gets its own caption, e.g. "Acquisition · Monthly", "Acquisition · Quarterly"
@@ -1268,7 +1269,13 @@ function buyerPanel(d, b) {
       }
       if (isTiles(g)) {
         const cell = (r, i) => (r && r.cells[i]) || "";
-        h += "<div class='tiles'>" + g.headers.map((label, i) => {
+        // a "Proposals Out" column sitting right after the strip (merged cell) becomes one more tile
+        const tileHeaders = g.headers.slice(), extraTile = /proposal/i.test(g.toggleHeader || "") && g.rows[0] && g.rows[0].raw;
+        if (extraTile) tileHeaders.push(g.toggleHeader);
+        h += "<div class='tiles'>" + tileHeaders.map((label, i) => {
+          if (extraTile && i === g.headers.length) {
+            return "<div class='tile' style='background:" + TILE_COLORS[i % TILE_COLORS.length] + "'><div class='tile-k'>" + esc(label) + "</div><div class='tile-v'>" + esc(g.rows[0].raw) + "</div><div class='tile-s'>&nbsp;</div></div>";
+          }
           const pct = cell(g.rows[2], i);
           return "<div class='tile' style='background:" + TILE_COLORS[i % TILE_COLORS.length] + "'>" +
             "<div class='tile-k'>" + esc(label) + "</div>" +
@@ -1280,11 +1287,13 @@ function buyerPanel(d, b) {
       }
       h += "<div class='bd-block bd-" + esc(g.tone) + (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " bd-sheet" : "") + "'" +
         (/^#[0-9a-f]{6}$/i.test(g.color || "") ? " style='--g:" + g.color + "'" : "") + "><table><thead><tr><th>" + esc(g.firstColLabel) + "</th>" +
-        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th><th class='trd-cell'>7-day trend</th><th class='trd-cell'>28-day trend</th></tr></thead><tbody>";
+        g.headers.map(x => "<th>" + esc(x) + "</th>").join("") + "<th class='tg-cell'>" + esc(g.toggleHeader || "") + "</th>" +
+        (isAcq(g) ? (g.extraHeader ? "<th>" + esc(g.extraHeader) + "</th>" : "") : "<th class='trd-cell'>7-day trend</th><th class='trd-cell'>28-day trend</th>") + "</tr></thead><tbody>";
       g.rows.forEach(r => {
         h += "<tr" + (r.total ? " class='bd-total'" : "") + "><td>" + esc(r.label) + "</td>" +
           r.cells.map(c => "<td>" + esc(c) + "</td>").join("") +
-          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td>" + trendCells(g, r) + "</tr>";
+          "<td class='tg-cell'>" + toggleBtn(r.toggle) + "</td>" +
+          (isAcq(g) ? (g.extraHeader ? "<td>" + esc(r.extra || "") + "</td>" : "") : trendCells(g, r)) + "</tr>";
       });
       h += "</tbody></table></div>";
     });
