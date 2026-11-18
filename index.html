@@ -227,6 +227,7 @@
   .tr-yellow { background:#facc1538; color:#7a5b00; border-color:#eab308; }
   .tr-orange { background:#f973162e; color:#9a3d00; border-color:#ea6a0c; }
   .tr-lightgreen { background:#86efac40; color:#166534; border-color:#4ade80; }
+  .tr-charcoal { background:#36454f; color:#ffffff; border-color:#36454f; }
   .tr-darkorange { background:#c2410c2e; color:#7c2d12; border-color:#c2410c; }
   .tr-red    { background:#dc26262e; color:#991b1b; border-color:#dc2626; }
   .trd-note { font-size:11px; color:var(--text-muted); }
@@ -1324,7 +1325,7 @@ function buyerPanel(d, b) {
   // One chip per window. Spend: Scaling (up more than 5%), Stable (within 5%) or Falling (down more than 5%).
   // CPA: Rising (up more than 10%) or not.
   function trendChip(w) {
-    if (!w || !w.source || w.spendChange == null || w.cpaChange == null) return "<span class='trd-note'>&ndash;</span>";
+    if (!w || !w.source || w.spendChange == null || w.cpaChange == null) return "<span class='tr-chip tr-charcoal' title='Not enough history yet to compare spend and CPA'>Gathering Data</span>";
     const sp = w.spendChange > 0.05 ? "up" : w.spendChange < -0.05 ? "down" : "flat", rising = w.cpaChange > 0.10;
     const [cls, txt] = sp === "up" ? (rising ? ["yellow", "Scaling \u00b7 CPA rising"] : ["green", "Scaling \u00b7 CPA down"])
       : sp === "flat" ? (rising ? ["darkorange", "Spend stable \u00b7 CPA rising"] : ["lightgreen", "Spend stable \u00b7 CPA down"])
