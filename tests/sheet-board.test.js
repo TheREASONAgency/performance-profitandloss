@@ -57,7 +57,7 @@ test("fills only blank cells from sources and leaves the rest empty", () => {
   const m = sb.parseBoard(VALUES, config.board);
   const sources = sb.buildSources({
     cpaRows: [{ buyer: "Travis", name: "Keeps", profit: 12345 }, { buyer: "Joe", name: "TrimRx", profit: 100 }, { buyer: "Kurt", name: "TrimRx", profit: 50 }],
-    mondayAll: [{ name: "GAL (<$400)", cpaL7d: 380.5, adSpend: 25000 }],
+    mondayAll: [{ name: "GAL (<$400)", cpaL7d: 380.5, adSpend: 5000 }],
     matchesAny: logic.matchesAny, board: config.board, goalAmount: 100000,
   });
   sb.fillActuals(m, sources);
@@ -65,7 +65,7 @@ test("fills only blank cells from sources and leaves the rest empty", () => {
   assert.strictEqual(blue.find((r) => r.label === "KEE-HL").cells[1], "$12,345");
   assert.strictEqual(blue.find((r) => r.label === "TRX").cells[1], "$150");
   assert.strictEqual(blue.find((r) => r.label === "DMN").cells[1], "");
-  assert.deepStrictEqual(purple.cells, ["$400", "$380.50", "$75,000", "$25,000"]);
+  assert.deepStrictEqual(purple.cells, ["$400", "$380.50", "$5,000", "$15,000"]); // PV: Monday = remaining; spend = $20,000 - remaining
   assert.strictEqual(m.groups[0].rows[0].cells[1], ""); // retainers: no source -> blank
 });
 
@@ -88,7 +88,7 @@ test("Monday fallback: PV rows fill blank/zero cells only; Partner rows take Mon
     mondayAll: [
       { name: "OOO ($65)", cpaL7d: 70, adSpend: 1234 },
       { name: "UAC (2.0 ROAS)", cpaL7d: 50, adSpend: 777 },
-      { name: "GAL (<$400)", cpaL7d: 380.5, adSpend: 25000 },
+      { name: "GAL (<$400)", cpaL7d: 380.5, adSpend: 5000 },
       { name: "GAL (<$400)", cpaL7d: 1, adSpend: 1, closed: true },   // closed duplicate loses
     ],
   });
@@ -96,7 +96,7 @@ test("Monday fallback: PV rows fill blank/zero cells only; Partner rows take Mon
   const [ooo, uac] = m.groups[0].rows, gal = m.groups[2].rows[0];
   assert.deepStrictEqual([ooo.cells[1], ooo.cells[3]], ["$1,234", "$70"]);   // $0 -> Monday
   assert.strictEqual(uac.cells[1], "$777");                                  // Partner rows: Monday overrides the sheet
-  assert.deepStrictEqual(gal.cells, ["$400", "$380.50", "$75,000", "$25,000"]);
+  assert.deepStrictEqual(gal.cells, ["$400", "$380.50", "$5,000", "$15,000"]);
 });
 
 test("Monday fallback skips profit rows' Actual MTD and zero Monday values", () => {
@@ -128,7 +128,7 @@ test("mondayWrites: only PV Total Spend cells that Monday filled, with column le
     mondayByLabel: { gal: { cpa: 380, spend: 800.29, rank: 0 }, ooo: { cpa: 0, spend: 5, rank: 0 } } });
   assert.deepStrictEqual(sb.mondayWrites(m).filter((x) => x.label === "GAL"), [
     { a1: "C13", value: 380, label: "GAL" },
-    { a1: "E13", value: 800.29, label: "GAL" },
+    { a1: "E13", value: 19199.71, label: "GAL" },
   ]);
 });
 
@@ -256,8 +256,8 @@ test("PV rows: Monday MTD Spend and L7D CPA replace stale sheet values (WIN), re
   const m = sb.parseBoard(v, config.board);
   sb.fillActuals(m, { profitByLabel: {}, goalAmount: 100000,
     mondayByLabel: { win: { cpa: 2500, spend: 3350.72, rank: 0 } } });
-  assert.deepStrictEqual(m.groups[2].rows[0].cells, ["$325", "$2,500", "$96,649.28", "$3,350.72"]);
-  assert.deepStrictEqual(sb.mondayWrites(m).map((x) => [x.a1, x.value]), [["C13", 2500], ["E13", 3350.72]]);
+  assert.deepStrictEqual(m.groups[2].rows[0].cells, ["$325", "$2,500", "$3,350.72", "$16,649.28"]);
+  assert.deepStrictEqual(sb.mondayWrites(m).map((x) => [x.a1, x.value]), [["C13", 2500], ["E13", 16649.28]]);
 });
 
 test("Monthly : <month> result row is captured, not dropped", () => {
