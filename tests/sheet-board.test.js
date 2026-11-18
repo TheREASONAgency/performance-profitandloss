@@ -40,7 +40,7 @@ test("parses groups, tones, headers and fixes the Actual typo", () => {
   assert.strictEqual(m.groups[3].firstColLabel, "October");
   assert.deepStrictEqual(m.groups[3].headers, ["Target", "Actual", "Revenue Target", "Revenue Actual", "Quarter"]);
   const tot = m.groups[3].rows[2];
-  assert.ok(tot.total && tot.toggle === null);
+  assert.ok(tot.total && tot.toggle && tot.toggle.state === "off"); // acquisition rows always carry a status chip
   assert.deepStrictEqual(tot.cells, ["6", "1", "$45,000", "$0", ""]);
 });
 
@@ -50,7 +50,7 @@ test("toggle exists only when the cell is non-empty; state parsed", () => {
   assert.strictEqual(blue.find((r) => r.label === "DMN").toggle, null);
   assert.strictEqual(blue.find((r) => r.label === "TRX").toggle.state, "on");
   assert.strictEqual(blue.find((r) => r.label === "KEE-HL").toggle.state, null);
-  assert.strictEqual(sb.listToggles(m).length, 9);
+  assert.strictEqual(sb.listToggles(m).length, 10);
 });
 
 test("fills only blank cells from sources and leaves the rest empty", () => {
