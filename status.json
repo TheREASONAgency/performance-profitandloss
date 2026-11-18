@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T20:50:12.380Z",
+  "generatedAt": "2026-11-18T21:24:24.469Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-18T20:49:57Z",
+    "dataUpdated": "2026-11-18T21:24:10Z",
     "monthLabel": "November 2026",
     "daysElapsed": 18,
     "daysBasis": 30,
@@ -1078,7 +1078,7 @@
             "row": 43,
             "cells": [
               "4",
-              "",
+              "0",
               "$35,000",
               "$0",
               "0"
@@ -1098,14 +1098,19 @@
             "row": 44,
             "cells": [
               "1",
-              "",
+              "0",
               "$7,500",
               "$0",
               "0"
             ],
             "raw": "",
             "extra": "0",
-            "toggle": null
+            "toggle": {
+              "cell": "G44",
+              "state": "off",
+              "countCell": "H44",
+              "count": 0
+            }
           },
           {
             "label": "Ascension",
@@ -1113,14 +1118,19 @@
             "row": 45,
             "cells": [
               "1",
-              "",
+              "0",
               "$7,500",
               "$0",
               "1"
             ],
             "raw": "",
             "extra": "1",
-            "toggle": null
+            "toggle": {
+              "cell": "G45",
+              "state": "off",
+              "countCell": "H45",
+              "count": 1
+            }
           },
           {
             "label": "PV Lite",
@@ -1128,7 +1138,7 @@
             "row": 46,
             "cells": [
               "1",
-              "",
+              "0",
               "$7,500",
               "$0",
               "2"
@@ -1192,7 +1202,7 @@
             "cells": [
               "0",
               "0",
-              "$35,000",
+              "$0",
               "$0",
               "0"
             ],
@@ -1212,13 +1222,18 @@
             "cells": [
               "4",
               "0",
-              "",
+              "$35,000",
               "$0",
               "0"
             ],
             "raw": "",
             "extra": "",
-            "toggle": null
+            "toggle": {
+              "cell": "G51",
+              "state": "off",
+              "countCell": "H51",
+              "count": null
+            }
           },
           {
             "label": "Ascension",
@@ -1233,7 +1248,12 @@
             ],
             "raw": "",
             "extra": "",
-            "toggle": null
+            "toggle": {
+              "cell": "G52",
+              "state": "off",
+              "countCell": "H52",
+              "count": null
+            }
           },
           {
             "label": "PV Lite",
