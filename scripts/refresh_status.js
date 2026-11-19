@@ -143,6 +143,7 @@ async function run() {
     } else {
       const rows = logic.buildMondayRows(await fetchMondayItems(), config);
       mondayAll = rows.all;
+      console.log("Monday CPA L7D by item:\n" + mondayAll.map((r) => `  ${r.name} | L7D=${r.cpaL7d} | today=${r.cpaToday} | closed=${!!r.closed} | excludedGroup=${!!r.groupExcluded}`).join("\n"));
       out.pv = section(rows.pv);
       out.managed = section(rows.managed);
     }
