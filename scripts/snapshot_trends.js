@@ -53,6 +53,20 @@ async function main() {
     });
     console.log(`Meta Daily: ${Object.keys(metaDaily).length} account(s)`);
   } catch (e) { console.warn("Meta Daily tab not read:", e.message); }
+  // Offers tracked in the buyers' P&L sheets (data.json) have real daily ad spend, which beats Monday's MTD snapshots.
+  try {
+    const ds = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data.json"), "utf8")).dailySpend;
+    const SRC = { "KEE-ED": [["Rory", "Keeps - Ed"]], "KEE-HL": [["Joe", "Keeps"], ["Travis", "Keeps"]] };
+    Object.entries(SRC).forEach(([label, accts]) => {
+      if (metaDaily[label]) return; // Meta's own numbers win
+      const idx = accts.map(([b, a]) => ds.columns.findIndex((c) => c.buyer === b && c.account === a)).filter((i) => i >= 0);
+      if (!idx.length) return;
+      ds.rows.filter((r) => r.date < today).forEach((r) => {
+        const spend = idx.reduce((t, i) => t + (Number(r.spend[i]) || 0), 0);
+        if (spend > 0 || metaDaily[label]) (metaDaily[label] = metaDaily[label] || {})[r.date] = { spend, results: 0 };
+      });
+    });
+  } catch (e) { console.warn("data.json daily spend not read:", e.message); }
   const out = { generatedAt: now.toISOString(), today, days, summary: trends.summarizeAll(days, today, metaDaily) };
   fs.writeFileSync(OUT, JSON.stringify(out) + "\n");
   console.log(`Trend snapshot ${today}: ${Object.keys(snap).length} accounts, ${Object.keys(days).length} day(s) of history`);
