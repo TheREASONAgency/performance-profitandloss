@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T15:09:33.631Z",
+  "generatedAt": "2026-11-19T15:11:44.278Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -421,14 +421,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 45000,
-        "profit": 8862,
+        "profit": 9162,
         "live": true,
-        "lastEntry": "2026-11-17",
+        "lastEntry": "2026-11-18",
         "daysElapsed": 19,
         "dailyTarget": 1500,
         "expectedToDate": 28500,
-        "delta": -19638,
-        "pacingPct": 31.094736842105263,
+        "delta": -19338,
+        "pacingPct": 32.14736842105263,
         "status": "off_track"
       },
       {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-19T15:09:18Z",
+    "dataUpdated": "2026-11-19T15:11:29Z",
     "monthLabel": "November 2026",
     "daysElapsed": 19,
     "daysBasis": 30,
@@ -547,12 +547,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 61523,
+      "qtdPl": 61823,
       "daysElapsed": 50,
       "daysInQuarter": 92,
       "proratedTarget": 130434.78260869565,
-      "progressPct": 25.63458333333333,
-      "pacingPct": 47.167633333333335,
+      "progressPct": 25.759583333333335,
+      "pacingPct": 47.39763333333333,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -720,7 +720,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$8,862",
+              "$9,162",
               "$240",
               "$204"
             ],
@@ -741,7 +741,7 @@
               "$40,000",
               "$29,037",
               "$240",
-              "$220"
+              "$210.32"
             ],
             "raw": "On Track",
             "extra": "",
@@ -750,7 +750,14 @@
               "state": "on",
               "countCell": "G15",
               "count": null
-            }
+            },
+            "filled": [
+              {
+                "col": 3,
+                "source": "Monday L7D CPA (display)",
+                "value": 210.32
+              }
+            ]
           }
         ],
         "color": "#cccccc",
