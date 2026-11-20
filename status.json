@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T16:16:34.409Z",
+  "generatedAt": "2026-11-20T21:39:24.389Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -720,7 +720,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$9,162",
+              "$9,188",
               "$240",
               "$532.85"
             ],
@@ -781,7 +781,7 @@
           "Target CPA",
           "CPA",
           "Starting Spend",
-          "Total Spend"
+          "Remaining Spend"
         ],
         "toggleCol": 5,
         "toggleHeader": "",
@@ -794,9 +794,9 @@
             "row": 21,
             "cells": [
               "$400",
-              "$1,207.04",
+              "$1,207",
               "$20,000",
-              "$17,967.78"
+              "$17,968"
             ],
             "raw": "On Track",
             "extra": "1",
@@ -805,19 +805,7 @@
               "state": "on",
               "countCell": "G21",
               "count": 1
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (L7D CPA)",
-                "value": 1207.04
-              },
-              {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 17967.78
-              }
-            ]
+            }
           },
           {
             "label": "ELE",
@@ -825,9 +813,9 @@
             "row": 22,
             "cells": [
               "$300",
-              "$150.18",
+              "$150",
               "$22,000",
-              "$11,448.03"
+              "$11,448"
             ],
             "raw": "On Track",
             "extra": "1",
@@ -836,19 +824,7 @@
               "state": "on",
               "countCell": "G22",
               "count": 1
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (L7D CPA)",
-                "value": 150.18
-              },
-              {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 11448.03
-              }
-            ]
+            }
           },
           {
             "label": "WIN",
@@ -856,9 +832,9 @@
             "row": 23,
             "cells": [
               "$325",
-              "$1,710.83",
+              "$1,711",
               "$20,000",
-              "$10,937.27"
+              "$10,937"
             ],
             "raw": "On Track",
             "extra": "1",
@@ -867,19 +843,7 @@
               "state": "on",
               "countCell": "G23",
               "count": 1
-            },
-            "filled": [
-              {
-                "col": 1,
-                "source": "Monday (L7D CPA)",
-                "value": 1710.83
-              },
-              {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 10937.27
-              }
-            ]
+            }
           },
           {
             "label": "HUM",
@@ -889,7 +853,7 @@
               "$320",
               "N/A",
               "$20,000",
-              "$18,271.98"
+              "$18,272"
             ],
             "raw": "Off Track",
             "extra": "",
@@ -898,14 +862,7 @@
               "state": "off",
               "countCell": "G24",
               "count": null
-            },
-            "filled": [
-              {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 18271.98
-              }
-            ]
+            }
           },
           {
             "label": "REV",
@@ -914,8 +871,8 @@
             "cells": [
               "$65",
               "N/A",
-              "",
-              "$19,821.76"
+              "$20,000",
+              "$19,822"
             ],
             "raw": "On Track",
             "extra": "1",
@@ -924,14 +881,7 @@
               "state": "on",
               "countCell": "G25",
               "count": 1
-            },
-            "filled": [
-              {
-                "col": 3,
-                "source": "Monday (MTD Spend)",
-                "value": 19821.76
-              }
-            ]
+            }
           },
           {
             "label": "SHED",
@@ -954,8 +904,8 @@
           }
         ],
         "color": "#cccccc",
-        "kind": "pv",
-        "spendCol": 3,
+        "kind": "other",
+        "spendCol": -1,
         "actualCol": -1,
         "cpaCol": 1
       },
@@ -983,10 +933,10 @@
               "",
               "0",
               "0",
-              "160",
-              "32"
+              "230",
+              "44"
             ],
-            "raw": "6",
+            "raw": "8",
             "extra": "",
             "toggle": {
               "cell": "G33",
@@ -1041,8 +991,8 @@
               "$22,000",
               "2",
               "1",
-              "160",
-              "32"
+              "230",
+              "44"
             ],
             "raw": "",
             "extra": "",
