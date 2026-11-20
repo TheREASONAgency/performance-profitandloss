@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-20T09:07:56Z",
+  "lastUpdated": "2026-11-20T16:16:18Z",
   "currentMonth": "2026-11",
   "monthLabel": "November 2026",
   "dayOfMonth": 20,
@@ -212,12 +212,12 @@
         {
           "name": "Keeps - Ed",
           "status": "Active",
-          "lastEntry": "2026-11-17",
+          "lastEntry": "2026-11-19",
           "liveThisMonth": true,
           "type": "cpa",
           "cpaTarget": null,
           "purchases": 0,
-          "adSpend": 87814,
+          "adSpend": 103980,
           "cpa": null
         }
       ],
@@ -1249,7 +1249,7 @@
           0,
           0,
           0,
-          0
+          12255
         ]
       },
       {
@@ -1268,7 +1268,7 @@
           0,
           0,
           0,
-          0
+          7125
         ]
       },
       {
@@ -2484,7 +2484,7 @@
           0,
           0,
           0,
-          0
+          8276
         ]
       },
       {
@@ -2503,7 +2503,7 @@
           0,
           0,
           0,
-          0
+          7891
         ]
       },
       {
@@ -3014,7 +3014,7 @@
           "account": "Keeps - Ed",
           "type": "cpa",
           "purchases": 0,
-          "adSpend": 87814,
+          "adSpend": 103980,
           "cpa": null,
           "cpaTarget": null,
           "pl": null
