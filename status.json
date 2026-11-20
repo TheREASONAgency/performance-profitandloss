@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T15:13:56.680Z",
+  "generatedAt": "2026-11-20T09:08:11.088Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -49,6 +49,20 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": null
+      },
+      {
+        "id": "12893345311",
+        "name": "Elevated ($300)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12893345311",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 300,
+        "cpaToday": null,
+        "cpaL7d": 995.6,
+        "cpaGap": 695.6,
+        "adSpend": 10014.49
       },
       {
         "id": "12703976002",
@@ -163,20 +177,6 @@
         "adSpend": null
       },
       {
-        "id": "12893345311",
-        "name": "Elevated ($300)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12893345311",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "SAP THIS WEEK",
-        "cpaTarget": 300,
-        "cpaToday": null,
-        "cpaL7d": 995.6,
-        "cpaGap": 695.6,
-        "adSpend": 10014.49
-      },
-      {
         "id": "12409786926",
         "name": "GAL (<$400)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
@@ -241,7 +241,7 @@
         "status": "unknown",
         "rawLabel": "CPA Trending Down",
         "cpaTarget": 325,
-        "cpaToday": 166.93,
+        "cpaToday": null,
         "cpaL7d": 740.1,
         "cpaGap": 415.1,
         "adSpend": 6756.16
@@ -250,8 +250,8 @@
     "counts": {
       "on_track": 0,
       "off_track": 0,
-      "paused": 10,
-      "unknown": 6
+      "paused": 11,
+      "unknown": 5
     }
   },
   "managed": {
@@ -424,11 +424,11 @@
         "profit": 9162,
         "live": true,
         "lastEntry": "2026-11-18",
-        "daysElapsed": 19,
+        "daysElapsed": 20,
         "dailyTarget": 1500,
-        "expectedToDate": 28500,
-        "delta": -19338,
-        "pacingPct": 32.14736842105263,
+        "expectedToDate": 30000,
+        "delta": -20838,
+        "pacingPct": 30.54,
         "status": "off_track"
       },
       {
@@ -536,9 +536,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-19T15:13:29Z",
+    "dataUpdated": "2026-11-20T09:07:56Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 19,
+    "daysElapsed": 20,
     "daysBasis": 30,
     "warnings": []
   },
@@ -548,11 +548,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 61823,
-      "daysElapsed": 50,
+      "daysElapsed": 51,
       "daysInQuarter": 92,
-      "proratedTarget": 130434.78260869565,
+      "proratedTarget": 133043.47826086957,
       "progressPct": 25.759583333333335,
-      "pacingPct": 47.39763333333333,
+      "pacingPct": 46.46826797385621,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -570,7 +570,7 @@
       "active": 7,
       "onTrack": 4,
       "offTrack": 3,
-      "paused": 18,
+      "paused": 19,
       "total": 32
     }
   },
@@ -581,7 +581,7 @@
       "label": "Quarterly Goal",
       "row": 2,
       "revenue": "$583,000",
-      "actual": "$215,438",
+      "actual": "$216,133",
       "toggle": {
         "cell": "E2",
         "state": "off"
@@ -1328,7 +1328,7 @@
           "label": "Quarterly Goal",
           "row": 2,
           "revenue": "$583,000",
-          "actual": "$215,438",
+          "actual": "$216,133",
           "toggle": {
             "cell": "E2",
             "state": "off"
@@ -1339,7 +1339,7 @@
           "label": "Monthly Goal",
           "row": 3,
           "revenue": "$179,500",
-          "actual": "$79,741",
+          "actual": "$80,436",
           "toggle": {
             "cell": "E3",
             "state": "on"
