@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T14:49:18.014Z",
+  "generatedAt": "2026-11-23T14:58:58.963Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -536,7 +536,7 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-23T14:49:00Z",
+    "dataUpdated": "2026-11-23T14:58:46Z",
     "monthLabel": "November 2026",
     "daysElapsed": 23,
     "daysBasis": 30,
@@ -696,6 +696,8 @@
         "color": "#cccccc",
         "kind": "spend",
         "spendCol": -1,
+        "remainCol": -1,
+        "startCol": -1,
         "actualCol": 1,
         "cpaCol": 3
       },
@@ -770,6 +772,8 @@
         "color": "#cccccc",
         "kind": "profit",
         "spendCol": -1,
+        "remainCol": -1,
+        "startCol": -1,
         "actualCol": 1,
         "cpaCol": 3
       },
@@ -794,7 +798,7 @@
             "row": 21,
             "cells": [
               "$400",
-              "$1,207",
+              "$1,207.04",
               "$20,000",
               "$17,968"
             ],
@@ -805,7 +809,14 @@
               "state": "on",
               "countCell": "G21",
               "count": 1
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (L7D CPA)",
+                "value": 1207.04
+              }
+            ]
           },
           {
             "label": "ELE",
@@ -813,7 +824,7 @@
             "row": 22,
             "cells": [
               "$300",
-              "$150",
+              "$150.18",
               "$22,000",
               "$11,448"
             ],
@@ -824,7 +835,14 @@
               "state": "on",
               "countCell": "G22",
               "count": 1
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (L7D CPA)",
+                "value": 150.18
+              }
+            ]
           },
           {
             "label": "WIN",
@@ -832,7 +850,7 @@
             "row": 23,
             "cells": [
               "$325",
-              "$1,711",
+              "$1,710.83",
               "$20,000",
               "$10,937"
             ],
@@ -843,7 +861,14 @@
               "state": "on",
               "countCell": "G23",
               "count": 1
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (L7D CPA)",
+                "value": 1710.83
+              }
+            ]
           },
           {
             "label": "HUM",
@@ -904,8 +929,10 @@
           }
         ],
         "color": "#cccccc",
-        "kind": "other",
+        "kind": "pv",
         "spendCol": -1,
+        "remainCol": 3,
+        "startCol": 2,
         "actualCol": -1,
         "cpaCol": 1
       },
@@ -964,6 +991,8 @@
         "color": "#f3f3f3",
         "kind": "other",
         "spendCol": -1,
+        "remainCol": -1,
+        "startCol": -1,
         "actualCol": -1,
         "cpaCol": -1
       },
@@ -1017,6 +1046,8 @@
         "color": "#f3f3f3",
         "kind": "other",
         "spendCol": -1,
+        "remainCol": -1,
+        "startCol": -1,
         "actualCol": -1,
         "cpaCol": -1
       },
@@ -1140,6 +1171,8 @@
         "color": "#d9d9d9",
         "kind": "other",
         "spendCol": -1,
+        "remainCol": -1,
+        "startCol": -1,
         "actualCol": 1,
         "cpaCol": -1
       },
@@ -1263,6 +1296,8 @@
         "color": "#d9d9d9",
         "kind": "other",
         "spendCol": -1,
+        "remainCol": -1,
+        "startCol": -1,
         "actualCol": 1,
         "cpaCol": -1
       }
@@ -1292,7 +1327,7 @@
           "actual": "$96,111",
           "toggle": {
             "cell": "E3",
-            "state": "on"
+            "state": "off"
           }
         }
       ]
