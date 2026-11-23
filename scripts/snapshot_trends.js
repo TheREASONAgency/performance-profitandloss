@@ -32,7 +32,7 @@ async function main() {
       const label = r.label;
       const m = sources.mondayByLabel[sheetBoard.norm(label)];
       const num = (i) => (i >= 0 ? sheetBoard.parseMoneyText(r.cells[i]) : null);
-      const mtd = g.kind === "spend" ? num(g.actualCol) : g.kind === "pv" ? num(g.spendCol) : (m && m.spend > 0 ? m.spend : null);
+      const mtd = g.kind === "spend" ? num(g.actualCol) : g.kind === "pv" ? (g.spendCol >= 0 ? num(g.spendCol) : (num(g.startCol) != null && num(g.remainCol) != null ? num(g.startCol) - num(g.remainCol) : null)) : (m && m.spend > 0 ? m.spend : null);
       const cpa = num(g.cpaCol);
       if (mtd == null && cpa == null) return;
       snap[label] = { mtd: mtd == null ? null : mtd, cpa: cpa != null && cpa > 0 ? cpa : null };
