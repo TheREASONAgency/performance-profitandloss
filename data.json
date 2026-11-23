@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-11-20T16:16:18Z",
+  "lastUpdated": "2026-11-23T14:49:00Z",
   "currentMonth": "2026-11",
   "monthLabel": "November 2026",
-  "dayOfMonth": 20,
+  "dayOfMonth": 23,
   "daysInMonth": 30,
   "currentQuarter": "Q4 2026",
   "currentYear": 2026,
@@ -20,7 +20,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         },
         {
@@ -32,7 +32,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         },
         {
@@ -69,14 +69,14 @@
         {
           "name": "Keeps",
           "status": "Active",
-          "lastEntry": "2026-11-18",
+          "lastEntry": "2026-11-21",
           "liveThisMonth": true,
           "monthlyTarget": 40000.0,
-          "revenue": 85800,
-          "adSpend": 76638,
-          "pl": 9162,
-          "proratedTarget": 26666.67,
-          "pacingPct": 34.4
+          "revenue": 90300,
+          "adSpend": 80001,
+          "pl": 10299,
+          "proratedTarget": 30666.67,
+          "pacingPct": 33.6
         }
       ],
       "sheetId": "1BYDzXHh2wlM0CwfYHpK1guJokWdCletwTj9ijBypbu8",
@@ -96,7 +96,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         },
         {
@@ -108,7 +108,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         },
         {
@@ -120,7 +120,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         }
       ],
@@ -141,7 +141,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         },
         {
@@ -153,7 +153,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         }
       ],
@@ -174,7 +174,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         }
       ],
@@ -195,7 +195,7 @@
           "revenue": 0,
           "adSpend": 0,
           "pl": 0,
-          "proratedTarget": 10000.0,
+          "proratedTarget": 11500.0,
           "pacingPct": 0.0
         },
         {
@@ -212,12 +212,12 @@
         {
           "name": "Keeps - Ed",
           "status": "Active",
-          "lastEntry": "2026-11-19",
+          "lastEntry": "2026-11-22",
           "liveThisMonth": true,
           "type": "cpa",
           "cpaTarget": null,
           "purchases": 0,
-          "adSpend": 103980,
+          "adSpend": 128317,
           "cpa": null
         }
       ],
@@ -1258,7 +1258,7 @@
           0,
           0,
           0,
-          0,
+          600,
           0,
           0,
           0,
@@ -1277,6 +1277,7 @@
           0,
           0,
           0,
+          1800,
           0,
           0,
           0,
@@ -1286,8 +1287,7 @@
           0,
           0,
           0,
-          0,
-          0
+          11400
         ]
       },
       {
@@ -1296,6 +1296,7 @@
           0,
           0,
           0,
+          2100,
           0,
           0,
           0,
@@ -1305,8 +1306,7 @@
           0,
           0,
           0,
-          0,
-          0
+          11685
         ]
       },
       {
@@ -1325,7 +1325,7 @@
           0,
           0,
           0,
-          0
+          12540
         ]
       },
       {
@@ -2493,7 +2493,7 @@
           0,
           0,
           0,
-          0,
+          574,
           0,
           0,
           0,
@@ -2512,6 +2512,7 @@
           0,
           0,
           0,
+          1325,
           0,
           0,
           0,
@@ -2521,8 +2522,7 @@
           0,
           0,
           0,
-          0,
-          0
+          7447
         ]
       },
       {
@@ -2531,6 +2531,7 @@
           0,
           0,
           0,
+          1464,
           0,
           0,
           0,
@@ -2540,8 +2541,7 @@
           0,
           0,
           0,
-          0,
-          0
+          7762
         ]
       },
       {
@@ -2560,7 +2560,7 @@
           0,
           0,
           0,
-          0
+          9128
         ]
       },
       {
@@ -3004,9 +3004,9 @@
           "buyer": "Travis",
           "buyerId": "travis",
           "account": "Keeps",
-          "revenue": 85800,
-          "adSpend": 76638,
-          "pl": 9162
+          "revenue": 90300,
+          "adSpend": 80001,
+          "pl": 10299
         },
         {
           "buyer": "Rory",
@@ -3014,7 +3014,7 @@
           "account": "Keeps - Ed",
           "type": "cpa",
           "purchases": 0,
-          "adSpend": 103980,
+          "adSpend": 128317,
           "cpa": null,
           "cpaTarget": null,
           "pl": null
