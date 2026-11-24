@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T14:58:58.963Z",
+  "generatedAt": "2026-11-24T01:27:13.678Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -22,6 +22,20 @@
   "pv": {
     "ok": true,
     "rows": [
+      {
+        "id": "12231962344",
+        "name": "HUM (<$320)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "off_track",
+        "rawLabel": "Over",
+        "cpaTarget": 320,
+        "cpaToday": null,
+        "cpaL7d": 363.12,
+        "cpaGap": 43.120000000000005,
+        "adSpend": 2832.82
+      },
       {
         "id": "13097050406",
         "name": "DME_NAD+ ($280) (ADV + PT)",
@@ -49,6 +63,20 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": null
+      },
+      {
+        "id": "12409786926",
+        "name": "GAL (<$400)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 400,
+        "cpaToday": null,
+        "cpaL7d": 1207.04,
+        "cpaGap": 807.04,
+        "adSpend": 2032.22
       },
       {
         "id": "12703976002",
@@ -144,23 +172,9 @@
         "rawLabel": "CPA Trending Down",
         "cpaTarget": 300,
         "cpaToday": null,
-        "cpaL7d": 150.18,
-        "cpaGap": -149.82,
+        "cpaL7d": 427.66,
+        "cpaGap": 127.66000000000003,
         "adSpend": 10551.97
-      },
-      {
-        "id": "12409786926",
-        "name": "GAL (<$400)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "CPA Trending Down",
-        "cpaTarget": 400,
-        "cpaToday": null,
-        "cpaL7d": 1207.04,
-        "cpaGap": 807.04,
-        "adSpend": 2032.22
       },
       {
         "id": "13276477296",
@@ -191,20 +205,6 @@
         "adSpend": null
       },
       {
-        "id": "12231962344",
-        "name": "HUM (<$320)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "In Learning Phase",
-        "cpaTarget": 320,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": 1728.02
-      },
-      {
         "id": "13276477300",
         "name": "HUM (<$320)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477300",
@@ -219,9 +219,9 @@
         "adSpend": null
       },
       {
-        "id": "13358920419",
-        "name": "REV ($65)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13358920419",
+        "id": "13618237349",
+        "name": "REV MC ($65)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13618237349",
         "platform": "Meta",
         "group": "Break/Fix HQ",
         "status": "unknown",
@@ -230,7 +230,21 @@
         "cpaToday": null,
         "cpaL7d": null,
         "cpaGap": null,
-        "adSpend": 178.24
+        "adSpend": 660
+      },
+      {
+        "id": "13358920419",
+        "name": "REV RH ($65)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13358920419",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "In Learning Phase",
+        "cpaTarget": 65,
+        "cpaToday": null,
+        "cpaL7d": 329.09,
+        "cpaGap": 264.09,
+        "adSpend": 660
       },
       {
         "id": "12414815129",
@@ -242,16 +256,16 @@
         "rawLabel": "CPA Trending Down",
         "cpaTarget": 325,
         "cpaToday": null,
-        "cpaL7d": 1710.83,
-        "cpaGap": 1385.83,
-        "adSpend": 9062.73
+        "cpaL7d": 1256.56,
+        "cpaGap": 931.56,
+        "adSpend": 11857.73
       }
     ],
     "counts": {
       "on_track": 0,
-      "off_track": 0,
-      "paused": 8,
-      "unknown": 8
+      "off_track": 1,
+      "paused": 9,
+      "unknown": 7
     }
   },
   "managed": {
@@ -567,11 +581,11 @@
       ]
     },
     "accounts": {
-      "active": 7,
+      "active": 8,
       "onTrack": 4,
-      "offTrack": 3,
-      "paused": 16,
-      "total": 32
+      "offTrack": 4,
+      "paused": 17,
+      "total": 33
     }
   },
   "board": {
@@ -581,7 +595,7 @@
       "label": "Quarterly Goal",
       "row": 2,
       "revenue": "$583,000",
-      "actual": "$231,808",
+      "actual": "$232,385",
       "toggle": {
         "cell": "E2",
         "state": "off"
@@ -722,7 +736,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$10,299",
+              "$10,206",
               "$240",
               "$532.85"
             ],
@@ -748,7 +762,7 @@
             "row": 15,
             "cells": [
               "$40,000",
-              "$43,538",
+              "$44,115",
               "$240",
               "$210.32"
             ],
@@ -824,7 +838,7 @@
             "row": 22,
             "cells": [
               "$300",
-              "$150.18",
+              "$427.66",
               "$22,000",
               "$11,448"
             ],
@@ -840,7 +854,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 150.18
+                "value": 427.66
               }
             ]
           },
@@ -850,7 +864,7 @@
             "row": 23,
             "cells": [
               "$325",
-              "$1,710.83",
+              "$1,256.56",
               "$20,000",
               "$10,937"
             ],
@@ -866,7 +880,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 1710.83
+                "value": 1256.56
               }
             ]
           },
@@ -876,7 +890,7 @@
             "row": 24,
             "cells": [
               "$320",
-              "N/A",
+              "$363.12",
               "$20,000",
               "$18,272"
             ],
@@ -887,44 +901,79 @@
               "state": "off",
               "countCell": "G24",
               "count": null
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (L7D CPA)",
+                "value": 363.12
+              }
+            ]
+          },
+          {
+            "label": "EDEN",
+            "total": false,
+            "row": 25,
+            "cells": [
+              "$200",
+              "N/A",
+              "",
+              ""
+            ],
+            "raw": "",
+            "extra": "",
+            "toggle": null,
+            "filled": [
+              {
+                "col": 1,
+                "source": "N/A (no Monday L7D CPA)",
+                "value": "N/A"
+              }
+            ]
           },
           {
             "label": "REV",
             "total": false,
-            "row": 25,
+            "row": 26,
             "cells": [
               "$65",
-              "N/A",
+              "$329.09",
               "$20,000",
               "$19,822"
             ],
             "raw": "On Track",
             "extra": "1",
             "toggle": {
-              "cell": "F25",
+              "cell": "F26",
               "state": "on",
-              "countCell": "G25",
+              "countCell": "G26",
               "count": 1
-            }
+            },
+            "filled": [
+              {
+                "col": 1,
+                "source": "Monday (L7D CPA)",
+                "value": 329.09
+              }
+            ]
           },
           {
             "label": "SHED",
             "total": false,
-            "row": 26,
+            "row": 27,
             "cells": [
               "TBD",
               "N/A",
               "",
               ""
             ],
-            "raw": "Onboarding",
-            "extra": "",
+            "raw": "On Hold",
+            "extra": "1",
             "toggle": {
-              "cell": "F26",
-              "state": null,
-              "countCell": "G26",
-              "count": null
+              "cell": "F27",
+              "state": "hold",
+              "countCell": "G27",
+              "count": 1
             }
           }
         ],
@@ -950,12 +999,12 @@
         "toggleCol": 6,
         "toggleHeader": "Proposals Out",
         "extraHeader": "",
-        "headerRow": 32,
+        "headerRow": 33,
         "rows": [
           {
             "label": "Actual",
             "total": false,
-            "row": 33,
+            "row": 34,
             "cells": [
               "",
               "0",
@@ -966,16 +1015,16 @@
             "raw": "8",
             "extra": "",
             "toggle": {
-              "cell": "G33",
+              "cell": "G34",
               "state": null,
-              "countCell": "H33",
+              "countCell": "H34",
               "count": null
             }
           },
           {
             "label": "Target",
             "total": false,
-            "row": 34,
+            "row": 35,
             "cells": [
               "$37,500",
               "2",
@@ -1010,12 +1059,12 @@
         "toggleCol": 6,
         "toggleHeader": "",
         "extraHeader": "",
-        "headerRow": 37,
+        "headerRow": 38,
         "rows": [
           {
             "label": "Actual",
             "total": false,
-            "row": 38,
+            "row": 39,
             "cells": [
               "$22,000",
               "2",
@@ -1030,7 +1079,7 @@
           {
             "label": "Target",
             "total": false,
-            "row": 39,
+            "row": 40,
             "cells": [
               "$122,500",
               "3",
@@ -1065,12 +1114,12 @@
         "toggleCol": 6,
         "toggleHeader": "",
         "extraHeader": "Proposals Out",
-        "headerRow": 42,
+        "headerRow": 43,
         "rows": [
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 43,
+            "row": 44,
             "cells": [
               "4",
               "0",
@@ -1081,16 +1130,16 @@
             "raw": "Off Track",
             "extra": "4",
             "toggle": {
-              "cell": "G43",
+              "cell": "G44",
               "state": "off",
-              "countCell": "H43",
+              "countCell": "H44",
               "count": 4
             }
           },
           {
             "label": "Hybrid Partnership",
             "total": false,
-            "row": 44,
+            "row": 45,
             "cells": [
               "1",
               "0",
@@ -1101,16 +1150,16 @@
             "raw": "",
             "extra": "0",
             "toggle": {
-              "cell": "G44",
+              "cell": "G45",
               "state": "off",
-              "countCell": "H44",
+              "countCell": "H45",
               "count": 0
             }
           },
           {
             "label": "Ascension",
             "total": false,
-            "row": 45,
+            "row": 46,
             "cells": [
               "1",
               "0",
@@ -1121,16 +1170,16 @@
             "raw": "",
             "extra": "1",
             "toggle": {
-              "cell": "G45",
+              "cell": "G46",
               "state": "off",
-              "countCell": "H45",
+              "countCell": "H46",
               "count": 1
             }
           },
           {
             "label": "PV Lite",
             "total": false,
-            "row": 46,
+            "row": 47,
             "cells": [
               "1",
               "0",
@@ -1141,16 +1190,16 @@
             "raw": "On Track",
             "extra": "1",
             "toggle": {
-              "cell": "G46",
+              "cell": "G47",
               "state": "on",
-              "countCell": "H46",
+              "countCell": "H47",
               "count": 1
             }
           },
           {
             "label": "Total:",
             "total": true,
-            "row": 47,
+            "row": 48,
             "cells": [
               "6",
               "0",
@@ -1161,9 +1210,9 @@
             "raw": "Off Track",
             "extra": "6",
             "toggle": {
-              "cell": "G47",
+              "cell": "G48",
               "state": "off",
-              "countCell": "H47",
+              "countCell": "H48",
               "count": 6
             }
           }
@@ -1190,12 +1239,12 @@
         "toggleCol": 6,
         "toggleHeader": "",
         "extraHeader": "",
-        "headerRow": 49,
+        "headerRow": 50,
         "rows": [
           {
             "label": "HG Retainer",
             "total": false,
-            "row": 50,
+            "row": 51,
             "cells": [
               "0",
               "0",
@@ -1206,26 +1255,6 @@
             "raw": "Off Track",
             "extra": "",
             "toggle": {
-              "cell": "G50",
-              "state": "off",
-              "countCell": "H50",
-              "count": null
-            }
-          },
-          {
-            "label": "Hybrid Partnership",
-            "total": false,
-            "row": 51,
-            "cells": [
-              "4",
-              "0",
-              "$35,000",
-              "$0",
-              "0"
-            ],
-            "raw": "",
-            "extra": "",
-            "toggle": {
               "cell": "G51",
               "state": "off",
               "countCell": "H51",
@@ -1233,15 +1262,15 @@
             }
           },
           {
-            "label": "Ascension",
+            "label": "Hybrid Partnership",
             "total": false,
             "row": 52,
             "cells": [
-              "1",
-              "1",
-              "$7,500",
-              "$7,500",
-              "1"
+              "4",
+              "0",
+              "$35,000",
+              "$0",
+              "0"
             ],
             "raw": "",
             "extra": "",
@@ -1253,9 +1282,29 @@
             }
           },
           {
-            "label": "PV Lite",
+            "label": "Ascension",
             "total": false,
             "row": 53,
+            "cells": [
+              "1",
+              "1",
+              "$7,500",
+              "$7,500",
+              "1"
+            ],
+            "raw": "",
+            "extra": "",
+            "toggle": {
+              "cell": "G53",
+              "state": "off",
+              "countCell": "H53",
+              "count": null
+            }
+          },
+          {
+            "label": "PV Lite",
+            "total": false,
+            "row": 54,
             "cells": [
               "1",
               "2",
@@ -1266,16 +1315,16 @@
             "raw": "On Track",
             "extra": "",
             "toggle": {
-              "cell": "G53",
+              "cell": "G54",
               "state": "on",
-              "countCell": "H53",
+              "countCell": "H54",
               "count": null
             }
           },
           {
             "label": "Total:",
             "total": true,
-            "row": 54,
+            "row": 55,
             "cells": [
               "6",
               "3",
@@ -1286,9 +1335,9 @@
             "raw": "Off Track",
             "extra": "",
             "toggle": {
-              "cell": "G54",
+              "cell": "G55",
               "state": "off",
-              "countCell": "H54",
+              "countCell": "H55",
               "count": null
             }
           }
@@ -1313,7 +1362,7 @@
           "label": "Quarterly Goal",
           "row": 2,
           "revenue": "$583,000",
-          "actual": "$231,808",
+          "actual": "$232,385",
           "toggle": {
             "cell": "E2",
             "state": "off"
@@ -1324,7 +1373,7 @@
           "label": "Monthly Goal",
           "row": 3,
           "revenue": "$179,500",
-          "actual": "$96,111",
+          "actual": "$96,688",
           "toggle": {
             "cell": "E3",
             "state": "off"
@@ -1335,7 +1384,7 @@
     "monthlyResults": [
       {
         "label": "Monthly : October",
-        "row": 56,
+        "row": 57,
         "target": "$154,500",
         "actual": "$135,697",
         "pct": "87.83%",
