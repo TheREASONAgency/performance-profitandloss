@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T01:27:13.678Z",
+  "generatedAt": "2026-11-24T09:07:28.678Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -435,14 +435,14 @@
         "buyer": "Travis",
         "platform": "Meta",
         "monthlyTarget": 45000,
-        "profit": 10299,
+        "profit": 11142,
         "live": true,
-        "lastEntry": "2026-11-21",
-        "daysElapsed": 23,
+        "lastEntry": "2026-11-23",
+        "daysElapsed": 24,
         "dailyTarget": 1500,
-        "expectedToDate": 34500,
-        "delta": -24201,
-        "pacingPct": 29.85217391304348,
+        "expectedToDate": 36000,
+        "delta": -24858,
+        "pacingPct": 30.95,
         "status": "off_track"
       },
       {
@@ -550,9 +550,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-23T14:58:46Z",
+    "dataUpdated": "2026-11-24T09:07:14Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 23,
+    "daysElapsed": 24,
     "daysBasis": 30,
     "warnings": []
   },
@@ -561,12 +561,12 @@
       "label": "Q4 2026",
       "headlineTarget": 760000,
       "progressTarget": 240000,
-      "qtdPl": 62960,
-      "daysElapsed": 54,
+      "qtdPl": 63803,
+      "daysElapsed": 55,
       "daysInQuarter": 92,
-      "proratedTarget": 140869.5652173913,
-      "progressPct": 26.23333333333333,
-      "pacingPct": 44.69382716049383,
+      "proratedTarget": 143478.26086956522,
+      "progressPct": 26.584583333333335,
+      "pacingPct": 44.46875757575758,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -736,7 +736,7 @@
             "row": 13,
             "cells": [
               "$40,000",
-              "$10,206",
+              "$11,142",
               "$240",
               "$532.85"
             ],
@@ -922,14 +922,7 @@
             ],
             "raw": "",
             "extra": "",
-            "toggle": null,
-            "filled": [
-              {
-                "col": 1,
-                "source": "N/A (no Monday L7D CPA)",
-                "value": "N/A"
-              }
-            ]
+            "toggle": null
           },
           {
             "label": "REV",
