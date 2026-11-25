@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T09:07:28.678Z",
+  "generatedAt": "2026-11-25T09:07:46.706Z",
   "schedule": "Mon / Wed / Fri at 6:00 AM ET",
   "statuses": {
     "on_track": {
@@ -23,18 +23,18 @@
     "ok": true,
     "rows": [
       {
-        "id": "12231962344",
-        "name": "HUM (<$320)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
+        "id": "12409786926",
+        "name": "GAL (<$400)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
         "platform": "Meta",
         "group": "Break/Fix HQ",
         "status": "off_track",
         "rawLabel": "Over",
-        "cpaTarget": 320,
+        "cpaTarget": 400,
         "cpaToday": null,
-        "cpaL7d": 363.12,
-        "cpaGap": 43.120000000000005,
-        "adSpend": 2832.82
+        "cpaL7d": 1207.04,
+        "cpaGap": 807.04,
+        "adSpend": 3244.59
       },
       {
         "id": "13097050406",
@@ -51,39 +51,11 @@
         "adSpend": null
       },
       {
-        "id": "12968522996",
-        "name": "EDE ($200)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12968522996",
-        "platform": "Meta",
-        "group": "PAUSED",
-        "status": "paused",
-        "rawLabel": "N/A",
-        "cpaTarget": 200,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": null
-      },
-      {
-        "id": "12409786926",
-        "name": "GAL (<$400)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12409786926",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "paused",
-        "rawLabel": "N/A",
-        "cpaTarget": 400,
-        "cpaToday": null,
-        "cpaL7d": 1207.04,
-        "cpaGap": 807.04,
-        "adSpend": 2032.22
-      },
-      {
         "id": "12703976002",
         "name": "HOA (prev HEY FEELS) ($225)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12703976002",
         "platform": "Meta",
-        "group": "PAUSED",
+        "group": "Break/Fix HQ",
         "status": "paused",
         "rawLabel": "N/A",
         "cpaTarget": 225,
@@ -105,6 +77,20 @@
         "cpaL7d": null,
         "cpaGap": null,
         "adSpend": null
+      },
+      {
+        "id": "13618237349",
+        "name": "REV MC ($65)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13618237349",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "paused",
+        "rawLabel": "N/A",
+        "cpaTarget": 65,
+        "cpaToday": null,
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 335.43
       },
       {
         "id": "13418957118",
@@ -163,18 +149,18 @@
         "adSpend": null
       },
       {
-        "id": "12893345311",
-        "name": "Elevated ($300)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12893345311",
+        "id": "12968522996",
+        "name": "EDE ($200)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12968522996",
         "platform": "Meta",
         "group": "Break/Fix HQ",
         "status": "unknown",
-        "rawLabel": "CPA Trending Down",
-        "cpaTarget": 300,
+        "rawLabel": "In Learning Phase",
+        "cpaTarget": 200,
         "cpaToday": null,
-        "cpaL7d": 427.66,
-        "cpaGap": 127.66000000000003,
-        "adSpend": 10551.97
+        "cpaL7d": null,
+        "cpaGap": null,
+        "adSpend": 150
       },
       {
         "id": "13276477296",
@@ -205,6 +191,20 @@
         "adSpend": null
       },
       {
+        "id": "12231962344",
+        "name": "HUM (<$320)",
+        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/12231962344",
+        "platform": "Meta",
+        "group": "Break/Fix HQ",
+        "status": "unknown",
+        "rawLabel": "CPA Trending Down",
+        "cpaTarget": 320,
+        "cpaToday": null,
+        "cpaL7d": 363.12,
+        "cpaGap": 43.120000000000005,
+        "adSpend": 3016.07
+      },
+      {
         "id": "13276477300",
         "name": "HUM (<$320)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13276477300",
@@ -219,20 +219,6 @@
         "adSpend": null
       },
       {
-        "id": "13618237349",
-        "name": "REV MC ($65)",
-        "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13618237349",
-        "platform": "Meta",
-        "group": "Break/Fix HQ",
-        "status": "unknown",
-        "rawLabel": "In Learning Phase",
-        "cpaTarget": 65,
-        "cpaToday": null,
-        "cpaL7d": null,
-        "cpaGap": null,
-        "adSpend": 660
-      },
-      {
         "id": "13358920419",
         "name": "REV RH ($65)",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/13358920419",
@@ -244,7 +230,7 @@
         "cpaToday": null,
         "cpaL7d": 329.09,
         "cpaGap": 264.09,
-        "adSpend": 660
+        "adSpend": 423.22
       },
       {
         "id": "12414815129",
@@ -256,15 +242,15 @@
         "rawLabel": "CPA Trending Down",
         "cpaTarget": 325,
         "cpaToday": null,
-        "cpaL7d": 1256.56,
-        "cpaGap": 931.56,
-        "adSpend": 11857.73
+        "cpaL7d": 1413.17,
+        "cpaGap": 1088.17,
+        "adSpend": 13343.44
       }
     ],
     "counts": {
       "on_track": 0,
       "off_track": 1,
-      "paused": 9,
+      "paused": 8,
       "unknown": 7
     }
   },
@@ -360,7 +346,7 @@
         "name": "LFA (CPA <$650 DEMO)>",
         "url": "https://reason-agency.monday.com/boards/9386705349/pulses/9654403094",
         "platform": "Meta",
-        "group": "Break/Fix HQ",
+        "group": "Blockers & Dependencies",
         "status": "on_track",
         "rawLabel": "On Target",
         "cpaTarget": 650,
@@ -438,11 +424,11 @@
         "profit": 11142,
         "live": true,
         "lastEntry": "2026-11-23",
-        "daysElapsed": 24,
+        "daysElapsed": 25,
         "dailyTarget": 1500,
-        "expectedToDate": 36000,
-        "delta": -24858,
-        "pacingPct": 30.95,
+        "expectedToDate": 37500,
+        "delta": -26358,
+        "pacingPct": 29.712,
         "status": "off_track"
       },
       {
@@ -550,9 +536,9 @@
       "paused": 8,
       "unknown": 0
     },
-    "dataUpdated": "2026-11-24T09:07:14Z",
+    "dataUpdated": "2026-11-25T09:07:25Z",
     "monthLabel": "November 2026",
-    "daysElapsed": 24,
+    "daysElapsed": 25,
     "daysBasis": 30,
     "warnings": []
   },
@@ -562,11 +548,11 @@
       "headlineTarget": 760000,
       "progressTarget": 240000,
       "qtdPl": 63803,
-      "daysElapsed": 55,
+      "daysElapsed": 56,
       "daysInQuarter": 92,
-      "proratedTarget": 143478.26086956522,
+      "proratedTarget": 146086.95652173914,
       "progressPct": 26.584583333333335,
-      "pacingPct": 44.46875757575758,
+      "pacingPct": 43.67467261904762,
       "targetSource": "config",
       "progressLabel": "CPA",
       "groups": [
@@ -584,8 +570,8 @@
       "active": 8,
       "onTrack": 4,
       "offTrack": 4,
-      "paused": 17,
-      "total": 33
+      "paused": 16,
+      "total": 32
     }
   },
   "board": {
@@ -624,9 +610,9 @@
             "row": 6,
             "cells": [
               "$100,000",
-              "$17,345.93",
+              "$24,207.05",
               "$65",
-              "$74.62"
+              "$93.25"
             ],
             "raw": "On Track",
             "extra": "1",
@@ -640,12 +626,12 @@
               {
                 "col": 3,
                 "source": "Monday (L7D CPA)",
-                "value": 74.62
+                "value": 93.25
               },
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 17345.93
+                "value": 24207.05
               }
             ]
           },
@@ -655,7 +641,7 @@
             "row": 7,
             "cells": [
               "$100,000",
-              "$25,727.11",
+              "$34,390.40",
               "$350 CPMQL",
               "$246"
             ],
@@ -671,7 +657,7 @@
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 25727.11
+                "value": 34390.4
               }
             ]
           },
@@ -681,7 +667,7 @@
             "row": 8,
             "cells": [
               "$100,000",
-              "$34,600.28",
+              "$46,789.44",
               "$500",
               "$22.03"
             ],
@@ -702,7 +688,7 @@
               {
                 "col": 1,
                 "source": "Monday (MTD Spend)",
-                "value": 34600.28
+                "value": 46789.44
               }
             ]
           }
@@ -738,7 +724,7 @@
               "$40,000",
               "$11,142",
               "$240",
-              "$532.85"
+              "$242.79"
             ],
             "raw": "Off Track",
             "extra": "1",
@@ -752,7 +738,7 @@
               {
                 "col": 3,
                 "source": "Monday L7D CPA (display)",
-                "value": 532.85
+                "value": 242.79
               }
             ]
           },
@@ -762,9 +748,9 @@
             "row": 15,
             "cells": [
               "$40,000",
-              "$44,115",
+              "$44,834",
               "$240",
-              "$210.32"
+              "$218.61"
             ],
             "raw": "On Track",
             "extra": "",
@@ -778,7 +764,7 @@
               {
                 "col": 3,
                 "source": "Monday L7D CPA (display)",
-                "value": 210.32
+                "value": 218.61
               }
             ]
           }
@@ -838,7 +824,7 @@
             "row": 22,
             "cells": [
               "$300",
-              "$427.66",
+              "$355.35",
               "$22,000",
               "$11,448"
             ],
@@ -854,7 +840,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 427.66
+                "value": 355.35
               }
             ]
           },
@@ -864,7 +850,7 @@
             "row": 23,
             "cells": [
               "$325",
-              "$1,256.56",
+              "$1,413.17",
               "$20,000",
               "$10,937"
             ],
@@ -880,7 +866,7 @@
               {
                 "col": 1,
                 "source": "Monday (L7D CPA)",
-                "value": 1256.56
+                "value": 1413.17
               }
             ]
           },
@@ -894,13 +880,13 @@
               "$20,000",
               "$18,272"
             ],
-            "raw": "Off Track",
-            "extra": "",
+            "raw": "On Track",
+            "extra": "1",
             "toggle": {
               "cell": "F24",
-              "state": "off",
+              "state": "on",
               "countCell": "G24",
-              "count": null
+              "count": 1
             },
             "filled": [
               {
